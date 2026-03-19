@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PERLA HELSA — Повний аудит сайту perlahelsa.ua | Березень 2026</title>
+<style>
+  :root {
+    --bg: #0f0f12;
+    --card: #1a1a22;
+    --card-hover: #22222e;
+    --border: #2a2a38;
+    --text: #e4e4ed;
+    --text-muted: #8888a0;
+    --accent: #6c5ce7;
+    --accent-light: #a29bfe;
+    --green: #00b894;
+    --green-bg: rgba(0,184,148,0.12);
+    --yellow: #fdcb6e;
+    --yellow-bg: rgba(253,203,110,0.12);
+    --red: #e17055;
+    --red-bg: rgba(225,112,85,0.12);
+    --orange: #f39c12;
+    --orange-bg: rgba(243,156,18,0.12);
+    --blue: #74b9ff;
+    --blue-bg: rgba(116,185,255,0.12);
+    --pink: #fd79a8;
+    --gradient: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    --gradient-green: linear-gradient(135deg, #00b894, #55efc4);
+    --gradient-red: linear-gradient(135deg, #e17055, #fab1a0);
+    --gradient-yellow: linear-gradient(135deg, #f39c12, #fdcb6e);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  a { color: var(--accent-light); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 80px 40px 60px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(108,92,231,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(0,184,148,0.06) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-2%, 2%); }
+  }
+  .hero * { position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff 0%, #a29bfe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero .subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 32px;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* Main Score */
+  .main-score-section {
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .score-ring-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .score-ring {
+    position: relative;
+    width: 180px;
+    height: 180px;
+  }
+  .score-ring svg { width: 180px; height: 180px; transform: rotate(-90deg); }
+  .score-ring circle {
+    fill: none;
+    stroke-width: 10;
+    cx: 90;
+    cy: 90;
+    r: 76;
+    stroke-linecap: round;
+  }
+  .score-ring .bg { stroke: var(--border); }
+  .score-ring .fill { transition: stroke-dashoffset 1.5s ease-in-out; }
+  .score-ring .label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .score-ring .label .num {
+    font-size: 42px;
+    font-weight: 800;
+    display: block;
+    line-height: 1;
+  }
+  .score-ring .label .desc {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  /* Score Cards Grid */
+  .score-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .score-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: left;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .score-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .score-card .sc-name {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .score-card .sc-score {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .score-card .sc-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+  .score-card .sc-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1s ease;
+  }
+
+  /* Container */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+  /* Section */
+  .section { padding: 60px 0; border-top: 1px solid var(--border); }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .section-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .section-header .section-score {
+    margin-left: auto;
+    font-size: 28px;
+    font-weight: 800;
+    padding: 8px 20px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .tag-critical { background: var(--red-bg); color: var(--red); }
+  .tag-high { background: var(--orange-bg); color: var(--orange); }
+  .tag-medium { background: var(--yellow-bg); color: var(--yellow); }
+  .tag-low { background: var(--blue-bg); color: var(--blue); }
+  .tag-pass { background: var(--green-bg); color: var(--green); }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  th {
+    text-align: left;
+    padding: 12px 16px;
+    background: var(--card);
+    border-bottom: 2px solid var(--border);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+  }
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:hover td { background: rgba(108,92,231,0.04); }
+
+  /* Issue Row */
+  .issue-row td:first-child { width: 100px; }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card p { color: var(--text-muted); margin-bottom: 8px; }
+
+  /* Grid */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+  /* Page Audit Cards */
+  .page-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .page-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--accent-light);
+  }
+  .page-card .url {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    margin-bottom: 16px;
+  }
+  .issue-list { list-style: none; padding: 0; }
+  .issue-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(42,42,56,0.5);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+  }
+  .issue-list li:last-child { border-bottom: none; }
+
+  /* Action Plan */
+  .action-timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .action-timeline::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .action-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .action-item::before {
+    content: '';
+    position: absolute;
+    left: -27px;
+    top: 24px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid;
+  }
+  .action-item.critical::before { border-color: var(--red); background: var(--red-bg); }
+  .action-item.high::before { border-color: var(--orange); background: var(--orange-bg); }
+  .action-item.medium::before { border-color: var(--yellow); background: var(--yellow-bg); }
+  .action-item.low::before { border-color: var(--blue); background: var(--blue-bg); }
+  .action-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .action-item p { font-size: 13px; color: var(--text-muted); margin: 0; }
+
+  /* Color Swatch */
+  .color-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .color-swatch {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+  }
+  .color-info { flex: 1; }
+  .color-hex { font-family: monospace; font-size: 13px; color: var(--text-muted); }
+  .color-wcag { font-size: 12px; font-weight: 600; }
+
+  /* Matrix */
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 24px 0;
+  }
+  .matrix-cell {
+    background: var(--card);
+    padding: 24px;
+  }
+  .matrix-cell h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .matrix-cell ul { list-style: none; padding: 0; }
+  .matrix-cell li {
+    padding: 4px 0;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .matrix-cell li::before { content: '→'; color: var(--accent); }
+
+  /* Strengths */
+  .strength-card {
+    background: linear-gradient(135deg, rgba(0,184,148,0.06), rgba(0,184,148,0.02));
+    border: 1px solid rgba(0,184,148,0.2);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+  .strength-card h4 { color: var(--green); font-size: 15px; margin-bottom: 6px; }
+  .strength-card p { color: var(--text-muted); font-size: 13px; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero { padding: 50px 20px 40px; }
+    .hero h1 { font-size: 28px; }
+    .container { padding: 0 20px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .score-ring-container { gap: 30px; }
+    .section-header { flex-wrap: wrap; }
+    .section-header .section-score { margin-left: 0; }
+    .hero-meta { gap: 16px; }
+    .matrix { grid-template-columns: 1fr; }
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; color: #000; font-size: 12px; }
+    .hero { background: #f5f5f5; }
+    .card, .page-card, .score-card, .action-item { border: 1px solid #ddd; background: #fff; }
+    table { font-size: 11px; }
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin: 40px auto;
+    max-width: 700px;
+  }
+  .toc h3 { margin-bottom: 16px; font-size: 16px; }
+  .toc ol { padding-left: 20px; }
+  .toc li {
+    padding: 6px 0;
+    font-size: 14px;
+  }
+  .toc a { color: var(--accent-light); }
+
+  /* Gauge small */
+  .gauge-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .gauge-sm .bar {
+    width: 80px;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .gauge-sm .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+  }
+
+  /* Stat */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .stat .num {
+    font-size: 28px;
+    font-weight: 800;
+    display: block;
+  }
+  .stat .desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* Subsection */
+  .subsection { margin: 32px 0; }
+  .subsection h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="hero-badge">Повний аудит</div>
+  <h1>PERLA HELSA — Аудит сайту</h1>
+  <p class="subtitle">Комплексний аналіз perlahelsa.ua за 6 напрямками: SEO, AI/GEO, CRO, Marketing, UI Design, UX</p>
+  <div class="hero-meta">
+    <span>📅 Березень 2026</span>
+    <span>🌐 perlahelsa.ua</span>
+    <span>🏷️ E-commerce / Health Supplements</span>
+    <span>📊 7+ сторінок проаналізовано</span>
+  </div>
+</header>
+
+<!-- ========== MAIN SCORE ========== -->
+<section class="main-score-section">
+  <div class="container">
+
+    <div class="score-ring-container">
+      <div class="score-ring">
+        <svg viewBox="0 0 180 180">
+          <circle class="bg" />
+          <circle class="fill" stroke="url(#grad1)" stroke-dasharray="477.5" stroke-dashoffset="174" />
+        </svg>
+        <defs style="position:absolute">
+          <svg width="0" height="0">
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#6c5ce7" />
+                <stop offset="100%" style="stop-color:#a29bfe" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </defs>
+        <div class="label">
+          <span class="num" style="color: var(--accent-light)">63.6</span>
+          <span class="desc">Загальний бал</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="score-cards">
+      <div class="score-card">
+        <div class="sc-name">🔍 SEO (On-Page + Technical)</div>
+        <div class="sc-score" style="color: var(--orange)">58<span style="font-size:16px;color:var(--text-muted)">/100</span></div>
+        <div class="sc-bar"><div class="sc-bar-fill" style="width:58%;background:var(--orange)"></div></div>
+      </div>
+      <div class="score-card">
+        <div class="sc-name">🤖 AI/GEO SEO Readiness</div>
+        <div class="sc-score" style="color: var(--red)">46<span style="font-size:16px;color:var(--text-muted)">/100</span></div>
+        <div class="sc-bar"><div class="sc-bar-fill" style="width:46%;background:var(--red)"></div></div>
+      </div>
+      <div class="score-card">
+        <div class="sc-name">🎯 Page CRO (Homepage)</div>
+        <div class="sc-score" style="color: var(--orange)">62<span style="font-size:16px;color:var(--text-muted)">/100</span></div>
+        <div class="sc-bar"><div class="sc-bar-fill" style="width:62%;background:var(--orange)"></div></div>
+      </div>
+      <div class="score-card">
+        <div class="sc-name">📣 Marketing Audit</div>
+        <div class="sc-score" style="color: var(--yellow)">64<span style="font-size:16px;color:var(--text-muted)">/100</span></div>
+        <div class="sc-bar"><div class="sc-bar-fill" style="width:64%;background:var(--yellow)"></div></div>
+      </div>
+      <div class="score-card">
+        <div class="sc-name">🎨 UI Design Review</div>
+        <div class="sc-score" style="color: var(--green)">78<span style="font-size:16px;color:var(--text-muted)">/100</span></div>
+        <div class="sc-bar"><div class="sc-bar-fill" style="width:78%;background:var(--green)"></div></div>
+      </div>
+      <div class="score-card">
+        <div class="sc-name">👤 UX Audit</div>
+        <div class="sc-score" style="color: var(--yellow)">70<span style="font-size:16px;color:var(--text-muted)">/100</span></div>
+        <div class="sc-bar"><div class="sc-bar-fill" style="width:70%;background:var(--yellow)"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TOC ========== -->
+<div class="container">
+  <nav class="toc">
+    <h3>Зміст</h3>
+    <ol>
+      <li><a href="#seo">SEO-аудит (On-Page + Technical) — 58/100</a></li>
+      <li><a href="#ai-seo">AI/GEO SEO Readiness — 46/100</a></li>
+      <li><a href="#cro">Page CRO (Homepage) — 62/100</a></li>
+      <li><a href="#marketing">Marketing Audit — 64/100</a></li>
+      <li><a href="#ui">UI Design Review — 78/100</a></li>
+      <li><a href="#ux">UX Audit — 70/100</a></li>
+      <li><a href="#pages">Аудит усіх сторінок (7 сторінок)</a></li>
+      <li><a href="#issues">Зведена таблиця всіх проблем (42 знахідки)</a></li>
+      <li><a href="#strengths">ТОП-10 сильних сторін</a></li>
+      <li><a href="#actions">Пріоритетний план дій</a></li>
+    </ol>
+  </nav>
+</div>
+
+<!-- ========== 1. SEO AUDIT ========== -->
+<div class="container">
+<section class="section" id="seo">
+  <div class="section-header">
+    <div class="section-icon" style="background: var(--orange-bg)">🔍</div>
+    <h2>SEO-аудит (On-Page + Technical)</h2>
+    <div class="section-score" style="background: var(--orange-bg); color: var(--orange)">58/100</div>
+  </div>
+
+  <div class="subsection">
+    <h3>Scoring по категоріях</h3>
+    <table>
+      <thead><tr><th>Категорія</th><th>Вага</th><th>Оцінка</th><th>Статус</th></tr></thead>
+      <tbody>
+        <tr><td>Technical SEO</td><td>22%</td><td>5/10</td><td><span class="tag tag-critical">Critical</span></td></tr>
+        <tr><td>Content Quality</td><td>23%</td><td>7/10</td><td><span class="tag tag-pass">Good</span></td></tr>
+        <tr><td>On-Page SEO</td><td>20%</td><td>4/10</td><td><span class="tag tag-critical">Critical</span></td></tr>
+        <tr><td>Schema / Structured Data</td><td>10%</td><td>5/10</td><td><span class="tag tag-high">Needs work</span></td></tr>
+        <tr><td>Performance (CWV)</td><td>10%</td><td>6/10</td><td><span class="tag tag-medium">Medium</span></td></tr>
+        <tr><td>AI Search Readiness</td><td>10%</td><td>4/10</td><td><span class="tag tag-critical">Critical</span></td></tr>
+        <tr><td>Images</td><td>5%</td><td>7/10</td><td><span class="tag tag-pass">Good</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <h3>Критичні SEO-проблеми</h3>
+    <table>
+      <thead><tr><th>Severity</th><th>Проблема</th><th>Сторінки</th><th>Деталі</th></tr></thead>
+      <tbody>
+        <tr class="issue-row"><td><span class="tag tag-critical">Critical</span></td><td>Відсутній H1 тег</td><td>/about-us, /store, /blog, /reviews, /ordering, /category/*</td><td>6 з 7 проаналізованих сторінок не мають H1. Весь heading hierarchy побудований на CSS-класах (.p-title) замість семантичних тегів.</td></tr>
+        <tr class="issue-row"><td><span class="tag tag-critical">Critical</span></td><td>Відсутній meta description</td><td>/store</td><td>Головна каталогова сторінка без meta description. Title — просто "Perla Helsa" без ключових слів.</td></tr>
+        <tr class="issue-row"><td><span class="tag tag-critical">Critical</span></td><td>SSR неповний — контент на JS</td><td>Усі сторінки</td><td>Nuxt.js SPA з heavy client-side hydration. Сторінка /ordering повністю порожня без JS. Ризик невидимості для пошукових ботів.</td></tr>
+        <tr class="issue-row"><td><span class="tag tag-critical">Critical</span></td><td>Product schema з неправильним name</td><td>/triple-magnesium</td><td>Schema Product має name = "Star rating snippet aggregator" замість реальної назви продукту. Два об'єкти Product в JSON-LD — плутає пошукові системи.</td></tr>
+        <tr class="issue-row"><td><span class="tag tag-high">High</span></td><td>Відсутній BreadcrumbList schema</td><td>/store, /category/*, /blog</td><td>Breadcrumbs візуально є, але немає schema markup. Втрачений rich snippet потенціал.</td></tr>
+        <tr class="issue-row"><td><span class="tag tag-high">High</span></td><td>Відсутній ItemList / CollectionPage schema</td><td>/store, /category/*</td><td>Каталогові сторінки без структурованих даних для product listings.</td></tr>
+        <tr class="issue-row"><td><span class="tag tag-high">High</span></td><td>Відсутній FAQPage schema на продуктових</td><td>/triple-magnesium та інші</td><td>FAQ секції на продуктових сторінках без schema. FAQPage є тільки на /faq.</td></tr>
+        <tr class="issue-row"><td><span class="tag tag-high">High</span></td><td>Відсутній og:image</td><td>/about-us</td><td>Брендова сторінка без Open Graph зображення — поганий вигляд при шерінгу.</td></tr>
+        <tr class="issue-row"><td><span class="tag tag-medium">Medium</span></td><td>Sitemap без lastmod</td><td>sitemap.xml</td><td>Жоден URL в sitemap не має lastmod дати. Пошукові системи не знають актуальність контенту.</td></tr>
+        <tr class="issue-row"><td><span class="tag tag-medium">Medium</span></td><td>Thin content на /contacts</td><td>/contacts</td><td>Лише ~1,300 символів. Немає Google Map embed, немає structured business hours.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <h3>Hreflang-імплементація</h3>
+    <div class="card">
+      <h3>✅ Hreflang налаштовано коректно</h3>
+      <p>UK → perlahelsa.ua, RU → perlahelsa.ua/ru/, PL → perlaholistic.com/pl/, EN → perlaholistic.com/</p>
+      <p>Cross-domain hreflang між perlahelsa.ua та perlaholistic.com — правильна імплементація для міжнародної версії.</p>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3>Зображення</h3>
+    <div class="card">
+      <p><strong>Формат:</strong> WebP через Nuxt Image (_ipx paths) — ✅ оптимізовано</p>
+      <p><strong>Alt text:</strong> Присутній на більшості зображень, але generic на промо-банерах ("Promo banner") та шаблонний на продуктах ("preview 1", "preview 2")</p>
+      <p><strong>Lazy loading:</strong> Перші 3 зображення — eager, решта — lazy ✅</p>
+      <p><strong>Проблема:</strong> Сертифікатні зображення через зовнішній proxy (wsrv.nl) — додаткова залежність та latency</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 2. AI/GEO SEO ========== -->
+<section class="section" id="ai-seo">
+  <div class="section-header">
+    <div class="section-icon" style="background: var(--red-bg)">🤖</div>
+    <h2>AI/GEO SEO Readiness</h2>
+    <div class="section-score" style="background: var(--red-bg); color: var(--red)">46/100</div>
+  </div>
+
+  <table>
+    <thead><tr><th>Категорія</th><th>Оцінка</th><th>Вага</th><th>Ключова проблема</th></tr></thead>
+    <tbody>
+      <tr><td>llms.txt</td><td><strong style="color:var(--red)">1/10</strong></td><td>5%</td><td>Файл не існує — 404. AI-системи не мають структурованої інформації про бренд.</td></tr>
+      <tr><td>AI Crawler Access</td><td><strong style="color:var(--yellow)">6/10</strong></td><td>10%</td><td>Дозволено за замовчуванням, але немає explicit Allow для GPTBot, ClaudeBot, PerplexityBot.</td></tr>
+      <tr><td>Content Citability</td><td><strong style="color:var(--orange)">5/10</strong></td><td>15%</td><td>Наукові посилання без DOI, без назв журналів, без гіперпосилань на PubMed.</td></tr>
+      <tr><td>Brand Mention Signals</td><td><strong style="color:var(--orange)">5/10</strong></td><td>10%</td><td>Немає Wikipedia/Wikidata entity, немає Google Knowledge Panel.</td></tr>
+      <tr><td>Structured Data for AI</td><td><strong style="color:var(--orange)">5/10</strong></td><td>15%</td><td>Product schema можливо тільки client-side — AI-боти можуть не побачити.</td></tr>
+      <tr><td>E-E-A-T for AI</td><td><strong style="color:var(--red)">3/10</strong></td><td>15%</td><td>Блог без авторства, немає author schema, немає Medical Advisory Board сторінки.</td></tr>
+      <tr><td>FAQ Structure</td><td><strong style="color:var(--green)">7/10</strong></td><td>8%</td><td>Хороший FAQ на /faq з schema. Але продуктові FAQ без markup.</td></tr>
+      <tr><td>Content Freshness</td><td><strong style="color:var(--red)">4/10</strong></td><td>7%</td><td>200+ статей, але lastmod відсутній в sitemap. Немає dateModified в schema.</td></tr>
+      <tr><td>Passage-Level Optimization</td><td><strong style="color:var(--orange)">5/10</strong></td><td>10%</td><td>Немає definition-style абзаців, немає порівняльних таблиць, info змішана з marketing копі.</td></tr>
+      <tr><td>Multi-language AI Readiness</td><td><strong style="color:var(--red)">4/10</strong></td><td>5%</td><td>Англійський сайт має лише 4 продукти vs 75+ на українському. Блог тільки українською.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card" style="border-color: rgba(225,112,85,0.3); margin-top: 20px;">
+    <h3>🚨 Рекомендація #1: Створити llms.txt</h3>
+    <p>Файл /llms.txt повинен містити: опис бренду англійською, ключові продуктові категорії, науковий підхід, сертифікації (HACCP, ISO 9001:2015, ISO 22000:2005), і preferred citation format. Це instant win для AI-видимості.</p>
+  </div>
+
+  <div class="card" style="border-color: rgba(225,112,85,0.3);">
+    <h3>🚨 Рекомендація #2: Author Profiles для E-E-A-T</h3>
+    <p>Для YMYL-контенту (здоров'я/добавки) критично мати: іменовані автори блогу з credentials, сторінка "Наукова рада" з фото + кваліфікацією, Person schema з jobTitle, alumniOf, sameAs. На сайті є 7 експертів на /about-us, але вони не пов'язані з конкретним контентом.</p>
+  </div>
+</section>
+
+<!-- ========== 3. PAGE CRO ========== -->
+<section class="section" id="cro">
+  <div class="section-header">
+    <div class="section-icon" style="background: var(--orange-bg)">🎯</div>
+    <h2>Page CRO (Homepage)</h2>
+    <div class="section-score" style="background: var(--orange-bg); color: var(--orange)">62/100</div>
+  </div>
+
+  <table>
+    <thead><tr><th>Категорія</th><th>Оцінка</th><th>Деталі</th></tr></thead>
+    <tbody>
+      <tr><td>Hero Section & Value Prop</td><td><strong style="color:var(--yellow)">6/10</strong></td><td>CTA "До каталогу" — слабкий, без вигоди. Немає конкретної обіцянки результату.</td></tr>
+      <tr><td>Trust & Social Proof</td><td><strong style="color:var(--green)">9/10</strong></td><td>4.9 рейтинг, 7000+ відгуків, 150K+ клієнтів, лого Vogue/Forbes/Elle — відмінно.</td></tr>
+      <tr><td>Navigation & Findability</td><td><strong style="color:var(--orange)">5/10</strong></td><td>85+ SKU без квізу/рекомендацій, без пошукового бару, без "recently viewed".</td></tr>
+      <tr><td>Product Presentation</td><td><strong style="color:var(--yellow)">7/10</strong></td><td>Benefit-driven описи, але product cards з title 14px — занадто дрібно.</td></tr>
+      <tr><td>Conversion Mechanics</td><td><strong style="color:var(--red)">4/10</strong></td><td>Немає subscription model, немає urgency/scarcity, немає exit-intent popup.</td></tr>
+      <tr><td>Post-Purchase / Retention</td><td><strong style="color:var(--red)">3/10</strong></td><td>Немає loyalty program, немає email capture, немає referral program.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid-2" style="margin-top: 20px;">
+    <div class="card" style="border-color: rgba(0,184,148,0.3);">
+      <h3>✅ Що працює добре</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li style="padding: 4px 0;">✅ Trust signals — найкращі серед UA supplement брендів</li>
+        <li style="padding: 4px 0;">✅ Benefit-driven product copy (outcomes > features)</li>
+        <li style="padding: 4px 0;">✅ Celebrity endorsements (Rizatdinova, Astafieva)</li>
+        <li style="padding: 4px 0;">✅ Pricing чітко видно (569-2099 UAH range)</li>
+        <li style="padding: 4px 0;">✅ WebP оптимізовані зображення</li>
+      </ul>
+    </div>
+    <div class="card" style="border-color: rgba(225,112,85,0.3);">
+      <h3>❌ Критичні CRO-gaps</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li style="padding: 4px 0;">❌ CTA "До каталогу" — generic, без вигоди</li>
+        <li style="padding: 4px 0;">❌ Cookie banner може перекривати CTA</li>
+        <li style="padding: 4px 0;">❌ Немає email capture (150K+ клієнтів без CRM!)</li>
+        <li style="padding: 4px 0;">❌ Немає subscribe-and-save для recurring purchases</li>
+        <li style="padding: 4px 0;">❌ Немає product recommendation quiz</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. MARKETING AUDIT ========== -->
+<section class="section" id="marketing">
+  <div class="section-header">
+    <div class="section-icon" style="background: var(--yellow-bg)">📣</div>
+    <h2>Marketing Audit</h2>
+    <div class="section-score" style="background: var(--yellow-bg); color: var(--yellow)">64/100</div>
+  </div>
+
+  <table>
+    <thead><tr><th>Напрямок</th><th>Оцінка</th><th>Вага</th><th>Ключова знахідка</th></tr></thead>
+    <tbody>
+      <tr><td>Brand Positioning & Messaging</td><td><strong style="color:var(--green)">8/10</strong></td><td>20%</td><td>Award-winning packaging (Dieline Awards 1st place), archetype-based product architecture, international sourcing story (Iceland, Switzerland, Norway, France).</td></tr>
+      <tr><td>Content Marketing</td><td><strong style="color:var(--red)">4/10</strong></td><td>15%</td><td>300+ статей в блозі, але немає YouTube, немає podcast, наукова рада не використовується в контенті.</td></tr>
+      <tr><td>Social Proof & Trust</td><td><strong style="color:var(--green)">8/10</strong></td><td>20%</td><td>7000+ reviews, 4.9 stars, Vogue/Forbes/Elle, celebrity endorsements — best-in-class для UA ринку.</td></tr>
+      <tr><td>Conversion Funnel</td><td><strong style="color:var(--orange)">5/10</strong></td><td>20%</td><td>Сильний ToFu (Instagram 468K), слабкий BoFu (немає subscription), критичний post-purchase (немає loyalty/email).</td></tr>
+      <tr><td>Digital Presence</td><td><strong style="color:var(--green)">7/10</strong></td><td>25%</td><td>Instagram 468K, Rozetka/EVA/Makeup.com.ua, але LinkedIn 133, немає YouTube/TikTok.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="subsection">
+    <h3>Конкурентна позиція</h3>
+    <table>
+      <thead><tr><th>Конкурент</th><th>Позиціювання</th><th>Сила</th><th>Слабкість vs Perla Helsa</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ABU (All Be Ukraine)</strong></td><td>Перший UA premium brand</td><td>"Зроблено в Україні" наратив</td><td>Слабший брендинг та social proof</td></tr>
+        <tr><td><strong>Sporter (Belok)</strong></td><td>Фармацевт-формульований, EU</td><td>Top vitamin rankings, EU виробництво</td><td>Спорт-фокус, менше lifestyle appeal</td></tr>
+        <tr><td><strong>iHerb Ukraine</strong></td><td>Global marketplace</td><td>Величезний вибір, глобальні бренди</td><td>Немає brand loyalty, не UA-made</td></tr>
+        <tr><td><strong>Solgar, NOW Foods</strong></td><td>Established global trust</td><td>Клінічна спадщина, глобальне визнання</td><td>Вищі ціни, немає local story</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <h3>Digital Presence Map</h3>
+    <div class="stat-grid">
+      <div class="stat"><span class="num" style="color:var(--green)">468K</span><span class="desc">Instagram followers</span></div>
+      <div class="stat"><span class="num" style="color:var(--green)">150K+</span><span class="desc">Клієнтів</span></div>
+      <div class="stat"><span class="num" style="color:var(--green)">7000+</span><span class="desc">Відгуків (4.9★)</span></div>
+      <div class="stat"><span class="num" style="color:var(--red)">0</span><span class="desc">YouTube канал</span></div>
+      <div class="stat"><span class="num" style="color:var(--red)">0</span><span class="desc">TikTok (найм. створ.)</span></div>
+      <div class="stat"><span class="num" style="color:var(--red)">133</span><span class="desc">LinkedIn followers</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5. UI DESIGN ========== -->
+<section class="section" id="ui">
+  <div class="section-header">
+    <div class="section-icon" style="background: var(--green-bg)">🎨</div>
+    <h2>UI Design Review</h2>
+    <div class="section-score" style="background: var(--green-bg); color: var(--green)">78/100</div>
+  </div>
+
+  <table>
+    <thead><tr><th>Вимір</th><th>Оцінка</th><th>Деталі</th></tr></thead>
+    <tbody>
+      <tr><td>Typography (Onest + Piazzolla)</td><td><strong style="color:var(--green)">8.0</strong></td><td>Сильна пара шрифтів з повною Cyrillic-підтримкою. Responsive scaling 23px→40px.</td></tr>
+      <tr><td>Color System</td><td><strong style="color:var(--yellow)">7.5</strong></td><td>Подвійна accent система (green + blue) розмиває brand identity. #75C525 не проходить WCAG AA.</td></tr>
+      <tr><td>Spacing & Layout</td><td><strong style="color:var(--green)">8.5</strong></td><td>6 breakpoints (430-1916px), Tailwind spacing scale, продуманий responsive design.</td></tr>
+      <tr><td>Visual Hierarchy</td><td><strong style="color:var(--yellow)">7.5</strong></td><td>Z-pattern hero, але product names 14px/600 — замало для scanability.</td></tr>
+      <tr><td>Imagery & Photography</td><td><strong style="color:var(--green)">8.0</strong></td><td>WebP через CDN, art-directed responsive images, professional aspect ratios.</td></tr>
+      <tr><td>Iconography & Graphics</td><td><strong style="color:var(--yellow)">7.0</strong></td><td>SVG inline icons ✓, але badges в WebP замість SVG, немає unified icon library.</td></tr>
+      <tr><td>Component Design</td><td><strong style="color:var(--green)">8.0</strong></td><td>Polished buttons, cards, modals. Accordion — grid-rows-[0fr/1fr] elegant technique.</td></tr>
+      <tr><td>Brand Consistency</td><td><strong style="color:var(--green)">8.0</strong></td><td>Unified Tailwind design system, consistent tokens across pages.</td></tr>
+      <tr><td>Modern Design Trends</td><td><strong style="color:var(--yellow)">7.5</strong></td><td>Backdrop blur, cubic-bezier carousels, но немає scroll animations, dark mode, 3D renders.</td></tr>
+      <tr><td>Mobile Design</td><td><strong style="color:var(--green)">8.0</strong></td><td>Touch-optimized carousels, 6 breakpoints, responsive typography.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="subsection">
+    <h3>Color Palette & WCAG Compliance</h3>
+    <div class="color-row">
+      <div class="color-swatch" style="background:#1D1D1B"></div>
+      <div class="color-info"><strong>Near-Black</strong> <span class="color-hex">#1D1D1B</span></div>
+      <div class="color-wcag tag tag-pass">AAA ✓ 18.5:1</div>
+    </div>
+    <div class="color-row">
+      <div class="color-swatch" style="background:#75C525"></div>
+      <div class="color-info"><strong>Lime Green (Accent)</strong> <span class="color-hex">#75C525</span></div>
+      <div class="color-wcag tag tag-critical">AA FAIL ✗ 3.2:1</div>
+    </div>
+    <div class="color-row">
+      <div class="color-swatch" style="background:#1D7CD7"></div>
+      <div class="color-info"><strong>Blue Primary</strong> <span class="color-hex">#1D7CD7</span></div>
+      <div class="color-wcag tag tag-pass">AA ✓ 4.6:1</div>
+    </div>
+    <div class="color-row">
+      <div class="color-swatch" style="background:#418FDE"></div>
+      <div class="color-info"><strong>Blue Secondary</strong> <span class="color-hex">#418FDE</span></div>
+      <div class="color-wcag tag tag-critical">AA FAIL ✗ 3.7:1</div>
+    </div>
+    <div class="color-row">
+      <div class="color-swatch" style="background:#6A6A6A"></div>
+      <div class="color-info"><strong>Muted Text</strong> <span class="color-hex">#6A6A6A</span></div>
+      <div class="color-wcag tag tag-pass">AA ✓ 5.5:1</div>
+    </div>
+    <div class="color-row">
+      <div class="color-swatch" style="background:#028A1D"></div>
+      <div class="color-info"><strong>Dark Green</strong> <span class="color-hex">#028A1D</span></div>
+      <div class="color-wcag tag tag-pass">AA ✓ 5.2:1</div>
+    </div>
+  </div>
+
+  <div class="card" style="border-color: rgba(225,112,85,0.3); margin-top: 16px;">
+    <h3>⚠️ Головна проблема: #75C525 на білому фоні → контраст 3.2:1</h3>
+    <p>WCAG AA вимагає мінімум 4.5:1 для нормального тексту. Якщо цей зелений використовується для кнопок або посилань — це accessibility violation. <strong>Рекомендація:</strong> замінити на #2D8B4E (~5.5:1) або #1A7D3F для premium health aesthetic.</p>
+  </div>
+</section>
+
+<!-- ========== 6. UX AUDIT ========== -->
+<section class="section" id="ux">
+  <div class="section-header">
+    <div class="section-icon" style="background: var(--yellow-bg)">👤</div>
+    <h2>UX Audit</h2>
+    <div class="section-score" style="background: var(--yellow-bg); color: var(--yellow)">70/100</div>
+  </div>
+
+  <div class="grid-3" style="margin-bottom: 24px;">
+    <div class="card">
+      <h3>IxDF 7 Factors</h3>
+      <table>
+        <tbody>
+          <tr><td>Useful</td><td><strong>8</strong>/10</td></tr>
+          <tr><td>Usable</td><td><strong>7</strong>/10</td></tr>
+          <tr><td>Findable</td><td><strong style="color:var(--orange)">6</strong>/10</td></tr>
+          <tr><td>Credible</td><td><strong style="color:var(--green)">9</strong>/10</td></tr>
+          <tr><td>Desirable</td><td><strong>8</strong>/10</td></tr>
+          <tr><td>Accessible</td><td><strong style="color:var(--red)">5</strong>/10</td></tr>
+          <tr><td>Valuable</td><td><strong>8</strong>/10</td></tr>
+        </tbody>
+      </table>
+      <p style="text-align:center;margin-top:8px;"><strong>Середнє: 7.3/10</strong></p>
+    </div>
+    <div class="card">
+      <h3>Nielsen's 5 Characteristics</h3>
+      <table>
+        <tbody>
+          <tr><td>Learnability</td><td><strong>7</strong>/10</td></tr>
+          <tr><td>Efficiency</td><td><strong style="color:var(--orange)">6</strong>/10</td></tr>
+          <tr><td>Memorability</td><td><strong>7</strong>/10</td></tr>
+          <tr><td>Errors</td><td><strong style="color:var(--orange)">6</strong>/10</td></tr>
+          <tr><td>Satisfaction</td><td><strong>8</strong>/10</td></tr>
+        </tbody>
+      </table>
+      <p style="text-align:center;margin-top:8px;"><strong>Середнє: 6.8/10</strong></p>
+    </div>
+    <div class="card">
+      <h3>5 Interaction Dimensions</h3>
+      <table>
+        <tbody>
+          <tr><td>Words</td><td><strong>7</strong>/10</td></tr>
+          <tr><td>Visual Representations</td><td><strong>8</strong>/10</td></tr>
+          <tr><td>Physical Objects</td><td><strong>7</strong>/10</td></tr>
+          <tr><td>Time</td><td><strong style="color:var(--orange)">6</strong>/10</td></tr>
+          <tr><td>Behavior</td><td><strong>7</strong>/10</td></tr>
+        </tbody>
+      </table>
+      <p style="text-align:center;margin-top:8px;"><strong>Середнє: 7.0/10</strong></p>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3>WCAG 2.1 AA Compliance Check</h3>
+    <table>
+      <thead><tr><th>Критерій</th><th>Статус</th><th>Деталі</th></tr></thead>
+      <tbody>
+        <tr><td>2.4.7 Focus Visible</td><td><span class="tag tag-critical">FAIL</span></td><td>outline: none без заміни — клавіатурна навігація зламана на ВСІХ сторінках</td></tr>
+        <tr><td>2.4.1 Bypass Blocks</td><td><span class="tag tag-critical">FAIL</span></td><td>Немає skip-navigation посилання</td></tr>
+        <tr><td>1.4.3 Contrast (Minimum)</td><td><span class="tag tag-high">LIKELY FAIL</span></td><td>.text-white/60 та .bg-black/35 overlay — недостатній контраст</td></tr>
+        <tr><td>1.3.1 Info and Relationships</td><td><span class="tag tag-high">CONCERN</span></td><td>Accordion на checkbox замість semantic details/summary</td></tr>
+        <tr><td>1.1.1 Non-text Content</td><td><span class="tag tag-medium">PARTIAL</span></td><td>Alt text є, але generic на деяких зображеннях</td></tr>
+        <tr><td>3.1.1 Language of Page</td><td><span class="tag tag-pass">PASS ✓</span></td><td>lang="uk" встановлено коректно</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px;"><strong>Висновок:</strong> <span class="tag tag-critical">Non-conformant</span> — мінімум 2 підтверджені failures (2.4.1, 2.4.7). Потрібен accessibility overhaul.</p>
+  </div>
+</section>
+
+<!-- ========== 7. ALL PAGES ========== -->
+<section class="section" id="pages">
+  <div class="section-header">
+    <div class="section-icon" style="background: var(--blue-bg)">📄</div>
+    <h2>Аудит усіх сторінок (7 сторінок)</h2>
+  </div>
+
+  <div class="page-card">
+    <h3>/ — Головна сторінка</h3>
+    <div class="url">https://perlahelsa.ua/</div>
+    <ul class="issue-list">
+      <li><span class="tag tag-pass">OK</span> Hero з trust signals: 4.9★, 7000+ reviews, 150K+ клієнтів, лого медіа</li>
+      <li><span class="tag tag-high">High</span> CTA "До каталогу" — generic, не communicates benefit</li>
+      <li><span class="tag tag-medium">Medium</span> Cookie banner може перекривати primary CTA</li>
+      <li><span class="tag tag-high">High</span> Немає email capture (popup, footer form, exit-intent)</li>
+      <li><span class="tag tag-medium">Medium</span> Немає product recommendation quiz для 85+ SKU</li>
+    </ul>
+  </div>
+
+  <div class="page-card">
+    <h3>/about-us — Про бренд</h3>
+    <div class="url">https://perlahelsa.ua/about-us</div>
+    <ul class="issue-list">
+      <li><span class="tag tag-critical">Critical</span> Немає H1 тегу — заголовок через CSS клас .p-title</li>
+      <li><span class="tag tag-critical">Critical</span> Немає H2/H3 — вся heading hierarchy відсутня в semantic HTML</li>
+      <li><span class="tag tag-high">High</span> Немає og:image — поганий preview при шерінгу</li>
+      <li><span class="tag tag-pass">OK</span> AboutPage schema type — правильно ✓</li>
+      <li><span class="tag tag-pass">OK</span> 7 іменованих експертів з credentials (Dr. Заячківська та ін.) ✓</li>
+      <li><span class="tag tag-pass">OK</span> Organization schema з sameAs (FB, IG, TG, YT) ✓</li>
+    </ul>
+  </div>
+
+  <div class="page-card">
+    <h3>/store — Каталог</h3>
+    <div class="url">https://perlahelsa.ua/store</div>
+    <ul class="issue-list">
+      <li><span class="tag tag-critical">Critical</span> Title просто "Perla Helsa" — без ключових слів каталогу</li>
+      <li><span class="tag tag-critical">Critical</span> Немає H1 тегу</li>
+      <li><span class="tag tag-critical">Critical</span> Немає meta description</li>
+      <li><span class="tag tag-high">High</span> Немає Product/ItemList/CollectionPage schema</li>
+      <li><span class="tag tag-high">High</span> Немає BreadcrumbList schema (breadcrumbs візуально є)</li>
+      <li><span class="tag tag-medium">Medium</span> Фільтр прихований на desktop (lg:hidden) при 1440px+</li>
+      <li><span class="tag tag-medium">Medium</span> Carousel замість grid для products — нестандартно</li>
+      <li><span class="tag tag-low">Low</span> Промо банери з generic alt text ("Promo banner")</li>
+    </ul>
+  </div>
+
+  <div class="page-card">
+    <h3>/triple-magnesium — Продуктова сторінка</h3>
+    <div class="url">https://perlahelsa.ua/triple-magnesium</div>
+    <ul class="issue-list">
+      <li><span class="tag tag-critical">Critical</span> Product schema #1: name = "Star rating snippet aggregator" (неправильне ім'я)</li>
+      <li><span class="tag tag-critical">Critical</span> Два об'єкти Product в JSON-LD — плутає пошукові системи</li>
+      <li><span class="tag tag-high">High</span> FAQ секція без FAQPage schema (є тільки на /faq)</li>
+      <li><span class="tag tag-high">High</span> Наукові references без DOI, журнальних назв, гіперпосилань</li>
+      <li><span class="tag tag-medium">Medium</span> Product image alt text шаблонний ("preview 1", "preview 2")</li>
+      <li><span class="tag tag-pass">OK</span> Content depth 14,695 символів — відмінно ✓</li>
+      <li><span class="tag tag-pass">OK</span> H1 + H2 структура правильна ✓</li>
+      <li><span class="tag tag-pass">OK</span> BreadcrumbList schema ✓</li>
+      <li><span class="tag tag-pass">OK</span> 6 наукових посилань (Journal of Psychiatric Research та ін.) ✓</li>
+    </ul>
+  </div>
+
+  <div class="page-card">
+    <h3>/category/collagen — Категорійна сторінка</h3>
+    <div class="url">https://perlahelsa.ua/category/collagen</div>
+    <ul class="issue-list">
+      <li><span class="tag tag-critical">Critical</span> Немає H1 тегу</li>
+      <li><span class="tag tag-high">High</span> Немає category description — thin content для SEO</li>
+      <li><span class="tag tag-high">High</span> Немає breadcrumb navigation</li>
+      <li><span class="tag tag-medium">Medium</span> Немає sort/filter опцій (ціна, популярність, рейтинг)</li>
+    </ul>
+  </div>
+
+  <div class="page-card">
+    <h3>/blog — Блог</h3>
+    <div class="url">https://perlahelsa.ua/blog</div>
+    <ul class="issue-list">
+      <li><span class="tag tag-critical">Critical</span> Немає H1 тегу</li>
+      <li><span class="tag tag-high">High</span> Carousel/slider замість grid — зменшує discoverability 300+ статей</li>
+      <li><span class="tag tag-high">High</span> Блог без авторства — критично для YMYL (здоров'я)</li>
+      <li><span class="tag tag-medium">Medium</span> Немає search функції всередині блогу</li>
+      <li><span class="tag tag-medium">Medium</span> Немає видимих дат публікації</li>
+      <li><span class="tag tag-medium">Medium</span> Немає категорійного фільтру</li>
+    </ul>
+  </div>
+
+  <div class="page-card">
+    <h3>/reviews — Відгуки</h3>
+    <div class="url">https://perlahelsa.ua/reviews</div>
+    <ul class="issue-list">
+      <li><span class="tag tag-critical">Critical</span> Немає H1 тегу</li>
+      <li><span class="tag tag-medium">Medium</span> Carousel замість scrollable list — користувачі можуть пропустити відгуки</li>
+      <li><span class="tag tag-medium">Medium</span> Немає форми для залишення відгуку</li>
+      <li><span class="tag tag-medium">Medium</span> Немає star ratings в HTML структурі</li>
+      <li><span class="tag tag-low">Low</span> Відгуки не прив'язані до конкретних продуктів</li>
+    </ul>
+  </div>
+
+  <div class="page-card">
+    <h3>/ordering — Оплата та доставка</h3>
+    <div class="url">https://perlahelsa.ua/ordering</div>
+    <ul class="issue-list">
+      <li><span class="tag tag-critical">Critical</span> Контент повністю на JS — порожня сторінка для ботів</li>
+      <li><span class="tag tag-critical">Critical</span> Немає H1 тегу</li>
+      <li><span class="tag tag-high">High</span> Немає видимих способів оплати в static HTML</li>
+      <li><span class="tag tag-high">High</span> Немає інформації про терміни доставки в static HTML</li>
+    </ul>
+  </div>
+
+  <div class="page-card">
+    <h3>/sertifikaty — Сертифікати</h3>
+    <div class="url">https://perlahelsa.ua/sertifikaty</div>
+    <ul class="issue-list">
+      <li><span class="tag tag-pass">OK</span> H1 присутній ("Наші сертифікати") ✓</li>
+      <li><span class="tag tag-high">High</span> Зображення сертифікатів без alt text</li>
+      <li><span class="tag tag-medium">Medium</span> Зображення через зовнішній proxy (wsrv.nl) — зайва залежність</li>
+      <li><span class="tag tag-medium">Medium</span> Немає деталей: сертифікаційний орган, стандарт, дата видачі/закінчення</li>
+      <li><span class="tag tag-low">Low</span> Немає завантажуваних PDF сертифікатів</li>
+    </ul>
+  </div>
+
+  <div class="page-card">
+    <h3>/contacts — Контакти</h3>
+    <div class="url">https://perlahelsa.ua/contacts</div>
+    <ul class="issue-list">
+      <li><span class="tag tag-pass">OK</span> H1 присутній ("Контакти") ✓</li>
+      <li><span class="tag tag-pass">OK</span> Усі контактні дані: 3 телефони, графік, соцмережі, юрадреса ✓</li>
+      <li><span class="tag tag-medium">Medium</span> Thin content — лише ~1,300 символів</li>
+      <li><span class="tag tag-medium">Medium</span> Немає Google Map embed</li>
+      <li><span class="tag tag-medium">Medium</span> Немає LocalBusiness schema</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== 8. ALL ISSUES ========== -->
+<section class="section" id="issues">
+  <div class="section-header">
+    <div class="section-icon" style="background: var(--red-bg)">🐛</div>
+    <h2>Зведена таблиця всіх проблем</h2>
+  </div>
+
+  <div class="stat-grid" style="margin-bottom:24px;">
+    <div class="stat"><span class="num" style="color:var(--red)">10</span><span class="desc">Critical</span></div>
+    <div class="stat"><span class="num" style="color:var(--orange)">14</span><span class="desc">High</span></div>
+    <div class="stat"><span class="num" style="color:var(--yellow)">15</span><span class="desc">Medium</span></div>
+    <div class="stat"><span class="num" style="color:var(--blue)">3</span><span class="desc">Low</span></div>
+  </div>
+
+  <table>
+    <thead><tr><th style="width:90px">Severity</th><th>Проблема</th><th>Категорія</th><th>Сторінки</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag tag-critical">Critical</span></td><td>H1 відсутній на 6 з 7 сторінок</td><td>SEO</td><td>/about-us, /store, /blog, /reviews, /ordering, /category/*</td></tr>
+      <tr><td><span class="tag tag-critical">Critical</span></td><td>SSR неповний — контент тільки через JS</td><td>Technical</td><td>Усі, особливо /ordering</td></tr>
+      <tr><td><span class="tag tag-critical">Critical</span></td><td>Product schema name = "Star rating snippet aggregator"</td><td>Schema</td><td>/triple-magnesium</td></tr>
+      <tr><td><span class="tag tag-critical">Critical</span></td><td>Meta description відсутній + generic title</td><td>SEO</td><td>/store</td></tr>
+      <tr><td><span class="tag tag-critical">Critical</span></td><td>Focus visibility зламана (outline:none)</td><td>A11y</td><td>ВСІ сторінки</td></tr>
+      <tr><td><span class="tag tag-critical">Critical</span></td><td>Skip-navigation відсутній</td><td>A11y</td><td>ВСІ сторінки</td></tr>
+      <tr><td><span class="tag tag-critical">Critical</span></td><td>Non-semantic heading hierarchy</td><td>SEO/A11y</td><td>ВСІ сторінки</td></tr>
+      <tr><td><span class="tag tag-critical">Critical</span></td><td>Немає email marketing infrastructure</td><td>Marketing</td><td>ВСІ сторінки</td></tr>
+      <tr><td><span class="tag tag-critical">Critical</span></td><td>Блог без авторства (YMYL health content)</td><td>E-E-A-T</td><td>/blog</td></tr>
+      <tr><td><span class="tag tag-critical">Critical</span></td><td>/ordering порожня без JS</td><td>Technical</td><td>/ordering</td></tr>
+
+      <tr><td><span class="tag tag-high">High</span></td><td>Немає ItemList/CollectionPage schema</td><td>Schema</td><td>/store, /category/*</td></tr>
+      <tr><td><span class="tag tag-high">High</span></td><td>FAQPage schema тільки на /faq, не на продуктових</td><td>Schema</td><td>/triple-magnesium та інші</td></tr>
+      <tr><td><span class="tag tag-high">High</span></td><td>Немає BreadcrumbList schema</td><td>Schema</td><td>/store, /category/*, /blog</td></tr>
+      <tr><td><span class="tag tag-high">High</span></td><td>Category pages без description (thin content)</td><td>SEO</td><td>/category/collagen та інші</td></tr>
+      <tr><td><span class="tag tag-high">High</span></td><td>og:image відсутній</td><td>SEO</td><td>/about-us</td></tr>
+      <tr><td><span class="tag tag-high">High</span></td><td>Наукові references без DOI/PubMed</td><td>E-E-A-T</td><td>/triple-magnesium</td></tr>
+      <tr><td><span class="tag tag-high">High</span></td><td>CTA "До каталогу" — generic</td><td>CRO</td><td>/</td></tr>
+      <tr><td><span class="tag tag-high">High</span></td><td>Немає subscribe-and-save model</td><td>CRO</td><td>Увесь сайт</td></tr>
+      <tr><td><span class="tag tag-high">High</span></td><td>Немає loyalty/rewards program</td><td>Marketing</td><td>Увесь сайт</td></tr>
+      <tr><td><span class="tag tag-high">High</span></td><td>Карусель замість grid для блогу (300+ статей)</td><td>UX</td><td>/blog</td></tr>
+      <tr><td><span class="tag tag-high">High</span></td><td>Сертифікати без alt text</td><td>A11y</td><td>/sertifikaty</td></tr>
+      <tr><td><span class="tag tag-high">High</span></td><td>Green accent #75C525 WCAG AA FAIL (3.2:1)</td><td>A11y/UI</td><td>Кнопки/посилання</td></tr>
+      <tr><td><span class="tag tag-high">High</span></td><td>.text-white/60 contrast fail на overlay</td><td>A11y</td><td>ВСІ сторінки</td></tr>
+      <tr><td><span class="tag tag-high">High</span></td><td>Немає prominent search bar для 85+ SKU</td><td>UX</td><td>/store</td></tr>
+
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>Sitemap без lastmod дат</td><td>SEO</td><td>sitemap.xml</td></tr>
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>llms.txt не існує (404)</td><td>AI SEO</td><td>/llms.txt</td></tr>
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>Cookie banner inconsistency</td><td>GDPR</td><td>Різні сторінки</td></tr>
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>Thin content на /contacts (~1,300 chars)</td><td>SEO</td><td>/contacts</td></tr>
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>Немає Google Map embed</td><td>UX</td><td>/contacts</td></tr>
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>Немає LocalBusiness schema</td><td>Schema</td><td>/contacts</td></tr>
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>Фільтр прихований на desktop (lg:hidden)</td><td>UX</td><td>/store</td></tr>
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>Немає sort опцій в каталозі</td><td>UX</td><td>/store, /category/*</td></tr>
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>Product recommendation quiz відсутній</td><td>CRO</td><td>Увесь сайт</td></tr>
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>Блог без дат публікації</td><td>E-E-A-T</td><td>/blog</td></tr>
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>Reviews у carousel, без форми відгуку</td><td>UX</td><td>/reviews</td></tr>
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>Dual accent color (green+blue) розмиває brand</td><td>UI</td><td>Увесь сайт</td></tr>
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>Немає scroll animations (static feel)</td><td>UI</td><td>Увесь сайт</td></tr>
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>Англійський сайт — лише 4 продукти vs 75+</td><td>i18n</td><td>perlaholistic.com</td></tr>
+      <tr><td><span class="tag tag-medium">Medium</span></td><td>Немає YouTube канал</td><td>Marketing</td><td>—</td></tr>
+
+      <tr><td><span class="tag tag-low">Low</span></td><td>Generic alt text на промо-банерах</td><td>SEO</td><td>/store</td></tr>
+      <tr><td><span class="tag tag-low">Low</span></td><td>Product image alt шаблонний</td><td>SEO</td><td>/triple-magnesium</td></tr>
+      <tr><td><span class="tag tag-low">Low</span></td><td>Немає PDF сертифікатів для завантаження</td><td>UX</td><td>/sertifikaty</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ========== 9. STRENGTHS ========== -->
+<section class="section" id="strengths">
+  <div class="section-header">
+    <div class="section-icon" style="background: var(--green-bg)">💪</div>
+    <h2>ТОП-10 сильних сторін</h2>
+  </div>
+
+  <div class="strength-card">
+    <h4>1. Виняткова довіра бренду</h4>
+    <p>4.9★ рейтинг, 7000+ відгуків, 150K+ клієнтів, лого Vogue/Forbes/Elle — найкращий social proof серед українських supplement брендів. Celebrity endorsements (олімпійська чемпіонка Різатдінова, співачка Астаф'єва) додають aspirational appeal.</p>
+  </div>
+  <div class="strength-card">
+    <h4>2. Award-winning пакування та брендинг</h4>
+    <p>1-е місце Dieline Awards (Health category). Archetype-based product architecture з color-coded системою для 5 жіночих архетипів. Ребрендинг від Orchidea Agency створив holistic identity.</p>
+  </div>
+  <div class="strength-card">
+    <h4>3. Глибокий product content</h4>
+    <p>Продуктові сторінки (напр. Triple Magnesium) мають 14,695+ символів контенту з H2 структурою, детальними інгредієнтами, науковими посиланнями, FAQ, та відгуками. Benefit-driven copy (outcomes > features).</p>
+  </div>
+  <div class="strength-card">
+    <h4>4. Наукова експертиза</h4>
+    <p>7 іменованих експертів на /about-us з академічними credentials (Dr. Заячківська — доктор медичних наук, професор фізіології). Сертифікації HACCP, ISO 9001:2015, ISO 22000:2005.</p>
+  </div>
+  <div class="strength-card">
+    <h4>5. Міжнародна sourcing narrative</h4>
+    <p>Omega-3 з Ісландії, Вітамін D3 зі Швейцарії, Морський колаген з Франції, Вітамін K2 з Норвегії, Сквален з Португалії — premium international sourcing як genuine differentiator.</p>
+  </div>
+  <div class="strength-card">
+    <h4>6. Responsive design system</h4>
+    <p>6 breakpoints (430-1916px), Tailwind CSS design system, Onest + Piazzolla font pairing з повною Cyrillic підтримкою, WebP оптимізація, touch-optimized carousels.</p>
+  </div>
+  <div class="strength-card">
+    <h4>7. Omnichannel дистрибуція</h4>
+    <p>DTC сайт + Rozetka + EVA + Makeup.com.ua + Hotline.ua + KAPSULA. Міжнародна експансія: perlaholistic.com (EN/PL), EU entity в Польщі.</p>
+  </div>
+  <div class="strength-card">
+    <h4>8. Правильний hreflang</h4>
+    <p>Cross-domain hreflang між perlahelsa.ua (UK/RU) та perlaholistic.com (EN/PL) — технічно коректна імплементація для multi-language/multi-domain setup.</p>
+  </div>
+  <div class="strength-card">
+    <h4>9. Instagram 468K followers</h4>
+    <p>1,060+ постів, сильний primary awareness channel. Додаткові акаунти: @buy.perla (7,833), @perlahelsa.ge (Грузія) — regional expansion signals.</p>
+  </div>
+  <div class="strength-card">
+    <h4>10. Polished UI micro-interactions</h4>
+    <p>Cubic-bezier carousel easing (0.33, 1, 0.68, 1), hover scale transforms, shimmer loading states, gradient animations, backdrop blur overlays — premium-feeling interface.</p>
+  </div>
+</section>
+
+<!-- ========== 10. ACTION PLAN ========== -->
+<section class="section" id="actions">
+  <div class="section-header">
+    <div class="section-icon" style="background: var(--accent); background: var(--gradient)">🎯</div>
+    <h2>Пріоритетний план дій</h2>
+  </div>
+
+  <h3 style="margin: 24px 0 16px; color: var(--red);">🔴 Негайно (Тиждень 1-2) — Critical Fixes</h3>
+  <div class="action-timeline">
+    <div class="action-item critical">
+      <h4>1. Додати H1 теги на всі сторінки</h4>
+      <p>Замінити CSS-класи .p-title на семантичні &lt;h1&gt; теги. 6 сторінок потребують fix. Найбільший SEO impact.</p>
+    </div>
+    <div class="action-item critical">
+      <h4>2. Виправити Product schema</h4>
+      <p>Видалити дублікат Product з name "Star rating snippet aggregator". Залишити один коректний Product з AggregateRating, Offer, Brand.</p>
+    </div>
+    <div class="action-item critical">
+      <h4>3. Додати meta description та title для /store</h4>
+      <p>Title: "Вітаміни та добавки | Каталог Perla Helsa — купити з доставкою". Meta description з USP та CTA.</p>
+    </div>
+    <div class="action-item critical">
+      <h4>4. Виправити focus visibility (accessibility)</h4>
+      <p>Замінити outline:none на :focus-visible з custom ring (2px offset у brand green). Глобально через Tailwind @layer utilities.</p>
+    </div>
+    <div class="action-item critical">
+      <h4>5. Додати skip-navigation link</h4>
+      <p>Перший focusable елемент: &lt;a href="#main" class="sr-only focus:not-sr-only"&gt;Перейти до контенту&lt;/a&gt;</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 32px 0 16px; color: var(--orange);">🟠 Короткострокові (Місяць 1) — High Impact</h3>
+  <div class="action-timeline">
+    <div class="action-item high">
+      <h4>6. Впровадити email capture та базові email flows</h4>
+      <p>Welcome series, abandoned cart, post-purchase sequence, replenishment reminders. Highest-ROI action для 150K+ клієнтів без CRM.</p>
+    </div>
+    <div class="action-item high">
+      <h4>7. Додати FAQPage schema на продуктові сторінки</h4>
+      <p>Кожна сторінка з FAQ accordion має отримати JSON-LD FAQPage markup. SSR-rendered.</p>
+    </div>
+    <div class="action-item high">
+      <h4>8. Створити llms.txt + додати lastmod в sitemap</h4>
+      <p>llms.txt англійською з brand overview, key products, certifications. Sitemap з lastmod для всіх URLs.</p>
+    </div>
+    <div class="action-item high">
+      <h4>9. Виправити SSR для /ordering</h4>
+      <p>Забезпечити server-side rendering для payment/delivery info. Критично для SEO та accessibility.</p>
+    </div>
+    <div class="action-item high">
+      <h4>10. Додати author profiles до блогу</h4>
+      <p>Іменовані автори з credentials, Person schema з jobTitle, alumniOf. "Рецензовано [Ім'я, Credential]" на всіх health-статтях.</p>
+    </div>
+    <div class="action-item high">
+      <h4>11. Змінити CTA "До каталогу" → "Обрати вітаміни для себе"</h4>
+      <p>Benefit-driven CTA замість generic navigation link. A/B тест різних варіантів.</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 32px 0 16px; color: var(--yellow);">🟡 Середньострокові (Місяць 2-3) — Growth</h3>
+  <div class="action-timeline">
+    <div class="action-item medium">
+      <h4>12. Впровадити subscribe-and-save</h4>
+      <p>10-15% знижка за підписку. Supplements — recurring purchases за природою. +30-50% repeat revenue.</p>
+    </div>
+    <div class="action-item medium">
+      <h4>13. Запустити product recommendation quiz</h4>
+      <p>На основі archetype framework (5 архетипів). Зменшує decision fatigue для 85+ SKU, захоплює email, +8-15% conversion.</p>
+    </div>
+    <div class="action-item medium">
+      <h4>14. Створити loyalty/rewards program</h4>
+      <p>Points за покупки, відгуки, referrals. Конвертує one-time buyers у brand advocates.</p>
+    </div>
+    <div class="action-item medium">
+      <h4>15. Виправити green accent на WCAG-compliant</h4>
+      <p>#75C525 → #2D8B4E. Єдина accent color family замість dual green+blue. Перевірити всі buttons/links.</p>
+    </div>
+    <div class="action-item medium">
+      <h4>16. Додати scroll animations</h4>
+      <p>IntersectionObserver для section reveals, counter animations для trust metrics, staggered fade-up для ingredient cards. Motion One (3KB) замість GSAP.</p>
+    </div>
+    <div class="action-item medium">
+      <h4>17. Переробити /blog з carousel на grid</h4>
+      <p>Standard blog grid з search, category filters, visible dates, author names. 300+ статей потребують нормальної навігації.</p>
+    </div>
+    <div class="action-item medium">
+      <h4>18. Запустити YouTube канал</h4>
+      <p>Leverage наукової ради: ingredient deep-dives, myth-busting, expert interviews. Fills the largest content gap.</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 32px 0 16px; color: var(--blue);">🔵 Довгострокові (Квартал 2) — Strategic</h3>
+  <div class="action-timeline">
+    <div class="action-item low">
+      <h4>19. Масштабувати англомовний контент на perlaholistic.com</h4>
+      <p>Перекласти top 20-30 blog posts, розширити product catalog з 4 до 75+, створити English llms.txt.</p>
+    </div>
+    <div class="action-item low">
+      <h4>20. Створити Wikidata entity + Google Knowledge Panel</h4>
+      <p>Consistent NAP across directories, expand sameAs, get listed on health review sites.</p>
+    </div>
+    <div class="action-item low">
+      <h4>21. Запустити TikTok (creator hiring underway)</h4>
+      <p>90% female customer base + визуально distinctive product line = natural fit для TikTok awareness.</p>
+    </div>
+    <div class="action-item low">
+      <h4>22. Побудувати "Science Hub" сторінку</h4>
+      <p>Усі cited studies з DOI, методологія формулювання, expert bios. Центральна E-E-A-T authority page.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== IMPACT MATRIX ========== -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-icon" style="background: var(--accent-light); background: var(--gradient)">📊</div>
+    <h2>Impact vs Effort Matrix</h2>
+  </div>
+
+  <div class="matrix">
+    <div class="matrix-cell">
+      <h4>⚡ Quick Wins (Low Effort, High Impact)</h4>
+      <ul>
+        <li>Додати H1 теги (1 день)</li>
+        <li>Виправити Product schema (1 день)</li>
+        <li>Meta description для /store (30 хв)</li>
+        <li>Виправити focus visibility CSS (2 години)</li>
+        <li>Змінити CTA копі (30 хв)</li>
+        <li>Створити llms.txt (2 години)</li>
+        <li>Додати skip-navigation (1 година)</li>
+      </ul>
+    </div>
+    <div class="matrix-cell">
+      <h4>🎯 Strategic Bets (High Effort, High Impact)</h4>
+      <ul>
+        <li>Email infrastructure + flows (2-3 тижні)</li>
+        <li>Subscribe-and-save model (3-4 тижні)</li>
+        <li>Product recommendation quiz (2-3 тижні)</li>
+        <li>Loyalty program (4-6 тижнів)</li>
+        <li>Blog redesign (carousel → grid) (1-2 тижні)</li>
+      </ul>
+    </div>
+    <div class="matrix-cell">
+      <h4>🔧 Fill-ins (Low Effort, Medium Impact)</h4>
+      <ul>
+        <li>Додати lastmod в sitemap (2 години)</li>
+        <li>FAQPage schema на products (1 день)</li>
+        <li>BreadcrumbList schema (1 день)</li>
+        <li>Category descriptions (3-5 днів)</li>
+        <li>Green accent color fix (2 години)</li>
+      </ul>
+    </div>
+    <div class="matrix-cell">
+      <h4>🌱 Long-term Investments (High Effort, Medium Impact)</h4>
+      <ul>
+        <li>YouTube channel launch (ongoing)</li>
+        <li>TikTok content strategy (ongoing)</li>
+        <li>English content translation (2-3 місяці)</li>
+        <li>Scroll animations (1-2 тижні)</li>
+        <li>Wikidata + Knowledge Panel (2-3 місяці)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <p>Перевірено Claude Opus 4.6 · Березень 2026 · perlahelsa.ua</p>
+  <p style="margin-top:8px;">SEO · AI/GEO · CRO · Marketing · UI Design · UX — 6 аудитів, 42 знахідки, 22 рекомендації</p>
+</footer>
+
+</body>
+</html>
