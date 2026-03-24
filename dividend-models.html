@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHA Perla Helsa — Сравнение дивидендных моделей</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; color: #1a1a1a; background: #fafaf8; padding: 24px; max-width: 900px; margin: 0 auto; line-height: 1.6; }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  h2 { font-size: 18px; font-weight: 500; margin: 28px 0 8px; }
+  .sub { font-size: 14px; color: #666; margin-bottom: 20px; }
+  .controls { display: flex; gap: 20px; flex-wrap: wrap; margin: 16px 0 24px; padding: 16px; background: #fff; border-radius: 12px; border: 1px solid #e8e8e5; }
+  .ctrl { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 200px; }
+  .ctrl label { font-size: 13px; color: #666; font-weight: 500; }
+  .ctrl .val { font-size: 16px; font-weight: 600; min-width: 60px; }
+  input[type=range] { width: 100%; height: 6px; -webkit-appearance: none; appearance: none; background: #e0e0dd; border-radius: 3px; outline: none; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #2C3E50; cursor: pointer; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.2); }
+  input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: #2C3E50; cursor: pointer; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.2); }
+  .margin-bar { font-size: 14px; margin-bottom: 20px; padding: 10px 16px; background: #fff; border-radius: 8px; border: 1px solid #e8e8e5; display: flex; align-items: center; gap: 8px; }
+  .margin-bar strong { font-size: 18px; }
+  .section { background: #fff; border: 1px solid #e8e8e5; border-radius: 12px; padding: 20px; margin: 16px 0; }
+  .section-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .section-note { font-size: 12px; color: #888; margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: #f5f5f2; text-align: left; padding: 10px 12px; font-weight: 600; font-size: 11px; color: #666; border-bottom: 1px solid #e0e0dd; text-transform: uppercase; letter-spacing: 0.5px; }
+  td { padding: 10px 12px; border-bottom: 1px solid #f0f0ed; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .best { background: #EAF3DE; }
+  .worst { background: #FFF5F5; }
+  .tag { display: inline-block; font-size: 11px; padding: 3px 10px; border-radius: 6px; font-weight: 600; }
+  .tag-red { background: #FCEBEB; color: #A32D2D; }
+  .tag-green { background: #EAF3DE; color: #3B6D11; }
+  .tag-blue { background: #E6F1FB; color: #185FA5; }
+  .tag-amber { background: #FAEEDA; color: #854F0B; }
+  .tag-pct { font-size: 15px; font-weight: 700; padding: 4px 12px; border-radius: 8px; }
+  .chart-wrap { position: relative; width: 100%; height: 280px; margin: 16px 0; }
+  .legend { display: flex; gap: 20px; margin: 8px 0 0; font-size: 12px; color: #666; }
+  .legend span { display: flex; align-items: center; gap: 6px; }
+  .legend .dot { width: 12px; height: 12px; border-radius: 3px; }
+  .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e8e8e5; font-size: 12px; color: #aaa; text-align: center; }
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    .controls { flex-direction: column; }
+    .ctrl { min-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Сравнение дивидендных моделей</h1>
+<p class="sub">SHA Perla Helsa — интерактивный калькулятор. Двигай слайдеры.</p>
+
+<div class="controls">
+  <div class="ctrl">
+    <label>Revenue UA / мес</label>
+    <input type="range" min="500" max="2000" value="850" step="50" id="rev" />
+    <span class="val" id="revV">$850K</span>
+  </div>
+  <div class="ctrl">
+    <label>Net profit UA / мес</label>
+    <input type="range" min="30" max="400" value="116" step="5" id="np" />
+    <span class="val" id="npV">$116K</span>
+  </div>
+</div>
+
+<div class="margin-bar">
+  NP margin: <strong id="marginV">13.6%</strong>
+  <span id="marginTag" class="tag tag-amber">10-15%</span>
+</div>
+
+<div class="section">
+  <div class="section-title">Вариант 1: Драфт SHA (margin-based, позиция RT)</div>
+  <div class="section-note">Шкала по маржинальности: &lt;10% → 10% див. | 10-15% → 15% | 15-20% → 20% | 20%+ → 25%</div>
+  <table><thead><tr><th>Margin</th><th>Реинвест.</th><th>Дивиденды</th><th class="num">DS/мес (55%)</th><th class="num">RT/мес (45%)</th></tr></thead>
+  <tbody id="t1"></tbody></table>
+</div>
+
+<div class="section">
+  <div class="section-title">Вариант 2: Шкала DS (absolute NP)</div>
+  <div class="section-note">Шкала по абсолютному NP: &lt;$100K → 15% | $100-150K → 20% | $150-250K → 25% | &gt;$250K → 30%</div>
+  <table><thead><tr><th>NP range</th><th>Реинвест.</th><th>Дивиденды</th><th class="num">DS/мес (55%)</th><th class="num">RT/мес (45%)</th></tr></thead>
+  <tbody id="t2"></tbody></table>
+</div>
+
+<div class="section">
+  <div class="section-title">Вариант 3: Гибрид (NP + margin gate)</div>
+  <div class="section-note">Шкала DS по NP, но активируется только при margin ≥ 10%. Ниже 10% → фикс 10% дивидендов</div>
+  <table><thead><tr><th>NP + margin</th><th>Реинвест.</th><th>Дивиденды</th><th class="num">DS/мес (55%)</th><th class="num">RT/мес (45%)</th></tr></thead>
+  <tbody id="t3"></tbody></table>
+</div>
+
+<div class="section">
+  <div class="section-title">Вариант 4: Двойная шкала (NP × margin boost)</div>
+  <div class="section-note">Базовая шкала DS по NP + бонус: margin 15%+ → +5%. Margin 20%+ → +10%. Макс 40%</div>
+  <table><thead><tr><th>NP + boost</th><th>Реинвест.</th><th>Дивиденды</th><th class="num">DS/мес (55%)</th><th class="num">RT/мес (45%)</th></tr></thead>
+  <tbody id="t4"></tbody></table>
+</div>
+
+<h2>Сравнительная сводка</h2>
+<table>
+<thead><tr><th>Модель</th><th class="num">Дивид. %</th><th class="num">DS/мес</th><th class="num">RT/мес</th><th class="num">На Global/мес</th><th>Оценка</th></tr></thead>
+<tbody id="summary"></tbody>
+</table>
+
+<div class="chart-wrap">
+  <canvas id="chart"></canvas>
+</div>
+<div class="legend">
+  <span><span class="dot" style="background:#5DCAA5;"></span>DS дивиденды/мес</span>
+  <span><span class="dot" style="background:#85B7EB;"></span>RT дивиденды/мес</span>
+  <span><span class="dot" style="background:#D3D1C7;"></span>На Global/мес</span>
+</div>
+
+<div class="footer">SHA Perla Helsa — внутренний документ DS. Не является юридической консультацией.</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const fmt = n => '$' + Math.round(n).toLocaleString();
+
+function getDivPct1(margin) {
+  if (margin < 0.10) return 0.10;
+  if (margin < 0.15) return 0.15;
+  if (margin < 0.20) return 0.20;
+  return 0.25;
+}
+function getDivPct2(np) {
+  if (np < 100) return 0.15;
+  if (np < 150) return 0.20;
+  if (np < 250) return 0.25;
+  return 0.30;
+}
+function getDivPct3(np, margin) {
+  if (margin < 0.10) return 0.10;
+  return getDivPct2(np);
+}
+function getDivPct4(np, margin) {
+  let base = getDivPct2(np);
+  if (margin >= 0.20) base += 0.10;
+  else if (margin >= 0.15) base += 0.05;
+  return Math.min(base, 0.40);
+}
+
+function getLabel1(margin) {
+  if (margin < 0.10) return 'margin <10%';
+  if (margin < 0.15) return 'margin 10-15%';
+  if (margin < 0.20) return 'margin 15-20%';
+  return 'margin 20%+';
+}
+function getLabel2(np) {
+  if (np < 100) return 'NP <$100K';
+  if (np < 150) return 'NP $100-150K';
+  if (np < 250) return 'NP $150-250K';
+  return 'NP >$250K';
+}
+
+function marginTagClass(margin) {
+  if (margin < 0.10) return ['tag-red', '<10%'];
+  if (margin < 0.15) return ['tag-amber', '10-15%'];
+  if (margin < 0.20) return ['tag-blue', '15-20%'];
+  return ['tag-green', '20%+'];
+}
+
+function renderRow(tbody, label, np, divPct) {
+  const div = np * 1000 * divPct;
+  const reinv = np * 1000 * (1 - divPct);
+  const pctClass = divPct >= 0.25 ? 'tag-green' : divPct <= 0.10 ? 'tag-red' : 'tag-amber';
+  tbody.innerHTML = `<tr>
+    <td>${label} <span class="tag tag-pct ${pctClass}">${Math.round(divPct*100)}%</span></td>
+    <td class="num">${fmt(reinv)}</td>
+    <td class="num">${fmt(div)}</td>
+    <td class="num" style="font-weight:700">${fmt(div*0.55)}</td>
+    <td class="num">${fmt(div*0.45)}</td>
+  </tr>`;
+}
+
+let chart;
+function update() {
+  const rev = +$('rev').value;
+  const np = +$('np').value;
+  const margin = np / rev;
+
+  $('revV').textContent = '$' + rev + 'K';
+  $('npV').textContent = '$' + np + 'K';
+  $('marginV').textContent = (margin * 100).toFixed(1) + '%';
+
+  const [mClass, mLabel] = marginTagClass(margin);
+  $('marginTag').className = 'tag ' + mClass;
+  $('marginTag').textContent = mLabel;
+
+  const p1 = getDivPct1(margin);
+  const p2 = getDivPct2(np);
+  const p3 = getDivPct3(np, margin);
+  const p4 = getDivPct4(np, margin);
+
+  renderRow($('t1'), getLabel1(margin), np, p1);
+  renderRow($('t2'), getLabel2(np), np, p2);
+  renderRow($('t3'), getLabel2(np) + ' + ' + (margin*100).toFixed(0) + '% margin', np, p3);
+  renderRow($('t4'), getLabel2(np) + ' + margin boost', np, p4);
+
+  const models = [
+    { name: 'В1: SHA (margin)', pct: p1 },
+    { name: 'В2: DS (absolute)', pct: p2 },
+    { name: 'В3: Гибрид', pct: p3 },
+    { name: 'В4: Двойная', pct: p4 },
+  ];
+
+  let best = 0, worst = 0;
+  models.forEach((m, i) => {
+    if (m.pct > models[best].pct) best = i;
+    if (m.pct < models[worst].pct) worst = i;
+  });
+
+  $('summary').innerHTML = models.map((m, i) => {
+    const div = np * 1000 * m.pct;
+    const ds = div * 0.55;
+    const rt = div * 0.45;
+    const gl = np * 1000 - div;
+    const cls = i === best ? 'best' : i === worst ? 'worst' : '';
+    const tag = i === best ? '<span class="tag tag-green">лучше для DS</span>' :
+                i === worst ? '<span class="tag tag-red">хуже для DS</span>' : '';
+    return `<tr class="${cls}">
+      <td>${m.name}</td>
+      <td class="num"><span class="tag tag-pct ${m.pct >= 0.25 ? 'tag-green' : m.pct <= 0.10 ? 'tag-red' : 'tag-amber'}">${Math.round(m.pct*100)}%</span></td>
+      <td class="num" style="font-weight:700">${fmt(ds)}</td>
+      <td class="num">${fmt(rt)}</td>
+      <td class="num">${fmt(gl)}</td>
+      <td>${tag}</td>
+    </tr>`;
+  }).join('');
+
+  const dsData = models.map(m => Math.round(np * 1000 * m.pct * 0.55));
+  const rtData = models.map(m => Math.round(np * 1000 * m.pct * 0.45));
+  const glData = models.map(m => Math.round(np * 1000 * (1 - m.pct)));
+
+  if (chart) {
+    chart.data.datasets[0].data = dsData;
+    chart.data.datasets[1].data = rtData;
+    chart.data.datasets[2].data = glData;
+    chart.update();
+  } else {
+    chart = new Chart($('chart'), {
+      type: 'bar',
+      data: {
+        labels: models.map(m => m.name),
+        datasets: [
+          { label: 'DS', data: dsData, backgroundColor: '#5DCAA5', borderRadius: 4 },
+          { label: 'RT', data: rtData, backgroundColor: '#85B7EB', borderRadius: 4 },
+          { label: 'Global', data: glData, backgroundColor: '#D3D1C7', borderRadius: 4 },
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: {
+            stacked: true,
+            ticks: { callback: v => '$' + (v/1000).toFixed(0) + 'K' }
+          },
+          x: {
+            stacked: true,
+            ticks: { font: { size: 12 } }
+          }
+        }
+      }
+    });
+  }
+}
+
+$('rev').oninput = update;
+$('np').oninput = update;
+update();
+</script>
+</body>
+</html>
