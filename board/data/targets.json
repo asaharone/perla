@@ -1,0 +1,19 @@
+{
+  "_source": "Пороги CLUST (Board Pack, лист PH Plan 18.09) і пропозиції з діагностики 27.09. Усі — на погодження Борду 22.10.",
+  "mkt_share_b2c": 0.20,
+  "mkt_share_total": 0.16,
+  "cpo": 10,
+  "nc_watch": 2.5,
+  "nc_alert": 2.0,
+  "discount": 0.25,
+  "cm3_share": 0.35,
+  "aov": 55,
+  "cac": 20,
+  "rep90": 0.25,
+  "dso": 60,
+  "overdue": 0.10,
+  "cash_min_usd": 300000,
+  "np_q4_usd": 500000,
+  "fx_usd": 44.9,
+  "fx_eur": 51.9
+}

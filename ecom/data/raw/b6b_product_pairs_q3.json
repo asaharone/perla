@@ -1,0 +1,317 @@
+{
+"fields": [
+"product_a",
+"product_b",
+"pair_orders",
+"orders_a",
+"orders_b",
+"support",
+"p_b_given_a",
+"lift"
+],
+"rows": [
+[
+"UA Triple Magnesium №60",
+"UA Vitamin D3 Base 2000 №60",
+966,
+6657,
+4443,
+0.0247,
+0.145,
+1.28
+],
+[
+"UA Omega-3 Cod №120",
+"UA Vitamin D3 Base 2000 №60",
+870,
+3726,
+4443,
+0.0223,
+0.233,
+2.05
+],
+[
+"UA Kids Omega-3 Tuna №120",
+"UA Kids Vitamin D3 №60",
+599,
+1627,
+1506,
+0.0153,
+0.368,
+9.56
+],
+[
+"UA Omega-3 Cod №120",
+"UA Triple Magnesium №60",
+596,
+3726,
+6657,
+0.0152,
+0.16,
+0.94
+],
+[
+"UA Multi Beauty Duo-Caps №60",
+"UA Triple Magnesium №60",
+566,
+3535,
+6657,
+0.0145,
+0.16,
+0.94
+],
+[
+"UA Omega-3 Tuna №120",
+"UA Triple Magnesium №60",
+562,
+2235,
+6657,
+0.0144,
+0.251,
+1.48
+],
+[
+"UA Omega-3 Tuna №120",
+"UA Vitamin D3 Base 2000 №60",
+556,
+2235,
+4443,
+0.0142,
+0.249,
+2.19
+],
+[
+"UA Omega-3 X4 Strength №60",
+"UA Triple Magnesium №60",
+552,
+2633,
+6657,
+0.0141,
+0.21,
+1.23
+],
+[
+"UA Triple Magnesium №60",
+"UA Vitamin D3 5000 №60",
+520,
+6657,
+3088,
+0.0133,
+0.078,
+0.99
+],
+[
+"UA Omega-3 X4 Strength №60",
+"UA Vitamin D3 Base 2000 №60",
+508,
+2633,
+4443,
+0.013,
+0.193,
+1.7
+],
+[
+"UA Collagen Nectar Wild Berries 450ml",
+"UA Vitamin D3 Base 2000 №60",
+505,
+5002,
+4443,
+0.0129,
+0.101,
+0.89
+],
+[
+"UA Liposomal Iron (Vitamin C + MCT Oil) №60",
+"UA Triple Magnesium №60",
+500,
+3091,
+6657,
+0.0128,
+0.162,
+0.95
+],
+[
+"UA Collagen Nectar Wild Berries 450ml",
+"UA Omega-3 Cod №120",
+491,
+5002,
+3726,
+0.0126,
+0.098,
+1.03
+],
+[
+"UA Omega-3 Cod №120",
+"UA Vitamin D3 5000 №60",
+487,
+3726,
+3088,
+0.0125,
+0.131,
+1.65
+],
+[
+"UA Sleeps Strong 5 mg №30",
+"UA Triple Magnesium №60",
+484,
+2085,
+6657,
+0.0124,
+0.232,
+1.36
+],
+[
+"UA Collagen Nectar Wild Berries 450ml",
+"UA Triple Magnesium №60",
+482,
+5002,
+6657,
+0.0123,
+0.096,
+0.57
+],
+[
+"UA A-Biotin №30",
+"UA Triple Magnesium №60",
+480,
+3048,
+6657,
+0.0123,
+0.157,
+0.92
+],
+[
+"UA Crystal Mind №40",
+"UA Triple Magnesium №60",
+414,
+1594,
+6657,
+0.0106,
+0.26,
+1.53
+],
+[
+"UA Kids Vitamin D3 №60",
+"UA Vitamin D3 Base 2000 №60",
+413,
+1506,
+4443,
+0.0106,
+0.274,
+2.41
+],
+[
+"UA Collagen Nectar Wild Berries 450ml",
+"UA Multi Beauty Duo-Caps №60",
+399,
+5002,
+3535,
+0.0102,
+0.08,
+0.88
+],
+[
+"UA A-Biotin №30",
+"UA Collagen Nectar Wild Berries 450ml",
+398,
+3048,
+5002,
+0.0102,
+0.131,
+1.02
+],
+[
+"UA Multi Beauty Duo-Caps №60",
+"UA Vitamin D3 Base 2000 №60",
+391,
+3535,
+4443,
+0.01,
+0.111,
+0.97
+],
+[
+"UA Collagen Marine №30",
+"UA Omega-3 Cod №120",
+384,
+4122,
+3726,
+0.0098,
+0.093,
+0.98
+],
+[
+"UA Vitamin D3 5000 №60",
+"UA Vitamin D3 Base 2000 №60",
+383,
+3088,
+4443,
+0.0098,
+0.124,
+1.09
+],
+[
+"UA A-Biotin №30",
+"UA Omega-3 Cod №120",
+382,
+3048,
+3726,
+0.0098,
+0.125,
+1.32
+],
+[
+"UA Kids Omega-3 Cod №120",
+"UA Kids Vitamin D3 №60",
+380,
+1020,
+1506,
+0.0097,
+0.373,
+9.67
+],
+[
+"UA Sleeps Gentle 1 mg №30",
+"UA Triple Magnesium №60",
+368,
+1441,
+6657,
+0.0094,
+0.255,
+1.5
+],
+[
+"UA Liposomal Iron (Vitamin C + MCT Oil) №60",
+"UA Vitamin D3 Base 2000 №60",
+363,
+3091,
+4443,
+0.0093,
+0.117,
+1.03
+],
+[
+"UA Collagen Nectar Wild Berries 450ml",
+"UA Vitamin D3 5000 №60",
+357,
+5002,
+3088,
+0.0091,
+0.071,
+0.9
+],
+[
+"UA Daily Fiber GLP-1 Booster 270 mg",
+"UA Daily Vegan Protein 450g",
+354,
+2573,
+3001,
+0.0091,
+0.138,
+1.79
+]
+],
+"_query": "ecom/sql/blocks/b6b_product_pairs_q3.sql",
+"_extracted": "2026-10-02",
+"_note": "успешные заказы 07–09.2026 (n ≈ 39 тыс.); lift = P(A∧B)/(P(A)·P(B))"
+}

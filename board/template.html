@@ -1,0 +1,1432 @@
+<title>Perla Helsa Cockpit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: липка шапка (назва · місяць · ролі) → одна робоча поверхня до 1240px; картки за роллю; на телефоні — одна колонка */
+:root{
+  --bg:#f3f5f4; --surface:#ffffff; --surface-2:#eef2f0; --ink:#121715; --ink-2:#46504c; --muted:#6f7975;
+  --line:#dde3e0; --line-2:#c5cdc9;
+  --accent:#0d6b5e; --accent-ink:#ffffff; --accent-wash:rgba(13,107,94,.09);
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#4a3aa7; --ly:#9ea6a2; --ref:#46504c;
+  --good:#0ca30c; --warn:#fab219; --crit:#d03b3b;
+  --good-ink:#006300; --warn-ink:#7a5000; --crit-ink:#b42323;
+  --good-wash:rgba(12,163,12,.10); --warn-wash:rgba(250,178,25,.18); --crit-wash:rgba(208,59,59,.11);
+  --band:rgba(18,23,21,.05); --shadow:0 8px 24px rgba(0,0,0,.14);
+  --font-display:"Unbounded","Onest",system-ui,sans-serif;
+  --font-body:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:12px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d1110; --surface:#151a19; --surface-2:#1c2321; --ink:#edf2ef; --ink-2:#bfc8c3; --muted:#8b9590;
+    --line:#27302d; --line-2:#3a4440;
+    --accent:#53c4ae; --accent-ink:#0d1110; --accent-wash:rgba(83,196,174,.13);
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#9085e9; --ly:#6a7470; --ref:#bfc8c3;
+    --good-ink:#4fd34f; --warn-ink:#ffc94d; --crit-ink:#ff8080;
+    --good-wash:rgba(12,163,12,.16); --warn-wash:rgba(250,178,25,.16); --crit-wash:rgba(208,59,59,.20);
+    --band:rgba(237,242,239,.06); --shadow:0 8px 24px rgba(0,0,0,.5);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d1110; --surface:#151a19; --surface-2:#1c2321; --ink:#edf2ef; --ink-2:#bfc8c3; --muted:#8b9590;
+  --line:#27302d; --line-2:#3a4440;
+  --accent:#53c4ae; --accent-ink:#0d1110; --accent-wash:rgba(83,196,174,.13);
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#9085e9; --ly:#6a7470; --ref:#bfc8c3;
+  --good-ink:#4fd34f; --warn-ink:#ffc94d; --crit-ink:#ff8080;
+  --good-wash:rgba(12,163,12,.16); --warn-wash:rgba(250,178,25,.16); --crit-wash:rgba(208,59,59,.20);
+  --band:rgba(237,242,239,.06); --shadow:0 8px 24px rgba(0,0,0,.5);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:20px;padding-block:0 56px}
+@media (max-width:520px){.wrap{padding-inline:16px}}
+h1,h2,h3,h4{text-wrap:balance;margin:0}
+p{margin:0}
+a{color:var(--accent)}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.num{font-variant-numeric:tabular-nums}
+.note{font-size:12.5px;color:var(--muted)}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--bg);border-bottom:1px solid var(--line);padding-block:14px 10px}
+.top .row{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between}
+.brand h1{font-family:var(--font-display);font-weight:600;font-size:clamp(18px,2.4vw,24px);line-height:1.15;letter-spacing:-.01em}
+.brand .meta{font-size:13px;color:var(--ink-2);margin-top:2px}
+.brand .meta b{font-weight:600;color:var(--ink)}
+.controls{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.field{display:flex;flex-direction:column;gap:3px}
+.field label{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+select,input[type=text],input[type=number],input[type=date],textarea{font:inherit;font-size:14px;color:var(--ink);background:var(--surface);border:1px solid var(--line-2);border-radius:8px;padding:7px 10px;min-width:0;max-width:100%}
+select{padding-right:30px;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink-2) 50%),linear-gradient(135deg,var(--ink-2) 50%,transparent 50%);background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%;background-size:5px 5px;background-repeat:no-repeat}
+select:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+textarea{width:100%;min-height:72px;resize:vertical;line-height:1.45}
+input:disabled,textarea:disabled{background:var(--surface-2);color:var(--ink-2)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tab{font:inherit;font-size:14px;font-weight:500;color:var(--ink-2);background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:6px 13px;cursor:pointer;display:inline-flex;gap:7px;align-items:center}
+.tab:hover{background:var(--surface)}
+.tab .k{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.04em}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tab[aria-selected="true"] .k{color:var(--bg);opacity:.7}
+.btn{font:inherit;font-size:13px;font-weight:500;color:var(--ink);background:var(--surface);border:1px solid var(--line-2);border-radius:8px;padding:6px 12px;cursor:pointer}
+.btn:hover{background:var(--surface-2)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.05)}
+.btn:disabled{opacity:.5;cursor:default}
+
+/* views */
+.view{margin-top:22px}
+.vhead{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+.vhead h2{font-family:var(--font-display);font-weight:500;font-size:18px;letter-spacing:-.005em}
+.vhead p{color:var(--muted);font-size:13.5px;max-width:78ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;min-width:0}
+.card h3{font-size:14.5px;font-weight:600}
+.card .sub{font-size:12.5px;color:var(--muted);margin-top:2px}
+.grid{display:grid;gap:12px;margin-top:12px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))} .g3{grid-template-columns:repeat(3,minmax(0,1fr))} .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g57{grid-template-columns:minmax(0,5fr) minmax(0,7fr)} .g75{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+@media (max-width:1000px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:880px){.g2,.g57,.g75,.g3{grid-template-columns:1fr}}
+@media (max-width:460px){.g4{grid-template-columns:1fr}}
+section[hidden]{display:none}
+
+/* status chip: icon + label, never color alone */
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;border-radius:999px;padding:3px 9px 3px 7px;white-space:nowrap}
+.chip i{width:14px;height:14px;border-radius:50%;display:inline-grid;place-items:center;font-style:normal;font-size:10px;font-weight:800;color:#fff;line-height:1;flex:none}
+.chip.ok{background:var(--good-wash);color:var(--good-ink)} .chip.ok i{background:var(--good)}
+.chip.watch{background:var(--warn-wash);color:var(--warn-ink)} .chip.watch i{background:var(--warn);color:#3a2800}
+.chip.alert{background:var(--crit-wash);color:var(--crit-ink)} .chip.alert i{background:var(--crit)}
+.chip.na{background:var(--surface-2);color:var(--ink-2)} .chip.na i{background:var(--line-2);color:var(--ink)}
+
+/* verdict + tiles */
+.verdict{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:center;border-left:4px solid var(--crit)}
+.verdict.ok{border-left-color:var(--good)} .verdict.watch{border-left-color:var(--warn)}
+.verdict .vt{font-size:17px;font-weight:600;line-height:1.35}
+.verdict .vd{grid-column:2;color:var(--ink-2);font-size:13.5px}
+@media (max-width:620px){.verdict{grid-template-columns:1fr}.verdict .vd{grid-column:1}}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+@media (max-width:1000px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.tiles{grid-template-columns:1fr}}
+.tile{display:flex;flex-direction:column;gap:6px}
+.tile .lbl{font-size:13px;color:var(--ink-2);font-weight:500;display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.tile .val{font-size:27px;font-weight:600;letter-spacing:-.01em;line-height:1.1}
+.tile .val small{font-size:14px;font-weight:500;color:var(--muted);margin-left:4px}
+.tile .hint{font-size:12.5px;color:var(--muted)}
+.deltas{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12.5px;margin-top:2px}
+.deltas span{white-space:nowrap;color:var(--muted)}
+.deltas b{font-weight:600}
+.up-good,.down-good{color:var(--good-ink)} .up-bad,.down-bad{color:var(--crit-ink)} .neutral{color:var(--ink-2)}
+.spark{display:block;width:100%;height:34px;margin-top:auto}
+
+/* lists */
+.facts{margin:10px 0 0;padding-left:18px;display:grid;gap:8px;font-size:14px}
+.facts li::marker{color:var(--muted)}
+.flags{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.flags li{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;padding:10px 12px;border-radius:10px;background:var(--surface-2);font-size:13.5px}
+.flags li .who{font-size:12px;color:var(--muted);white-space:nowrap}
+.flags li .who a{color:var(--accent);text-decoration:none}
+@media (max-width:520px){.flags li{grid-template-columns:auto 1fr}.flags li .who{grid-column:2}}
+.chan{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;gap:10px 12px;align-items:center;margin-top:12px;font-size:13.5px}
+.chan .nm{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.sw{width:10px;height:10px;border-radius:3px;flex:none}
+.bar{height:10px;background:var(--surface-2);border-radius:5px;overflow:hidden}
+.bar span{display:block;height:100%;border-radius:5px}
+.chan .v{text-align:right;white-space:nowrap}
+.chan .v small{color:var(--muted);margin-left:6px}
+.kv{display:grid;grid-template-columns:minmax(140px,max-content) 1fr;gap:6px 14px;margin:10px 0 0;font-size:13.5px}
+.kv dt{color:var(--ink-2)} .kv dd{margin:0;font-weight:500}
+@media (max-width:520px){.kv{grid-template-columns:1fr}.kv dd{margin-bottom:4px}}
+
+/* charts */
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:10px;font-size:12.5px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.lk{width:16px;height:0;border-top:2px solid currentColor;display:inline-block}
+.lk.dash{border-top-style:dashed}
+.lk.box{width:12px;height:12px;border:none;border-radius:3px}
+.plot{position:relative;margin-top:6px}
+.plot svg{display:block;width:100%;height:auto;overflow:visible}
+.plot text{font-family:var(--font-body)}
+.tip{position:fixed;z-index:40;pointer-events:none;background:var(--surface);color:var(--ink);border:1px solid var(--line-2);border-radius:10px;padding:9px 11px;font-size:12.5px;box-shadow:var(--shadow);min-width:170px;max-width:280px}
+.tip .t{font-weight:600;margin-bottom:4px}
+.tip .r{display:grid;grid-template-columns:14px 1fr auto;gap:8px;align-items:center;line-height:1.7}
+.tip .r b{font-weight:600;font-variant-numeric:tabular-nums}
+.tip .r i{display:block;height:0;border-top:2px solid}
+.tip .r i.dash{border-top-style:dashed}
+.tip .r i.box{height:10px;border:none;border-radius:2px}
+.tip .r em{font-style:normal;color:var(--ink-2)}
+
+/* tables */
+.tablebar{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;margin:12px 0 10px}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
+th,td{padding:7px 10px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+thead th{position:sticky;top:0;background:var(--surface-2);font-weight:600;color:var(--ink-2);font-size:12px;z-index:1}
+th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--surface);z-index:2;min-width:200px;white-space:normal}
+thead th:first-child{background:var(--surface-2);z-index:3}
+td{font-variant-numeric:tabular-nums}
+tr.sec td{background:var(--surface-2);font-weight:600;color:var(--ink);text-align:left;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+tr.sec td:first-child{background:var(--surface-2)}
+tr.ind td:first-child{padding-left:26px;color:var(--ink-2)}
+tr.ref td{color:var(--muted)}
+td.fut,th.fut{background:repeating-linear-gradient(135deg,transparent 0 6px,var(--band) 6px 7px)}
+th.ytd,td.ytd{border-left:1px solid var(--line-2);font-weight:600}
+td.bad{background:var(--crit-wash)} td.watch{background:var(--warn-wash)} td.okc{background:var(--good-wash)}
+th.sel,td.sel{box-shadow:inset 1px 0 0 var(--accent),inset -1px 0 0 var(--accent)}
+tbody tr:hover td{background-image:linear-gradient(var(--band),var(--band))}
+tbody tr:last-child td{border-bottom:none}
+td.txt{white-space:normal;text-align:left;min-width:220px}
+.legend-t{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.legend-t span{display:inline-flex;gap:6px;align-items:center}
+.legend-t .sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+
+/* benchmarks */
+.bench{display:grid;gap:10px;margin-top:12px}
+.bench .brow{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr) minmax(0,1.6fr) minmax(0,1.6fr) auto;gap:10px 16px;align-items:center;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.bench .brow.head{background:var(--surface-2);font-size:12px;color:var(--ink-2);font-weight:600;text-transform:uppercase;letter-spacing:.04em;padding-block:8px}
+.bench .m{font-weight:600;font-size:14px}
+.bench .m small{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.bench .pv{font-size:20px;font-weight:600}
+.bench .pv small{display:block;font-size:12px;color:var(--muted);font-weight:400}
+.bench .mk{font-size:13px;color:var(--ink-2)}
+.bench .mk b{color:var(--ink)}
+.bench .src{font-size:12px;color:var(--muted);margin-top:4px}
+.bench .src a{color:var(--accent);text-decoration:none}
+.bench .pos svg{display:block;width:100%;height:auto}
+@media (max-width:980px){.bench .brow{grid-template-columns:1fr 1fr}.bench .brow.head{display:none}.bench .brow>*:first-child{grid-column:1/-1}}
+
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:step;padding:0;margin:12px 0 0;list-style:none}
+@media (max-width:900px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.flow{grid-template-columns:1fr}}
+.flow li{counter-increment:step;display:flex;flex-direction:column;gap:6px}
+.flow .when{font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.02em}
+.flow .when::before{content:counter(step) " · ";color:var(--muted)}
+.flow h3{font-size:15px}
+.flow p{font-size:13.5px;color:var(--ink-2)}
+.flow .who{font-size:12px;color:var(--muted);margin-top:auto}
+dl.defs{display:grid;grid-template-columns:minmax(120px,max-content) 1fr;gap:8px 14px;margin:12px 0 0;font-size:13.5px}
+dl.defs dt{font-weight:600} dl.defs dd{margin:0;color:var(--ink-2)}
+@media (max-width:520px){dl.defs{grid-template-columns:1fr}dl.defs dd{margin-bottom:6px}}
+ul.issues{margin:12px 0 0;padding-left:18px;display:grid;gap:8px;font-size:13.5px;color:var(--ink-2)}
+ul.issues b{color:var(--ink);font-weight:600}
+details{margin-top:12px}
+summary{cursor:pointer;font-weight:500;font-size:14px}
+pre{margin:10px 0 0;padding:12px;background:var(--surface-2);border-radius:8px;font-size:11.5px;line-height:1.5;overflow-x:auto;color:var(--ink-2);max-height:420px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+
+/* forms (db) */
+.form{display:grid;gap:10px;margin-top:12px}
+.form .frow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.form .fld{display:flex;flex-direction:column;gap:4px}
+.form .fld label{font-size:12px;color:var(--muted);font-weight:500}
+.form .actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.form .status{font-size:12.5px;color:var(--muted)}
+.dbnote{font-size:12.5px;color:var(--muted);margin-top:6px}
+.decisions{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.decisions li{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:9px 12px;border-radius:10px;background:var(--surface-2);font-size:13.5px}
+.decisions li.done{opacity:.6}
+.decisions li .meta{font-size:12px;color:var(--muted);display:block}
+.decisions li button{font-size:12px;padding:4px 9px}
+footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);display:grid;gap:4px}
+@media (prefers-reduced-motion:no-preference){.view{animation:fade .18s ease-out}@keyframes fade{from{opacity:.4}to{opacity:1}}}
+</style>
+<div class="wrap">
+<header class="top">
+  <div class="row">
+    <div class="brand">
+      <div class="eyebrow">Perla Helsa · Україна · щомісячний знімок для Борду</div>
+      <h1>Perla Helsa Cockpit</h1>
+      <p class="meta" id="meta">Дані BigQuery, база — дата відвантаження, суми в USD.</p>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="month">Звітний місяць</label>
+        <select id="month"></select>
+      </div>
+      <div class="field" style="min-width:0">
+        <label id="tabs-label">Для кого</label>
+        <nav class="tabs" role="tablist" aria-labelledby="tabs-label">
+          <button class="tab" role="tab" id="t-ceo" data-v="ceo" aria-controls="v-ceo"><span class="k">CEO</span>Стан компанії</button>
+          <button class="tab" role="tab" id="t-cmo" data-v="cmo" aria-controls="v-cmo"><span class="k">CMO</span>Маркетинг</button>
+          <button class="tab" role="tab" id="t-cfo" data-v="cfo" aria-controls="v-cfo"><span class="k">CFO</span>Фінанси</button>
+          <button class="tab" role="tab" id="t-clust" data-v="clust" aria-controls="v-clust"><span class="k">CLUST</span>Board Pack</button>
+          <button class="tab" role="tab" id="t-bench" data-v="bench" aria-controls="v-bench"><span class="k">Ринок</span>Бенчмарки</button>
+          <button class="tab" role="tab" id="t-flow" data-v="flow" aria-controls="v-flow"><span class="k">Процес</span>Як це працює</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CEO -->
+<section class="view" id="v-ceo" role="tabpanel" aria-labelledby="t-ceo">
+  <div class="vhead">
+    <h2>Стан компанії за місяць</h2>
+    <p>Одна сторінка для CEO: три висновки, вісім цифр, що потребує рішення, пульс останніх шести тижнів і лог рішень.</p>
+  </div>
+  <div class="card verdict" id="ceo-verdict"></div>
+  <div class="tiles" id="ceo-tiles"></div>
+  <div class="grid g57">
+    <div class="card">
+      <h3>Що потребує рішення</h3>
+      <p class="sub">Прапорці формуються автоматично з даних і ручних вводів CFO; відсортовано за важливістю</p>
+      <ul class="flags" id="ceo-flags"></ul>
+    </div>
+    <div class="card">
+      <h3>Пульс: останні 6 тижнів по днях</h3>
+      <p class="sub" id="pulse-sub">Виручка B2C за день (стовпчики) і середнє за 7 днів (лінія). Неділі без відвантажень — порожні.</p>
+      <div class="plot" id="pulse"></div>
+      <div class="legend" id="pulse-legend"></div>
+      <div class="plot" id="pulse2"></div>
+      <div class="legend" id="pulse2-legend"></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Факти місяця</h3>
+      <p class="sub">Формуються з даних автоматично</p>
+      <ul class="facts" id="ceo-facts"></ul>
+    </div>
+    <div class="card">
+      <h3>Лог рішень</h3>
+      <p class="sub">Рішення = власник + термін + цифра ефекту. Один лог замість трьох (Improving Net Profit, Follow up, ClickUp).</p>
+      <ul class="decisions" id="decisions"></ul>
+      <form class="form" id="decision-form">
+        <div class="frow">
+          <div class="fld" style="grid-column:1/-1"><label for="d-text">Рішення і цифра ефекту</label><input type="text" id="d-text" placeholder="Напр.: ліміт маркетингу жовтня $132k; ефект — CM3 ≥ 35%" maxlength="300"></div>
+          <div class="fld"><label for="d-owner">Власник</label><input type="text" id="d-owner" maxlength="60"></div>
+          <div class="fld"><label for="d-due">Термін</label><input type="date" id="d-due"></div>
+        </div>
+        <div class="actions"><button class="btn primary" type="submit" id="d-add">Додати рішення</button><span class="status" id="d-status"></span></div>
+      </form>
+      <p class="dbnote" id="d-note"></p>
+    </div>
+  </div>
+</section>
+
+<!-- CMO -->
+<section class="view" id="v-cmo" role="tabpanel" aria-labelledby="t-cmo" hidden>
+  <div class="vhead">
+    <h2>Маркетинг B2C</h2>
+    <p>Для CMO і п'ятничного звіту «знижка + маркетинг»: бюджет і ліміт, вартість замовлення і клієнта, канали, тижні, нові та повторні, когорти, знижки, коментар до Борду.</p>
+  </div>
+  <div class="card verdict" id="cmo-verdict"></div>
+  <div class="tiles" id="cmo-tiles"></div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Маркетинг по каналах, $k на місяць</h3>
+      <p class="sub">fct_ad_stats, з січня 2025. Блогери — обидві половини бюджету. «Інше» — email, SMS, TikTok.</p>
+      <div class="plot" id="ch-chart"></div>
+      <div class="legend" id="ch-legend"></div>
+    </div>
+    <div class="card">
+      <h3>Маркетинг, % виручки B2C, і CPO</h3>
+      <p class="sub">2026 — факт BigQuery; 2025 — P&amp;L. Пунктир — орієнтир 20%.</p>
+      <div class="plot" id="share-chart"></div>
+      <div class="legend" id="share-legend"></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <div class="tablebar" style="margin-top:0">
+      <div><h3>Тижні: останні 16</h3><p class="sub">Пн–нд, база — дата відвантаження. Останній тиждень неповний, маркетинг за останні дні довантажується — CPO і маржу по ньому не цитувати.</p></div>
+      <button class="btn" id="copy-w" type="button">Скопіювати для Google Sheets</button>
+    </div>
+    <div class="scroll"><table id="tbl-w"></table></div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Нові та повторні замовлення</h3>
+      <p class="sub">Оплачені B2C-замовлення за датою створення (analytics.orders). Нове = перше замовлення клієнта в CRM.</p>
+      <div class="plot" id="nr-chart"></div>
+      <div class="legend" id="nr-legend"></div>
+    </div>
+    <div class="card">
+      <h3>Когорти: повтор за 90 / 180 / 365 днів</h3>
+      <p class="sub">За кварталом першого оплаченого замовлення. Сірі клітинки — когорта ще не дозріла для вікна.</p>
+      <div class="scroll" style="margin-top:10px"><table id="tbl-coh"></table></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Замовлення за джерелом (last-click UTM)</h3>
+      <p class="sub">Відвантажені B2C-замовлення, частка. CRM = email + Viber. Офлайн = месенджери, сервіс, кол-центр.</p>
+      <div class="plot" id="utm-chart"></div>
+      <div class="legend" id="utm-legend"></div>
+    </div>
+    <div class="card">
+      <h3>Ефективна знижка з 2024</h3>
+      <p class="sub">За датою створення (1 − чек / повна ціна) і за daily_kpi_metrics у 2026 (дата відвантаження). Пунктир — план 25%.</p>
+      <div class="plot" id="disc-chart"></div>
+      <div class="legend" id="disc-legend"></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <h3>Коментар CMO до Борду · заповнює маркетинг до 3-го робочого дня</h3>
+    <p class="sub" id="cmo-form-sub"></p>
+    <form class="form" id="cmo-form">
+      <div class="fld"><label for="c-q1">1. Що сталося з виручкою, замовленнями і CPO і чому?</label><textarea id="c-q1" maxlength="2000"></textarea></div>
+      <div class="fld"><label for="c-q2">2. Які рішення ухвалені за місяць і що вони дали в цифрах?</label><textarea id="c-q2" maxlength="2000"></textarea></div>
+      <div class="fld"><label for="c-q3" id="c-q3-label">3. План і бюджет на наступний місяць за правилом скейлу, по каналах.</label><textarea id="c-q3" maxlength="2000"></textarea></div>
+      <div class="actions"><button class="btn primary" type="submit" id="c-save">Зберегти коментар</button><span class="status" id="c-status"></span></div>
+    </form>
+    <p class="dbnote" id="c-note"></p>
+  </div>
+</section>
+
+<!-- CFO -->
+<section class="view" id="v-cfo" role="tabpanel" aria-labelledby="t-cfo" hidden>
+  <div class="vhead">
+    <h2>Фінанси</h2>
+    <p>Для CFO і звірки до 10-го: усі сегменти, NC компанії, P&amp;L з Finance Dashboard, B2B і дебіторка, запаси й кеш (ручні вводи), звірка BigQuery ↔ FD.</p>
+  </div>
+  <div class="tiles" id="cfo-tiles"></div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>P&amp;L 2026 за Finance Dashboard, $ тис.</h3>
+      <p class="sub" id="pnl-sub"></p>
+      <div class="scroll" style="margin-top:10px"><table id="tbl-pnl"></table></div>
+      <p class="note" id="pnl-note" style="margin-top:8px"></p>
+    </div>
+    <div class="card">
+      <h3>Звірка BigQuery ↔ Finance Dashboard</h3>
+      <p class="sub">Допуск 2%. Розбіжність понад 3% — окремий рядок з поясненням у Board Pack. Знімок на 1-ше не переписується, зміни видно як ревізію.</p>
+      <div class="scroll" style="margin-top:10px"><table id="tbl-rec"></table></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <div class="tablebar" style="margin-top:0">
+      <div><h3>Усі сегменти по місяцях, $ тис.</h3><p class="sub">B2C, B2B, інше; COGS, маржі, маркетинг, NC компанії. База — дата відвантаження.</p></div>
+      <button class="btn" id="copy-seg" type="button">Скопіювати для Google Sheets</button>
+    </div>
+    <div class="scroll"><table id="tbl-seg"></table></div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>B2B: відвантажено і отримано грошей, $k</h3>
+      <p class="sub">Відвантаження — daily_kpi_metrics; надходження — fct_b2b_payments за датою оплати. Різниця накопичується в дебіторці.</p>
+      <div class="plot" id="b2b-chart"></div>
+      <div class="legend" id="b2b-legend"></div>
+    </div>
+    <div class="card">
+      <h3>B2B: концентрація, рахунки 2026</h3>
+      <p class="sub" id="b2b-sub"></p>
+      <div class="chan" id="b2b-clients"></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Кеш, дебіторка, запаси · ручні вводи фінансів</h3>
+      <p class="sub" id="cfo-form-sub"></p>
+      <form class="form" id="cfo-form">
+        <div class="frow">
+          <div class="fld"><label for="f-cash">Звірений з банком залишок, $</label><input type="number" id="f-cash" min="0" step="1000"></div>
+          <div class="fld"><label for="f-cash-date">Дата звірки</label><input type="date" id="f-cash-date"></div>
+          <div class="fld"><label for="f-liab">Реєстр зобов'язань, грн</label><input type="number" id="f-liab" min="0" step="100000"></div>
+        </div>
+        <div class="frow">
+          <div class="fld"><label for="f-ar">Дебіторка B2B, грн</label><input type="number" id="f-ar" min="0" step="100000"></div>
+          <div class="fld"><label for="f-overdue">Просрочка, %</label><input type="number" id="f-overdue" min="0" max="100" step="0.1"></div>
+          <div class="fld"><label for="f-dso">DSO, днів</label><input type="number" id="f-dso" min="0" step="1"></div>
+        </div>
+        <div class="frow">
+          <div class="fld"><label for="f-stock-ua">Склад Україна, $</label><input type="number" id="f-stock-ua" min="0" step="1000"></div>
+          <div class="fld"><label for="f-stock-pl">Склад Польща, $</label><input type="number" id="f-stock-pl" min="0" step="1000"></div>
+          <div class="fld"><label for="f-transit">У дорозі і підтверджено, $</label><input type="number" id="f-transit" min="0" step="1000"></div>
+        </div>
+        <div class="fld"><label for="f-note">Коментар фінансів (що не сходиться і чому)</label><textarea id="f-note" maxlength="2000"></textarea></div>
+        <div class="actions"><button class="btn primary" type="submit" id="f-save">Зберегти</button><span class="status" id="f-status"></span></div>
+      </form>
+      <p class="dbnote" id="f-note-db"></p>
+    </div>
+    <div class="card">
+      <h3>Що відомо про кеш і борг</h3>
+      <p class="sub">З діагностики 27.09; оновлюється разом із ручними вводами</p>
+      <dl class="kv" id="cash-kv"></dl>
+      <div class="scroll" style="margin-top:12px"><table id="tbl-debt"></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLUST -->
+<section class="view" id="v-clust" role="tabpanel" aria-labelledby="t-clust" hidden>
+  <div class="vhead">
+    <h2>Board Pack: таблиця ≤ 15 метрик</h2>
+    <p>Формат аркуша Board Pack: усі місяці 2026, план (бюджет і RF CLUST), 2025 і YTD. Гроші — $ тис.; CPO, CAC, AOV — $. Статус — за порогами CLUST.</p>
+  </div>
+  <div class="tablebar">
+    <div class="legend-t">
+      <span><i class="sq" style="background:var(--crit-wash)"></i>гірше порогу</span>
+      <span><i class="sq" style="background:var(--warn-wash)"></i>зона уваги</span>
+      <span><i class="sq" style="background:var(--good-wash)"></i>у нормі</span>
+      <span><i class="sq" style="background:repeating-linear-gradient(135deg,transparent 0 3px,var(--line-2) 3px 4px)"></i>місяць не закритий</span>
+    </div>
+    <button class="btn" id="copy-bp" type="button">Скопіювати для Google Sheets</button>
+  </div>
+  <div class="scroll"><table id="tbl-bp"></table></div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Словник метрик</h3>
+      <dl class="defs">
+        <dt>Виручка B2C</dt><dd>Відвантажені замовлення B2C (сайт, Instagram, месенджери, сервіс) без скасованих і повернених. Та сама таблиця, що і Financial Overview.</dd>
+        <dt>Виручка B2B</dt><dd>Відвантажені B2B-замовлення за daily_kpi_metrics. Оплати B2B — окремо, за датою надходження грошей.</dd>
+        <dt>Маркетинг</dt><dd>Увесь маркетинг B2C: Meta, Google Ads, блогери, email і SMS. Розбивка по каналах — з fct_ad_stats. Google включає ПДВ.</dd>
+        <dt>CPO</dt><dd>Вартість замовлення = маркетинг / відвантажені замовлення.</dd>
+        <dt>CAC</dt><dd>Вартість нового клієнта = маркетинг / нові клієнти. Новий клієнт — перше замовлення клієнта в CRM у місяці відвантаження. Весь маркетинг віднесено на нових — консервативно.</dd>
+        <dt>CM2</dt><dd>Маржа до маркетингу = виручка − COGS (собівартість, доставка, фулфілмент, еквайринг, комісії).</dd>
+        <dt>CM3</dt><dd>Маржа після маркетингу = CM2 − маркетинг. У BigQuery і FD цей показник називається Gross Profit.</dd>
+        <dt>NC компанії</dt><dd>Net contribution: CM3 B2C + GP B2B + GP інших сегментів. NC / маркетинг — тригер Борду 2,5x. Попередня оцінка з BigQuery, фінальна — з P&amp;L.</dd>
+        <dt>Ефективна знижка</dt><dd>Середньозважена за виручкою частка знижки від повної ціни.</dd>
+        <dt>Знижка + маркетинг на замовлення</dt><dd>Сума знижки на замовлення плюс CPO — спільний потолок, який пропонується замість окремого ліміту маркетингу.</dd>
+        <dt>Повтор за 90 днів</dt><dd>Частка нових клієнтів кварталу, що зробили друге оплачене замовлення протягом 90 днів після першого.</dd>
+        <dt>План</dt><dd>Січень–серпень — бюджет 2026. З вересня — RF CLUST (rolling forecast, пропозиція Борду 17.09).</dd>
+        <dt>2025</dt><dd>Факт P&amp;L з Finance Dashboard: у BigQuery рахунки до середини 2025 неповні.</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <h3>Джерела правди: яка цифра звідки</h3>
+      <p class="sub">Цифра з іншого місця йде з поміткою «не звірено» і поясненням різниці</p>
+      <div class="scroll" style="margin-top:10px"><table id="tbl-src"></table></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Що виправлено в даних і ревізії</h3>
+      <ul class="issues">
+        <li><b>У daily_kpi_metrics немає неділь без відвантажень</b> (березень–липень 2026). Разом із ними зникли ≈$48k реклами. Сторінка додає ці витрати з fct_ad_stats; після цього маркетинг березня–червня збігається з P&amp;L у межах 1%. Виправити треба в самій таблиці і, ймовірно, у Financial Overview.</li>
+        <li><b>Бюджет блогерів у fct_ad_stats записаний двома половинами</b>: google / organic і (direct) / (none). Звіти, що групують витрати за джерелом google, завищують Google Ads на половину бюджету блогерів. Тут обидві половини — інфлюенс.</li>
+        <li><b>Себестоимость: Net Cost у BigQuery і COGS у FD — різні визначення.</b> За серпень Net Cost $360k проти $286k у FD; різниця ≈ ПДВ, який у FD іде окремим рядком. Тут CM2 рахується за COGS BigQuery (з доставкою і фулфілментом).</li>
+        <li><b>Маркетинг липня: BigQuery $138k проти FD $147k</b> (−6%). Решта місяців сходяться в межах 2%. Потребує звірки блогерів за липень.</li>
+        <li><b>2026 з BigQuery і 2025 з P&amp;L — різні джерела.</b> По виручці розходяться на 1–2%, тому порівняння р/р коректне з такою похибкою.</li>
+        <li><b>Маркетинг за датою замовлення і за датою відвантаження</b> дає різні цифри до 7–8 числа наступного місяця. Усі таблиці тут — за датою відвантаження; CMO-звіт за датою замовлення йде з поміткою.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>SQL знімка</h3>
+      <p class="sub">Десять запитів із папки board/sql у репозиторії. Запускаються 1-го числа; результати — у board/data/raw.</p>
+      <div id="sql-list"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BENCH -->
+<section class="view" id="v-bench" role="tabpanel" aria-labelledby="t-bench" hidden>
+  <div class="vhead">
+    <h2>Perla проти ринку</h2>
+    <p>Орієнтири для DTC-брендів добавок і wellness, 2025–2026. Доларові абсолюти (CAC, CPA, AOV) — ринок США, тому порівнюємо відносні величини: % виручки, % чека, дні. Джерела — під кожним рядком.</p>
+  </div>
+  <div class="card verdict" id="bench-verdict"></div>
+  <div class="bench" id="bench"></div>
+  <p class="note" id="bench-note" style="margin-top:10px"></p>
+</section>
+
+<!-- FLOW -->
+<section class="view" id="v-flow" role="tabpanel" aria-labelledby="t-flow" hidden>
+  <div class="vhead">
+    <h2>Як це працює: цикл, власники, оновлення</h2>
+    <p>Повторюваний щомісячний цикл підготовки до Борду і тижневий ритм. Кожна цифра має одного власника, одне визначення і одне джерело.</p>
+  </div>
+  <ol class="flow">
+    <li class="card">
+      <span class="when">1-ше число, 11:00 за Києвом</span>
+      <h3>Автоматичний знімок</h3>
+      <p>Claude запускає 10 запитів у BigQuery (board/sql), додає закритий місяць, перераховує попередні і показує ревізії, збирає сторінку (build.py) і публікує нову версію. daily_kpi_metrics оновлюється щодня близько 09:00, тому об 11:00 місяць уже повний.</p>
+      <span class="who">Автоматично · сповіщення CEO</span>
+    </li>
+    <li class="card">
+      <span class="when">До 3-го робочого дня</span>
+      <h3>Коментар CMO</h3>
+      <p>Три відповіді на вкладці «Маркетинг»: що сталося і чому, які рішення дали результат, план і бюджет наступного місяця по каналах за правилом скейлу. Зберігається на сторінці.</p>
+      <span class="who">CMO</span>
+    </li>
+    <li class="card">
+      <span class="when">До 10-го числа</span>
+      <h3>Звірка з P&amp;L і ручні вводи</h3>
+      <p>Фінанси звіряють BigQuery з Finance Dashboard (вкладка «Фінанси»), вносять звірений залишок, реєстр зобов'язань, дебіторку, запаси. Розбіжність понад 3% — окремий рядок з поясненням.</p>
+      <span class="who">Фінанси · аналітик</span>
+    </li>
+    <li class="card">
+      <span class="when">Засідання Борду</span>
+      <h3>Рішення по бюджету</h3>
+      <p>Вкладка CEO або Board Pack + коментар CMO + звірка. Бюджет наступного місяця росте, лише якщо NC / маркетинг ≥ 2,5x і кожен додатковий долар маркетингу приніс ≥ $1 NC. Рішення — у лог з власником і терміном.</p>
+      <span class="who">CEO · Борд · CLUST</span>
+    </li>
+  </ol>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Тижневий ритм</h3>
+      <div class="scroll" style="margin-top:10px"><table id="tbl-rhythm"></table></div>
+    </div>
+    <div class="card">
+      <h3>Хто за що</h3>
+      <div class="scroll" style="margin-top:10px"><table id="tbl-owners"></table></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Що дивиться кожна роль</h3>
+      <dl class="defs">
+        <dt>CEO</dt><dd>Три висновки, вісім цифр, прапорці «що потребує рішення», пульс по днях, лог рішень. Хвилина читання перед будь-якою зустріччю.</dd>
+        <dt>CMO</dt><dd>Бюджет проти ліміту і RF, CPO, CAC, знижка + маркетинг на замовлення, канали, 16 тижнів, нові/повторні, когорти, UTM, знижки з 2024, коментар до Борду.</dd>
+        <dt>CFO</dt><dd>Усі сегменти і NC, P&amp;L FD, звірка BigQuery ↔ FD, B2B відвантажено/оплачено і концентрація, ручні вводи кешу, дебіторки, запасів, борг.</dd>
+        <dt>CLUST</dt><dd>Таблиця Board Pack ≤ 15 метрик зі статусами і планом, словник, джерела правди, ревізії даних, SQL.</dd>
+        <dt>Усі</dt><dd>Вкладка «Бенчмарки»: де Perla відносно медіани і верхнього квартиля ринку, з джерелами.</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <h3>Як оновити вручну</h3>
+      <dl class="defs">
+        <dt>Репозиторій</dt><dd>github.com/asaharone/perla, папка <code>board/</code>: sql/ (10 запитів), data/raw/ (результати), data/*.json (план, пороги, бенчмарки, ручні вводи), build.py, template.html, index.html.</dd>
+        <dt>Крок 1</dt><dd>Запустити запити з sql/ у BigQuery (коннектор у Claude або <code>bq</code> з доступом до perla-holistic-com) і зберегти результати в data/raw/&lt;назва&gt;.json.</dd>
+        <dt>Крок 2</dt><dd><code>python3 build.py</code> — збирає data/snapshot.json та index.html.</dd>
+        <dt>Крок 3</dt><dd>Опублікувати index.html як нову версію цієї сторінки (та сама адреса) і закомітити в репозиторій.</dd>
+        <dt>План і пороги</dt><dd>data/plan.json (бюджет, RF, ліміти) і data/targets.json — міняються рішенням Борду, не в коді.</dd>
+        <dt>Ручні вводи</dt><dd>Кеш, дебіторка, запаси, коментар CMO і лог рішень живуть у базі цієї сторінки (claude.ai). Стартові значення — data/manual_inputs.json.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span id="foot-src"></span>
+  <span id="foot-targets"></span>
+</footer>
+</div>
+<div class="tip" id="tip" hidden></div>
+<script type="application/json" id="data">/*__DATA__*/</script>
+<script type="application/json" id="sql">/*__SQL__*/</script>
+<script>
+(function () {
+'use strict';
+const S = JSON.parse(document.getElementById('data').textContent);
+const SQL = JSON.parse(document.getElementById('sql').textContent);
+const M = S.months, T = S.targets, PL = S.plan, LY = S.ly, MAN = S.manual;
+const MS = ['Січ','Лют','Бер','Кві','Тра','Чер','Лип','Сер','Вер','Жов','Лис','Гру'];
+const MN = ['січень','лютий','березень','квітень','травень','червень','липень','серпень','вересень','жовтень','листопад','грудень'];
+const MG = ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+const YEAR = +M[0].month.slice(0, 4);
+const mi = f => +f.month.slice(5, 7) - 1;
+const MINUS = '−';
+const cap = s => s[0].toUpperCase() + s.slice(1);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- formatting ---------- */
+const grp = s => s.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+const dec = (v, d) => { const [a, b] = Math.abs(v).toFixed(d).split('.'); return grp(a) + (b ? ',' + b : ''); };
+const sg = v => (v < 0 ? MINUS : '');
+const fmt = {
+  usd: v => v == null ? '—' : sg(v) + '$' + (Math.abs(v) >= 1e6 ? dec(v / 1e6, 2) + 'M' : Math.abs(v) >= 1e3 ? dec(v / 1e3, 1) + 'k' : dec(v, 0)),
+  k: v => v == null ? '—' : sg(v) + dec(v / 1e3, 1),
+  k0: v => v == null ? '—' : sg(v) + dec(v / 1e3, 0),
+  usd2: v => v == null ? '—' : sg(v) + '$' + dec(v, 2),
+  usd0: v => v == null ? '—' : sg(v) + '$' + dec(v, 0),
+  int: v => v == null ? '—' : sg(v) + dec(v, 0),
+  pct: v => v == null ? '—' : sg(v) + dec(v * 100, 1) + '%',
+  pct0: v => v == null ? '—' : sg(v) + dec(v * 100, 0) + '%',
+  x: v => v == null ? '—' : sg(v) + dec(v, 2) + 'x',
+  days: v => v == null ? '—' : dec(v, 0) + ' дн.',
+  uah: v => v == null ? '—' : sg(v) + dec(v / 1e6, 1) + ' млн грн',
+  date: s => s ? s.slice(8, 10) + '.' + s.slice(5, 7) + '.' + s.slice(0, 4) : '—',
+  dm: s => s ? s.slice(8, 10) + '.' + s.slice(5, 7) : '—'
+};
+const ps = d => d == null ? '—' : (d > 0 ? '+' : d < 0 ? MINUS : '±') + dec(d * 100, 1) + '%';
+const pp = d => d == null ? '—' : (d > 0 ? '+' : d < 0 ? MINUS : '±') + dec(d * 100, 1) + ' п.п.';
+const pusd = d => d == null ? '—' : (d > 0 ? '+' : d < 0 ? MINUS : '±') + fmt.usd(Math.abs(d));
+const px = d => d == null ? '—' : (d > 0 ? '+' : d < 0 ? MINUS : '±') + dec(Math.abs(d), 2) + 'x';
+const rel = (a, b) => (a == null || b == null || !b) ? null : a / b - 1;
+const sum = (arr, k) => arr.reduce((a, x) => a + (x[k] || 0), 0);
+const avg = arr => arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : null;
+
+/* ---------- plan, status, scale rule ---------- */
+function planAt(m) {
+  const rf = PL.rf, b = PL.budget;
+  if (rf.revenue[m] != null) return { src: 'RF CLUST', to: 'до RF', revenue: rf.revenue[m], orders: rf.orders[m], marketing: rf.marketing[m] };
+  return { src: 'бюджет 2026', to: 'до бюджету', revenue: b.revenue[m], orders: b.orders[m], marketing: b.marketing[m] };
+}
+const limitAt = f => (PL.limit || {})[f.month] || null;
+function st(kind, v) {
+  if (v == null) return null;
+  const S_ = (cls, label) => ({ cls, label, icon: cls === 'ok' ? '✓' : cls === 'watch' ? '!' : '✕' });
+  switch (kind) {
+    case 'mkt_share': return v <= T.mkt_share_b2c ? S_('ok', 'у нормі') : v <= T.mkt_share_b2c + 0.03 ? S_('watch', 'увага') : S_('alert', 'вище орієнтиру');
+    case 'cpo': return v <= T.cpo ? S_('ok', 'у нормі') : v <= T.cpo * 1.1 ? S_('watch', 'увага') : S_('alert', 'вище цілі');
+    case 'nc': return v >= T.nc_watch ? S_('ok', 'у нормі') : v >= T.nc_alert ? S_('watch', 'увага') : S_('alert', 'нижче тригера');
+    case 'disc': return v <= T.discount ? S_('ok', 'у плані') : v <= T.discount + 0.05 ? S_('watch', 'вище плану') : S_('alert', 'вище плану');
+    case 'cm3': return v >= T.cm3_share ? S_('ok', 'у нормі') : v >= T.cm3_share - 0.05 ? S_('watch', 'увага') : S_('alert', 'нижче цілі');
+    case 'cac': return v <= T.cac ? S_('ok', 'у нормі') : v <= T.cac * 1.25 ? S_('watch', 'увага') : S_('alert', 'вище цілі');
+    case 'rep90': return v >= T.rep90 ? S_('ok', 'у нормі') : v >= T.rep90 - 0.05 ? S_('watch', 'увага') : S_('alert', 'нижче орієнтиру');
+    case 'dso': return v <= T.dso ? S_('ok', 'у нормі') : v <= T.dso * 1.2 ? S_('watch', 'увага') : S_('alert', 'вище цілі');
+    case 'overdue': return v <= T.overdue ? S_('ok', 'у нормі') : v <= T.overdue * 1.5 ? S_('watch', 'увага') : S_('alert', 'вище KPI');
+    case 'limit': return v <= 1 ? S_('ok', 'у ліміті') : v <= 1.05 ? S_('watch', 'на межі') : S_('alert', 'понад ліміт');
+  }
+  return null;
+}
+const chip = s => s ? `<span class="chip ${s.cls}"><i aria-hidden="true">${s.icon}</i>${s.label}</span>` : '';
+const chipNa = label => `<span class="chip na"><i aria-hidden="true">?</i>${label}</span>`;
+const cellCls = s => !s ? '' : s.cls === 'ok' ? 'okc' : s.cls === 'watch' ? 'watch' : 'bad';
+const sevOrder = { alert: 0, watch: 1, ok: 2, na: 3 };
+
+function scaleRule(i) {
+  const f = M[i], p = M[i - 1];
+  const r = f.nc_total_per_mkt, s = st('nc', r);
+  let inc = null, dM = null, dNC = null;
+  if (p) { dM = f.marketing - p.marketing; dNC = f.nc_total - p.nc_total; if (dM > 0) inc = dNC / dM; }
+  const allowed = r >= T.nc_watch && (inc == null || inc >= 1);
+  return { st: s, r, inc, dM, dNC, allowed };
+}
+function verdictScale(i) {
+  const f = M[i], m = mi(f), nx = (m + 1) % 12, R = scaleRule(i);
+  const head = R.allowed
+    ? `Бюджет ${MG[nx]} можна збільшувати: NC / маркетинг ${fmt.x(R.r)} ≥ 2,5x`
+    : `Бюджет ${MG[nx]} — не вище рівня ${MG[m]} (${fmt.usd(f.marketing)}): NC / маркетинг ${fmt.x(R.r)} при тригері 2,5x`;
+  let incTxt;
+  if (R.dM == null) incTxt = 'не рахується — немає попереднього місяця';
+  else if (R.dM <= 0) incTxt = 'не рахується — бюджет знизився на ' + fmt.usd(-R.dM);
+  else incTxt = dec(R.inc, 2) + ' (поріг 1,0)';
+  const detail = `Правило скейлу з Board Pack: бюджет росте, лише якщо NC / маркетинг ≥ 2,5x і кожен додатковий $1 маркетингу дав ≥ $1 NC. NC на додатковий $1 маркетингу: ${incTxt}. Оцінка з BigQuery; фінальне рішення — за P&L.`;
+  return { cls: R.st.cls, html: `${chip(R.st)}<p class="vt">${head}</p><p class="vd">${detail}</p>` };
+}
+
+/* ---------- state ---------- */
+const CLOSED = M.filter(f => f.complete);
+let sel = M.indexOf(CLOSED[CLOSED.length - 1]);
+let view = 'ceo';
+try { const v = localStorage.getItem('cockpit-view'); if (/^(ceo|cmo|cfo|clust|bench|flow)$/.test(v || '')) view = v; } catch (e) {}
+if (/^#(ceo|cmo|cfo|clust|bench|flow)$/.test(location.hash)) view = location.hash.slice(1);
+const F = () => M[sel];
+const P = () => M[sel - 1] || null;
+const prevLbl = () => P() ? 'до ' + MG[mi(P())] : '';
+const closedUpTo = () => M.slice(0, sel + 1).filter(f => f.complete);
+const lyAt = (arr, m) => (arr && arr[m] != null) ? arr[m] : null;
+const custAt = ym => S.customers.find(c => c.month === ym) || null;
+const utmAt = ym => S.utm.find(c => c.month === ym) || null;
+const ymOf = (y, m) => `${y}-${String(m + 1).padStart(2, '0')}`;
+function lastMature(key) { const arr = S.cohorts.filter(c => c[key === 'rep90' ? 'mature90' : key === 'rep180' ? 'mature180' : 'mature365']); return arr[arr.length - 1] || null; }
+
+/* ---------- header, tabs ---------- */
+const monthSel = document.getElementById('month');
+M.forEach((f, i) => { const o = document.createElement('option'); o.value = i; o.textContent = cap(MN[mi(f)]) + ' ' + f.month.slice(0, 4) + (f.complete ? '' : ' · неповний'); monthSel.appendChild(o); });
+monthSel.value = String(sel);
+monthSel.addEventListener('change', () => { sel = +monthSel.value; renderAll(); onMonthChanged(); });
+function renderMeta() {
+  const f = F();
+  document.getElementById('meta').innerHTML =
+    `Звітний місяць: <b>${MN[mi(f)]} ${f.month.slice(0, 4)}</b>${f.complete ? '' : ' (неповний, по ' + fmt.dm(S.data_through) + ')'} · знімок ${fmt.date(S.generated)} · дані по ${fmt.date(S.data_through)} · база — дата відвантаження, USD.`;
+  document.getElementById('foot-src').textContent = 'Джерело: ' + S.source + '. План — Board Pack (бюджет 2026, RF CLUST); 2025 — P&L Finance Dashboard; ручні вводи — фінанси.';
+  document.getElementById('foot-targets').textContent = `Пороги CLUST: маркетинг ≤ ${fmt.pct0(T.mkt_share_b2c)} виручки B2C (${fmt.pct0(T.mkt_share_total)} від загальної), CPO ≤ ${fmt.usd0(T.cpo)}, NC / маркетинг ≥ ${dec(T.nc_watch, 1)}x, знижка ≤ ${fmt.pct0(T.discount)}, CM3 ≥ ${fmt.pct0(T.cm3_share)}, DSO ≤ ${T.dso} дн., просрочка ≤ ${fmt.pct0(T.overdue)}, кеш ≥ ${fmt.usd(T.cash_min_usd)}. На погодження Борду 22.10.`;
+}
+const tabs = [...document.querySelectorAll('.tab')];
+function setView(v, push) {
+  view = v;
+  tabs.forEach(t => t.setAttribute('aria-selected', String(t.dataset.v === v)));
+  document.querySelectorAll('.view').forEach(s => { s.hidden = s.id !== 'v-' + v; });
+  try { localStorage.setItem('cockpit-view', v); } catch (e) {}
+  if (push) { try { history.replaceState(null, '', '#' + v); } catch (e) {} }
+}
+tabs.forEach(t => t.addEventListener('click', () => setView(t.dataset.v, true)));
+tabs.forEach((t, k) => t.addEventListener('keydown', e => {
+  if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+  const n = tabs[(k + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; n.focus(); setView(n.dataset.v, true);
+}));
+document.addEventListener('click', e => { const a = e.target.closest('a[data-tab]'); if (a) { e.preventDefault(); setView(a.dataset.tab, true); window.scrollTo({ top: 0 }); } });
+
+/* ---------- tooltip ---------- */
+const tipEl = document.getElementById('tip');
+function showTip(html, x, y) {
+  tipEl.innerHTML = html; tipEl.hidden = false;
+  const r = tipEl.getBoundingClientRect();
+  let left = x + 14, top = y + 14;
+  if (left + r.width > window.innerWidth - 8) left = x - r.width - 14;
+  if (top + r.height > window.innerHeight - 8) top = y - r.height - 14;
+  tipEl.style.left = Math.max(8, left) + 'px'; tipEl.style.top = Math.max(8, top) + 'px';
+}
+function hideTip() { tipEl.hidden = true; }
+
+/* ---------- charts (SVG) ---------- */
+const NS = 'http://www.w3.org/2000/svg';
+function niceTicks(lo, hi, n) {
+  if (hi === lo) { hi = lo + 1; }
+  const span = hi - lo, raw = span / n, p = Math.pow(10, Math.floor(Math.log10(raw)));
+  const cand = [1, 2, 2.5, 5, 10].map(c => c * p);
+  const step = cand.find(c => c >= raw) || cand[cand.length - 1];
+  const t0 = Math.ceil(lo / step) * step, out = [];
+  for (let v = t0; v <= hi + 1e-9; v += step) out.push(+v.toFixed(10));
+  return out;
+}
+function spark(vals, target) {
+  const v = vals.filter(x => x != null); if (!v.length) return '';
+  const W = 240, H = 36, pad = 5, all = v.concat(target != null ? [target] : []);
+  let lo = Math.min(...all), hi = Math.max(...all); if (hi === lo) { hi += 1; lo -= 1; }
+  const x = k => vals.length === 1 ? W / 2 : pad + (W - 2 * pad) * k / (vals.length - 1);
+  const y = u => pad + (H - 2 * pad) * (1 - (u - lo) / (hi - lo));
+  const pts = vals.map((u, k) => u == null ? null : `${x(k).toFixed(1)},${y(u).toFixed(1)}`).filter(Boolean).join(' ');
+  const t = target != null ? `<line x1="0" x2="${W}" y1="${y(target).toFixed(1)}" y2="${y(target).toFixed(1)}" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>` : '';
+  const k = vals.length - 1;
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" aria-hidden="true">${t}<polyline points="${pts}" fill="none" stroke="var(--ly)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/>` +
+    (vals[k] != null ? `<circle cx="${x(k).toFixed(1)}" cy="${y(vals[k]).toFixed(1)}" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>` : '') + `</svg>`;
+}
+
+/* lineChart: labels[], series:[{name,color,values,dash,ref}], fmt, refs:[{value,label}], ymin0 */
+function lineChart(el, o) {
+  const W = 640, H = o.height || 230, L = 46, R = 12, Tp = 14, B = 30;
+  const n = o.labels.length;
+  let vals = [];
+  o.series.forEach(s => s.values.forEach(v => { if (v != null) vals.push(v); }));
+  (o.refs || []).forEach(r => vals.push(r.value));
+  if (!vals.length) { el.innerHTML = '<p class="note">Немає даних</p>'; return; }
+  let lo = o.ymin0 ? Math.min(0, ...vals) : Math.min(...vals), hi = Math.max(...vals);
+  if (!o.ymin0) { const padv = (hi - lo) * 0.1 || Math.abs(hi) * 0.1 || 1; lo -= padv; hi += padv; }
+  if (o.ymax != null) hi = Math.max(hi, o.ymax);
+  const ticks = niceTicks(lo, hi, 4); lo = Math.min(lo, ticks[0]); hi = Math.max(hi, ticks[ticks.length - 1]);
+  const x = k => L + (W - L - R) * (n === 1 ? 0.5 : k / (n - 1));
+  const y = v => Tp + (H - Tp - B) * (1 - (v - lo) / (hi - lo));
+  let g = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.aria || '')}">`;
+  ticks.forEach(t => { g += `<line x1="${L}" x2="${W - R}" y1="${y(t).toFixed(1)}" y2="${y(t).toFixed(1)}" stroke="var(--line)" stroke-width="1"/><text x="${L - 6}" y="${(y(t) + 4).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--muted)">${esc(o.fmt(t, true))}</text>`; });
+  const every = n > 14 ? Math.ceil(n / 12) : 1;
+  o.labels.forEach((lb, k) => { if (k % every === 0 || (k === n - 1 && (n - 1) % every > every / 2)) g += `<text x="${x(k).toFixed(1)}" y="${H - 8}" text-anchor="middle" font-size="11" fill="var(--muted)">${esc(lb)}</text>`; });
+  (o.refs || []).forEach(r => { g += `<line x1="${L}" x2="${W - R}" y1="${y(r.value).toFixed(1)}" y2="${y(r.value).toFixed(1)}" stroke="var(--ref)" stroke-width="1.5" stroke-dasharray="5 4"/><text x="${W - R}" y="${(y(r.value) - 4).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--ink-2)">${esc(r.label)}</text>`; });
+  if (o.bands) o.bands.forEach(b => { g += `<rect x="${x(b.from).toFixed(1)}" y="${Tp}" width="${(x(b.to) - x(b.from)).toFixed(1)}" height="${H - Tp - B}" fill="var(--band)"/>`; });
+  o.series.forEach(s => {
+    let d = '', open = false;
+    s.values.forEach((v, k) => { if (v == null) { open = false; return; } d += (open ? 'L' : 'M') + x(k).toFixed(1) + ' ' + y(v).toFixed(1); open = true; });
+    g += `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"${s.dash ? ' stroke-dasharray="5 4"' : ''}/>`;
+    const lastK = s.values.map((v, k) => v == null ? -1 : k).filter(k => k >= 0).pop();
+    if (lastK != null && !s.dash) g += `<circle cx="${x(lastK).toFixed(1)}" cy="${y(s.values[lastK]).toFixed(1)}" r="4" fill="${s.color}" stroke="var(--surface)" stroke-width="2"/>`;
+  });
+  g += `<line id="xh" x1="0" x2="0" y1="${Tp}" y2="${H - B}" stroke="var(--line-2)" stroke-width="1" visibility="hidden"/>`;
+  g += `<rect x="${L}" y="${Tp}" width="${W - L - R}" height="${H - Tp - B}" fill="transparent" class="hit"/></svg>`;
+  el.innerHTML = g;
+  const svg = el.querySelector('svg'), xh = svg.querySelector('#xh');
+  const move = ev => {
+    const pt = svg.getBoundingClientRect(); const px_ = (ev.clientX - pt.left) / pt.width * W;
+    let k = Math.round((px_ - L) / ((W - L - R) / (n === 1 ? 1 : n - 1))); k = Math.max(0, Math.min(n - 1, k));
+    xh.setAttribute('x1', x(k)); xh.setAttribute('x2', x(k)); xh.setAttribute('visibility', 'visible');
+    const rows = o.series.map(s => s.values[k] == null ? '' : `<div class="r"><i class="${s.dash ? 'dash' : ''}" style="border-color:${s.color}"></i><em>${esc(s.name)}</em><b>${esc(o.fmt(s.values[k]))}</b></div>`).join('');
+    showTip(`<div class="t">${esc(o.tipLabels ? o.tipLabels[k] : o.labels[k])}</div>${rows}`, ev.clientX, ev.clientY);
+  };
+  svg.addEventListener('mousemove', move); svg.addEventListener('touchmove', e => { move(e.touches[0]); }, { passive: true });
+  svg.addEventListener('mouseleave', () => { hideTip(); xh.setAttribute('visibility', 'hidden'); }); svg.addEventListener('touchend', hideTip);
+}
+/* barChart: labels[], series:[{name,color,values}], stacked, fmt, refs, line:{name,color,values} optional (same unit) */
+function barChart(el, o) {
+  const W = 640, H = o.height || 230, L = 46, R = 12, Tp = 14, B = 30, n = o.labels.length;
+  const tot = o.labels.map((_, k) => o.stacked ? o.series.reduce((a, s) => a + (s.values[k] || 0), 0) : Math.max(...o.series.map(s => s.values[k] || 0)));
+  let hi = Math.max(0, ...tot, ...(o.refs || []).map(r => r.value), ...((o.line && o.line.values) || []).filter(v => v != null));
+  let lo = Math.min(0, ...o.series.flatMap(s => s.values.filter(v => v != null)));
+  const ticks = niceTicks(lo, hi, 4); hi = Math.max(hi, ticks[ticks.length - 1]); lo = Math.min(lo, ticks[0]);
+  const slot = (W - L - R) / n, bw = Math.max(3, slot * (o.stacked ? 0.66 : 0.8 / o.series.length));
+  const y = v => Tp + (H - Tp - B) * (1 - (v - lo) / (hi - lo));
+  let g = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.aria || '')}">`;
+  ticks.forEach(t => { g += `<line x1="${L}" x2="${W - R}" y1="${y(t).toFixed(1)}" y2="${y(t).toFixed(1)}" stroke="var(--line)" stroke-width="1"/><text x="${L - 6}" y="${(y(t) + 4).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--muted)">${esc(o.fmt(t, true))}</text>`; });
+  const every = n > 14 ? Math.ceil(n / 12) : 1;
+  o.labels.forEach((lb, k) => { if (k % every === 0 || (k === n - 1 && (n - 1) % every > every / 2)) g += `<text x="${(L + slot * (k + 0.5)).toFixed(1)}" y="${H - 8}" text-anchor="middle" font-size="11" fill="var(--muted)">${esc(lb)}</text>`; });
+  o.labels.forEach((_, k) => {
+    let acc = 0;
+    o.series.forEach((s, si) => {
+      const v = s.values[k]; if (v == null || v === 0) return;
+      const x0 = o.stacked ? L + slot * (k + 0.5) - bw / 2 : L + slot * k + slot * 0.1 + si * bw;
+      const y0 = o.stacked ? y(acc + Math.max(v, 0)) : y(Math.max(v, 0)), y1 = o.stacked ? y(acc) : y(Math.min(v, 0));
+      const h = Math.max(0, Math.abs(y1 - y0) - 2);
+      g += `<rect x="${x0.toFixed(1)}" y="${(Math.min(y0, y1) + 1).toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" fill="${s.color}" rx="${o.stacked ? 0 : 3}"${o.muted && o.muted[k] ? ' opacity=".45"' : ''}/>`;
+      if (o.stacked) acc += v;
+    });
+  });
+  (o.refs || []).forEach(r => { g += `<line x1="${L}" x2="${W - R}" y1="${y(r.value).toFixed(1)}" y2="${y(r.value).toFixed(1)}" stroke="var(--ref)" stroke-width="1.5" stroke-dasharray="5 4"/><text x="${W - R}" y="${(y(r.value) - 4).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--ink-2)">${esc(r.label)}</text>`; });
+  if (o.line) {
+    let d = '', open = false;
+    o.line.values.forEach((v, k) => { if (v == null) { open = false; return; } d += (open ? 'L' : 'M') + (L + slot * (k + 0.5)).toFixed(1) + ' ' + y(v).toFixed(1); open = true; });
+    g += `<path d="${d}" fill="none" stroke="${o.line.color}" stroke-width="2" stroke-linejoin="round"/>`;
+  }
+  g += `<rect id="hl" x="0" y="${Tp}" width="${slot.toFixed(1)}" height="${H - Tp - B}" fill="var(--band)" visibility="hidden"/>`;
+  g += `<rect x="${L}" y="${Tp}" width="${W - L - R}" height="${H - Tp - B}" fill="transparent"/></svg>`;
+  el.innerHTML = g;
+  const svg = el.querySelector('svg'), hl = svg.querySelector('#hl');
+  const move = ev => {
+    const pt = svg.getBoundingClientRect(); const px_ = (ev.clientX - pt.left) / pt.width * W;
+    let k = Math.floor((px_ - L) / slot); k = Math.max(0, Math.min(n - 1, k));
+    hl.setAttribute('x', (L + slot * k).toFixed(1)); hl.setAttribute('visibility', 'visible');
+    let rows = o.series.map(s => s.values[k] == null ? '' : `<div class="r"><i class="box" style="background:${s.color};border-color:${s.color}"></i><em>${esc(s.name)}</em><b>${esc(o.fmt(s.values[k]))}</b></div>`).join('');
+    if (o.stacked && o.series.length > 1) rows += `<div class="r"><i></i><em>Разом</em><b>${esc(o.fmt(tot[k]))}</b></div>`;
+    if (o.line && o.line.values[k] != null) rows += `<div class="r"><i style="border-color:${o.line.color}"></i><em>${esc(o.line.name)}</em><b>${esc(o.fmt(o.line.values[k]))}</b></div>`;
+    if (o.extra) rows += o.extra(k);
+    showTip(`<div class="t">${esc(o.tipLabels ? o.tipLabels[k] : o.labels[k])}</div>${rows}`, ev.clientX, ev.clientY);
+  };
+  svg.addEventListener('mousemove', move); svg.addEventListener('touchmove', e => { move(e.touches[0]); }, { passive: true });
+  svg.addEventListener('mouseleave', () => { hideTip(); hl.setAttribute('visibility', 'hidden'); }); svg.addEventListener('touchend', hideTip);
+}
+const legend = (el, items) => { el.innerHTML = items.map(i => `<span><i class="lk ${i.dash ? 'dash' : ''} ${i.box ? 'box' : ''}" style="${i.box ? 'background:' + i.color : 'color:' + i.color}"></i>${esc(i.name)}</span>`).join(''); };
+
+/* ---------- tables ---------- */
+function tableHTML(cols, rows) {
+  let h = '<thead><tr>' + cols.map(c => `<th class="${c.cls || ''}">${c.label}</th>`).join('') + '</tr></thead><tbody>';
+  rows.forEach(r => {
+    if (r.section) { h += `<tr class="sec"><td colspan="${cols.length}">${esc(r.section)}</td></tr>`; return; }
+    h += `<tr class="${r.cls || ''}">` + r.cells.map((c, k) => `<td class="${(cols[k].cls || '')} ${c.cls || ''}">${c.html != null ? c.html : esc(c.text)}</td>`).join('') + '</tr>';
+  });
+  return h + '</tbody>';
+}
+function copyTable(tbl, btn) {
+  const rows = [...tbl.querySelectorAll('tr')].map(tr => [...tr.children].map(td => td.textContent.replace(/\s+/g, ' ').trim().replace(/−/g, '-')).join('\t')).join('\n');
+  const done = ok => { const t = btn.textContent; btn.textContent = ok ? 'Скопійовано' : 'Виділіть таблицю і скопіюйте'; setTimeout(() => { btn.textContent = t; }, 1800); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(rows).then(() => done(true), () => { selectAll(tbl); done(false); });
+  else { selectAll(tbl); done(false); }
+}
+function selectAll(node) { try { const r = document.createRange(); r.selectNodeContents(node); const s = window.getSelection(); s.removeAllRanges(); s.addRange(r); } catch (e) {} }
+const tile = o => `<div class="card tile"><div class="lbl"><span>${o.label}</span>${o.chip || ''}</div><div class="val">${o.value}</div>` +
+  (o.hint ? `<div class="hint">${o.hint}</div>` : '') + `<div class="deltas">${(o.deltas || []).filter(Boolean).join('')}</div>${o.spark || ''}</div>`;
+const dl = (label, txt, cls) => txt && txt !== '—' ? `<span>${label} <b class="${cls || 'neutral'}">${txt}</b></span>` : '';
+const good = (d, better) => d == null || !better || Math.abs(d) < 1e-9 ? 'neutral' : ((d > 0) === (better === 'up') ? 'up-good' : 'up-bad');
+const series = (key, i) => M.slice(0, i + 1).map(f => f[key]);
+
+/* ================= CEO ================= */
+function growthYoY() {
+  // B2C, created-date basis (analytics.orders): Jan..selected month of this year vs same months last year
+  const f = F(), y = +f.month.slice(0, 4), m = mi(f);
+  let cur = 0, prev = 0, newCur = 0, newPrev = 0, ok = true;
+  for (let k = 0; k <= m; k++) {
+    const a = custAt(ymOf(y, k)), b = custAt(ymOf(y - 1, k));
+    if (!a || !b) { ok = false; break; }
+    cur += a.revenue_usd; prev += b.revenue_usd; newCur += a.first_orders; newPrev += b.first_orders;
+  }
+  if (!ok) return null;
+  const a = custAt(f.month), b = custAt(ymOf(y - 1, m));
+  return { rev: rel(cur, prev), newc: rel(newCur, newPrev), monthNew: a && b ? rel(a.first_orders, b.first_orders) : null, monthRev: a && b ? rel(a.revenue_usd, b.revenue_usd) : null, cur, prev, newCur, newPrev };
+}
+function manualState() {
+  // inputs doc for the selected month (db) → fallback seed from manual_inputs.json
+  const d = INPUTS[F().month];
+  const seed = MAN;
+  const g = (k, s) => (d && d[k] != null && d[k] !== '') ? d[k] : s;
+  return {
+    cash: g('cash_usd', seed.cash.verified_usd), cash_date: g('cash_date', seed.cash.verified_date), liab: g('liabilities_uah', seed.cash.liabilities_uah),
+    ar: g('ar_uah', seed.ar.total_uah), overdue: g('overdue_pct', seed.ar.overdue_pct), dso: g('dso_days', seed.ar.dso_days),
+    stock_ua: g('stock_ua_usd', seed.inventory.stock_ua_usd), stock_pl: g('stock_pl_usd', seed.inventory.stock_pl_usd), transit: g('transit_usd', seed.inventory.in_transit_usd),
+    note: g('note', ''), updated: d && d.updated ? d.updated : null, fromDb: !!d, as_of: d && d.updated ? d.updated.slice(0, 10) : seed.as_of
+  };
+}
+function flagsFor(i) {
+  const f = M[i], m = mi(f), out = [];
+  const R = scaleRule(i), lim = limitAt(f), g = growthYoY(), ms = manualState();
+  const push = (cls, text, who, tab) => out.push({ cls, text, who, tab });
+  if (R.st.cls !== 'ok') push(R.st.cls, `NC / маркетинг ${fmt.x(R.r)} при тригері 2,5x — бюджет ${MG[(m + 1) % 12]} не вище ${fmt.usd(f.marketing)}.`, 'CEO · CMO', 'cmo');
+  if (lim && f.marketing > lim) push('alert', `Маркетинг ${fmt.usd(f.marketing)} понад ліміт ${fmt.usd(lim)} (${ps(rel(f.marketing, lim))}).`, 'CMO', 'cmo');
+  const sm = st('mkt_share', f.mkt_share); if (sm && sm.cls !== 'ok') push(sm.cls, `Маркетинг ${fmt.pct(f.mkt_share)} виручки B2C при орієнтирі ≤ ${fmt.pct0(T.mkt_share_b2c)}; CPO ${fmt.usd2(f.cpo)} при цілі ≤ ${fmt.usd0(T.cpo)}.`, 'CMO', 'cmo');
+  const sd = st('disc', f.discount_eff); if (sd && sd.cls !== 'ok') push(sd.cls, `Ефективна знижка ${fmt.pct(f.discount_eff)} при плані ${fmt.pct0(T.discount)}: знижка + маркетинг на замовлення ${fmt.usd2(f.disc_mkt_per_order)} при AOV ${fmt.usd2(f.aov)}.`, 'CMO · CEO', 'cmo');
+  const sc = st('cm3', f.cm3_share); if (sc && sc.cls !== 'ok') push(sc.cls, `CM3 ${fmt.pct(f.cm3_share)} виручки при цілі ≥ ${fmt.pct0(T.cm3_share)}.`, 'CMO · CFO', 'cfo');
+  if (g && g.newc != null && g.newc < -0.1) push('alert', `Нових клієнтів ${ps(g.newc)} р/р за січень–${MG[m]} (${fmt.int(g.newCur)} проти ${fmt.int(g.newPrev)}); повторні тримають виручку.`, 'CMO', 'cmo');
+  const bm = S.benchmarks.items.find(b => b.key === 'market_growth');
+  if (g && g.rev != null && bm && g.rev < bm.market.median - 0.1) push('watch', `Виручка B2C ${ps(g.rev)} р/р при рості ринку добавок ≈ ${ps(bm.market.median)}: втрачаємо частку.`, 'CEO', 'bench');
+  const c90 = lastMature('rep90'); if (c90 && c90.rep90 < T.rep90 - 0.03) push('watch', `Повтор за 90 днів у когорті ${c90.cohort} — ${fmt.pct(c90.rep90)} проти ${fmt.pct(S.cohorts[2].rep90)} у ${S.cohorts[2].cohort}: нові когорти повертаються рідше.`, 'CMO', 'cmo');
+  if (ms.cash == null) push('alert', `Немає звіреного з банком залишку кешу. ${esc(MAN.cash.note.split('.')[1] || '')}`, 'CFO', 'cfo');
+  else if (ms.cash < T.cash_min_usd) push('alert', `Кеш ${fmt.usd(ms.cash)} нижче порогу ${fmt.usd(T.cash_min_usd)} (звірка ${fmt.date(ms.cash_date)}).`, 'CFO', 'cfo');
+  const so = st('overdue', ms.overdue); if (so && so.cls !== 'ok') push(so.cls, `Просрочка дебіторки ${fmt.pct(ms.overdue)} при KPI ≤ ${fmt.pct0(T.overdue)}; ДЗ ${fmt.uah(ms.ar)}, DSO ${ms.dso} дн. при цілі ≤ ${T.dso}.`, 'B2B · CFO', 'cfo');
+  const top2 = S.b2b_clients.slice(0, 2).reduce((a, c) => a + (c.share_of_b2b_rev || 0), 0);
+  if (top2 > 0.35) push('watch', `${S.b2b_clients[0].name} і ${S.b2b_clients[1].name} — ${fmt.pct0(top2)} рахунків B2B 2026: ріст B2B тримається на двох мережах і дебіторці.`, 'B2B', 'cfo');
+  if (MAN.inventory.oos_skus.length) push('alert', `Немає в наявності або менше тижня запасу: ${MAN.inventory.oos_skus.join(', ')}. Частина поставок чекає оплати.`, 'Закупівлі · CFO', 'cfo');
+  if (ms.transit > 2 * (ms.stock_ua + ms.stock_pl)) push('watch', `Товар у дорозі ${fmt.usd(ms.transit)} проти ${fmt.usd(ms.stock_ua + ms.stock_pl)} на складах: гроші пішли зі складу в замовлення і передоплати.`, 'Закупівлі · CFO', 'cfo');
+  if (!f.complete) push('watch', 'Місяць не закритий: маркетинг за останні дні довантажується, CPO і маржу не цитувати.', 'Аналітик', 'clust');
+  out.sort((a, b) => sevOrder[a.cls] - sevOrder[b.cls]);
+  return out;
+}
+function renderCEO() {
+  const i = sel, f = F(), p = P(), m = mi(f), pl = planAt(m), g = growthYoY(), ms = manualState();
+  const R = scaleRule(i);
+  // verdict: three statements
+  const sentences = [];
+  sentences.push(R.allowed ? `Правило скейлу виконано: NC / маркетинг ${fmt.x(R.r)} — бюджет ${MG[(m + 1) % 12]} можна збільшувати.` : `Правило скейлу не виконано: NC / маркетинг ${fmt.x(R.r)} при тригері 2,5x — бюджет ${MG[(m + 1) % 12]} не вище ${fmt.usd(f.marketing)}.`);
+  if (g) sentences.push(`B2C ${ps(g.rev)} р/р за січень–${MG[m]}, нових клієнтів ${ps(g.newc)}, повторних замовлень ${ps(rel(custAt(f.month).repeat_orders, custAt(ymOf(+f.month.slice(0, 4) - 1, m)).repeat_orders))}: базу тримаємо, залучення падає.`);
+  sentences.push(ms.cash == null ? 'Кеш: звіреного залишку немає — перший пункт для фінансів.' : `Кеш: ${fmt.usd(ms.cash)} на ${fmt.date(ms.cash_date)}${ms.cash < T.cash_min_usd ? ' — нижче порогу ' + fmt.usd(T.cash_min_usd) : ''}.`);
+  const cls = ms.cash == null || !R.allowed ? (R.st.cls === 'alert' || ms.cash == null ? 'alert' : 'watch') : 'ok';
+  const vb = document.getElementById('ceo-verdict'); vb.className = 'card verdict ' + cls;
+  vb.innerHTML = `${chip(cls === 'ok' ? { cls: 'ok', label: 'стабільно', icon: '✓' } : cls === 'watch' ? { cls: 'watch', label: 'зона уваги', icon: '!' } : { cls: 'alert', label: 'потрібні рішення', icon: '✕' })}<p class="vt">${sentences[0]}</p><p class="vd">${sentences.slice(1).join(' ')}</p>`;
+
+  const lyR = lyAt(LY.revenue, m), d = rel;
+  const tiles = [];
+  tiles.push(tile({ label: 'Виручка, всі сегменти', value: fmt.usd(f.revenue_total), hint: `B2C ${fmt.usd(f.revenue)} · B2B ${fmt.usd(f.revenue_b2b)} · ${fmt.int(f.orders)} замовлень B2C`,
+    deltas: [p && dl(prevLbl(), ps(d(f.revenue_total, p.revenue_total)), good(d(f.revenue_total, p.revenue_total), 'up')), lyR && dl('B2C р/р', ps(d(f.revenue, lyR)), good(d(f.revenue, lyR), 'up')), dl('B2C ' + pl.to, ps(d(f.revenue, pl.revenue)), good(d(f.revenue, pl.revenue), 'up'))],
+    spark: spark(series('revenue_total', i)) }));
+  tiles.push(tile({ label: 'NC компанії / маркетинг', value: fmt.x(f.nc_total_per_mkt), chip: chip(st('nc', f.nc_total_per_mkt)), hint: `NC ${fmt.usd(f.nc_total)} = CM3 B2C ${fmt.usd(f.cm3)} + GP B2B ${fmt.usd(f.gp_b2b)} · тригер 2,5x`,
+    deltas: [p && dl(prevLbl(), px(f.nc_total_per_mkt - p.nc_total_per_mkt), good(f.nc_total_per_mkt - p.nc_total_per_mkt, 'up'))], spark: spark(series('nc_total_per_mkt', i), T.nc_watch) }));
+  tiles.push(tile({ label: 'Маржа після маркетингу (CM3 B2C)', value: fmt.pct(f.cm3_share), chip: chip(st('cm3', f.cm3_share)), hint: `${fmt.usd(f.cm3)} · до маркетингу (CM2) ${fmt.pct(f.cm2_share)} · ціль ≥ ${fmt.pct0(T.cm3_share)}`,
+    deltas: [p && dl(prevLbl(), pp(f.cm3_share - p.cm3_share), good(f.cm3_share - p.cm3_share, 'up'))], spark: spark(series('cm3_share', i), T.cm3_share) }));
+  tiles.push(tile({ label: 'Маркетинг, % виручки B2C', value: fmt.pct(f.mkt_share), chip: chip(st('mkt_share', f.mkt_share)), hint: `${fmt.usd(f.marketing)} · CPO ${fmt.usd2(f.cpo)} · ${limitAt(f) ? 'ліміт ' + fmt.usd(limitAt(f)) : pl.src + ' ' + fmt.usd(pl.marketing)}`,
+    deltas: [p && dl(prevLbl(), pp(f.mkt_share - p.mkt_share), good(f.mkt_share - p.mkt_share, 'down')), lyR && dl('2025', fmt.pct(lyAt(LY.marketing, m) / lyR))], spark: spark(series('mkt_share', i), T.mkt_share_b2c) }));
+  const c = custAt(f.month), cly = custAt(ymOf(+f.month.slice(0, 4) - 1, m));
+  tiles.push(tile({ label: 'Нові клієнти', value: fmt.int(f.new_customers), chip: chip(st('cac', f.cac)), hint: `${fmt.pct(f.new_share)} замовлень · CAC ${fmt.usd2(f.cac)} при цілі ≤ ${fmt.usd0(T.cac)}`,
+    deltas: [p && dl(prevLbl(), ps(d(f.new_customers, p.new_customers)), good(d(f.new_customers, p.new_customers), 'up')), c && cly && dl('р/р', ps(d(c.first_orders, cly.first_orders)), good(d(c.first_orders, cly.first_orders), 'up'))], spark: spark(series('new_customers', i)) }));
+  tiles.push(tile({ label: 'Ефективна знижка', value: fmt.pct(f.discount_eff), chip: chip(st('disc', f.discount_eff)), hint: `знижка + маркетинг на замовлення ${fmt.usd2(f.disc_mkt_per_order)} · AOV ${fmt.usd2(f.aov)}`,
+    deltas: [p && dl(prevLbl(), pp(f.discount_eff - p.discount_eff), good(f.discount_eff - p.discount_eff, 'down'))], spark: spark(series('discount_eff', i), T.discount) }));
+  const c90 = lastMature('rep90');
+  tiles.push(tile({ label: 'Повтор за 90 днів', value: c90 ? fmt.pct(c90.rep90) : '—', chip: c90 ? chip(st('rep90', c90.rep90)) : '', hint: c90 ? `когорта ${c90.cohort}, ${fmt.int(c90.clients)} нових · 2024-Q3: ${fmt.pct(S.cohorts[2].rep90)}` : '',
+    deltas: [c90 && dl('до 2024-Q3', pp(c90.rep90 - S.cohorts[2].rep90), good(c90.rep90 - S.cohorts[2].rep90, 'up'))], spark: spark(S.cohorts.filter(x => x.mature90).map(x => x.rep90), T.rep90) }));
+  tiles.push(tile({ label: 'Кеш і дебіторка', value: ms.cash == null ? '<span class="muted">не звірено</span>' : fmt.usd(ms.cash), chip: ms.cash == null ? chipNa('немає даних') : chip(ms.cash >= T.cash_min_usd ? { cls: 'ok', label: 'вище порогу', icon: '✓' } : { cls: 'alert', label: 'нижче порогу', icon: '✕' }),
+    hint: `ДЗ B2B ${fmt.uah(ms.ar)} (${fmt.usd(ms.ar / T.fx_usd)}) · просрочка ${fmt.pct(ms.overdue)} · DSO ${ms.dso} дн. · на ${fmt.date(ms.as_of)}`,
+    deltas: [dl('зобов\'язання', ms.liab ? fmt.uah(ms.liab) : '—'), dl('запаси', fmt.usd(ms.stock_ua + ms.stock_pl)), dl('у дорозі', fmt.usd(ms.transit))] }));
+  document.getElementById('ceo-tiles').innerHTML = tiles.join('');
+
+  const FL = flagsFor(i), flagLi = x => `<li>${chip({ cls: x.cls, label: x.cls === 'alert' ? 'рішення' : x.cls === 'watch' ? 'увага' : 'ок', icon: x.cls === 'alert' ? '✕' : x.cls === 'watch' ? '!' : '✓' })}<span>${x.text}</span><span class="who">${esc(x.who)} · <a href="#${x.tab}" data-tab="${x.tab}">вкладка</a></span></li>`;
+  const flEl = document.getElementById('ceo-flags');
+  flEl.innerHTML = (FL.slice(0, 8).map(flagLi).join('') || '<li>Прапорців немає</li>') + (FL.length > 8 ? `<li style="background:transparent;padding:0"><button class="btn" type="button" id="more-flags">Показати ще ${FL.length - 8}</button></li>` : '');
+  const mf = document.getElementById('more-flags'); if (mf) mf.addEventListener('click', () => { flEl.innerHTML = FL.map(flagLi).join(''); });
+
+  // pulse (daily)
+  const D = S.daily, labels = D.map(x => fmt.dm(x.date));
+  const avg7 = D.map((x, k) => { const w = D.slice(Math.max(0, k - 6), k + 1); return w.length < 7 ? null : w.reduce((a, b) => a + b.revenue, 0) / 7; });
+  barChart(document.getElementById('pulse'), { labels, series: [{ name: 'Виручка B2C за день', color: 'var(--s1)', values: D.map(x => x.revenue) }], muted: D.map(x => x.no_ship), fmt: v => fmt.usd(v), line: { name: 'Середнє за 7 днів', color: 'var(--ref)', values: avg7 }, height: 200, aria: 'Виручка по днях',
+    extra: k => `<div class="r"><i></i><em>Замовлень</em><b>${fmt.int(D[k].orders)}</b></div><div class="r"><i></i><em>Маркетинг</em><b>${fmt.usd(D[k].marketing)}</b></div><div class="r"><i></i><em>Знижка</em><b>${D[k].disc_pct == null ? '—' : dec(D[k].disc_pct, 1) + '%'}</b></div>` });
+  legend(document.getElementById('pulse-legend'), [{ name: 'Виручка за день', color: 'var(--s1)', box: true }, { name: 'Середнє за 7 днів', color: 'var(--ref)' }]);
+  lineChart(document.getElementById('pulse2'), { labels, series: [{ name: 'Маркетинг за день', color: 'var(--s2)', values: D.map(x => x.marketing) }, { name: 'Знижка, %', color: 'var(--s4)', values: [], dash: false }].slice(0, 1), fmt: v => fmt.usd(v), height: 150, ymin0: true, aria: 'Маркетинг по днях' });
+  legend(document.getElementById('pulse2-legend'), [{ name: 'Маркетинг за день (fct_ad_stats + daily_kpi_metrics)', color: 'var(--s2)' }]);
+
+  // facts
+  const L = [];
+  if (p) L.push(`Виручка B2C ${fmt.usd(f.revenue)}: ${ps(d(f.revenue, p.revenue))} ${prevLbl()}, ${ps(d(f.revenue, pl.revenue))} ${pl.to} (${fmt.usd(pl.revenue)})${lyR ? ', ' + ps(d(f.revenue, lyR)) + ' р/р' : ''}.`);
+  L.push(`Маркетинг ${fmt.usd(f.marketing)} (${fmt.pct(f.mkt_share)} виручки): Meta ${fmt.usd(f.meta)}, Google ${fmt.usd(f.google)}, блогери ${fmt.usd(f.influence)}, інше ${fmt.usd(f.other)}. CPO ${fmt.usd2(f.cpo)}, CAC ${fmt.usd2(f.cac)}.`);
+  L.push(`Маржа: CM2 ${fmt.pct(f.cm2_share)}, CM3 ${fmt.usd(f.cm3)} (${fmt.pct(f.cm3_share)}); NC компанії ${fmt.usd(f.nc_total)} = ${fmt.x(f.nc_total_per_mkt)} на $1 маркетингу${p ? ', ' + px(f.nc_total_per_mkt - p.nc_total_per_mkt) + ' ' + prevLbl() : ''}.`);
+  L.push(`Знижка ${fmt.pct(f.discount_eff)} від повної ціни (${fmt.usd(f.discount_usd)} за місяць); замовлень з промокодом ${fmt.pct(f.promo_share)}; знижка + маркетинг на замовлення ${fmt.usd2(f.disc_mkt_per_order)}.`);
+  L.push(`B2B: відвантажено ${fmt.usd(f.revenue_b2b)}, GP ${fmt.pct(f.gp_b2b_share)}; отримано грошей ${fmt.usd((S.b2b_collections.find(x => x.month === f.month) || {}).collected_usd)} за місяць.`);
+  const u = utmAt(f.month); if (u) L.push(`Джерела замовлень: платні Meta + Google ${fmt.pct(u.paid_share)}, CRM (email, Viber) ${fmt.pct(u.crm_share)}, органіка ${fmt.pct(u.organic_search / u.total)}, офлайн і сервіс ${fmt.pct(u.offline / u.total)}.`);
+  if (f.days_missing) L.push(`У daily_kpi_metrics бракує ${f.days_missing} дн.; додано ${fmt.usd(f.mkt_missing_days)} реклами з fct_ad_stats.`);
+  document.getElementById('ceo-facts').innerHTML = L.map(x => `<li>${x}</li>`).join('');
+}
+
+/* ================= CMO ================= */
+function renderCMO() {
+  const i = sel, f = F(), p = P(), m = mi(f), pl = planAt(m), lim = limitAt(f), d = rel;
+  const v = verdictScale(i); const vb = document.getElementById('cmo-verdict'); vb.className = 'card verdict ' + v.cls; vb.innerHTML = v.html;
+  const lyR = lyAt(LY.revenue, m), lyM = lyAt(LY.marketing, m);
+  const tiles = [];
+  const limSt = lim ? st('limit', f.marketing / lim) : null;
+  tiles.push(tile({ label: 'Маркетинг', value: fmt.usd(f.marketing), chip: chip(limSt), hint: lim ? `ліміт ${fmt.usd(lim)} · ${pl.src} ${fmt.usd(pl.marketing)}` : `${pl.src}: ${fmt.usd(pl.marketing)}`,
+    deltas: [p && dl(prevLbl(), ps(d(f.marketing, p.marketing))), dl(pl.to, ps(d(f.marketing, pl.marketing)), good(d(f.marketing, pl.marketing), 'down')), lyM && dl('р/р', ps(d(f.marketing, lyM)))], spark: spark(series('marketing', i)) }));
+  tiles.push(tile({ label: 'Маркетинг, % виручки', value: fmt.pct(f.mkt_share), chip: chip(st('mkt_share', f.mkt_share)), hint: `орієнтир ≤ ${fmt.pct0(T.mkt_share_b2c)} виручки B2C · ${fmt.pct(f.mkt_share_total)} від усіх сегментів (стеля ${fmt.pct0(T.mkt_share_total)})`,
+    deltas: [p && dl(prevLbl(), pp(f.mkt_share - p.mkt_share), good(f.mkt_share - p.mkt_share, 'down')), lyR && dl('2025', fmt.pct(lyM / lyR))], spark: spark(series('mkt_share', i), T.mkt_share_b2c) }));
+  const plCpo = pl.marketing / pl.orders;
+  tiles.push(tile({ label: 'CPO · вартість замовлення', value: fmt.usd2(f.cpo), chip: chip(st('cpo', f.cpo)), hint: `маркетинг / замовлення · ціль ≤ ${fmt.usd0(T.cpo)} · ${pl.src} ${fmt.usd2(plCpo)}`,
+    deltas: [p && dl(prevLbl(), ps(d(f.cpo, p.cpo)), good(d(f.cpo, p.cpo), 'down')), dl(pl.to, ps(d(f.cpo, plCpo)), good(d(f.cpo, plCpo), 'down'))], spark: spark(series('cpo', i), T.cpo) }));
+  tiles.push(tile({ label: 'CAC · вартість нового клієнта', value: fmt.usd2(f.cac), chip: chip(st('cac', f.cac)), hint: `${fmt.int(f.new_customers)} нових (${fmt.pct(f.new_share)} замовлень) · ціль ≤ ${fmt.usd0(T.cac)} · CAC / AOV ${fmt.pct0(f.cac / f.aov)}`,
+    deltas: [p && dl(prevLbl(), ps(d(f.cac, p.cac)), good(d(f.cac, p.cac), 'down'))], spark: spark(series('cac', i), T.cac) }));
+  tiles.push(tile({ label: 'Знижка + маркетинг на замовлення', value: fmt.usd2(f.disc_mkt_per_order), chip: chip(st('disc', f.discount_eff)), hint: `знижка ${fmt.usd2(f.disc_per_order)} (${fmt.pct(f.discount_eff)}) + CPO ${fmt.usd2(f.cpo)} при AOV ${fmt.usd2(f.aov)}`,
+    deltas: [p && dl(prevLbl(), ps(d(f.disc_mkt_per_order, p.disc_mkt_per_order)), good(d(f.disc_mkt_per_order, p.disc_mkt_per_order), 'down')), p && dl('AOV', ps(d(f.aov, p.aov)), good(d(f.aov, p.aov), 'up'))], spark: spark(series('disc_mkt_per_order', i)) }));
+  tiles.push(tile({ label: 'Meta: витрата на покупку за кабінетом', value: fmt.usd2(f.meta_cpp), hint: `${fmt.usd(f.meta)} / ${fmt.int(f.meta_purchases)} покупок · ${fmt.pct0(f.meta_cpp / f.aov)} чека · кабінет розходиться з CRM на ≈14%`,
+    deltas: [p && dl(prevLbl(), ps(d(f.meta_cpp, p.meta_cpp)), good(d(f.meta_cpp, p.meta_cpp), 'down')), p && dl('витрата', ps(d(f.meta, p.meta)))], spark: spark(series('meta_cpp', i)) }));
+  tiles.push(tile({ label: 'Google: витрата на покупку за кабінетом', value: fmt.usd2(f.google_cpp), hint: `${fmt.usd(f.google)} / ${fmt.int(f.google_purchases)} покупок · з ПДВ · канал №1 за витратою у вересні`,
+    deltas: [p && dl(prevLbl(), ps(d(f.google_cpp, p.google_cpp)), good(d(f.google_cpp, p.google_cpp), 'down')), p && dl('витрата', ps(d(f.google, p.google)))], spark: spark(series('google_cpp', i)) }));
+  const u = utmAt(f.month), up = p ? utmAt(p.month) : null;
+  tiles.push(tile({ label: 'Замовлення з email / Viber', value: u ? fmt.pct(u.crm_share) : '—', hint: u ? `${fmt.int(u.crm)} замовлень, ${fmt.usd(u.crm_rev)} · блогери ${fmt.pct(u.blogger / u.total)} · ринок ≈27% виручки` : '',
+    deltas: [u && up && dl(prevLbl(), pp(u.crm_share - up.crm_share), good(u.crm_share - up.crm_share, 'up'))], spark: spark(S.utm.filter(x => x.month <= f.month).map(x => x.crm_share)) }));
+  document.getElementById('cmo-tiles').innerHTML = tiles.join('');
+
+  // channels chart (since 2025)
+  const CH = S.channels.filter(x => x.month <= f.month && S.months.length);
+  const lab = CH.map(x => MS[+x.month.slice(5, 7) - 1] + (x.month.slice(5, 7) === '01' ? ' ' + x.month.slice(2, 4) : ''));
+  const tipL = CH.map(x => cap(MN[+x.month.slice(5, 7) - 1]) + ' ' + x.month.slice(0, 4));
+  barChart(document.getElementById('ch-chart'), { labels: lab, tipLabels: tipL, stacked: true, fmt: (v, ax) => ax ? fmt.k0(v) : fmt.usd(v), aria: 'Маркетинг по каналах',
+    series: [{ name: 'Meta', color: 'var(--s1)', values: CH.map(x => x.meta) }, { name: 'Google Ads', color: 'var(--s2)', values: CH.map(x => x.google) }, { name: 'Блогери', color: 'var(--s3)', values: CH.map(x => x.influence) }, { name: 'Інше (TikTok, Instagram)', color: 'var(--s4)', values: CH.map(x => x.other + x.tiktok) }],
+    extra: k => `<div class="r"><i></i><em>Meta $/покупку</em><b>${fmt.usd2(CH[k].meta_cpp)}</b></div><div class="r"><i></i><em>Google $/покупку</em><b>${fmt.usd2(CH[k].google_cpp)}</b></div>` });
+  legend(document.getElementById('ch-legend'), [{ name: 'Meta', color: 'var(--s1)', box: true }, { name: 'Google Ads', color: 'var(--s2)', box: true }, { name: 'Блогери', color: 'var(--s3)', box: true }, { name: 'Інше', color: 'var(--s4)', box: true }]);
+
+  // share chart: 2026 fact vs 2025 P&L, with 20% ref
+  const upto = M.slice(0, i + 1);
+  lineChart(document.getElementById('share-chart'), { labels: MS.slice(0, 12), fmt: (v) => fmt.pct(v), ymin0: true, refs: [{ value: T.mkt_share_b2c, label: 'орієнтир 20%' }], aria: 'Маркетинг у % виручки',
+    series: [{ name: `${YEAR} факт`, color: 'var(--s1)', values: MS.map((_, k) => k <= i && M[k] ? M[k].mkt_share : null) },
+             { name: `${YEAR} RF CLUST`, color: 'var(--s1)', dash: true, values: MS.map((_, k) => PL.rf.marketing[k] != null ? PL.rf.marketing[k] / PL.rf.revenue[k] : null) },
+             { name: '2025 P&L', color: 'var(--ly)', values: MS.map((_, k) => LY.revenue[k] ? LY.marketing[k] / LY.revenue[k] : null) }] });
+  legend(document.getElementById('share-legend'), [{ name: YEAR + ' факт', color: 'var(--s1)' }, { name: 'RF CLUST', color: 'var(--s1)', dash: true }, { name: '2025 P&L', color: 'var(--ly)' }, { name: 'орієнтир', color: 'var(--ref)', dash: true }]);
+
+  // weekly table
+  const Wk = S.weekly, wc = [{ label: 'Тиждень' }, { label: 'Виручка, $k' }, { label: 'Замовл.' }, { label: 'AOV' }, { label: 'Маркетинг, $k' }, { label: '% виручки' }, { label: 'CPO' }, { label: 'CM3, $k' }, { label: 'CM3 %' }, { label: 'Знижка' }, { label: 'Meta, $k' }, { label: 'Google, $k' }, { label: 'Блогери, $k' }, { label: 'Meta $/покупку' }, { label: 'Нові' }, { label: '% нових' }, { label: '% промо' }];
+  const wrows = Wk.map(w => { const fc = w.partial ? 'fut' : ''; const c = t => ({ text: t, cls: fc }); return { cells: [
+    { text: fmt.dm(w.week_start) + (w.partial ? ` (${w.days} дн.)` : ''), cls: fc }, c(fmt.k(w.revenue)), c(fmt.int(w.orders)), c(fmt.usd2(w.aov)), c(fmt.k(w.marketing)),
+    { text: fmt.pct(w.mkt_share), cls: fc + ' ' + (w.partial ? '' : cellCls(st('mkt_share', w.mkt_share))) }, { text: fmt.usd2(w.cpo), cls: fc + ' ' + (w.partial ? '' : cellCls(st('cpo', w.cpo))) },
+    c(fmt.k(w.cm3)), { text: fmt.pct(w.cm3_share), cls: fc + ' ' + (w.partial ? '' : cellCls(st('cm3', w.cm3_share))) }, { text: fmt.pct(w.discount_eff), cls: fc + ' ' + cellCls(st('disc', w.discount_eff)) },
+    c(fmt.k(w.meta)), c(fmt.k(w.google)), c(fmt.k(w.influence)), c(fmt.usd2(w.meta_cpp)), c(fmt.int(w.new_customers)), c(fmt.pct(w.new_share)), c(fmt.pct(w.promo_share))] }; });
+  document.getElementById('tbl-w').innerHTML = tableHTML(wc, wrows);
+
+  // new vs repeat (created basis), since 2024
+  const C = S.customers.filter(x => x.month <= f.month);
+  barChart(document.getElementById('nr-chart'), { labels: C.map(x => MS[+x.month.slice(5, 7) - 1] + (x.month.slice(5, 7) === '01' ? ' ' + x.month.slice(2, 4) : '')), tipLabels: C.map(x => cap(MN[+x.month.slice(5, 7) - 1]) + ' ' + x.month.slice(0, 4)), stacked: true, fmt: (v) => fmt.int(v), aria: 'Нові та повторні замовлення',
+    series: [{ name: 'Перші замовлення (нові клієнти)', color: 'var(--s1)', values: C.map(x => x.first_orders) }, { name: 'Повторні', color: 'var(--s3)', values: C.map(x => x.repeat_orders) }],
+    extra: k => `<div class="r"><i></i><em>Частка нових</em><b>${fmt.pct(C[k].new_share)}</b></div><div class="r"><i></i><em>З промокодом</em><b>${fmt.pct(C[k].promo_share)}</b></div>` });
+  legend(document.getElementById('nr-legend'), [{ name: 'Нові клієнти', color: 'var(--s1)', box: true }, { name: 'Повторні замовлення', color: 'var(--s3)', box: true }]);
+
+  // cohorts table
+  const cc = [{ label: 'Когорта' }, { label: 'Нових' }, { label: '90 дн.' }, { label: '180 дн.' }, { label: '365 дн.' }];
+  const crow = S.cohorts.filter(c => c.clients > 500).map(c => ({ cells: [{ text: c.cohort }, { text: fmt.int(c.clients) },
+    { text: c.mature90 ? fmt.pct(c.rep90) : '—', cls: c.mature90 ? cellCls(st('rep90', c.rep90)) : 'fut' }, { text: c.mature180 ? fmt.pct(c.rep180) : '—', cls: c.mature180 ? '' : 'fut' }, { text: c.mature365 ? fmt.pct(c.rep365) : '—', cls: c.mature365 ? '' : 'fut' }] }));
+  document.getElementById('tbl-coh').innerHTML = tableHTML(cc, crow);
+
+  // utm share chart
+  const U = S.utm.filter(x => x.month >= '2025-06' && x.month <= f.month);
+  const sh = k => U.map(x => x[k] / x.total);
+  barChart(document.getElementById('utm-chart'), { labels: U.map(x => MS[+x.month.slice(5, 7) - 1] + (x.month.slice(5, 7) === '01' ? ' ' + x.month.slice(2, 4) : '')), tipLabels: U.map(x => cap(MN[+x.month.slice(5, 7) - 1]) + ' ' + x.month.slice(0, 4)), stacked: true, fmt: (v) => fmt.pct0(v), ymax: 1, aria: 'Замовлення за джерелом',
+    series: [{ name: 'Google Ads', color: 'var(--s2)', values: sh('paid_google') }, { name: 'Meta', color: 'var(--s1)', values: sh('paid_meta') }, { name: 'Органіка', color: 'var(--s3)', values: sh('organic_search') },
+             { name: 'Власні соцмережі', color: 'var(--s4)', values: sh('social_own') }, { name: 'CRM (email, Viber)', color: 'var(--s5)', values: sh('crm') }, { name: 'Офлайн і сервіс', color: 'var(--s6)', values: sh('offline') }, { name: 'Блогери, пряме, інше', color: 'var(--ly)', values: U.map(x => (x.blogger + x.direct + x.other) / x.total) }],
+    extra: k => `<div class="r"><i></i><em>Усього замовлень</em><b>${fmt.int(U[k].total)}</b></div>` });
+  legend(document.getElementById('utm-legend'), [{ name: 'Google Ads', color: 'var(--s2)', box: true }, { name: 'Meta', color: 'var(--s1)', box: true }, { name: 'Органіка', color: 'var(--s3)', box: true }, { name: 'Власні соцмережі', color: 'var(--s4)', box: true }, { name: 'CRM', color: 'var(--s5)', box: true }, { name: 'Офлайн і сервіс', color: 'var(--s6)', box: true }, { name: 'Інше', color: 'var(--ly)', box: true }]);
+
+  // discount history
+  const DH = S.discount_history.filter(x => x.month <= f.month);
+  lineChart(document.getElementById('disc-chart'), { labels: DH.map(x => MS[+x.month.slice(5, 7) - 1] + (x.month.slice(5, 7) === '01' ? ' ' + x.month.slice(2, 4) : '')), tipLabels: DH.map(x => cap(MN[+x.month.slice(5, 7) - 1]) + ' ' + x.month.slice(0, 4)), fmt: v => fmt.pct(v), ymin0: true, refs: [{ value: T.discount, label: 'план 25%' }], aria: 'Ефективна знижка',
+    series: [{ name: 'За датою створення (orders)', color: 'var(--s2)', values: DH.map(x => x.disc_eff) }, { name: 'За датою відвантаження (daily_kpi_metrics)', color: 'var(--s1)', values: DH.map(x => { const mm = M.find(y => y.month === x.month); return mm ? mm.discount_eff : null; }) }] });
+  legend(document.getElementById('disc-legend'), [{ name: 'За датою створення', color: 'var(--s2)' }, { name: 'За датою відвантаження (2026)', color: 'var(--s1)' }, { name: 'план', color: 'var(--ref)', dash: true }]);
+
+  document.getElementById('c-q3-label').textContent = `3. План і бюджет на ${MN[(m + 1) % 12]} за правилом скейлу, по каналах.`;
+  document.getElementById('cmo-form-sub').textContent = `${cap(MN[m])} ${f.month.slice(0, 4)}. Коментар зберігається на цій сторінці і потрапляє у Board Pack.`;
+  renderInputs();
+}
+
+/* ================= CFO ================= */
+function renderCFO() {
+  const i = sel, f = F(), p = P(), m = mi(f), d = rel, ms = manualState();
+  const col = S.b2b_collections.find(x => x.month === f.month) || {};
+  const up = closedUpTo();
+  const colYtd = sum(S.b2b_collections.filter(x => x.month >= M[0].month && x.month <= f.month && M.find(y => y.month === x.month && y.complete)), 'collected_usd');
+  const tiles = [];
+  tiles.push(tile({ label: 'Виручка, всі сегменти', value: fmt.usd(f.revenue_total), hint: `B2C ${fmt.usd(f.revenue)} · B2B ${fmt.usd(f.revenue_b2b)} · інше ${fmt.usd(f.revenue_other)}`,
+    deltas: [p && dl(prevLbl(), ps(d(f.revenue_total, p.revenue_total)), good(d(f.revenue_total, p.revenue_total), 'up')), dl('YTD', fmt.usd(sum(up, 'revenue_total')))], spark: spark(series('revenue_total', i)) }));
+  tiles.push(tile({ label: 'NC компанії (після COGS і маркетингу)', value: fmt.usd(f.nc_total), chip: chip(st('nc', f.nc_total_per_mkt)), hint: `${fmt.pct(f.nc_total / f.revenue_total)} виручки · ${fmt.x(f.nc_total_per_mkt)} на $1 маркетингу`,
+    deltas: [p && dl(prevLbl(), ps(d(f.nc_total, p.nc_total)), good(d(f.nc_total, p.nc_total), 'up')), dl('YTD', fmt.usd(sum(up, 'nc_total')))], spark: spark(series('nc_total', i)) }));
+  tiles.push(tile({ label: 'B2B: відвантажено', value: fmt.usd(f.revenue_b2b), hint: `GP ${fmt.pct(f.gp_b2b_share)} до ретро-бонусів і відстрочки · ${fmt.int(f.orders_b2b)} відвантажень`,
+    deltas: [p && dl(prevLbl(), ps(d(f.revenue_b2b, p.revenue_b2b)), good(d(f.revenue_b2b, p.revenue_b2b), 'up')), dl('YTD', fmt.usd(sum(up, 'revenue_b2b')))], spark: spark(series('revenue_b2b', i)) }));
+  tiles.push(tile({ label: 'B2B: отримано грошей', value: fmt.usd(col.collected_usd), hint: `${fmt.pct0(col.collected_usd / f.revenue_b2b)} від відвантажень місяця · YTD ${fmt.usd(colYtd)} проти ${fmt.usd(sum(up, 'revenue_b2b'))} відвантажено`,
+    deltas: [dl('YTD інкасація', fmt.pct0(colYtd / sum(up, 'revenue_b2b')), colYtd / sum(up, 'revenue_b2b') < 0.85 ? 'up-bad' : 'neutral')], spark: spark(S.b2b_collections.filter(x => x.month >= M[0].month && x.month <= f.month).map(x => x.collected_usd)) }));
+  tiles.push(tile({ label: 'Дебіторка B2B', value: fmt.uah(ms.ar), chip: chip(st('overdue', ms.overdue)), hint: `≈ ${fmt.usd(ms.ar / T.fx_usd)} · просрочка ${fmt.pct(ms.overdue)} (KPI ≤ ${fmt.pct0(T.overdue)}) · DSO ${ms.dso} дн. (ціль ≤ ${T.dso}) · на ${fmt.date(ms.as_of)}`,
+    deltas: [dl('топ-2 клієнти', fmt.pct0(MAN.ar.top2_share) + ' ДЗ')] }));
+  const cogsDay = MAN.inventory.cogs_month_usd / 30;
+  tiles.push(tile({ label: 'Запаси', value: fmt.usd(ms.stock_ua + ms.stock_pl), hint: `UA ${fmt.usd(ms.stock_ua)} · PL ${fmt.usd(ms.stock_pl)} · ≈ ${dec((ms.stock_ua + ms.stock_pl) / cogsDay, 0)} днів собівартості; з товаром у дорозі (${fmt.usd(ms.transit)}) — ${dec((ms.stock_ua + ms.stock_pl + ms.transit) / cogsDay, 0)} дн.`,
+    deltas: [dl('OOS SKU', String(MAN.inventory.oos_skus.length), 'up-bad'), dl('платежі за закупівлі до 03.01', fmt.usd(MAN.inventory.payments_plan_q4_usd))] }));
+  tiles.push(tile({ label: 'Кеш', value: ms.cash == null ? '<span class="muted">не звірено</span>' : fmt.usd(ms.cash), chip: ms.cash == null ? chipNa('немає даних') : chip(ms.cash >= T.cash_min_usd ? { cls: 'ok', label: 'вище порогу', icon: '✓' } : { cls: 'alert', label: 'нижче порогу', icon: '✕' }),
+    hint: ms.cash == null ? 'Поріг CLUST ≥ $300k на 13 тижнів. Потрібні: залишок по кожному рахунку, реєстр зобов\'язань, графік повернень' : `звірка ${fmt.date(ms.cash_date)} · зобов'язання ${fmt.uah(ms.liab)}`,
+    deltas: [dl('план платежів / тиждень', fmt.uah(MAN.cash.weekly_payments_plan_uah)), dl('надходження / тиждень', fmt.uah(MAN.cash.weekly_receipts_uah))] }));
+  const PF = S.pnl_fd.rows, npRow = PF.find(x => x.key === 'np'), revRow = PF.find(x => x.key === 'revenue');
+  tiles.push(tile({ label: 'Чистий прибуток за FD', value: fmt.usd(npRow.values[4] * 1000), hint: `січень–серпень, ${fmt.pct(npRow.values[4] / revRow.values[4])} виручки · серпень ${fmt.usd(npRow.values[3] * 1000)} (${fmt.pct(npRow.values[3] / revRow.values[3])}) · вересень прогноз ${fmt.usd(npRow.values[5] * 1000)}`,
+    deltas: [dl('EBITDA YTD', fmt.pct(PF.find(x => x.key === 'ebitda').values[4] / revRow.values[4])), dl('ціль IV кв.', fmt.usd(T.np_q4_usd))] }));
+  document.getElementById('cfo-tiles').innerHTML = tiles.join('');
+
+  // P&L FD table
+  const pc = [{ label: '$ тис.' }].concat(S.pnl_fd.columns.map(c => ({ label: c })));
+  const prow = PF.map(r => ({ cls: r.indent ? 'ind' : '', cells: [{ text: r.label }].concat(r.values.map(v => ({ text: r.pct ? fmt.pct(v) : fmt.int(v) }))) }));
+  document.getElementById('tbl-pnl').innerHTML = tableHTML(pc, prow);
+  document.getElementById('pnl-sub').textContent = S.pnl_fd._source;
+  document.getElementById('pnl-note').textContent = S.pnl_fd.plan_note + ' ' + S.pnl_fd.eu_note;
+
+  // reconciliation BQ vs FD
+  const q = (a, b, k) => M.slice(a, b + 1).filter(x => x.complete).reduce((s, x) => s + x[k], 0) / 1000;
+  const fdv = key => PF.find(x => x.key === key).values;
+  const recRows = [];
+  const periods = [{ label: 'I кв.', col: 0, bq: k => q(0, 2, k) }, { label: 'II кв.', col: 1, bq: k => q(3, 5, k) }, { label: 'Липень', col: 2, bq: k => q(6, 6, k) }, { label: 'Серпень', col: 3, bq: k => q(7, 7, k) }, { label: 'Вересень (FD — прогноз)', col: 5, bq: k => q(8, 8, k), fc: true }];
+  [['B2C UA, виручка', 'revenue', 'b2c_ua'], ['B2B, виручка', 'revenue_b2b', 'b2b'], ['Маркетинг UA', 'marketing', 'marketing']].forEach(([lab, bk, fk]) => {
+    recRows.push({ section: lab });
+    periods.forEach(pr => {
+      const bq = pr.bq(bk), fd = fdv(fk)[pr.col], dd = rel(bq, fd), s = pr.fc ? null : (Math.abs(dd) <= 0.02 ? { cls: 'ok', label: 'сходиться', icon: '✓' } : Math.abs(dd) <= 0.03 ? { cls: 'watch', label: 'до 3%', icon: '!' } : { cls: 'alert', label: 'пояснити', icon: '✕' });
+      recRows.push({ cls: 'ind', cells: [{ text: pr.label }, { text: fmt.int(bq) }, { text: fmt.int(fd) }, { text: ps(dd), cls: cellCls(s) }, { html: s ? chip(s) : chipNa('прогноз') }] });
+    });
+  });
+  document.getElementById('tbl-rec').innerHTML = tableHTML([{ label: 'Період' }, { label: 'BigQuery, $k' }, { label: 'FD, $k' }, { label: 'Δ' }, { label: 'Статус' }], recRows);
+
+  // segments table
+  const sc = [{ label: '$ тис.' }].concat(M.map(x => ({ label: MS[mi(x)], cls: x.complete ? '' : 'fut' }))).concat([{ label: 'YTD', cls: 'ytd' }]);
+  const srow = (label, k, f_, cls) => ({ cls: cls || '', cells: [{ text: label }].concat(M.map(x => ({ text: f_(x[k]), cls: x.complete ? '' : 'fut' }))).concat([{ text: k.endsWith('_share') || k === 'nc_total_per_mkt' ? '—' : f_(sum(up, k)), cls: 'ytd' }]) });
+  const srows = [
+    { section: 'Виручка' }, srow('B2C', 'revenue', fmt.k0, 'ind'), srow('B2B', 'revenue_b2b', fmt.k0, 'ind'), srow('Інше (PR, працівники)', 'revenue_other', fmt.k0, 'ind'), srow('Разом', 'revenue_total', fmt.k0),
+    { section: 'Собівартість і маржа B2C' }, srow('COGS B2C (з доставкою, фулфілментом)', 'cogs', fmt.k0, 'ind'), srow('Net Cost B2C (лише продукт)', 'net_cost', fmt.k0, 'ind'), srow('CM2 B2C', 'cm2', fmt.k0), srow('CM2, % виручки', 'cm2_share', fmt.pct, 'ind'), srow('Маркетинг B2C', 'marketing', fmt.k0), srow('CM3 B2C', 'cm3', fmt.k0), srow('CM3, % виручки', 'cm3_share', fmt.pct, 'ind'),
+    { section: 'B2B і NC' }, srow('COGS B2B', 'cogs_b2b', fmt.k0, 'ind'), srow('GP B2B', 'gp_b2b', fmt.k0), srow('GP B2B, %', 'gp_b2b_share', fmt.pct, 'ind'), srow('GP інше', 'gp_other', fmt.k0, 'ind'), srow('NC компанії', 'nc_total', fmt.k0), srow('NC / маркетинг', 'nc_total_per_mkt', fmt.x, 'ind'),
+    { section: 'Знижка' }, srow('Сума знижки B2C', 'discount_usd', fmt.k0, 'ind'), srow('Ефективна знижка', 'discount_eff', fmt.pct, 'ind')
+  ];
+  document.getElementById('tbl-seg').innerHTML = tableHTML(sc, srows);
+
+  // b2b chart
+  const BC = M.filter(x => x.complete);
+  barChart(document.getElementById('b2b-chart'), { labels: BC.map(x => MS[mi(x)]), tipLabels: BC.map(x => cap(MN[mi(x)]) + ' ' + x.month.slice(0, 4)), stacked: false, fmt: (v, ax) => ax ? fmt.k0(v) : fmt.usd(v), aria: 'B2B відвантажено і отримано',
+    series: [{ name: 'Відвантажено', color: 'var(--s1)', values: BC.map(x => x.revenue_b2b) }, { name: 'Отримано грошей', color: 'var(--s3)', values: BC.map(x => (S.b2b_collections.find(y => y.month === x.month) || {}).collected_usd || 0) }] });
+  legend(document.getElementById('b2b-legend'), [{ name: 'Відвантажено (daily_kpi_metrics)', color: 'var(--s1)', box: true }, { name: 'Отримано грошей (fct_b2b_payments)', color: 'var(--s3)', box: true }]);
+  const BCl = S.b2b_clients, mx = BCl[0].invoiced_2026;
+  document.getElementById('b2b-sub').textContent = `Рахунки Zoho 2026 без повернень; частка — від відвантажень B2B YTD ${fmt.usd(S.b2b_rev_ytd)}. Топ-2 — ${fmt.pct0(BCl[0].share_of_b2b_rev + BCl[1].share_of_b2b_rev)} виручки і ${fmt.pct0(MAN.ar.top2_share)} дебіторки.`;
+  document.getElementById('b2b-clients').innerHTML = BCl.map((c, k) => `<div class="nm"><i class="sw" style="background:${k < 2 ? 'var(--s2)' : 'var(--s1)'}"></i>${esc(c.name)}</div><div class="bar" aria-hidden="true"><span style="width:${(c.invoiced_2026 / mx * 100).toFixed(1)}%;background:${k < 2 ? 'var(--s2)' : 'var(--s1)'}"></span></div><div class="v num">${fmt.usd(c.invoiced_2026)}<small>${fmt.pct0(c.share_of_b2b_rev)}</small></div><div class="v num"><small style="margin:0">черв–вер ${fmt.usd(c.invoiced_jun_sep)}</small></div>`).join('');
+
+  // cash kv + debt
+  document.getElementById('cash-kv').innerHTML = [
+    ['Звірений залишок', ms.cash == null ? 'немає — ' + esc(MAN.cash.note) : fmt.usd(ms.cash) + ' на ' + fmt.date(ms.cash_date)],
+    ['План платежів / тиждень', fmt.uah(MAN.cash.weekly_payments_plan_uah) + ' при надходженнях ' + fmt.uah(MAN.cash.weekly_receipts_uah) + ' (25.09)'],
+    ['Зобов\'язання', ms.liab ? fmt.uah(ms.liab) + ' (усно, реєстру немає)' : '—'],
+    ['Платежі за закупівлі 28.09–03.01', fmt.uah(MAN.inventory.payments_plan_q4_uah) + ' ≈ ' + fmt.usd(MAN.inventory.payments_plan_q4_usd) + ', з них товар ' + fmt.usd(MAN.inventory.payments_goods_usd)],
+    ['Відкриті замовлення виробникам', '≈ €' + dec(MAN.inventory.open_po_eur / 1e6, 2) + 'M, без ціни ' + MAN.inventory.open_po_no_price_rows + ' рядків'],
+    ['EU', 'збиток ' + fmt.usd(MAN.eu.loss_8m_usd) + ' за 8 міс., ' + fmt.usd(MAN.eu.loss_monthly_usd) + ' на місяць з травня'],
+    ['Затоварення', esc(MAN.inventory.overstock_note)]
+  ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('');
+  document.getElementById('tbl-debt').innerHTML = tableHTML([{ label: 'Борг і фінансування' }, { label: 'Сума і умови', cls: 'txt' }, { label: 'Статус', cls: 'txt' }], MAN.debt.map(x => ({ cells: [{ text: x.name }, { text: x.amount }, { text: x.status }] })));
+  document.getElementById('cfo-form-sub').textContent = `${cap(MN[m])} ${f.month.slice(0, 4)}. Стартові значення — зріз ${fmt.date(MAN.as_of)} з діагностики; зберігайте раз на тиждень після кеш-комітету.`;
+}
+
+/* ================= CLUST: Board Pack ================= */
+function renderCLUST() {
+  const f = F(), up = closedUpTo();
+  const cols = [{ label: '' }].concat(MS.map((s, k) => ({ label: s + ' ' + String(YEAR).slice(2), cls: (M[k] && M[k].complete ? '' : 'fut') + (M[k] && M[k].month === f.month ? ' sel' : '') }))).concat([{ label: 'YTD', cls: 'ytd' }]);
+  const cell = (k, v, s) => ({ text: v, cls: (M[k] && M[k].complete ? '' : 'fut') + (M[k] && M[k].month === f.month ? ' sel' : '') + ' ' + (s ? cellCls(s) : '') });
+  const row = (label, get, f_, kind, cls, ytdFn) => ({ cls: cls || '', cells: [{ text: label }].concat(MS.map((_, k) => { const x = M[k]; const v = x ? get(x) : null; return cell(k, v == null ? '' : f_(v), x && x.complete && kind ? st(kind, v) : null); })).concat([{ text: ytdFn ? f_(ytdFn()) : '', cls: 'ytd' }]) });
+  const refRow = (label, arr, f_) => ({ cls: 'ref', cells: [{ text: label }].concat(MS.map((_, k) => ({ text: arr[k] == null ? '' : f_(arr[k]) }))).concat([{ text: f_(arr.slice(0, up.length).reduce((a, b) => a + (b || 0), 0)), cls: 'ytd' }]) });
+  const Y = k => sum(up, k);
+  const rows = [
+    { section: 'Виручка і замовлення' },
+    row('Виручка B2C, $k', x => x.revenue, fmt.k0, null, '', () => Y('revenue')),
+    refRow('  бюджет 2026', PL.budget.revenue, fmt.k0), refRow('  RF CLUST', PL.rf.revenue, fmt.k0), refRow('  2025 (P&L)', LY.revenue, fmt.k0),
+    row('Виручка B2B, $k', x => x.revenue_b2b, fmt.k0, null, '', () => Y('revenue_b2b')),
+    row('Замовлення B2C', x => x.orders, fmt.int, null, '', () => Y('orders')),
+    row('AOV, $', x => x.aov, fmt.usd2, null, '', () => Y('revenue') / Y('orders')),
+    { section: 'Маркетинг' },
+    row('Маркетинг B2C, $k', x => x.marketing, fmt.k0, null, '', () => Y('marketing')),
+    refRow('  бюджет 2026', PL.budget.marketing, fmt.k0), refRow('  RF CLUST', PL.rf.marketing, fmt.k0), refRow('  2025 (P&L)', LY.marketing, fmt.k0),
+    row('Маркетинг, % виручки B2C', x => x.mkt_share, fmt.pct, 'mkt_share', 'ind', () => Y('marketing') / Y('revenue')),
+    row('CPO, $', x => x.cpo, fmt.usd2, 'cpo', 'ind', () => Y('marketing') / Y('orders')),
+    row('Нові клієнти', x => x.new_customers, fmt.int, null, '', () => Y('new_customers')),
+    row('CAC, $', x => x.cac, fmt.usd2, 'cac', 'ind', () => Y('marketing') / Y('new_customers')),
+    row('Частка повторних замовлень', x => x.repeat_share, fmt.pct, null, 'ind', () => Y('repeat_orders') / Y('orders_ship')),
+    { section: 'Маржа' },
+    row('CM2, % виручки', x => x.cm2_share, fmt.pct, null, '', () => Y('cm2') / Y('revenue')),
+    row('CM3 B2C, $k', x => x.cm3, fmt.k0, null, '', () => Y('cm3')),
+    row('CM3, % виручки', x => x.cm3_share, fmt.pct, 'cm3', 'ind', () => Y('cm3') / Y('revenue')),
+    row('GP B2B, $k', x => x.gp_b2b, fmt.k0, null, '', () => Y('gp_b2b')),
+    row('NC компанії, $k', x => x.nc_total, fmt.k0, null, '', () => Y('nc_total')),
+    row('NC / маркетинг', x => x.nc_total_per_mkt, fmt.x, 'nc', 'ind', () => Y('nc_total') / Y('marketing')),
+    { section: 'Знижка' },
+    row('Ефективна знижка', x => x.discount_eff, fmt.pct, 'disc', '', () => Y('discount_usd') / (Y('revenue') + Y('discount_usd'))),
+    row('Знижка + маркетинг на замовлення, $', x => x.disc_mkt_per_order, fmt.usd2, null, 'ind', () => (Y('discount_usd') + Y('marketing')) / Y('orders'))
+  ];
+  document.getElementById('tbl-bp').innerHTML = tableHTML(cols, rows);
+
+  // sources of truth
+  const src = [
+    ['P&L за місяць: виручка, GP, EBITDA, NP', 'Finance Dashboard, лист Finresult_recalculated_EBITDA', 'Фінанси', 'закриття до 10-го', 'Лист вірний; вітрина Analytical dashboard 2026 подвоює B2B; Board Pack CLUST — лише UA'],
+    ['Виручка і маржа всередині місяця', 'BigQuery daily_kpi_metrics (та сама база, що Power BI Financial Overview)', 'Аналітика', 'щодня', 'З FD за липень сходиться, серпень −1%; звіт маркетингу за датою замовлення — лише з поміткою'],
+    ['Нові і повторні клієнти, когорти, B2B по клієнтах', 'BigQuery orders', 'Аналітика', 'щодня', 'У Board Pack цих метрик не було — тепер є'],
+    ['Реклама', 'BigQuery fct_ad_stats', 'Маркетинг', 'щодня', 'Покупки розходяться з кабінетом Meta на 14%'],
+    ['План', 'Plan PnL UA, лист «FinModel 2025-2026 по факту»; RF CLUST', 'Фінанси', 'при перегляді', 'Три версії плану серпня; вересень–грудень перезбирається'],
+    ['Залишок грошей', 'немає → ручний ввід на вкладці CFO після звірки з банком', 'Фінанси', 'щотижня', 'Останній розрахунок — 30.04 з Finmap, не звірено'],
+    ['Рух грошей', 'CashFlow_Perla.xlsx (Finmap)', 'Фінанси', 'щомісяця', 'Залишки з лютого порожні, курс 2026 заморожений, серпень не розмічений'],
+    ['Дебіторка B2B', 'Дебіторська заборгованість.xlsx, Zoho; дашборд pages.helsa.ai/debitorka-dashboard', 'Фінанси + B2B', 'щотижня', 'У АНЦ-90 немає формули просрочки'],
+    ['Склад Україна', 'Inventory Tracking; по локаціях — «Номера контрагентов», лист «учёт»', 'Фулфілмент', 'щодня', 'Надійно; є від\'ємні залишки, початок дня перезаписується'],
+    ['Склад Польща', 'Material&FG Stock Planning (Frisbo)', 'Закупівлі', 'автоматично', 'Поріг OOS один для всіх SKU — 500 шт.'],
+    ['Замовлення виробникам і план закупівель', 'Purchase Orders (PO List); S&OP September 2026, Q4', 'Закупівлі', 'за подією / щотижня', 'У 37% відкритих штук немає ціни; рішення зустрічей не внесені'],
+    ['Платежі за закупівлі', 'Planing Operation Dep.', 'Фінанси + закупівлі', 'щотижня', 'TOTAL рахує товар лише до 18.10'],
+    ['Рішення і задачі', 'лог рішень на вкладці CEO цієї сторінки (замість Improving Net Profit, Follow up, ClickUp)', '—', 'щотижня', '']
+  ];
+  document.getElementById('tbl-src').innerHTML = tableHTML([{ label: 'Що рахуємо' }, { label: 'Джерело правди', cls: 'txt' }, { label: 'Власник' }, { label: 'Оновлення' }, { label: 'Що зараз не так', cls: 'txt' }], src.map(r => ({ cells: r.map(t => ({ text: t })) })));
+
+  document.getElementById('sql-list').innerHTML = Object.keys(SQL).map(k => `<details><summary>${esc(k)}</summary><pre><code>${esc(SQL[k])}</code></pre></details>`).join('');
+}
+
+/* ================= BENCHMARKS ================= */
+function benchValue(key) {
+  const f = F(), up = closedUpTo(), Y = k => sum(up, k), ms = manualState();
+  switch (key) {
+    case 'mkt_share': return { m: f.mkt_share, y: Y('marketing') / Y('revenue') };
+    case 'cm3_share': return { m: f.cm3_share, y: Y('cm3') / Y('revenue') };
+    case 'cm2_share': return { m: f.cm2_share, y: Y('cm2') / Y('revenue'), mLabel: 'CM2; лише продукт: ' + fmt.pct(f.product_margin_share) };
+    case 'cac_aov': return { m: f.cac / f.aov, y: (Y('marketing') / Y('new_customers')) / (Y('revenue') / Y('orders')), mLabel: `CAC ${fmt.usd2(f.cac)} / AOV ${fmt.usd2(f.aov)}` };
+    case 'rep90': { const c = lastMature('rep90'); const arr = S.cohorts.filter(x => x.mature90 && x.cohort.startsWith(String(YEAR))); return { m: c ? c.rep90 : null, mLabel: c ? 'когорта ' + c.cohort : '', y: avg(arr.map(x => x.rep90)), yLabel: 'середнє когорт ' + YEAR }; }
+    case 'rep365': { const c = lastMature('rep365'); const b = S.cohorts[2]; return { m: c ? c.rep365 : null, mLabel: c ? 'когорта ' + c.cohort : '', y: b.rep365, yLabel: 'когорта ' + b.cohort }; }
+    case 'repeat_share': return { m: f.repeat_share, y: Y('repeat_orders') / Y('orders_ship') };
+    case 'discount_eff': return { m: f.discount_eff, y: Y('discount_usd') / (Y('revenue') + Y('discount_usd')) };
+    case 'crm_share': { const u = utmAt(f.month), uu = S.utm.filter(x => x.month.startsWith(String(YEAR)) && x.month <= f.month); return { m: u ? u.crm_share : null, y: sum(uu, 'crm') / sum(uu, 'total') }; }
+    case 'meta_cpp_aov': return { m: f.meta_cpp / f.aov, y: (Y('meta') / Y('meta_purchases')) / (Y('revenue') / Y('orders')), mLabel: `${fmt.usd2(f.meta_cpp)} на покупку` };
+    case 'aov': return { m: f.aov, y: Y('revenue') / Y('orders') };
+    case 'ebitda': { const r = S.pnl_fd.rows, e = r.find(x => x.key === 'ebitda').values, rv = r.find(x => x.key === 'revenue').values; const ci = { '2026-07': 2, '2026-08': 3, '2026-09': 5 }[f.month]; return { m: ci != null ? e[ci] / rv[ci] : null, mLabel: ci === 5 ? 'прогноз FD 16.09' : 'за FD', y: e[4] / rv[4], yLabel: 'січень–серпень, FD' }; }
+    case 'dso': return { m: ms.dso, mLabel: 'на ' + fmt.date(ms.as_of), y: null };
+    case 'dio': { const cd = MAN.inventory.cogs_month_usd / 30; return { m: (ms.stock_ua + ms.stock_pl) / cd, mLabel: 'на складах UA + PL', y: (ms.stock_ua + ms.stock_pl + ms.transit) / cd, yLabel: 'з товаром у дорозі' }; }
+    case 'market_growth': { const g = growthYoY(); return { m: g ? g.rev : null, mLabel: g ? 'B2C р/р, січень–' + MG[mi(f)] : '', y: g ? g.newc : null, yLabel: 'нові клієнти р/р' }; }
+  }
+  return { m: null, y: null };
+}
+const bfmt = (u, v) => v == null ? '—' : u === 'pct' ? fmt.pct(v) : u === 'usd' ? fmt.usd2(v) : u === 'days' ? dec(v, 0) + ' дн.' : dec(v, 2);
+function benchVerdict(b, v) {
+  if (v == null) return { cls: 'na', label: 'немає даних', icon: '?' };
+  if (b.better === 'ctx') return { cls: 'na', label: 'контекст', icon: '·' };
+  const med = b.market.median, top = b.market.top;
+  if (b.better === 'low') return top != null && v <= top ? { cls: 'ok', label: 'верхній квартиль', icon: '✓' } : v <= med ? { cls: 'ok', label: 'краще медіани', icon: '✓' } : v <= med * 1.15 ? { cls: 'watch', label: 'біля медіани', icon: '!' } : { cls: 'alert', label: 'гірше медіани', icon: '✕' };
+  return top != null && v >= top ? { cls: 'ok', label: 'верхній квартиль', icon: '✓' } : v >= med ? { cls: 'ok', label: 'краще медіани', icon: '✓' } : v >= med * 0.85 ? { cls: 'watch', label: 'біля медіани', icon: '!' } : { cls: 'alert', label: 'гірше медіани', icon: '✕' };
+}
+function posBar(b, v, vd) {
+  const pts = [v, b.market.median, b.market.top, b.internal ? b.internal.value : null].filter(x => x != null);
+  if (pts.length < 2 || v == null) return '';
+  let lo = Math.min(...pts), hi = Math.max(...pts); const pad = (hi - lo) * 0.18 || Math.abs(hi) * 0.2 || 1; lo -= pad; hi += pad;
+  const W = 240, H = 34, x = u => 8 + (W - 16) * (u - lo) / (hi - lo);
+  const col = vd.cls === 'ok' ? 'var(--good)' : vd.cls === 'watch' ? 'var(--warn)' : vd.cls === 'alert' ? 'var(--crit)' : 'var(--line-2)';
+  let g = `<svg viewBox="0 0 ${W} ${H}" aria-hidden="true"><line x1="8" x2="${W - 8}" y1="20" y2="20" stroke="var(--line-2)" stroke-width="2"/>`;
+  const tick = (u, c, lab, up) => u == null ? '' : `<line x1="${x(u).toFixed(1)}" x2="${x(u).toFixed(1)}" y1="13" y2="27" stroke="${c}" stroke-width="2"/><text x="${x(u).toFixed(1)}" y="${up ? 9 : 33}" text-anchor="middle" font-size="8.5" fill="var(--muted)">${lab}</text>`;
+  g += tick(b.market.median, 'var(--ref)', 'медіана', true) + tick(b.market.top, 'var(--s3)', 'топ', false) + (b.internal ? tick(b.internal.value, 'var(--accent)', 'CLUST', b.market.top == null) : '');
+  g += `<circle cx="${x(v).toFixed(1)}" cy="20" r="6" fill="${col}" stroke="var(--surface)" stroke-width="2"/></svg>`;
+  return g;
+}
+function renderBench() {
+  const f = F(), items = S.benchmarks.items;
+  let worse = 0, better = 0;
+  const rows = items.map(b => {
+    const v = benchValue(b.key), vd = benchVerdict(b, v.m);
+    if (vd.cls === 'alert') worse++; else if (vd.cls === 'ok') better++;
+    return `<div class="brow"><div class="m">${esc(b.metric)}<small>${esc(b.market.text)}${b.internal ? ' · ' + esc(b.internal.text) : ''}</small></div>` +
+      `<div class="pv num">${bfmt(b.unit, v.m)}<small>${esc(v.mLabel || cap(MN[mi(f)]))}${v.y != null ? ' · ' + bfmt(b.unit, v.y) + ' ' + esc(v.yLabel || 'YTD') : ''}</small></div>` +
+      `<div class="mk">медіана <b>${bfmt(b.unit, b.market.median)}</b>${b.market.top != null ? ' · верхній квартиль <b>' + bfmt(b.unit, b.market.top) + '</b>' : ''}${b.internal ? ' · CLUST <b>' + bfmt(b.unit, b.internal.value) + '</b>' : ''}<div class="src">${b.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`).join(' · ')}</div></div>` +
+      `<div class="pos">${posBar(b, v.m, vd)}</div><div>${chip(vd)}</div></div>`;
+  });
+  document.getElementById('bench').innerHTML = `<div class="brow head"><div>Метрика · ринок</div><div>Perla</div><div>Ринок і ціль</div><div>Позиція</div><div>Висновок</div></div>` + rows.join('');
+  const vb = document.getElementById('bench-verdict'); vb.className = 'card verdict ' + (worse >= 4 ? 'alert' : worse >= 2 ? 'watch' : 'ok');
+  const mk = benchValue('mkt_share'), cm = benchValue('cm3_share'), dc = benchValue('discount_eff'), r9 = benchValue('rep90');
+  vb.innerHTML = `${chip(worse >= 4 ? { cls: 'alert', label: worse + ' гірше медіани', icon: '✕' } : { cls: 'watch', label: worse + ' гірше медіани', icon: '!' })}<p class="vt">За ${MN[mi(f)]}: ${better} метрик краще ринкової медіани, ${worse} гірше. Знижка ${fmt.pct(dc.m)} — вище середньої знижки ринку у пік Black Friday; маркетинг ${fmt.pct(mk.m)} і CM3 ${fmt.pct(cm.m)} — на рівні медіани DTC, але не там, де має бути бренд із 60% повторних замовлень.</p>` +
+    `<p class="vd">Сильні сторони проти ринку: маржа до маркетингу, частка повторних, вартість покупки у Meta і Google відносно чека (медіа в Україні дешевша). Слабкі: глибина знижки, повтор нових когорт за 90 днів (${fmt.pct(r9.m)}), DSO B2B, темп росту проти ринку.</p>`;
+  document.getElementById('bench-note').textContent = S.benchmarks._source;
+}
+
+/* ================= FLOW (static) ================= */
+function renderFlow() {
+  document.getElementById('tbl-rhythm').innerHTML = tableHTML([{ label: 'Коли' }, { label: 'Що', cls: 'txt' }, { label: 'Хто' }], [
+    ['Щодня, ранок', 'KPI-алерти B2C у Slack: виручка, замовлення, маржа, маркетинг %, знижка. Планові значення перерахувати разом із планом Q4 — зараз 891 замовлення/день при факті 300–600.', 'Аналітик'],
+    ['Середа, 45 хв', 'Кеш-комітет: залишок по банку, реєстр зобов\'язань, 13-тижневий прогноз, черговість платежів (A-SKU за валовим прибутком на долар закупівлі).', 'Альона · валідує Марина'],
+    ['П\'ятниця', 'Звіт «знижка + маркетинг на замовлення» і юніт-економіка на одній сторінці (вкладка CMO, тижнева таблиця).', 'Олексій · валідує Артём'],
+    ['Щотижня', 'Дзвінок з CLUST: рішення з власником і терміном на місці, у лог рішень.', 'CEO · CLUST'],
+    ['1-ше число', 'Автоматичний знімок цієї сторінки.', 'Claude'],
+    ['До 3-го робочого дня', 'Коментар CMO (вкладка Маркетинг).', 'CMO'],
+    ['До 10-го', 'Звірка BigQuery ↔ FD, ручні вводи кешу, ДЗ, запасів (вкладка Фінанси). Місяць заморожується: правки лише рядком Correction.', 'Фінанси'],
+    ['За 3 дні до Борду', 'Board Pack зібрано без ручних правок (вкладка CLUST + коментар CMO + звірка).', 'CLUST']
+  ].map(r => ({ cells: r.map(t => ({ text: t })) })));
+  document.getElementById('tbl-owners').innerHTML = tableHTML([{ label: 'Область', cls: 'txt' }, { label: 'Власник' }, { label: 'Валідація' }, { label: 'Частота' }], [
+    ['Залишок по банку, реєстр зобов\'язань, 13-тижневий прогноз кешу', 'Альона', 'Марина', 'щотижня, середа'],
+    ['Словник метрик і звірки джерел', 'Артём (CLUST) + Катя', 'Марина', 'щомісяця'],
+    ['Виправлення вітрин FD і матеріалів борду', 'Альона', 'Артём', 'до 10.10'],
+    ['Знижки + маркетинг на замовлення', 'Олексій', 'Артём', 'щотижня, п\'ятниця'],
+    ['Закупівлі під кеш: PO List, S&OP, план платежів по SKU', 'власник закупівель (призначити)', 'Альона', 'щотижня'],
+    ['Склад: залишки, від\'ємні залишки, строки', 'фулфілмент', 'закупівлі', 'щодня'],
+    ['B2B: дебіторка, ліміти, ретро-бонуси', 'Ліна', 'Альона', 'щотижня'],
+    ['Цей знімок: SQL, збірка, публікація', 'Claude (авто) + аналітик', 'CEO', '1-ше число'],
+    ['Пороги і план у data/targets.json, data/plan.json', 'CLUST', 'Борд', 'за рішенням Борду']
+  ].map(r => ({ cells: r.map(t => ({ text: t })) })));
+}
+
+/* ================= on-page inputs (artifact db) ================= */
+const INPUTS = {};      // month -> doc body from db
+let DEC = null;         // decisions from db (null = not loaded)
+let db = null, usr = null, canWrite = null, dbMode = 'off';
+let unsubInputs = null, unsubDec = null, writeRefused = false;
+const dirty = { cmo: false, cfo: false };
+const SEED_DECISIONS = [
+  { text: 'Ліміт маркетингу на жовтень і тижнева стеля до затвердження (≈$30k на тиждень)', owner: 'Денис · Олексій · Альона', due: '2026-10-07', status: 'open' },
+  { text: 'Правила знижок до флешу 08.10: потолок, стоп-правило «запас < 30 днів — не в акцію», тест 20% проти 15%', owner: 'Олексій · Вова', due: '2026-10-07', status: 'open' },
+  { text: 'Блогери: пауза на нові оплати до звіту за серпень–вересень (витрата, GP по промокодах, брендовий пошук)', owner: 'Олексій', due: '2026-10-09', status: 'open' },
+  { text: 'Бандл №1: одна дата запуску і відповідальний, або зняти з плану', owner: 'Олексій', due: '2026-10-09', status: 'open' },
+  { text: 'Звірений з банком залишок по кожному рахунку, реєстр зобов\'язань, перший 13-тижневий прогноз кешу', owner: 'Альона · Марина', due: '2026-10-10', status: 'open' },
+  { text: 'PO List, S&OP і план платежів — до однієї цифри по SKU; рішення по магнію, Joint, Peach, Black Cherry, Squalene', owner: 'власник закупівель', due: '2026-10-10', status: 'open' },
+  { text: 'Виправити вітрини FD (Analytical dashboard 2026, COGS по сегментах у Finresult) і матеріали борду', owner: 'Альона', due: '2026-10-10', status: 'open' },
+  { text: 'Board Pack за 3 дні до Борду 22.10 без ручних правок; словник метрик', owner: 'Артём (CLUST) · Катя', due: '2026-10-19', status: 'open' }
+];
+const nowIso = () => new Date().toISOString();
+const timeStr = iso => { try { const d = new Date(iso); return d.toLocaleString('uk-UA', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }); } catch (e) { return iso; } };
+const $ = id => document.getElementById(id);
+
+function setDbMode(mode) {
+  dbMode = mode;
+  const ro = mode !== 'rw';
+  ['c-q1', 'c-q2', 'c-q3', 'c-save', 'f-cash', 'f-cash-date', 'f-liab', 'f-ar', 'f-overdue', 'f-dso', 'f-stock-ua', 'f-stock-pl', 'f-transit', 'f-note', 'f-save', 'd-text', 'd-owner', 'd-due', 'd-add'].forEach(id => { const el = $(id); if (el) el.disabled = ro; });
+  const msg = mode === 'off' ? 'Введення працює у версії сторінки на claude.ai (увійдіть в акаунт). Тут показано стартові значення зі знімка.'
+    : mode === 'ro' ? 'У вас доступ лише на читання: показано збережені значення. Щоб вносити дані, потрібен рівень Contributor.'
+    : 'Зберігається в базі цієї сторінки; бачать усі, хто має посилання. Поле «оновлено» показує час останнього збереження.';
+  ['c-note', 'f-note-db', 'd-note'].forEach(id => { $(id).textContent = msg; });
+}
+function onMonthChanged() { dirty.cmo = dirty.cfo = false; if (db) subscribeInputs(); }
+function subscribeInputs() {
+  if (unsubInputs) { unsubInputs(); unsubInputs = null; }
+  const key = F().month;
+  if (INPUTS[key] === undefined) INPUTS[key] = null;
+  unsubInputs = db.doc('inputs/' + key).onSnapshot(snap => {
+    INPUTS[key] = snap.exists ? snap.data() : null;
+    if (key === F().month) { renderInputs(); renderCEO(); renderCFO(); renderBench(); }
+  }, err => { console.warn('inputs', err); });
+}
+function subscribeDecisions() {
+  if (unsubDec) { unsubDec(); unsubDec = null; }
+  unsubDec = db.collection('decisions').orderBy('created', 'desc').limit(80).onSnapshot(snap => {
+    DEC = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    renderDecisions();
+  }, err => { console.warn('decisions', err); DEC = null; renderDecisions(); });
+}
+async function initDb() {
+  if (!window.claude || typeof window.claude.use !== 'function') { setDbMode('off'); return; }
+  try { db = await window.claude.use('db'); usr = await window.claude.use('user'); } catch (e) { db = null; }
+  if (!db) { setDbMode('off'); return; }
+  try { canWrite = usr ? await usr.can('data.write') : null; } catch (e) { canWrite = null; }
+  setDbMode(canWrite === false ? 'ro' : 'rw');
+  subscribeInputs(); subscribeDecisions();
+}
+function renderInputs() {
+  const key = F().month, d = INPUTS[key] || null, seedMonth = MAN.as_of.slice(0, 7) === key;
+  if (!dirty.cmo) { $('c-q1').value = d && d.cmo_q1 || ''; $('c-q2').value = d && d.cmo_q2 || ''; $('c-q3').value = d && d.cmo_q3 || ''; }
+  $('c-status').textContent = d && d.cmo_updated ? 'Оновлено ' + timeStr(d.cmo_updated) : (dbMode === 'rw' ? 'Ще не заповнено' : '');
+  if (!dirty.cfo) {
+    const g = (k, s) => d && d[k] != null ? d[k] : (seedMonth || !d ? s : '');
+    $('f-cash').value = g('cash_usd', MAN.cash.verified_usd) ?? ''; $('f-cash-date').value = g('cash_date', MAN.cash.verified_date) ?? '';
+    $('f-liab').value = g('liabilities_uah', MAN.cash.liabilities_uah) ?? ''; $('f-ar').value = g('ar_uah', MAN.ar.total_uah) ?? '';
+    const ov = g('overdue_pct', MAN.ar.overdue_pct); $('f-overdue').value = ov == null || ov === '' ? '' : +(ov * 100).toFixed(1);
+    $('f-dso').value = g('dso_days', MAN.ar.dso_days) ?? ''; $('f-stock-ua').value = g('stock_ua_usd', MAN.inventory.stock_ua_usd) ?? '';
+    $('f-stock-pl').value = g('stock_pl_usd', MAN.inventory.stock_pl_usd) ?? ''; $('f-transit').value = g('transit_usd', MAN.inventory.in_transit_usd) ?? '';
+    $('f-note').value = d && d.note || '';
+  }
+  $('f-status').textContent = d && d.updated ? 'Оновлено ' + timeStr(d.updated) : 'Стартові значення зі знімка ' + fmt.date(MAN.as_of);
+}
+function renderDecisions() {
+  const list = DEC && DEC.length ? DEC : (DEC === null || dbMode === 'off' ? SEED_DECISIONS.map((x, k) => ({ ...x, id: 'seed' + k, seed: true })) : []);
+  const order = x => (x.status === 'done' ? 1 : 0) + '' + (x.due || '9999');
+  const sorted = list.slice().sort((a, b) => order(a) < order(b) ? -1 : 1);
+  const fromSeed = sorted.length && sorted[0].seed;
+  $('decisions').innerHTML = sorted.map(x => {
+    const late = x.status !== 'done' && x.due && x.due < S.data_through;
+    return `<li class="${x.status === 'done' ? 'done' : ''}">${chip(x.status === 'done' ? { cls: 'ok', label: 'зроблено', icon: '✓' } : late ? { cls: 'alert', label: 'прострочено', icon: '✕' } : { cls: 'watch', label: 'відкрито', icon: '!' })}` +
+      `<span>${esc(x.text)}<span class="meta">${esc(x.owner || '—')} · до ${fmt.date(x.due)}${x.effect ? ' · ' + esc(x.effect) : ''}</span></span>` +
+      `<span>${x.seed || dbMode !== 'rw' ? '' : `<button class="btn" type="button" data-dec="${esc(x.id)}" data-next="${x.status === 'done' ? 'open' : 'done'}">${x.status === 'done' ? 'Відкрити' : 'Зроблено'}</button>`}</span></li>`;
+  }).join('') || '<li>Рішень ще немає</li>';
+  if (fromSeed) $('d-status').textContent = 'Стартовий список з діагностики 27.09 і підготовки до колу 02.10';
+}
+async function saveInputs(fields, statusEl, dirtyKey) {
+  if (!db || dbMode !== 'rw') return;
+  const key = F().month, body = Object.assign({}, INPUTS[key] || {}, fields);
+  statusEl.textContent = 'Зберігаю…';
+  try { await db.doc('inputs/' + key).set(body); dirty[dirtyKey] = false; statusEl.textContent = 'Збережено ' + timeStr(nowIso()); }
+  catch (e) {
+    if (e && e.code === 'invalid_argument' && !writeRefused) { writeRefused = true; setDbMode('ro'); }
+    statusEl.textContent = 'Не збережено: ' + (e && e.message ? e.message : 'помилка');
+  }
+}
+$('cmo-form').addEventListener('input', () => { dirty.cmo = true; });
+$('cfo-form').addEventListener('input', () => { dirty.cfo = true; });
+$('cmo-form').addEventListener('submit', e => { e.preventDefault(); saveInputs({ cmo_q1: $('c-q1').value.trim(), cmo_q2: $('c-q2').value.trim(), cmo_q3: $('c-q3').value.trim(), cmo_updated: nowIso() }, $('c-status'), 'cmo'); });
+$('cfo-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const n = id => { const v = $(id).value; return v === '' ? null : +v; };
+  saveInputs({ cash_usd: n('f-cash'), cash_date: $('f-cash-date').value || null, liabilities_uah: n('f-liab'), ar_uah: n('f-ar'), overdue_pct: n('f-overdue') == null ? null : n('f-overdue') / 100, dso_days: n('f-dso'),
+    stock_ua_usd: n('f-stock-ua'), stock_pl_usd: n('f-stock-pl'), transit_usd: n('f-transit'), note: $('f-note').value.trim(), updated: nowIso() }, $('f-status'), 'cfo');
+});
+$('decision-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  if (!db || dbMode !== 'rw') return;
+  const text = $('d-text').value.trim(); if (!text) { $('d-status').textContent = 'Напишіть рішення'; return; }
+  $('d-status').textContent = 'Зберігаю…';
+  try { await db.collection('decisions').add({ text, owner: $('d-owner').value.trim(), due: $('d-due').value || null, status: 'open', created: nowIso(), month: F().month }); $('d-text').value = ''; $('d-owner').value = ''; $('d-due').value = ''; $('d-status').textContent = 'Додано'; }
+  catch (err) { if (err && err.code === 'invalid_argument' && !writeRefused) { writeRefused = true; setDbMode('ro'); } $('d-status').textContent = 'Не збережено: ' + (err && err.message ? err.message : 'помилка'); }
+});
+$('decisions').addEventListener('click', async e => {
+  const b = e.target.closest('button[data-dec]'); if (!b || !db || dbMode !== 'rw') return;
+  b.disabled = true;
+  try { await db.doc('decisions/' + b.dataset.dec).update({ status: b.dataset.next, updated: nowIso() }); } catch (err) { b.disabled = false; $('d-status').textContent = 'Не збережено: ' + (err && err.message ? err.message : 'помилка'); }
+});
+['copy-w', 'copy-seg', 'copy-bp'].forEach((id, k) => { $(id).addEventListener('click', () => copyTable($(['tbl-w', 'tbl-seg', 'tbl-bp'][k]), $(id))); });
+
+/* ================= init ================= */
+function renderAll() { renderMeta(); renderCEO(); renderCMO(); renderCFO(); renderCLUST(); renderBench(); renderDecisions(); }
+renderFlow();
+setDbMode('off');
+renderAll();
+setView(view, false);
+initDb();
+})();
+</script>

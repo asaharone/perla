@@ -1,0 +1,21 @@
+{
+ "validated_on": "2026-09 (2026-10-02)",
+ "marts": {
+  "02_ecom_order_items": {
+   "status": "ok",
+   "lines": 29182,
+   "with_product": 29180,
+   "with_gp": 25658,
+   "note": "GP через fct_sku_revenue по (id, offer = Product_Name); нет GP у ~12% строк (товары без себестоимости/в доставке)"
+  },
+  "08_ecom_carts": {
+   "status": "ok (v1.1 pending)",
+   "carts_sept": 41861,
+   "note": "value события view_cart не равен сумме корзины; сумма берётся по items"
+  },
+  "03_ecom_customers": {
+   "status": "ok (cohorts)",
+   "note": "GP-часть исправлена на sku_gross_profit_uah, не прогонялась целиком (дорогая)"
+  }
+ }
+}

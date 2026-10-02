@@ -1,0 +1,335 @@
+{
+"fields": [
+"first_product",
+"second_product",
+"customers",
+"customers_with_first",
+"share",
+"same_product"
+],
+"rows": [
+[
+"UA Triple Magnesium №60",
+"UA Triple Magnesium №60",
+1196,
+2164,
+0.553,
+true
+],
+[
+"UA Collagen Marine №30",
+"UA Collagen Marine №30",
+778,
+1609,
+0.484,
+true
+],
+[
+"UA A-Biotin №30",
+"UA A-Biotin №30",
+523,
+1143,
+0.458,
+true
+],
+[
+"UA Collagen Marine №30",
+"UA Triple Magnesium №60",
+266,
+1609,
+0.165,
+false
+],
+[
+"UA Omega-3 Cod №120",
+"UA Omega-3 Cod №120",
+236,
+729,
+0.324,
+true
+],
+[
+"UA Multi Beauty Duo-Caps №60",
+"UA Multi Beauty Duo-Caps №60",
+234,
+881,
+0.266,
+true
+],
+[
+"UA Triple Magnesium №60",
+"UA A-Biotin №30",
+223,
+2164,
+0.103,
+false
+],
+[
+"UA Triple Magnesium №60",
+"UA Vitamin D3 Base 2000 №60",
+219,
+2164,
+0.101,
+false
+],
+[
+"UA Vitamin D3 Base 2000 №60",
+"UA Triple Magnesium №60",
+211,
+722,
+0.292,
+false
+],
+[
+"UA A-Biotin №30",
+"UA Triple Magnesium №60",
+205,
+1143,
+0.179,
+false
+],
+[
+"UA Triple Magnesium №60",
+"UA Multi Beauty Duo-Caps №60",
+204,
+2164,
+0.094,
+false
+],
+[
+"UA Collagen Marine №30",
+"UA A-Biotin №30",
+202,
+1609,
+0.126,
+false
+],
+[
+"UA Multi Beauty Duo-Caps №60",
+"UA Triple Magnesium №60",
+198,
+881,
+0.225,
+false
+],
+[
+"UA Triple Magnesium №60",
+"UA Omega-3 Cod №120",
+198,
+2164,
+0.091,
+false
+],
+[
+"UA Triple Magnesium №60",
+"UA Collagen Marine №30",
+196,
+2164,
+0.091,
+false
+],
+[
+"UA Triple Magnesium №60",
+"UA Omega-3 Tuna №120",
+193,
+2164,
+0.089,
+false
+],
+[
+"UA Collagen Nectar Wild Berries 450ml",
+"UA Collagen Nectar Wild Berries 450ml",
+187,
+495,
+0.378,
+true
+],
+[
+"UA Liposomal Iron (Vitamin C + MCT Oil) №60",
+"UA Liposomal Iron (Vitamin C + MCT Oil) №60",
+184,
+521,
+0.353,
+true
+],
+[
+"UA Sleeps Strong 5 mg №30",
+"UA Sleeps Strong 5 mg №30",
+183,
+478,
+0.383,
+true
+],
+[
+"UA Triple Magnesium №60",
+"UA Crystal Mind №40",
+181,
+2164,
+0.084,
+false
+],
+[
+"UA Omega-3 Cod №120",
+"UA Triple Magnesium №60",
+176,
+729,
+0.241,
+false
+],
+[
+"UA Omega-3 Tuna №120",
+"UA Triple Magnesium №60",
+175,
+560,
+0.313,
+false
+],
+[
+"UA Vitamin D3 Base 2000 №60",
+"UA Vitamin D3 Base 2000 №60",
+174,
+722,
+0.241,
+true
+],
+[
+"UA Crystal Mind №40",
+"UA Crystal Mind №40",
+171,
+363,
+0.471,
+true
+],
+[
+"UA Omega-3 Tuna №120",
+"UA Omega-3 Tuna №120",
+165,
+560,
+0.295,
+true
+],
+[
+"UA Collagen Marine №30",
+"UA Omega-3 Cod №120",
+162,
+1609,
+0.101,
+false
+],
+[
+"UA A-Biotin №30",
+"UA Collagen Marine №30",
+155,
+1143,
+0.136,
+false
+],
+[
+"UA Sleeps Strong 5 mg №30",
+"UA Triple Magnesium №60",
+153,
+478,
+0.32,
+false
+],
+[
+"UA Collagen Marine №30",
+"UA Multi Beauty Duo-Caps №60",
+147,
+1609,
+0.091,
+false
+],
+[
+"UA Vitamin D3 5000+K2 №60",
+"UA Triple Magnesium №60",
+145,
+491,
+0.295,
+false
+],
+[
+"UA Triple Magnesium №60",
+"UA Liposomal Iron (Vitamin C + MCT Oil) №60",
+144,
+2164,
+0.067,
+false
+],
+[
+"UA Collagen Marine №30",
+"UA Collagen Marine Peach №30",
+141,
+1609,
+0.088,
+false
+],
+[
+"UA Multi Beauty Duo-Caps №60",
+"UA A-Biotin №30",
+141,
+881,
+0.16,
+false
+],
+[
+"UA Daily Vegan Protein 450g",
+"UA Daily Vegan Protein 450g",
+127,
+332,
+0.383,
+true
+],
+[
+"UA A-Biotin №30",
+"UA Omega-3 Cod №120",
+126,
+1143,
+0.11,
+false
+],
+[
+"UA Triple Magnesium №60",
+"UA Sleeps Strong 5 mg №30",
+125,
+2164,
+0.058,
+false
+],
+[
+"UA Multi Beauty Duo-Caps №60",
+"UA Collagen Marine №30",
+125,
+881,
+0.142,
+false
+],
+[
+"UA A-Biotin №30",
+"UA Multi Beauty Duo-Caps №60",
+123,
+1143,
+0.108,
+false
+],
+[
+"UA Omega-3 Cod №120",
+"UA A-Biotin №30",
+119,
+729,
+0.163,
+false
+],
+[
+"UA Collagen Nectar Mango-Pineapple 450ml",
+"UA Collagen Nectar Wild Berries 450ml",
+119,
+486,
+0.245,
+false
+]
+],
+"_query": "ecom/sql/blocks/b8b_first_to_second_product.sql",
+"_extracted": "2026-10-02",
+"_note": "когорта первых заказов 01–06.2026, второй заказ в течение 180 дней; share = доля клиентов с первым товаром, у которых во втором заказе есть второй товар"
+}

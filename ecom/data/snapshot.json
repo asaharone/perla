@@ -1,0 +1,7843 @@
+{
+"generated": "2026-10-02",
+"data_through": "2026-09-30",
+"source": "BigQuery perla-holistic-com — analytics (orders, orders_with_upsell, daily_kpi_metrics, monthly_revenue_plan_by_sku, ga_events_ua, calls, email_messages, fct_sku_revenue), analytics_267506323 (сирі події GA4), crm_data (zoho_deals, zoho_products, zoho_contacts, zoho_payments, billing_wayforpay_transaction_history)",
+"months": [
+"2026-01",
+"2026-02",
+"2026-03",
+"2026-04",
+"2026-05",
+"2026-06",
+"2026-07",
+"2026-08",
+"2026-09"
+],
+"tables": {
+"b1a_monthly_business": [
+{
+"month": "2026-01",
+"created": 17483,
+"successful": 16450,
+"in_progress": 60,
+"canceled": 1532,
+"refused": 972,
+"cod_created": 7984,
+"cod_successful": 6992,
+"cod_refused": 937,
+"prepaid_created": 9497,
+"prepaid_successful": 9456,
+"one_click_created": 108,
+"revenue_successful_uah": 34140116.0,
+"revenue_created_uah": 35949746.0,
+"upo_successful": 2.418,
+"lines_successful": 1.822,
+"single_line_successful": 8655,
+"with_gift_successful": 262,
+"with_qty_gt1_successful": 4976,
+"upsell_uah_successful": 329103.0,
+"kpi_revenue_uah": 34537672.0,
+"kpi_cogs_uah": 13232237.0,
+"kpi_net_cost_uah": 10946899.0,
+"kpi_marketing_uah": 5754838.0,
+"kpi_gp_after_mkt_uah": 15550251.0,
+"kpi_orders": 16580,
+"rate_usd": 43.22,
+"plan_revenue_uah": 37930411.0,
+"plan_gp_uah": 17344843.0,
+"plan_orders": 27556
+},
+{
+"month": "2026-02",
+"created": 16114,
+"successful": 15093,
+"in_progress": 74,
+"canceled": 1566,
+"refused": 946,
+"cod_created": 7301,
+"cod_successful": 6329,
+"cod_refused": 909,
+"prepaid_created": 8805,
+"prepaid_successful": 8759,
+"one_click_created": 257,
+"revenue_successful_uah": 32854426.0,
+"revenue_created_uah": 34729951.0,
+"upo_successful": 2.485,
+"lines_successful": 1.899,
+"single_line_successful": 7149,
+"with_gift_successful": 354,
+"with_qty_gt1_successful": 4806,
+"upsell_uah_successful": 903968.0,
+"kpi_revenue_uah": 33260066.0,
+"kpi_cogs_uah": 12855911.0,
+"kpi_net_cost_uah": 10673824.0,
+"kpi_marketing_uah": 5821285.0,
+"kpi_gp_after_mkt_uah": 14582870.0,
+"kpi_orders": 15324,
+"rate_usd": 43.39,
+"plan_revenue_uah": 43707628.0,
+"plan_gp_uah": 20187401.0,
+"plan_orders": 34285
+},
+{
+"month": "2026-03",
+"created": 15817,
+"successful": 14977,
+"in_progress": 27,
+"canceled": 1434,
+"refused": 811,
+"cod_created": 6708,
+"cod_successful": 5929,
+"cod_refused": 771,
+"prepaid_created": 9096,
+"prepaid_successful": 9035,
+"one_click_created": 277,
+"revenue_successful_uah": 37768010.0,
+"revenue_created_uah": 39419154.0,
+"upo_successful": 2.904,
+"lines_successful": 2.354,
+"single_line_successful": 4529,
+"with_gift_successful": 295,
+"with_qty_gt1_successful": 5646,
+"upsell_uah_successful": 1559455.0,
+"kpi_revenue_uah": 37497752.0,
+"kpi_cogs_uah": 15576566.0,
+"kpi_net_cost_uah": 13001542.0,
+"kpi_marketing_uah": 5080922.0,
+"kpi_gp_after_mkt_uah": 16840175.0,
+"kpi_orders": 14924,
+"rate_usd": 44.14,
+"plan_revenue_uah": 36239816.0,
+"plan_gp_uah": 16452699.0,
+"plan_orders": 32171
+},
+{
+"month": "2026-04",
+"created": 12704,
+"successful": 12103,
+"in_progress": 31,
+"canceled": 1218,
+"refused": 570,
+"cod_created": 5210,
+"cod_successful": 4655,
+"cod_refused": 547,
+"prepaid_created": 7479,
+"prepaid_successful": 7433,
+"one_click_created": 243,
+"revenue_successful_uah": 30433591.0,
+"revenue_created_uah": 31617286.0,
+"upo_successful": 2.862,
+"lines_successful": 2.302,
+"single_line_successful": 3638,
+"with_gift_successful": 204,
+"with_qty_gt1_successful": 4546,
+"upsell_uah_successful": 1869391.0,
+"kpi_revenue_uah": 29929497.0,
+"kpi_cogs_uah": 12583529.0,
+"kpi_net_cost_uah": 10514062.0,
+"kpi_marketing_uah": 4317430.0,
+"kpi_gp_after_mkt_uah": 13028406.0,
+"kpi_orders": 11909,
+"rate_usd": 44.07,
+"plan_revenue_uah": 36365414.0,
+"plan_gp_uah": 16447016.0,
+"plan_orders": 32560
+},
+{
+"month": "2026-05",
+"created": 12023,
+"successful": 11443,
+"in_progress": 27,
+"canceled": 1648,
+"refused": 553,
+"cod_created": 4123,
+"cod_successful": 3604,
+"cod_refused": 514,
+"prepaid_created": 7895,
+"prepaid_successful": 7834,
+"one_click_created": 212,
+"revenue_successful_uah": 27546884.0,
+"revenue_created_uah": 28638399.0,
+"upo_successful": 2.697,
+"lines_successful": 2.189,
+"single_line_successful": 4116,
+"with_gift_successful": 219,
+"with_qty_gt1_successful": 4027,
+"upsell_uah_successful": 1905740.0,
+"kpi_revenue_uah": 28187872.0,
+"kpi_cogs_uah": 11715944.0,
+"kpi_net_cost_uah": 9806680.0,
+"kpi_marketing_uah": 4740249.0,
+"kpi_gp_after_mkt_uah": 11731679.0,
+"kpi_orders": 11904,
+"rate_usd": 44.32,
+"plan_revenue_uah": 49777089.0,
+"plan_gp_uah": 22792909.0,
+"plan_orders": 43938
+},
+{
+"month": "2026-06",
+"created": 12263,
+"successful": 11633,
+"in_progress": 59,
+"canceled": 1560,
+"refused": 561,
+"cod_created": 4648,
+"cod_successful": 4109,
+"cod_refused": 527,
+"prepaid_created": 7612,
+"prepaid_successful": 7521,
+"one_click_created": 204,
+"revenue_successful_uah": 25908499.0,
+"revenue_created_uah": 27166014.0,
+"upo_successful": 2.643,
+"lines_successful": 2.011,
+"single_line_successful": 5044,
+"with_gift_successful": 179,
+"with_qty_gt1_successful": 4169,
+"upsell_uah_successful": 1467959.0,
+"kpi_revenue_uah": 26681121.0,
+"kpi_cogs_uah": 11011136.0,
+"kpi_net_cost_uah": 9326335.0,
+"kpi_marketing_uah": 4456976.0,
+"kpi_gp_after_mkt_uah": 11212918.0,
+"kpi_orders": 11943,
+"rate_usd": 44.99,
+"plan_revenue_uah": 46001586.0,
+"plan_gp_uah": 21064108.0,
+"plan_orders": 40606
+},
+{
+"month": "2026-07",
+"created": 15962,
+"successful": 15028,
+"in_progress": 54,
+"canceled": 2057,
+"refused": 880,
+"cod_created": 6168,
+"cod_successful": 5295,
+"cod_refused": 848,
+"prepaid_created": 9790,
+"prepaid_successful": 9729,
+"one_click_created": 248,
+"revenue_successful_uah": 33012863.0,
+"revenue_created_uah": 34709172.0,
+"upo_successful": 2.638,
+"lines_successful": 2.035,
+"single_line_successful": 6380,
+"with_gift_successful": 247,
+"with_qty_gt1_successful": 4658,
+"upsell_uah_successful": 1715815.0,
+"kpi_revenue_uah": 32675690.0,
+"kpi_cogs_uah": 13909805.0,
+"kpi_net_cost_uah": 11863526.0,
+"kpi_marketing_uah": 5933156.0,
+"kpi_gp_after_mkt_uah": 12832459.0,
+"kpi_orders": 14963,
+"rate_usd": 44.95,
+"plan_revenue_uah": 47469531.0,
+"plan_gp_uah": 21736280.0,
+"plan_orders": 41903
+},
+{
+"month": "2026-08",
+"created": 15682,
+"successful": 14268,
+"in_progress": 463,
+"canceled": 1848,
+"refused": 945,
+"cod_created": 6593,
+"cod_successful": 5408,
+"cod_refused": 919,
+"prepaid_created": 9079,
+"prepaid_successful": 8854,
+"one_click_created": 259,
+"revenue_successful_uah": 32891923.0,
+"revenue_created_uah": 35751344.0,
+"upo_successful": 2.619,
+"lines_successful": 2.066,
+"single_line_successful": 5822,
+"with_gift_successful": 330,
+"with_qty_gt1_successful": 4530,
+"upsell_uah_successful": 1371874.0,
+"kpi_revenue_uah": 32881245.0,
+"kpi_cogs_uah": 14027275.0,
+"kpi_net_cost_uah": 11965357.0,
+"kpi_marketing_uah": 9441692.0,
+"kpi_gp_after_mkt_uah": 9412233.0,
+"kpi_orders": 14353,
+"rate_usd": 44.91,
+"plan_revenue_uah": 56746668.0,
+"plan_gp_uah": 26127104.0,
+"plan_orders": 51931
+},
+{
+"month": "2026-09",
+"created": 13972,
+"successful": 9825,
+"in_progress": 3449,
+"canceled": 1444,
+"refused": 581,
+"cod_created": 6644,
+"cod_successful": 4198,
+"cod_refused": 560,
+"prepaid_created": 7288,
+"prepaid_successful": 5603,
+"one_click_created": 156,
+"revenue_successful_uah": 21728591.0,
+"revenue_created_uah": 31074857.0,
+"upo_successful": 2.351,
+"lines_successful": 1.925,
+"single_line_successful": 4891,
+"with_gift_successful": 1545,
+"with_qty_gt1_successful": 2470,
+"upsell_uah_successful": 757334.0,
+"kpi_revenue_uah": 24807092.0,
+"kpi_cogs_uah": 10421890.0,
+"kpi_net_cost_uah": 8939027.0,
+"kpi_marketing_uah": 7284991.0,
+"kpi_gp_after_mkt_uah": 7100211.0,
+"kpi_orders": 11494,
+"rate_usd": 44.9,
+"plan_revenue_uah": 57525141.0,
+"plan_gp_uah": 24759771.0,
+"plan_orders": 52641
+}
+],
+"b1b_sept_daily_fact_plan": [
+{
+"date": "2026-09-01",
+"rev_uah": 1549051.0,
+"gp_uah": 963639.0,
+"gp_after_mkt_uah": 727219.0,
+"orders": 665,
+"plan_rev_uah": 1783007.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 767436.0,
+"plan_orders": 1631.6
+},
+{
+"date": "2026-09-02",
+"rev_uah": 1026908.0,
+"gp_uah": 623581.0,
+"gp_after_mkt_uah": 334040.0,
+"orders": 456,
+"plan_rev_uah": 2015429.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 867474.0,
+"plan_orders": 1844.3
+},
+{
+"date": "2026-09-03",
+"rev_uah": 1264405.0,
+"gp_uah": 711997.0,
+"gp_after_mkt_uah": 342437.0,
+"orders": 569,
+"plan_rev_uah": 2405893.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 1035536.0,
+"plan_orders": 2201.6
+},
+{
+"date": "2026-09-04",
+"rev_uah": 1016805.0,
+"gp_uah": 577510.0,
+"gp_after_mkt_uah": 328338.0,
+"orders": 440,
+"plan_rev_uah": 2135525.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 919165.0,
+"plan_orders": 1954.2
+},
+{
+"date": "2026-09-05",
+"rev_uah": 774907.0,
+"gp_uah": 434895.0,
+"gp_after_mkt_uah": 173913.0,
+"orders": 344,
+"plan_rev_uah": 1674313.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 720652.0,
+"plan_orders": 1532.2
+},
+{
+"date": "2026-09-06",
+"rev_uah": 3143.0,
+"gp_uah": 1706.0,
+"gp_after_mkt_uah": -263451.0,
+"orders": 1,
+"plan_rev_uah": 4280.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 1842.0,
+"plan_orders": 3.9
+},
+{
+"date": "2026-09-07",
+"rev_uah": 1817756.0,
+"gp_uah": 1020801.0,
+"gp_after_mkt_uah": 710021.0,
+"orders": 774,
+"plan_rev_uah": 3413228.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 1469110.0,
+"plan_orders": 3123.4
+},
+{
+"date": "2026-09-08",
+"rev_uah": 856588.0,
+"gp_uah": 497850.0,
+"gp_after_mkt_uah": 224520.0,
+"orders": 380,
+"plan_rev_uah": 1783007.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 767436.0,
+"plan_orders": 1631.6
+},
+{
+"date": "2026-09-09",
+"rev_uah": 676029.0,
+"gp_uah": 374948.0,
+"gp_after_mkt_uah": 93535.0,
+"orders": 329,
+"plan_rev_uah": 2015429.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 867474.0,
+"plan_orders": 1844.3
+},
+{
+"date": "2026-09-10",
+"rev_uah": 641408.0,
+"gp_uah": 355325.0,
+"gp_after_mkt_uah": 50562.0,
+"orders": 285,
+"plan_rev_uah": 2405893.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 1035536.0,
+"plan_orders": 2201.6
+},
+{
+"date": "2026-09-11",
+"rev_uah": 810022.0,
+"gp_uah": 444414.0,
+"gp_after_mkt_uah": 110284.0,
+"orders": 364,
+"plan_rev_uah": 2135525.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 919165.0,
+"plan_orders": 1954.2
+},
+{
+"date": "2026-09-12",
+"rev_uah": 626275.0,
+"gp_uah": 346524.0,
+"gp_after_mkt_uah": 124474.0,
+"orders": 300,
+"plan_rev_uah": 1674313.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 720652.0,
+"plan_orders": 1532.2
+},
+{
+"date": "2026-09-13",
+"rev_uah": 9385.0,
+"gp_uah": 6197.0,
+"gp_after_mkt_uah": -225418.0,
+"orders": 4,
+"plan_rev_uah": 4280.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 1842.0,
+"plan_orders": 3.9
+},
+{
+"date": "2026-09-14",
+"rev_uah": 1101673.0,
+"gp_uah": 598300.0,
+"gp_after_mkt_uah": 321063.0,
+"orders": 505,
+"plan_rev_uah": 3413228.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 1469110.0,
+"plan_orders": 3123.4
+},
+{
+"date": "2026-09-15",
+"rev_uah": 604317.0,
+"gp_uah": 332020.0,
+"gp_after_mkt_uah": 106198.0,
+"orders": 288,
+"plan_rev_uah": 1783007.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 767436.0,
+"plan_orders": 1631.6
+},
+{
+"date": "2026-09-16",
+"rev_uah": 566867.0,
+"gp_uah": 309343.0,
+"gp_after_mkt_uah": 54109.0,
+"orders": 266,
+"plan_rev_uah": 2015429.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 867474.0,
+"plan_orders": 1844.3
+},
+{
+"date": "2026-09-17",
+"rev_uah": 1047384.0,
+"gp_uah": 632517.0,
+"gp_after_mkt_uah": 364171.0,
+"orders": 574,
+"plan_rev_uah": 2405893.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 1035536.0,
+"plan_orders": 2201.6
+},
+{
+"date": "2026-09-18",
+"rev_uah": 639522.0,
+"gp_uah": 359950.0,
+"gp_after_mkt_uah": 110284.0,
+"orders": 293,
+"plan_rev_uah": 2135525.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 919165.0,
+"plan_orders": 1954.2
+},
+{
+"date": "2026-09-19",
+"rev_uah": 550792.0,
+"gp_uah": 320569.0,
+"gp_after_mkt_uah": 78851.0,
+"orders": 272,
+"plan_rev_uah": 1674313.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 720652.0,
+"plan_orders": 1532.2
+},
+{
+"date": "2026-09-20",
+"rev_uah": 3907.0,
+"gp_uah": 2335.0,
+"gp_after_mkt_uah": -185049.0,
+"orders": 2,
+"plan_rev_uah": 4280.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 1842.0,
+"plan_orders": 3.9
+},
+{
+"date": "2026-09-21",
+"rev_uah": 1322601.0,
+"gp_uah": 806160.0,
+"gp_after_mkt_uah": 548322.0,
+"orders": 742,
+"plan_rev_uah": 3413228.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 1469110.0,
+"plan_orders": 3123.4
+},
+{
+"date": "2026-09-22",
+"rev_uah": 552453.0,
+"gp_uah": 319402.0,
+"gp_after_mkt_uah": 41087.0,
+"orders": 252,
+"plan_rev_uah": 1783007.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 767436.0,
+"plan_orders": 1631.6
+},
+{
+"date": "2026-09-23",
+"rev_uah": 677915.0,
+"gp_uah": 395828.0,
+"gp_after_mkt_uah": 175934.0,
+"orders": 310,
+"plan_rev_uah": 2015429.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 867474.0,
+"plan_orders": 1844.3
+},
+{
+"date": "2026-09-24",
+"rev_uah": 683213.0,
+"gp_uah": 396143.0,
+"gp_after_mkt_uah": 169647.0,
+"orders": 322,
+"plan_rev_uah": 2405893.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 1035536.0,
+"plan_orders": 2201.6
+},
+{
+"date": "2026-09-25",
+"rev_uah": 2420188.0,
+"gp_uah": 1448377.0,
+"gp_after_mkt_uah": 1298757.0,
+"orders": 1063,
+"plan_rev_uah": 2135525.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 919165.0,
+"plan_orders": 1954.2
+},
+{
+"date": "2026-09-26",
+"rev_uah": 735257.0,
+"gp_uah": 423983.0,
+"gp_after_mkt_uah": 224834.0,
+"orders": 315,
+"plan_rev_uah": 1674313.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 720652.0,
+"plan_orders": 1532.2
+},
+{
+"date": "2026-09-27",
+"rev_uah": 4086.0,
+"gp_uah": 2290.0,
+"gp_after_mkt_uah": -143558.0,
+"orders": 1,
+"plan_rev_uah": 4280.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 1842.0,
+"plan_orders": 3.9
+},
+{
+"date": "2026-09-28",
+"rev_uah": 1134363.0,
+"gp_uah": 683169.0,
+"gp_after_mkt_uah": 538129.0,
+"orders": 542,
+"plan_rev_uah": 3413228.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 1469110.0,
+"plan_orders": 3123.4
+},
+{
+"date": "2026-09-29",
+"rev_uah": 904231.0,
+"gp_uah": 528789.0,
+"gp_after_mkt_uah": 364845.0,
+"orders": 426,
+"plan_rev_uah": 1783007.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 767436.0,
+"plan_orders": 1631.6
+},
+{
+"date": "2026-09-30",
+"rev_uah": 785639.0,
+"gp_uah": 466642.0,
+"gp_after_mkt_uah": 302114.0,
+"orders": 410,
+"plan_rev_uah": 2015429.0,
+"plan_rev_even_uah": 1917505.0,
+"plan_gp_uah": 867474.0,
+"plan_orders": 1844.3
+}
+],
+"b1c_monthly_funnel": [
+{
+"month": "2026-01",
+"sessions": 375713,
+"users": 258360,
+"view_item_s": 242721,
+"atc_s": 42128,
+"view_cart_s": 48086,
+"checkout_s": 29082,
+"contact_s": 18442,
+"payment_s": 16523,
+"purchase_s": 14939,
+"one_click_s": 604,
+"atc_events": 101692,
+"purchase_events": 15130,
+"atc_purchased_7d_s": 16221,
+"purchase_without_atc_s": 1790
+},
+{
+"month": "2026-02",
+"sessions": 295504,
+"users": 208522,
+"view_item_s": 194460,
+"atc_s": 33336,
+"view_cart_s": 37810,
+"checkout_s": 22319,
+"contact_s": 14416,
+"payment_s": 12631,
+"purchase_s": 11362,
+"one_click_s": 371,
+"atc_events": 81378,
+"purchase_events": 11524,
+"atc_purchased_7d_s": 12259,
+"purchase_without_atc_s": 1344
+},
+{
+"month": "2026-03",
+"sessions": 326539,
+"users": 221959,
+"view_item_s": 65100,
+"atc_s": 40344,
+"view_cart_s": 45673,
+"checkout_s": 25623,
+"contact_s": 15677,
+"payment_s": 13994,
+"purchase_s": 12683,
+"one_click_s": 568,
+"atc_events": 130888,
+"purchase_events": 13035,
+"atc_purchased_7d_s": 14457,
+"purchase_without_atc_s": 1513
+},
+{
+"month": "2026-04",
+"sessions": 261895,
+"users": 180613,
+"view_item_s": 134809,
+"atc_s": 31600,
+"view_cart_s": 35675,
+"checkout_s": 19114,
+"contact_s": 13228,
+"payment_s": 11353,
+"purchase_s": 10306,
+"one_click_s": 382,
+"atc_events": 100433,
+"purchase_events": 10589,
+"atc_purchased_7d_s": 11624,
+"purchase_without_atc_s": 1175
+},
+{
+"month": "2026-05",
+"sessions": 267535,
+"users": 185552,
+"view_item_s": 134289,
+"atc_s": 30658,
+"view_cart_s": 34598,
+"checkout_s": 18923,
+"contact_s": 13305,
+"payment_s": 11264,
+"purchase_s": 10265,
+"one_click_s": 450,
+"atc_events": 93006,
+"purchase_events": 10512,
+"atc_purchased_7d_s": 11328,
+"purchase_without_atc_s": 1215
+},
+{
+"month": "2026-06",
+"sessions": 275122,
+"users": 191077,
+"view_item_s": 146005,
+"atc_s": 30807,
+"view_cart_s": 35336,
+"checkout_s": 18503,
+"contact_s": 13432,
+"payment_s": 11496,
+"purchase_s": 10404,
+"one_click_s": 386,
+"atc_events": 88827,
+"purchase_events": 10889,
+"atc_purchased_7d_s": 11630,
+"purchase_without_atc_s": 1213
+},
+{
+"month": "2026-07",
+"sessions": 372249,
+"users": 251608,
+"view_item_s": 211301,
+"atc_s": 42039,
+"view_cart_s": 48498,
+"checkout_s": 24632,
+"contact_s": 16428,
+"payment_s": 15089,
+"purchase_s": 13666,
+"one_click_s": 414,
+"atc_events": 114724,
+"purchase_events": 14028,
+"atc_purchased_7d_s": 15363,
+"purchase_without_atc_s": 1588
+},
+{
+"month": "2026-08",
+"sessions": 416127,
+"users": 285332,
+"view_item_s": 277324,
+"atc_s": 42546,
+"view_cart_s": 49417,
+"checkout_s": 25933,
+"contact_s": 15790,
+"payment_s": 14511,
+"purchase_s": 13206,
+"one_click_s": 552,
+"atc_events": 125938,
+"purchase_events": 13558,
+"atc_purchased_7d_s": 15001,
+"purchase_without_atc_s": 1372
+},
+{
+"month": "2026-09",
+"sessions": 373308,
+"users": 254394,
+"view_item_s": 226959,
+"atc_s": 36859,
+"view_cart_s": 43843,
+"checkout_s": 22994,
+"contact_s": 14670,
+"payment_s": 13275,
+"purchase_s": 12296,
+"one_click_s": 837,
+"atc_events": 106284,
+"purchase_events": 12515,
+"atc_purchased_7d_s": 13734,
+"purchase_without_atc_s": 1303
+}
+],
+"b1d_new_returning_monthly": [
+{
+"month": "2026-01",
+"user_type": "new",
+"sessions": 229481,
+"atc_s": 24725,
+"checkout_s": 14852,
+"purchase_s": 8323
+},
+{
+"month": "2026-01",
+"user_type": "returning",
+"sessions": 146488,
+"atc_s": 17403,
+"checkout_s": 14230,
+"purchase_s": 6616
+},
+{
+"month": "2026-02",
+"user_type": "new",
+"sessions": 179271,
+"atc_s": 19448,
+"checkout_s": 11415,
+"purchase_s": 6285
+},
+{
+"month": "2026-02",
+"user_type": "returning",
+"sessions": 116434,
+"atc_s": 13888,
+"checkout_s": 10904,
+"purchase_s": 5077
+},
+{
+"month": "2026-03",
+"user_type": "new",
+"sessions": 193855,
+"atc_s": 22082,
+"checkout_s": 12119,
+"purchase_s": 6478
+},
+{
+"month": "2026-03",
+"user_type": "returning",
+"sessions": 133102,
+"atc_s": 18262,
+"checkout_s": 13504,
+"purchase_s": 6205
+},
+{
+"month": "2026-04",
+"user_type": "new",
+"sessions": 159546,
+"atc_s": 18083,
+"checkout_s": 9493,
+"purchase_s": 5485
+},
+{
+"month": "2026-04",
+"user_type": "returning",
+"sessions": 102646,
+"atc_s": 13517,
+"checkout_s": 9621,
+"purchase_s": 4821
+},
+{
+"month": "2026-05",
+"user_type": "new",
+"sessions": 166352,
+"atc_s": 17605,
+"checkout_s": 9472,
+"purchase_s": 5600
+},
+{
+"month": "2026-05",
+"user_type": "returning",
+"sessions": 101381,
+"atc_s": 13053,
+"checkout_s": 9451,
+"purchase_s": 4665
+},
+{
+"month": "2026-06",
+"user_type": "new",
+"sessions": 173246,
+"atc_s": 17296,
+"checkout_s": 9212,
+"purchase_s": 5589
+},
+{
+"month": "2026-06",
+"user_type": "returning",
+"sessions": 102455,
+"atc_s": 13511,
+"checkout_s": 9291,
+"purchase_s": 4815
+},
+{
+"month": "2026-07",
+"user_type": "new",
+"sessions": 226262,
+"atc_s": 22795,
+"checkout_s": 11596,
+"purchase_s": 7088
+},
+{
+"month": "2026-07",
+"user_type": "returning",
+"sessions": 146311,
+"atc_s": 19244,
+"checkout_s": 13036,
+"purchase_s": 6578
+},
+{
+"month": "2026-08",
+"user_type": "new",
+"sessions": 256932,
+"atc_s": 22211,
+"checkout_s": 12184,
+"purchase_s": 6990
+},
+{
+"month": "2026-08",
+"user_type": "returning",
+"sessions": 159611,
+"atc_s": 20335,
+"checkout_s": 13749,
+"purchase_s": 6216
+},
+{
+"month": "2026-09",
+"user_type": "new",
+"sessions": 226125,
+"atc_s": 20217,
+"checkout_s": 11171,
+"purchase_s": 6557
+},
+{
+"month": "2026-09",
+"user_type": "returning",
+"sessions": 147706,
+"atc_s": 16641,
+"checkout_s": 11819,
+"purchase_s": 5735
+}
+],
+"b1e_weekly_kpi": [
+{
+"week_start": "2025-12-29",
+"revenue_uah": 2602276,
+"gp_uah": 1581662,
+"marketing_uah": 803776,
+"gp_after_mkt_uah": 777800,
+"orders": 1186,
+"days": 4
+},
+{
+"week_start": "2026-01-05",
+"revenue_uah": 9880558,
+"gp_uah": 6087508,
+"marketing_uah": 1581230,
+"gp_after_mkt_uah": 4506278,
+"orders": 4840,
+"days": 7
+},
+{
+"week_start": "2026-01-12",
+"revenue_uah": 8084045,
+"gp_uah": 4978464,
+"marketing_uah": 1332192,
+"gp_after_mkt_uah": 3646272,
+"orders": 3901,
+"days": 7
+},
+{
+"week_start": "2026-01-19",
+"revenue_uah": 6644752,
+"gp_uah": 4141106,
+"marketing_uah": 1008642,
+"gp_after_mkt_uah": 3132335,
+"orders": 3101,
+"days": 7
+},
+{
+"week_start": "2026-01-26",
+"revenue_uah": 7348517,
+"gp_uah": 4531100,
+"marketing_uah": 1215102,
+"gp_after_mkt_uah": 3315868,
+"orders": 3572,
+"days": 7
+},
+{
+"week_start": "2026-02-02",
+"revenue_uah": 7743677,
+"gp_uah": 4794872,
+"marketing_uah": 1206095,
+"gp_after_mkt_uah": 3588778,
+"orders": 3699,
+"days": 7
+},
+{
+"week_start": "2026-02-09",
+"revenue_uah": 7898930,
+"gp_uah": 4877575,
+"marketing_uah": 1119052,
+"gp_after_mkt_uah": 3758523,
+"orders": 3692,
+"days": 7
+},
+{
+"week_start": "2026-02-16",
+"revenue_uah": 8304462,
+"gp_uah": 5135665,
+"marketing_uah": 1790571,
+"gp_after_mkt_uah": 3345094,
+"orders": 4005,
+"days": 7
+},
+{
+"week_start": "2026-02-23",
+"revenue_uah": 9311797,
+"gp_uah": 5594747,
+"marketing_uah": 1678110,
+"gp_after_mkt_uah": 3916637,
+"orders": 3921,
+"days": 7
+},
+{
+"week_start": "2026-03-02",
+"revenue_uah": 9472830,
+"gp_uah": 5577607,
+"marketing_uah": 1167203,
+"gp_after_mkt_uah": 4410316,
+"orders": 3721,
+"days": 6
+},
+{
+"week_start": "2026-03-09",
+"revenue_uah": 8801033,
+"gp_uah": 5148679,
+"marketing_uah": 1534509,
+"gp_after_mkt_uah": 3614171,
+"orders": 3450,
+"days": 6
+},
+{
+"week_start": "2026-03-16",
+"revenue_uah": 9464267,
+"gp_uah": 5529757,
+"marketing_uah": 1172235,
+"gp_after_mkt_uah": 4357478,
+"orders": 3745,
+"days": 6
+},
+{
+"week_start": "2026-03-23",
+"revenue_uah": 6429283,
+"gp_uah": 3733972,
+"marketing_uah": 852603,
+"gp_after_mkt_uah": 2881414,
+"orders": 2599,
+"days": 6
+},
+{
+"week_start": "2026-03-30",
+"revenue_uah": 7294487,
+"gp_uah": 4234556,
+"marketing_uah": 867801,
+"gp_after_mkt_uah": 3366755,
+"orders": 2971,
+"days": 6
+},
+{
+"week_start": "2026-04-06",
+"revenue_uah": 7083521,
+"gp_uah": 4136817,
+"marketing_uah": 781730,
+"gp_after_mkt_uah": 3354955,
+"orders": 2764,
+"days": 6
+},
+{
+"week_start": "2026-04-13",
+"revenue_uah": 7332447,
+"gp_uah": 4257226,
+"marketing_uah": 1288530,
+"gp_after_mkt_uah": 2968740,
+"orders": 2912,
+"days": 6
+},
+{
+"week_start": "2026-04-20",
+"revenue_uah": 7053110,
+"gp_uah": 4093229,
+"marketing_uah": 937485,
+"gp_after_mkt_uah": 3155744,
+"orders": 2855,
+"days": 6
+},
+{
+"week_start": "2026-04-27",
+"revenue_uah": 7602462,
+"gp_uah": 4316273,
+"marketing_uah": 910425,
+"gp_after_mkt_uah": 3405804,
+"orders": 2967,
+"days": 6
+},
+{
+"week_start": "2026-05-04",
+"revenue_uah": 5889309,
+"gp_uah": 3307381,
+"marketing_uah": 1138777,
+"gp_after_mkt_uah": 2168560,
+"orders": 2477,
+"days": 6
+},
+{
+"week_start": "2026-05-11",
+"revenue_uah": 7191066,
+"gp_uah": 4185621,
+"marketing_uah": 1016841,
+"gp_after_mkt_uah": 3168868,
+"orders": 3286,
+"days": 6
+},
+{
+"week_start": "2026-05-18",
+"revenue_uah": 6653103,
+"gp_uah": 3971801,
+"marketing_uah": 1138865,
+"gp_after_mkt_uah": 2832935,
+"orders": 2794,
+"days": 6
+},
+{
+"week_start": "2026-05-25",
+"revenue_uah": 5326924,
+"gp_uah": 3233050,
+"marketing_uah": 1172951,
+"gp_after_mkt_uah": 2060055,
+"orders": 2183,
+"days": 7
+},
+{
+"week_start": "2026-06-01",
+"revenue_uah": 5173494,
+"gp_uah": 3115497,
+"marketing_uah": 787962,
+"gp_after_mkt_uah": 2327490,
+"orders": 2116,
+"days": 6
+},
+{
+"week_start": "2026-06-08",
+"revenue_uah": 4898737,
+"gp_uah": 2925007,
+"marketing_uah": 923248,
+"gp_after_mkt_uah": 2001669,
+"orders": 2126,
+"days": 7
+},
+{
+"week_start": "2026-06-15",
+"revenue_uah": 6452977,
+"gp_uah": 3751482,
+"marketing_uah": 1265176,
+"gp_after_mkt_uah": 2486306,
+"orders": 2877,
+"days": 7
+},
+{
+"week_start": "2026-06-22",
+"revenue_uah": 7186185,
+"gp_uah": 4129761,
+"marketing_uah": 1110814,
+"gp_after_mkt_uah": 3018992,
+"orders": 3431,
+"days": 6
+},
+{
+"week_start": "2026-06-29",
+"revenue_uah": 7664716,
+"gp_uah": 4514440,
+"marketing_uah": 1340237,
+"gp_after_mkt_uah": 3174113,
+"orders": 3548,
+"days": 7
+},
+{
+"week_start": "2026-07-06",
+"revenue_uah": 6778753,
+"gp_uah": 4045408,
+"marketing_uah": 1202839,
+"gp_after_mkt_uah": 2842523,
+"orders": 3155,
+"days": 6
+},
+{
+"week_start": "2026-07-13",
+"revenue_uah": 6962678,
+"gp_uah": 4029361,
+"marketing_uah": 1396428,
+"gp_after_mkt_uah": 2632843,
+"orders": 3372,
+"days": 7
+},
+{
+"week_start": "2026-07-20",
+"revenue_uah": 7505105,
+"gp_uah": 4326284,
+"marketing_uah": 1196367,
+"gp_after_mkt_uah": 3129872,
+"orders": 3522,
+"days": 6
+},
+{
+"week_start": "2026-07-27",
+"revenue_uah": 7662374,
+"gp_uah": 4115658,
+"marketing_uah": 1701919,
+"gp_after_mkt_uah": 2413695,
+"orders": 3142,
+"days": 7
+},
+{
+"week_start": "2026-08-03",
+"revenue_uah": 8023624,
+"gp_uah": 4464285,
+"marketing_uah": 1815776,
+"gp_after_mkt_uah": 2648420,
+"orders": 3341,
+"days": 7
+},
+{
+"week_start": "2026-08-10",
+"revenue_uah": 7618327,
+"gp_uah": 4267138,
+"marketing_uah": 2610562,
+"gp_after_mkt_uah": 1656576,
+"orders": 3237,
+"days": 7
+},
+{
+"week_start": "2026-08-17",
+"revenue_uah": 8117123,
+"gp_uah": 4641179,
+"marketing_uah": 2124340,
+"gp_after_mkt_uah": 2516884,
+"orders": 3588,
+"days": 7
+},
+{
+"week_start": "2026-08-24",
+"revenue_uah": 6617816,
+"gp_uah": 3989246,
+"marketing_uah": 2127125,
+"gp_after_mkt_uah": 1862166,
+"orders": 3088,
+"days": 7
+},
+{
+"week_start": "2026-08-31",
+"revenue_uah": 7211365,
+"gp_uah": 4288420,
+"marketing_uah": 1899818,
+"gp_after_mkt_uah": 2388557,
+"orders": 3191,
+"days": 7
+},
+{
+"week_start": "2026-09-07",
+"revenue_uah": 5437463,
+"gp_uah": 3046059,
+"marketing_uah": 1958171,
+"gp_after_mkt_uah": 1087978,
+"orders": 2436,
+"days": 7
+},
+{
+"week_start": "2026-09-14",
+"revenue_uah": 4514463,
+"gp_uah": 2555034,
+"marketing_uah": 1705362,
+"gp_after_mkt_uah": 849627,
+"orders": 2200,
+"days": 7
+},
+{
+"week_start": "2026-09-21",
+"revenue_uah": 6395713,
+"gp_uah": 3792183,
+"marketing_uah": 1477160,
+"gp_after_mkt_uah": 2315023,
+"orders": 3005,
+"days": 7
+},
+{
+"week_start": "2026-09-28",
+"revenue_uah": 6265322,
+"gp_uah": 3726383,
+"marketing_uah": 678490,
+"gp_after_mkt_uah": 3047894,
+"orders": 3173,
+"days": 4
+}
+],
+"b2_entry_types_monthly": [
+{
+"month": "2026-01",
+"entry_type": "pdp",
+"sessions": 193825,
+"view_item_s": 186321,
+"atc_s": 15934,
+"checkout_s": 10129,
+"purchase_s": 6029,
+"zoho_orders": 6103,
+"zoho_created": 5922,
+"zoho_billed_uah": 10120425,
+"zoho_successful": 5467,
+"zoho_revenue_uah": 10049818
+},
+{
+"month": "2026-01",
+"entry_type": "catalog",
+"sessions": 96003,
+"view_item_s": 30300,
+"atc_s": 15340,
+"checkout_s": 8638,
+"purchase_s": 4258,
+"zoho_orders": 4291,
+"zoho_created": 4188,
+"zoho_billed_uah": 8393077,
+"zoho_successful": 3927,
+"zoho_revenue_uah": 8325540
+},
+{
+"month": "2026-01",
+"entry_type": "home",
+"sessions": 36107,
+"view_item_s": 19208,
+"atc_s": 8707,
+"checkout_s": 5503,
+"purchase_s": 3159,
+"zoho_orders": 3180,
+"zoho_created": 3099,
+"zoho_billed_uah": 6560038,
+"zoho_successful": 2988,
+"zoho_revenue_uah": 6539040
+},
+{
+"month": "2026-01",
+"entry_type": "blog",
+"sessions": 21513,
+"view_item_s": 655,
+"atc_s": 96,
+"checkout_s": 44,
+"purchase_s": 20,
+"zoho_orders": 20,
+"zoho_created": 19,
+"zoho_billed_uah": 27226,
+"zoho_successful": 18,
+"zoho_revenue_uah": 27226
+},
+{
+"month": "2026-01",
+"entry_type": "category_product",
+"sessions": 15236,
+"view_item_s": 4377,
+"atc_s": 1229,
+"checkout_s": 688,
+"purchase_s": 397,
+"zoho_orders": 410,
+"zoho_created": 396,
+"zoho_billed_uah": 700551,
+"zoho_successful": 369,
+"zoho_revenue_uah": 697095
+},
+{
+"month": "2026-01",
+"entry_type": "checkout",
+"sessions": 9868,
+"view_item_s": 1212,
+"atc_s": 561,
+"checkout_s": 3904,
+"purchase_s": 982,
+"zoho_orders": 989,
+"zoho_created": 974,
+"zoho_billed_uah": 2044677,
+"zoho_successful": 943,
+"zoho_revenue_uah": 2033798
+},
+{
+"month": "2026-01",
+"entry_type": "service",
+"sessions": 2361,
+"view_item_s": 385,
+"atc_s": 158,
+"checkout_s": 104,
+"purchase_s": 58,
+"zoho_orders": 60,
+"zoho_created": 58,
+"zoho_billed_uah": 149988,
+"zoho_successful": 55,
+"zoho_revenue_uah": 148708
+},
+{
+"month": "2026-01",
+"entry_type": "category_promo",
+"sessions": 773,
+"view_item_s": 192,
+"atc_s": 81,
+"checkout_s": 54,
+"purchase_s": 29,
+"zoho_orders": 29,
+"zoho_created": 28,
+"zoho_billed_uah": 60770,
+"zoho_successful": 27,
+"zoho_revenue_uah": 64082
+},
+{
+"month": "2026-01",
+"entry_type": "category_need",
+"sessions": 279,
+"view_item_s": 70,
+"atc_s": 21,
+"checkout_s": 17,
+"purchase_s": 7,
+"zoho_orders": 7,
+"zoho_created": 7,
+"zoho_billed_uah": 20533,
+"zoho_successful": 7,
+"zoho_revenue_uah": 20533
+},
+{
+"month": "2026-01",
+"entry_type": "other",
+"sessions": 4,
+"view_item_s": 1,
+"atc_s": 1,
+"checkout_s": 1,
+"purchase_s": 0,
+"zoho_orders": 0,
+"zoho_created": 0,
+"zoho_billed_uah": 0,
+"zoho_successful": 0,
+"zoho_revenue_uah": 0
+},
+{
+"month": "2026-02",
+"entry_type": "pdp",
+"sessions": 156615,
+"view_item_s": 150493,
+"atc_s": 13065,
+"checkout_s": 8043,
+"purchase_s": 4758,
+"zoho_orders": 4831,
+"zoho_created": 4670,
+"zoho_billed_uah": 8159983,
+"zoho_successful": 4290,
+"zoho_revenue_uah": 8050761
+},
+{
+"month": "2026-02",
+"entry_type": "catalog",
+"sessions": 75210,
+"view_item_s": 24094,
+"atc_s": 12107,
+"checkout_s": 6485,
+"purchase_s": 3104,
+"zoho_orders": 3131,
+"zoho_created": 3061,
+"zoho_billed_uah": 6388620,
+"zoho_successful": 2844,
+"zoho_revenue_uah": 6297204
+},
+{
+"month": "2026-02",
+"entry_type": "home",
+"sessions": 27704,
+"view_item_s": 15031,
+"atc_s": 6590,
+"checkout_s": 4100,
+"purchase_s": 2341,
+"zoho_orders": 2366,
+"zoho_created": 2297,
+"zoho_billed_uah": 4746858,
+"zoho_successful": 2164,
+"zoho_revenue_uah": 4674224
+},
+{
+"month": "2026-02",
+"entry_type": "blog",
+"sessions": 16827,
+"view_item_s": 487,
+"atc_s": 64,
+"checkout_s": 36,
+"purchase_s": 18,
+"zoho_orders": 18,
+"zoho_created": 18,
+"zoho_billed_uah": 31824,
+"zoho_successful": 17,
+"zoho_revenue_uah": 31001
+},
+{
+"month": "2026-02",
+"entry_type": "category_product",
+"sessions": 8986,
+"view_item_s": 2938,
+"atc_s": 874,
+"checkout_s": 511,
+"purchase_s": 299,
+"zoho_orders": 301,
+"zoho_created": 293,
+"zoho_billed_uah": 571204,
+"zoho_successful": 276,
+"zoho_revenue_uah": 568323
+},
+{
+"month": "2026-02",
+"entry_type": "checkout",
+"sessions": 7322,
+"view_item_s": 942,
+"atc_s": 451,
+"checkout_s": 2996,
+"purchase_s": 775,
+"zoho_orders": 789,
+"zoho_created": 762,
+"zoho_billed_uah": 1652522,
+"zoho_successful": 735,
+"zoho_revenue_uah": 1629119
+},
+{
+"month": "2026-02",
+"entry_type": "service",
+"sessions": 1942,
+"view_item_s": 278,
+"atc_s": 107,
+"checkout_s": 99,
+"purchase_s": 45,
+"zoho_orders": 45,
+"zoho_created": 44,
+"zoho_billed_uah": 96891,
+"zoho_successful": 43,
+"zoho_revenue_uah": 96891
+},
+{
+"month": "2026-02",
+"entry_type": "category_promo",
+"sessions": 830,
+"view_item_s": 152,
+"atc_s": 63,
+"checkout_s": 39,
+"purchase_s": 17,
+"zoho_orders": 17,
+"zoho_created": 17,
+"zoho_billed_uah": 46023,
+"zoho_successful": 17,
+"zoho_revenue_uah": 46023
+},
+{
+"month": "2026-02",
+"entry_type": "category_need",
+"sessions": 258,
+"view_item_s": 43,
+"atc_s": 15,
+"checkout_s": 10,
+"purchase_s": 5,
+"zoho_orders": 5,
+"zoho_created": 5,
+"zoho_billed_uah": 15023,
+"zoho_successful": 5,
+"zoho_revenue_uah": 15023
+},
+{
+"month": "2026-02",
+"entry_type": "other",
+"sessions": 11,
+"view_item_s": 2,
+"atc_s": 0,
+"checkout_s": 0,
+"purchase_s": 0,
+"zoho_orders": 0,
+"zoho_created": 0,
+"zoho_billed_uah": 0,
+"zoho_successful": 0,
+"zoho_revenue_uah": 0
+},
+{
+"month": "2026-03",
+"entry_type": "pdp",
+"sessions": 182780,
+"view_item_s": 57842,
+"atc_s": 15515,
+"checkout_s": 8670,
+"purchase_s": 5027,
+"zoho_orders": 5147,
+"zoho_created": 4966,
+"zoho_billed_uah": 10560242,
+"zoho_successful": 4603,
+"zoho_revenue_uah": 10501170
+},
+{
+"month": "2026-03",
+"entry_type": "catalog",
+"sessions": 66373,
+"view_item_s": 3391,
+"atc_s": 13581,
+"checkout_s": 7194,
+"purchase_s": 3256,
+"zoho_orders": 3350,
+"zoho_created": 3270,
+"zoho_billed_uah": 8272367,
+"zoho_successful": 3100,
+"zoho_revenue_uah": 8203724
+},
+{
+"month": "2026-03",
+"entry_type": "home",
+"sessions": 33070,
+"view_item_s": 2781,
+"atc_s": 8818,
+"checkout_s": 5230,
+"purchase_s": 3001,
+"zoho_orders": 3086,
+"zoho_created": 3001,
+"zoho_billed_uah": 7295662,
+"zoho_successful": 2855,
+"zoho_revenue_uah": 7247200
+},
+{
+"month": "2026-03",
+"entry_type": "blog",
+"sessions": 19318,
+"view_item_s": 128,
+"atc_s": 80,
+"checkout_s": 28,
+"purchase_s": 14,
+"zoho_orders": 13,
+"zoho_created": 13,
+"zoho_billed_uah": 29564,
+"zoho_successful": 13,
+"zoho_revenue_uah": 29564
+},
+{
+"month": "2026-03",
+"entry_type": "category_product",
+"sessions": 11796,
+"view_item_s": 647,
+"atc_s": 1271,
+"checkout_s": 671,
+"purchase_s": 376,
+"zoho_orders": 386,
+"zoho_created": 375,
+"zoho_billed_uah": 849384,
+"zoho_successful": 361,
+"zoho_revenue_uah": 843809
+},
+{
+"month": "2026-03",
+"entry_type": "checkout",
+"sessions": 8850,
+"view_item_s": 187,
+"atc_s": 620,
+"checkout_s": 3535,
+"purchase_s": 857,
+"zoho_orders": 881,
+"zoho_created": 839,
+"zoho_billed_uah": 2087233,
+"zoho_successful": 816,
+"zoho_revenue_uah": 2060998
+},
+{
+"month": "2026-03",
+"entry_type": "service",
+"sessions": 2440,
+"view_item_s": 59,
+"atc_s": 158,
+"checkout_s": 114,
+"purchase_s": 62,
+"zoho_orders": 61,
+"zoho_created": 59,
+"zoho_billed_uah": 152833,
+"zoho_successful": 58,
+"zoho_revenue_uah": 150798
+},
+{
+"month": "2026-03",
+"entry_type": "category_promo",
+"sessions": 1867,
+"view_item_s": 50,
+"atc_s": 269,
+"checkout_s": 152,
+"purchase_s": 73,
+"zoho_orders": 74,
+"zoho_created": 70,
+"zoho_billed_uah": 203422,
+"zoho_successful": 69,
+"zoho_revenue_uah": 203422
+},
+{
+"month": "2026-03",
+"entry_type": "category_need",
+"sessions": 458,
+"view_item_s": 15,
+"atc_s": 32,
+"checkout_s": 29,
+"purchase_s": 17,
+"zoho_orders": 17,
+"zoho_created": 17,
+"zoho_billed_uah": 51252,
+"zoho_successful": 17,
+"zoho_revenue_uah": 51252
+},
+{
+"month": "2026-03",
+"entry_type": "other",
+"sessions": 5,
+"view_item_s": 0,
+"atc_s": 0,
+"checkout_s": 0,
+"purchase_s": 0,
+"zoho_orders": 0,
+"zoho_created": 0,
+"zoho_billed_uah": 0,
+"zoho_successful": 0,
+"zoho_revenue_uah": 0
+},
+{
+"month": "2026-04",
+"entry_type": "pdp",
+"sessions": 139942,
+"view_item_s": 128294,
+"atc_s": 12251,
+"checkout_s": 6607,
+"purchase_s": 4000,
+"zoho_orders": 4066,
+"zoho_created": 3894,
+"zoho_billed_uah": 8168395,
+"zoho_successful": 3624,
+"zoho_revenue_uah": 8064857
+},
+{
+"month": "2026-04",
+"entry_type": "catalog",
+"sessions": 45208,
+"view_item_s": 1323,
+"atc_s": 8989,
+"checkout_s": 4565,
+"purchase_s": 2322,
+"zoho_orders": 2387,
+"zoho_created": 2311,
+"zoho_billed_uah": 6080789,
+"zoho_successful": 2206,
+"zoho_revenue_uah": 6016694
+},
+{
+"month": "2026-04",
+"entry_type": "home",
+"sessions": 27446,
+"view_item_s": 2447,
+"atc_s": 7139,
+"checkout_s": 4096,
+"purchase_s": 2503,
+"zoho_orders": 2603,
+"zoho_created": 2497,
+"zoho_billed_uah": 6027218,
+"zoho_successful": 2411,
+"zoho_revenue_uah": 5992789
+},
+{
+"month": "2026-04",
+"entry_type": "blog",
+"sessions": 20451,
+"view_item_s": 236,
+"atc_s": 102,
+"checkout_s": 40,
+"purchase_s": 26,
+"zoho_orders": 26,
+"zoho_created": 26,
+"zoho_billed_uah": 53248,
+"zoho_successful": 22,
+"zoho_revenue_uah": 51853
+},
+{
+"month": "2026-04",
+"entry_type": "category_product",
+"sessions": 12965,
+"view_item_s": 837,
+"atc_s": 1453,
+"checkout_s": 773,
+"purchase_s": 427,
+"zoho_orders": 437,
+"zoho_created": 425,
+"zoho_billed_uah": 969858,
+"zoho_successful": 404,
+"zoho_revenue_uah": 956459
+},
+{
+"month": "2026-04",
+"entry_type": "checkout",
+"sessions": 6555,
+"view_item_s": 204,
+"atc_s": 480,
+"checkout_s": 2389,
+"purchase_s": 678,
+"zoho_orders": 691,
+"zoho_created": 656,
+"zoho_billed_uah": 1620478,
+"zoho_successful": 645,
+"zoho_revenue_uah": 1614675
+},
+{
+"month": "2026-04",
+"entry_type": "category_promo",
+"sessions": 6036,
+"view_item_s": 216,
+"atc_s": 966,
+"checkout_s": 518,
+"purchase_s": 269,
+"zoho_orders": 278,
+"zoho_created": 267,
+"zoho_billed_uah": 720475,
+"zoho_successful": 260,
+"zoho_revenue_uah": 716952
+},
+{
+"month": "2026-04",
+"entry_type": "service",
+"sessions": 1906,
+"view_item_s": 59,
+"atc_s": 102,
+"checkout_s": 76,
+"purchase_s": 48,
+"zoho_orders": 50,
+"zoho_created": 49,
+"zoho_billed_uah": 124360,
+"zoho_successful": 47,
+"zoho_revenue_uah": 124360
+},
+{
+"month": "2026-04",
+"entry_type": "pdp_meta",
+"sessions": 1185,
+"view_item_s": 1176,
+"atc_s": 94,
+"checkout_s": 38,
+"purchase_s": 23,
+"zoho_orders": 23,
+"zoho_created": 23,
+"zoho_billed_uah": 54648,
+"zoho_successful": 22,
+"zoho_revenue_uah": 54648
+},
+{
+"month": "2026-04",
+"entry_type": "category_need",
+"sessions": 493,
+"view_item_s": 17,
+"atc_s": 24,
+"checkout_s": 12,
+"purchase_s": 10,
+"zoho_orders": 11,
+"zoho_created": 11,
+"zoho_billed_uah": 24648,
+"zoho_successful": 11,
+"zoho_revenue_uah": 24648
+},
+{
+"month": "2026-04",
+"entry_type": "other",
+"sessions": 5,
+"view_item_s": 0,
+"atc_s": 0,
+"checkout_s": 0,
+"purchase_s": 0,
+"zoho_orders": 0,
+"zoho_created": 0,
+"zoho_billed_uah": 0,
+"zoho_successful": 0,
+"zoho_revenue_uah": 0
+},
+{
+"month": "2026-05",
+"entry_type": "pdp",
+"sessions": 132359,
+"view_item_s": 123308,
+"atc_s": 11994,
+"checkout_s": 6857,
+"purchase_s": 4243,
+"zoho_orders": 4326,
+"zoho_created": 3964,
+"zoho_billed_uah": 7855093,
+"zoho_successful": 3706,
+"zoho_revenue_uah": 7773995
+},
+{
+"month": "2026-05",
+"entry_type": "category_promo",
+"sessions": 35108,
+"view_item_s": 614,
+"atc_s": 4299,
+"checkout_s": 1963,
+"purchase_s": 923,
+"zoho_orders": 941,
+"zoho_created": 886,
+"zoho_billed_uah": 2216051,
+"zoho_successful": 842,
+"zoho_revenue_uah": 2208153
+},
+{
+"month": "2026-05",
+"entry_type": "catalog",
+"sessions": 25200,
+"view_item_s": 921,
+"atc_s": 5287,
+"checkout_s": 2845,
+"purchase_s": 1483,
+"zoho_orders": 1528,
+"zoho_created": 1426,
+"zoho_billed_uah": 3431730,
+"zoho_successful": 1357,
+"zoho_revenue_uah": 3407335
+},
+{
+"month": "2026-05",
+"entry_type": "home",
+"sessions": 23819,
+"view_item_s": 2149,
+"atc_s": 6167,
+"checkout_s": 3484,
+"purchase_s": 2096,
+"zoho_orders": 2142,
+"zoho_created": 2020,
+"zoho_billed_uah": 4780618,
+"zoho_successful": 1960,
+"zoho_revenue_uah": 4746245
+},
+{
+"month": "2026-05",
+"entry_type": "blog",
+"sessions": 20876,
+"view_item_s": 230,
+"atc_s": 72,
+"checkout_s": 30,
+"purchase_s": 21,
+"zoho_orders": 21,
+"zoho_created": 19,
+"zoho_billed_uah": 32485,
+"zoho_successful": 17,
+"zoho_revenue_uah": 32485
+},
+{
+"month": "2026-05",
+"entry_type": "category_product",
+"sessions": 15102,
+"view_item_s": 957,
+"atc_s": 1616,
+"checkout_s": 830,
+"purchase_s": 469,
+"zoho_orders": 478,
+"zoho_created": 450,
+"zoho_billed_uah": 1102074,
+"zoho_successful": 435,
+"zoho_revenue_uah": 1097312
+},
+{
+"month": "2026-05",
+"entry_type": "checkout",
+"sessions": 6618,
+"view_item_s": 218,
+"atc_s": 468,
+"checkout_s": 2464,
+"purchase_s": 754,
+"zoho_orders": 776,
+"zoho_created": 739,
+"zoho_billed_uah": 1769949,
+"zoho_successful": 727,
+"zoho_revenue_uah": 1758150
+},
+{
+"month": "2026-05",
+"entry_type": "pdp_meta",
+"sessions": 5904,
+"view_item_s": 5786,
+"atc_s": 571,
+"checkout_s": 318,
+"purchase_s": 197,
+"zoho_orders": 173,
+"zoho_created": 154,
+"zoho_billed_uah": 336428,
+"zoho_successful": 142,
+"zoho_revenue_uah": 334202
+},
+{
+"month": "2026-05",
+"entry_type": "service",
+"sessions": 1940,
+"view_item_s": 69,
+"atc_s": 84,
+"checkout_s": 69,
+"purchase_s": 43,
+"zoho_orders": 45,
+"zoho_created": 42,
+"zoho_billed_uah": 107626,
+"zoho_successful": 39,
+"zoho_revenue_uah": 104755
+},
+{
+"month": "2026-05",
+"entry_type": "category_need",
+"sessions": 803,
+"view_item_s": 36,
+"atc_s": 100,
+"checkout_s": 63,
+"purchase_s": 36,
+"zoho_orders": 37,
+"zoho_created": 33,
+"zoho_billed_uah": 88641,
+"zoho_successful": 32,
+"zoho_revenue_uah": 87528
+},
+{
+"month": "2026-05",
+"entry_type": "other",
+"sessions": 4,
+"view_item_s": 1,
+"atc_s": 0,
+"checkout_s": 0,
+"purchase_s": 0,
+"zoho_orders": 0,
+"zoho_created": 0,
+"zoho_billed_uah": 0,
+"zoho_successful": 0,
+"zoho_revenue_uah": 0
+},
+{
+"month": "2026-06",
+"entry_type": "pdp",
+"sessions": 143430,
+"view_item_s": 121258,
+"atc_s": 12114,
+"checkout_s": 7049,
+"purchase_s": 4387,
+"zoho_orders": 4428,
+"zoho_created": 4173,
+"zoho_billed_uah": 7948044,
+"zoho_successful": 3923,
+"zoho_revenue_uah": 7850798
+},
+{
+"month": "2026-06",
+"entry_type": "category_promo",
+"sessions": 44980,
+"view_item_s": 2325,
+"atc_s": 6284,
+"checkout_s": 2548,
+"purchase_s": 1394,
+"zoho_orders": 1409,
+"zoho_created": 1346,
+"zoho_billed_uah": 2854456,
+"zoho_successful": 1266,
+"zoho_revenue_uah": 2824648
+},
+{
+"month": "2026-06",
+"entry_type": "catalog",
+"sessions": 22069,
+"view_item_s": 2429,
+"atc_s": 4931,
+"checkout_s": 2706,
+"purchase_s": 1565,
+"zoho_orders": 1599,
+"zoho_created": 1521,
+"zoho_billed_uah": 3494343,
+"zoho_successful": 1456,
+"zoho_revenue_uah": 3451735
+},
+{
+"month": "2026-06",
+"entry_type": "home",
+"sessions": 16858,
+"view_item_s": 2511,
+"atc_s": 4361,
+"checkout_s": 2580,
+"purchase_s": 1512,
+"zoho_orders": 1535,
+"zoho_created": 1474,
+"zoho_billed_uah": 3325426,
+"zoho_successful": 1427,
+"zoho_revenue_uah": 3302189
+},
+{
+"month": "2026-06",
+"entry_type": "pdp_meta",
+"sessions": 15735,
+"view_item_s": 15471,
+"atc_s": 1177,
+"checkout_s": 617,
+"purchase_s": 381,
+"zoho_orders": 386,
+"zoho_created": 366,
+"zoho_billed_uah": 666040,
+"zoho_successful": 333,
+"zoho_revenue_uah": 661335
+},
+{
+"month": "2026-06",
+"entry_type": "blog",
+"sessions": 13336,
+"view_item_s": 194,
+"atc_s": 58,
+"checkout_s": 30,
+"purchase_s": 16,
+"zoho_orders": 16,
+"zoho_created": 15,
+"zoho_billed_uah": 22886,
+"zoho_successful": 15,
+"zoho_revenue_uah": 22886
+},
+{
+"month": "2026-06",
+"entry_type": "category_product",
+"sessions": 10767,
+"view_item_s": 1351,
+"atc_s": 1272,
+"checkout_s": 650,
+"purchase_s": 414,
+"zoho_orders": 418,
+"zoho_created": 401,
+"zoho_billed_uah": 801564,
+"zoho_successful": 384,
+"zoho_revenue_uah": 798016
+},
+{
+"month": "2026-06",
+"entry_type": "checkout",
+"sessions": 6107,
+"view_item_s": 342,
+"atc_s": 467,
+"checkout_s": 2200,
+"purchase_s": 661,
+"zoho_orders": 676,
+"zoho_created": 650,
+"zoho_billed_uah": 1466288,
+"zoho_successful": 639,
+"zoho_revenue_uah": 1452893
+},
+{
+"month": "2026-06",
+"entry_type": "service",
+"sessions": 1851,
+"view_item_s": 83,
+"atc_s": 88,
+"checkout_s": 82,
+"purchase_s": 49,
+"zoho_orders": 50,
+"zoho_created": 45,
+"zoho_billed_uah": 109310,
+"zoho_successful": 44,
+"zoho_revenue_uah": 107458
+},
+{
+"month": "2026-06",
+"entry_type": "category_need",
+"sessions": 567,
+"view_item_s": 41,
+"atc_s": 55,
+"checkout_s": 41,
+"purchase_s": 25,
+"zoho_orders": 25,
+"zoho_created": 24,
+"zoho_billed_uah": 58218,
+"zoho_successful": 23,
+"zoho_revenue_uah": 54624
+},
+{
+"month": "2026-06",
+"entry_type": "other",
+"sessions": 1,
+"view_item_s": 0,
+"atc_s": 0,
+"checkout_s": 0,
+"purchase_s": 0,
+"zoho_orders": 0,
+"zoho_created": 0,
+"zoho_billed_uah": 0,
+"zoho_successful": 0,
+"zoho_revenue_uah": 0
+},
+{
+"month": "2026-07",
+"entry_type": "pdp",
+"sessions": 204685,
+"view_item_s": 187479,
+"atc_s": 17502,
+"checkout_s": 9769,
+"purchase_s": 6060,
+"zoho_orders": 6187,
+"zoho_created": 5871,
+"zoho_billed_uah": 11000618,
+"zoho_successful": 5432,
+"zoho_revenue_uah": 10888326
+},
+{
+"month": "2026-07",
+"entry_type": "category_promo",
+"sessions": 69823,
+"view_item_s": 2496,
+"atc_s": 10045,
+"checkout_s": 3909,
+"purchase_s": 2029,
+"zoho_orders": 2064,
+"zoho_created": 1968,
+"zoho_billed_uah": 4099654,
+"zoho_successful": 1853,
+"zoho_revenue_uah": 4064634
+},
+{
+"month": "2026-07",
+"entry_type": "home",
+"sessions": 24720,
+"view_item_s": 3040,
+"atc_s": 6557,
+"checkout_s": 3912,
+"purchase_s": 2359,
+"zoho_orders": 2399,
+"zoho_created": 2290,
+"zoho_billed_uah": 4978404,
+"zoho_successful": 2199,
+"zoho_revenue_uah": 4917133
+},
+{
+"month": "2026-07",
+"entry_type": "catalog",
+"sessions": 22259,
+"view_item_s": 1293,
+"atc_s": 4754,
+"checkout_s": 2679,
+"purchase_s": 1516,
+"zoho_orders": 1534,
+"zoho_created": 1464,
+"zoho_billed_uah": 3322530,
+"zoho_successful": 1404,
+"zoho_revenue_uah": 3302200
+},
+{
+"month": "2026-07",
+"entry_type": "pdp_meta",
+"sessions": 15614,
+"view_item_s": 15352,
+"atc_s": 1121,
+"checkout_s": 595,
+"purchase_s": 367,
+"zoho_orders": 368,
+"zoho_created": 349,
+"zoho_billed_uah": 635726,
+"zoho_successful": 298,
+"zoho_revenue_uah": 627198
+},
+{
+"month": "2026-07",
+"entry_type": "blog",
+"sessions": 12836,
+"view_item_s": 166,
+"atc_s": 71,
+"checkout_s": 40,
+"purchase_s": 20,
+"zoho_orders": 20,
+"zoho_created": 19,
+"zoho_billed_uah": 36978,
+"zoho_successful": 17,
+"zoho_revenue_uah": 35609
+},
+{
+"month": "2026-07",
+"entry_type": "category_product",
+"sessions": 12051,
+"view_item_s": 1016,
+"atc_s": 1305,
+"checkout_s": 690,
+"purchase_s": 418,
+"zoho_orders": 428,
+"zoho_created": 408,
+"zoho_billed_uah": 779562,
+"zoho_successful": 387,
+"zoho_revenue_uah": 775076
+},
+{
+"month": "2026-07",
+"entry_type": "checkout",
+"sessions": 8005,
+"view_item_s": 332,
+"atc_s": 522,
+"checkout_s": 2903,
+"purchase_s": 818,
+"zoho_orders": 827,
+"zoho_created": 794,
+"zoho_billed_uah": 1729655,
+"zoho_successful": 777,
+"zoho_revenue_uah": 1725327
+},
+{
+"month": "2026-07",
+"entry_type": "service",
+"sessions": 2128,
+"view_item_s": 96,
+"atc_s": 123,
+"checkout_s": 103,
+"purchase_s": 59,
+"zoho_orders": 63,
+"zoho_created": 60,
+"zoho_billed_uah": 145809,
+"zoho_successful": 58,
+"zoho_revenue_uah": 145809
+},
+{
+"month": "2026-07",
+"entry_type": "category_need",
+"sessions": 449,
+"view_item_s": 31,
+"atc_s": 39,
+"checkout_s": 32,
+"purchase_s": 20,
+"zoho_orders": 20,
+"zoho_created": 20,
+"zoho_billed_uah": 37508,
+"zoho_successful": 18,
+"zoho_revenue_uah": 37508
+},
+{
+"month": "2026-07",
+"entry_type": "other",
+"sessions": 3,
+"view_item_s": 0,
+"atc_s": 0,
+"checkout_s": 0,
+"purchase_s": 0,
+"zoho_orders": 0,
+"zoho_created": 0,
+"zoho_billed_uah": 0,
+"zoho_successful": 0,
+"zoho_revenue_uah": 0
+},
+{
+"month": "2026-08",
+"entry_type": "pdp",
+"sessions": 218981,
+"view_item_s": 206534,
+"atc_s": 17343,
+"checkout_s": 9295,
+"purchase_s": 5638,
+"zoho_orders": 5765,
+"zoho_created": 5497,
+"zoho_billed_uah": 10765381,
+"zoho_successful": 4975,
+"zoho_revenue_uah": 10367920
+},
+{
+"month": "2026-08",
+"entry_type": "pdp_meta",
+"sessions": 63826,
+"view_item_s": 62355,
+"atc_s": 3734,
+"checkout_s": 1917,
+"purchase_s": 1152,
+"zoho_orders": 1168,
+"zoho_created": 1115,
+"zoho_billed_uah": 2184618,
+"zoho_successful": 896,
+"zoho_revenue_uah": 2004740
+},
+{
+"month": "2026-08",
+"entry_type": "category_promo",
+"sessions": 48711,
+"view_item_s": 2031,
+"atc_s": 7966,
+"checkout_s": 3260,
+"purchase_s": 1388,
+"zoho_orders": 1430,
+"zoho_created": 1373,
+"zoho_billed_uah": 3364034,
+"zoho_successful": 1253,
+"zoho_revenue_uah": 3222509
+},
+{
+"month": "2026-08",
+"entry_type": "home",
+"sessions": 29926,
+"view_item_s": 3480,
+"atc_s": 7008,
+"checkout_s": 4094,
+"purchase_s": 2314,
+"zoho_orders": 2375,
+"zoho_created": 2286,
+"zoho_billed_uah": 5248040,
+"zoho_successful": 2131,
+"zoho_revenue_uah": 5077545
+},
+{
+"month": "2026-08",
+"entry_type": "catalog",
+"sessions": 17943,
+"view_item_s": 1277,
+"atc_s": 3760,
+"checkout_s": 2120,
+"purchase_s": 1219,
+"zoho_orders": 1240,
+"zoho_created": 1197,
+"zoho_billed_uah": 2805294,
+"zoho_successful": 1110,
+"zoho_revenue_uah": 2695618
+},
+{
+"month": "2026-08",
+"entry_type": "category_product",
+"sessions": 13376,
+"view_item_s": 1009,
+"atc_s": 1351,
+"checkout_s": 727,
+"purchase_s": 451,
+"zoho_orders": 461,
+"zoho_created": 441,
+"zoho_billed_uah": 899762,
+"zoho_successful": 418,
+"zoho_revenue_uah": 878988
+},
+{
+"month": "2026-08",
+"entry_type": "blog",
+"sessions": 11948,
+"view_item_s": 169,
+"atc_s": 59,
+"checkout_s": 31,
+"purchase_s": 14,
+"zoho_orders": 15,
+"zoho_created": 13,
+"zoho_billed_uah": 17908,
+"zoho_successful": 10,
+"zoho_revenue_uah": 17908
+},
+{
+"month": "2026-08",
+"entry_type": "checkout",
+"sessions": 9329,
+"view_item_s": 360,
+"atc_s": 1183,
+"checkout_s": 4379,
+"purchase_s": 969,
+"zoho_orders": 986,
+"zoho_created": 946,
+"zoho_billed_uah": 2120657,
+"zoho_successful": 892,
+"zoho_revenue_uah": 2040480
+},
+{
+"month": "2026-08",
+"entry_type": "service",
+"sessions": 2178,
+"view_item_s": 92,
+"atc_s": 100,
+"checkout_s": 81,
+"purchase_s": 44,
+"zoho_orders": 45,
+"zoho_created": 44,
+"zoho_billed_uah": 142392,
+"zoho_successful": 44,
+"zoho_revenue_uah": 142392
+},
+{
+"month": "2026-08",
+"entry_type": "category_need",
+"sessions": 323,
+"view_item_s": 17,
+"atc_s": 42,
+"checkout_s": 29,
+"purchase_s": 17,
+"zoho_orders": 17,
+"zoho_created": 17,
+"zoho_billed_uah": 38159,
+"zoho_successful": 16,
+"zoho_revenue_uah": 35124
+},
+{
+"month": "2026-08",
+"entry_type": "other",
+"sessions": 2,
+"view_item_s": 0,
+"atc_s": 0,
+"checkout_s": 0,
+"purchase_s": 0,
+"zoho_orders": 0,
+"zoho_created": 0,
+"zoho_billed_uah": 0,
+"zoho_successful": 0,
+"zoho_revenue_uah": 0
+},
+{
+"month": "2026-09",
+"entry_type": "pdp",
+"sessions": 203200,
+"view_item_s": 185749,
+"atc_s": 16212,
+"checkout_s": 9108,
+"purchase_s": 5589,
+"zoho_orders": 5687,
+"zoho_created": 5451,
+"zoho_billed_uah": 10643288,
+"zoho_successful": 3820,
+"zoho_revenue_uah": 7636829
+},
+{
+"month": "2026-09",
+"entry_type": "category_promo",
+"sessions": 42436,
+"view_item_s": 1391,
+"atc_s": 5152,
+"checkout_s": 2175,
+"purchase_s": 1199,
+"zoho_orders": 1214,
+"zoho_created": 1167,
+"zoho_billed_uah": 2900673,
+"zoho_successful": 813,
+"zoho_revenue_uah": 1937032
+},
+{
+"month": "2026-09",
+"entry_type": "pdp_meta",
+"sessions": 36338,
+"view_item_s": 34095,
+"atc_s": 2563,
+"checkout_s": 1205,
+"purchase_s": 727,
+"zoho_orders": 737,
+"zoho_created": 710,
+"zoho_billed_uah": 1428174,
+"zoho_successful": 449,
+"zoho_revenue_uah": 1022594
+},
+{
+"month": "2026-09",
+"entry_type": "home",
+"sessions": 28694,
+"view_item_s": 2966,
+"atc_s": 6459,
+"checkout_s": 3731,
+"purchase_s": 2125,
+"zoho_orders": 2141,
+"zoho_created": 2077,
+"zoho_billed_uah": 5041958,
+"zoho_successful": 1471,
+"zoho_revenue_uah": 3476620
+},
+{
+"month": "2026-09",
+"entry_type": "catalog",
+"sessions": 20602,
+"view_item_s": 979,
+"atc_s": 4100,
+"checkout_s": 2327,
+"purchase_s": 1338,
+"zoho_orders": 1358,
+"zoho_created": 1316,
+"zoho_billed_uah": 3197710,
+"zoho_successful": 900,
+"zoho_revenue_uah": 2165376
+},
+{
+"month": "2026-09",
+"entry_type": "category_product",
+"sessions": 14351,
+"view_item_s": 1088,
+"atc_s": 1377,
+"checkout_s": 691,
+"purchase_s": 460,
+"zoho_orders": 473,
+"zoho_created": 455,
+"zoho_billed_uah": 869697,
+"zoho_successful": 328,
+"zoho_revenue_uah": 615714
+},
+{
+"month": "2026-09",
+"entry_type": "blog",
+"sessions": 14296,
+"view_item_s": 226,
+"atc_s": 80,
+"checkout_s": 37,
+"purchase_s": 20,
+"zoho_orders": 20,
+"zoho_created": 20,
+"zoho_billed_uah": 35519,
+"zoho_successful": 16,
+"zoho_revenue_uah": 31862
+},
+{
+"month": "2026-09",
+"entry_type": "checkout",
+"sessions": 9322,
+"view_item_s": 345,
+"atc_s": 664,
+"checkout_s": 3542,
+"purchase_s": 747,
+"zoho_orders": 757,
+"zoho_created": 724,
+"zoho_billed_uah": 1758332,
+"zoho_successful": 551,
+"zoho_revenue_uah": 1310604
+},
+{
+"month": "2026-09",
+"entry_type": "service",
+"sessions": 3202,
+"view_item_s": 84,
+"atc_s": 105,
+"checkout_s": 88,
+"purchase_s": 58,
+"zoho_orders": 60,
+"zoho_created": 56,
+"zoho_billed_uah": 133852,
+"zoho_successful": 43,
+"zoho_revenue_uah": 119335
+},
+{
+"month": "2026-09",
+"entry_type": "category_need",
+"sessions": 1390,
+"view_item_s": 32,
+"atc_s": 146,
+"checkout_s": 86,
+"purchase_s": 29,
+"zoho_orders": 31,
+"zoho_created": 31,
+"zoho_billed_uah": 57333,
+"zoho_successful": 20,
+"zoho_revenue_uah": 41577
+}
+],
+"b3a_atc_place_monthly": [
+{
+"month": "2026-01",
+"atc_place": "pdp",
+"atc_items": 43870,
+"users": 24377,
+"purchased_7d": 17335,
+"atc_value_uah": 51910606
+},
+{
+"month": "2026-01",
+"atc_place": "catalog",
+"atc_items": 39329,
+"users": 15799,
+"purchased_7d": 11319,
+"atc_value_uah": 37689308
+},
+{
+"month": "2026-01",
+"atc_place": "reco_cart",
+"atc_items": 6282,
+"users": 4183,
+"purchased_7d": 1727,
+"atc_value_uah": 5954036
+},
+{
+"month": "2026-01",
+"atc_place": "category",
+"atc_items": 5410,
+"users": 2845,
+"purchased_7d": 1652,
+"atc_value_uah": 5305771
+},
+{
+"month": "2026-01",
+"atc_place": "home",
+"atc_items": 2674,
+"users": 1752,
+"purchased_7d": 920,
+"atc_value_uah": 2759921
+},
+{
+"month": "2026-01",
+"atc_place": "cart",
+"atc_items": 1569,
+"users": 863,
+"purchased_7d": 634,
+"atc_value_uah": 1464428
+},
+{
+"month": "2026-01",
+"atc_place": "reco_product",
+"atc_items": 1480,
+"users": 1284,
+"purchased_7d": 382,
+"atc_value_uah": 1214211
+},
+{
+"month": "2026-01",
+"atc_place": "reco_search",
+"atc_items": 1066,
+"users": 841,
+"purchased_7d": 388,
+"atc_value_uah": 950135
+},
+{
+"month": "2026-01",
+"atc_place": "blog",
+"atc_items": 20,
+"users": 17,
+"purchased_7d": 1,
+"atc_value_uah": 15058
+},
+{
+"month": "2026-02",
+"atc_place": "pdp",
+"atc_items": 45239,
+"users": 23080,
+"purchased_7d": 16286,
+"atc_value_uah": 52605144
+},
+{
+"month": "2026-02",
+"atc_place": "catalog",
+"atc_items": 43481,
+"users": 15854,
+"purchased_7d": 11412,
+"atc_value_uah": 43347109
+},
+{
+"month": "2026-02",
+"atc_place": "category",
+"atc_items": 6253,
+"users": 2950,
+"purchased_7d": 1837,
+"atc_value_uah": 6318811
+},
+{
+"month": "2026-02",
+"atc_place": "reco_cart",
+"atc_items": 6159,
+"users": 3910,
+"purchased_7d": 1562,
+"atc_value_uah": 6076243
+},
+{
+"month": "2026-02",
+"atc_place": "home",
+"atc_items": 2252,
+"users": 1373,
+"purchased_7d": 797,
+"atc_value_uah": 2236805
+},
+{
+"month": "2026-02",
+"atc_place": "cart",
+"atc_items": 1602,
+"users": 903,
+"purchased_7d": 642,
+"atc_value_uah": 1477080
+},
+{
+"month": "2026-02",
+"atc_place": "reco_product",
+"atc_items": 1365,
+"users": 1117,
+"purchased_7d": 294,
+"atc_value_uah": 1205044
+},
+{
+"month": "2026-02",
+"atc_place": "reco_search",
+"atc_items": 950,
+"users": 693,
+"purchased_7d": 326,
+"atc_value_uah": 881807
+},
+{
+"month": "2026-02",
+"atc_place": "blog",
+"atc_items": 13,
+"users": 9,
+"purchased_7d": 2,
+"atc_value_uah": 15895
+},
+{
+"month": "2026-03",
+"atc_place": "catalog",
+"atc_items": 54698,
+"users": 16268,
+"purchased_7d": 15123,
+"atc_value_uah": 56149390
+},
+{
+"month": "2026-03",
+"atc_place": "pdp",
+"atc_items": 52802,
+"users": 22276,
+"purchased_7d": 18323,
+"atc_value_uah": 57158796
+},
+{
+"month": "2026-03",
+"atc_place": "category",
+"atc_items": 9079,
+"users": 3572,
+"purchased_7d": 2762,
+"atc_value_uah": 9375676
+},
+{
+"month": "2026-03",
+"atc_place": "reco_cart",
+"atc_items": 7232,
+"users": 4282,
+"purchased_7d": 1656,
+"atc_value_uah": 7642148
+},
+{
+"month": "2026-03",
+"atc_place": "home",
+"atc_items": 2627,
+"users": 1535,
+"purchased_7d": 949,
+"atc_value_uah": 2862041
+},
+{
+"month": "2026-03",
+"atc_place": "cart",
+"atc_items": 1968,
+"users": 1155,
+"purchased_7d": 833,
+"atc_value_uah": 1678883
+},
+{
+"month": "2026-03",
+"atc_place": "reco_product",
+"atc_items": 1260,
+"users": 1038,
+"purchased_7d": 295,
+"atc_value_uah": 1238684
+},
+{
+"month": "2026-03",
+"atc_place": "reco_search",
+"atc_items": 1233,
+"users": 843,
+"purchased_7d": 502,
+"atc_value_uah": 1188285
+},
+{
+"month": "2026-03",
+"atc_place": "blog",
+"atc_items": 21,
+"users": 18,
+"purchased_7d": 1,
+"atc_value_uah": 22396
+},
+{
+"month": "2026-04",
+"atc_place": "pdp",
+"atc_items": 42830,
+"users": 18219,
+"purchased_7d": 15249,
+"atc_value_uah": 45826304
+},
+{
+"month": "2026-04",
+"atc_place": "catalog",
+"atc_items": 33718,
+"users": 10742,
+"purchased_7d": 9622,
+"atc_value_uah": 34521588
+},
+{
+"month": "2026-04",
+"atc_place": "category",
+"atc_items": 13131,
+"users": 4689,
+"purchased_7d": 4040,
+"atc_value_uah": 13296688
+},
+{
+"month": "2026-04",
+"atc_place": "reco_cart",
+"atc_items": 5489,
+"users": 3268,
+"purchased_7d": 1387,
+"atc_value_uah": 5639837
+},
+{
+"month": "2026-04",
+"atc_place": "home",
+"atc_items": 2402,
+"users": 1346,
+"purchased_7d": 828,
+"atc_value_uah": 2595960
+},
+{
+"month": "2026-04",
+"atc_place": "cart",
+"atc_items": 1233,
+"users": 753,
+"purchased_7d": 561,
+"atc_value_uah": 931118
+},
+{
+"month": "2026-04",
+"atc_place": "reco_search",
+"atc_items": 814,
+"users": 590,
+"purchased_7d": 329,
+"atc_value_uah": 780928
+},
+{
+"month": "2026-04",
+"atc_place": "reco_product",
+"atc_items": 812,
+"users": 664,
+"purchased_7d": 200,
+"atc_value_uah": 757483
+},
+{
+"month": "2026-04",
+"atc_place": "blog",
+"atc_items": 34,
+"users": 26,
+"purchased_7d": 1,
+"atc_value_uah": 39421
+},
+{
+"month": "2026-05",
+"atc_place": "pdp",
+"atc_items": 41968,
+"users": 18489,
+"purchased_7d": 15279,
+"atc_value_uah": 46163075
+},
+{
+"month": "2026-05",
+"atc_place": "catalog",
+"atc_items": 23162,
+"users": 7698,
+"purchased_7d": 6582,
+"atc_value_uah": 23549970
+},
+{
+"month": "2026-05",
+"atc_place": "category",
+"atc_items": 18305,
+"users": 6507,
+"purchased_7d": 4899,
+"atc_value_uah": 19177733
+},
+{
+"month": "2026-05",
+"atc_place": "reco_cart",
+"atc_items": 4474,
+"users": 2798,
+"purchased_7d": 1123,
+"atc_value_uah": 4679016
+},
+{
+"month": "2026-05",
+"atc_place": "home",
+"atc_items": 2080,
+"users": 1202,
+"purchased_7d": 647,
+"atc_value_uah": 2264969
+},
+{
+"month": "2026-05",
+"atc_place": "cart",
+"atc_items": 1256,
+"users": 796,
+"purchased_7d": 618,
+"atc_value_uah": 1006709
+},
+{
+"month": "2026-05",
+"atc_place": "reco_product",
+"atc_items": 871,
+"users": 714,
+"purchased_7d": 189,
+"atc_value_uah": 851356
+},
+{
+"month": "2026-05",
+"atc_place": "reco_search",
+"atc_items": 864,
+"users": 642,
+"purchased_7d": 317,
+"atc_value_uah": 837385
+},
+{
+"month": "2026-05",
+"atc_place": "blog",
+"atc_items": 24,
+"users": 14,
+"purchased_7d": 7,
+"atc_value_uah": 27503
+},
+{
+"month": "2026-06",
+"atc_place": "pdp",
+"atc_items": 37920,
+"users": 17636,
+"purchased_7d": 14234,
+"atc_value_uah": 40722782
+},
+{
+"month": "2026-06",
+"atc_place": "category",
+"atc_items": 22479,
+"users": 8195,
+"purchased_7d": 6191,
+"atc_value_uah": 19490743
+},
+{
+"month": "2026-06",
+"atc_place": "catalog",
+"atc_items": 17823,
+"users": 6216,
+"purchased_7d": 5243,
+"atc_value_uah": 17416258
+},
+{
+"month": "2026-06",
+"atc_place": "reco_cart",
+"atc_items": 4003,
+"users": 2692,
+"purchased_7d": 1049,
+"atc_value_uah": 3818584
+},
+{
+"month": "2026-06",
+"atc_place": "home",
+"atc_items": 1345,
+"users": 781,
+"purchased_7d": 427,
+"atc_value_uah": 1488507
+},
+{
+"month": "2026-06",
+"atc_place": "reco_product",
+"atc_items": 1019,
+"users": 834,
+"purchased_7d": 240,
+"atc_value_uah": 829841
+},
+{
+"month": "2026-06",
+"atc_place": "cart",
+"atc_items": 995,
+"users": 611,
+"purchased_7d": 456,
+"atc_value_uah": 846403
+},
+{
+"month": "2026-06",
+"atc_place": "reco_search",
+"atc_items": 795,
+"users": 600,
+"purchased_7d": 299,
+"atc_value_uah": 746038
+},
+{
+"month": "2026-06",
+"atc_place": "blog",
+"atc_items": 18,
+"users": 13,
+"purchased_7d": 5,
+"atc_value_uah": 23371
+},
+{
+"month": "2026-07",
+"atc_place": "pdp",
+"atc_items": 50664,
+"users": 23869,
+"purchased_7d": 18905,
+"atc_value_uah": 52301870
+},
+{
+"month": "2026-07",
+"atc_place": "category",
+"atc_items": 31355,
+"users": 11915,
+"purchased_7d": 7943,
+"atc_value_uah": 27360164
+},
+{
+"month": "2026-07",
+"atc_place": "catalog",
+"atc_items": 20976,
+"users": 7519,
+"purchased_7d": 6268,
+"atc_value_uah": 19528981
+},
+{
+"month": "2026-07",
+"atc_place": "reco_cart",
+"atc_items": 6101,
+"users": 4024,
+"purchased_7d": 1691,
+"atc_value_uah": 5521988
+},
+{
+"month": "2026-07",
+"atc_place": "home",
+"atc_items": 2036,
+"users": 1153,
+"purchased_7d": 618,
+"atc_value_uah": 2135518
+},
+{
+"month": "2026-07",
+"atc_place": "reco_product",
+"atc_items": 1372,
+"users": 1117,
+"purchased_7d": 319,
+"atc_value_uah": 1089797
+},
+{
+"month": "2026-07",
+"atc_place": "cart",
+"atc_items": 1262,
+"users": 751,
+"purchased_7d": 622,
+"atc_value_uah": 1159473
+},
+{
+"month": "2026-07",
+"atc_place": "reco_search",
+"atc_items": 963,
+"users": 722,
+"purchased_7d": 360,
+"atc_value_uah": 881167
+},
+{
+"month": "2026-07",
+"atc_place": "blog",
+"atc_items": 14,
+"users": 11,
+"purchased_7d": 2,
+"atc_value_uah": 14949
+},
+{
+"month": "2026-08",
+"atc_place": "pdp",
+"atc_items": 60396,
+"users": 25934,
+"purchased_7d": 20611,
+"atc_value_uah": 65230144
+},
+{
+"month": "2026-08",
+"atc_place": "category",
+"atc_items": 29670,
+"users": 9614,
+"purchased_7d": 6666,
+"atc_value_uah": 29023621
+},
+{
+"month": "2026-08",
+"atc_place": "catalog",
+"atc_items": 21459,
+"users": 6930,
+"purchased_7d": 5987,
+"atc_value_uah": 21364467
+},
+{
+"month": "2026-08",
+"atc_place": "reco_cart",
+"atc_items": 7375,
+"users": 4626,
+"purchased_7d": 1667,
+"atc_value_uah": 7527314
+},
+{
+"month": "2026-08",
+"atc_place": "home",
+"atc_items": 2616,
+"users": 1431,
+"purchased_7d": 714,
+"atc_value_uah": 2834744
+},
+{
+"month": "2026-08",
+"atc_place": "cart",
+"atc_items": 1816,
+"users": 1047,
+"purchased_7d": 860,
+"atc_value_uah": 1569655
+},
+{
+"month": "2026-08",
+"atc_place": "reco_product",
+"atc_items": 1630,
+"users": 1322,
+"purchased_7d": 328,
+"atc_value_uah": 1445899
+},
+{
+"month": "2026-08",
+"atc_place": "reco_search",
+"atc_items": 1021,
+"users": 771,
+"purchased_7d": 371,
+"atc_value_uah": 1026738
+},
+{
+"month": "2026-08",
+"atc_place": "blog",
+"atc_items": 19,
+"users": 13,
+"purchased_7d": 1,
+"atc_value_uah": 21145
+},
+{
+"month": "2026-09",
+"atc_place": "pdp",
+"atc_items": 57223,
+"users": 23889,
+"purchased_7d": 21025,
+"atc_value_uah": 54833164
+},
+{
+"month": "2026-09",
+"atc_place": "catalog",
+"atc_items": 21492,
+"users": 6589,
+"purchased_7d": 5950,
+"atc_value_uah": 19552964
+},
+{
+"month": "2026-09",
+"atc_place": "category",
+"atc_items": 14015,
+"users": 5264,
+"purchased_7d": 3457,
+"atc_value_uah": 12536674
+},
+{
+"month": "2026-09",
+"atc_place": "reco_cart",
+"atc_items": 7297,
+"users": 3956,
+"purchased_7d": 1904,
+"atc_value_uah": 6265144
+},
+{
+"month": "2026-09",
+"atc_place": "home",
+"atc_items": 2297,
+"users": 1232,
+"purchased_7d": 651,
+"atc_value_uah": 2261951
+},
+{
+"month": "2026-09",
+"atc_place": "reco_product",
+"atc_items": 1673,
+"users": 1254,
+"purchased_7d": 372,
+"atc_value_uah": 1372283
+},
+{
+"month": "2026-09",
+"atc_place": "cart",
+"atc_items": 1225,
+"users": 625,
+"purchased_7d": 534,
+"atc_value_uah": 1007347
+},
+{
+"month": "2026-09",
+"atc_place": "reco_search",
+"atc_items": 1075,
+"users": 736,
+"purchased_7d": 402,
+"atc_value_uah": 973001
+},
+{
+"month": "2026-09",
+"atc_place": "blog",
+"atc_items": 20,
+"users": 18,
+"purchased_7d": 2,
+"atc_value_uah": 18893
+}
+],
+"b3b_atc_items_sept": [
+{
+"item_id": 68,
+"item_name": "Дієт. добавка Triple Magnesium + B6",
+"price": 1114,
+"atc_items": 8864,
+"users": 5759,
+"purchased_7d": 3111,
+"pdp": 4730,
+"catalog": 1666,
+"category": 644,
+"cart": 154,
+"home": 569,
+"reco": 1101
+},
+{
+"item_id": 163,
+"item_name": "Подарунковий набір",
+"price": 1,
+"atc_items": 6866,
+"users": 4530,
+"purchased_7d": 1841,
+"pdp": 3318,
+"catalog": 1639,
+"category": 916,
+"cart": 125,
+"home": 153,
+"reco": 715
+},
+{
+"item_id": 136,
+"item_name": "Liposomal Iron",
+"price": 967,
+"atc_items": 6139,
+"users": 4350,
+"purchased_7d": 2108,
+"pdp": 4063,
+"catalog": 1287,
+"category": 678,
+"cart": 53,
+"home": 11,
+"reco": 47
+},
+{
+"item_id": 109,
+"item_name": "Дієт. добавка Колаген Лісові ягоди 1 уп.",
+"price": 1256,
+"atc_items": 6056,
+"users": 3625,
+"purchased_7d": 2070,
+"pdp": 3079,
+"catalog": 1332,
+"category": 1131,
+"cart": 95,
+"home": 272,
+"reco": 147
+},
+{
+"item_id": 9,
+"item_name": "Дієт.добавка Пептиди морського Колагену (30)",
+"price": 1103,
+"atc_items": 5966,
+"users": 3570,
+"purchased_7d": 2013,
+"pdp": 3473,
+"catalog": 934,
+"category": 1051,
+"cart": 79,
+"home": 226,
+"reco": 197
+},
+{
+"item_id": 5,
+"item_name": "Дієт.добавка Вітамін Д3 2000 (60)",
+"price": 508,
+"atc_items": 5669,
+"users": 4046,
+"purchased_7d": 1910,
+"pdp": 2252,
+"catalog": 837,
+"category": 919,
+"cart": 55,
+"home": 130,
+"reco": 1471
+},
+{
+"item_id": 72,
+"item_name": "Дієт. добавка Multi-Beauty Duo-Caps",
+"price": 1330,
+"atc_items": 5418,
+"users": 4183,
+"purchased_7d": 1794,
+"pdp": 2641,
+"catalog": 780,
+"category": 589,
+"cart": 29,
+"home": 159,
+"reco": 1219
+},
+{
+"item_id": 71,
+"item_name": "Дієт. добавка А-Біотин",
+"price": 779,
+"atc_items": 4822,
+"users": 3339,
+"purchased_7d": 1532,
+"pdp": 2473,
+"catalog": 1102,
+"category": 301,
+"cart": 44,
+"home": 20,
+"reco": 882
+},
+{
+"item_id": 165,
+"item_name": "Gift Sample Kit (4000 UAH) (Electrolytes, Collagen Jelly, Collagen Marine, Pills Organizer)",
+"price": 7,
+"atc_items": 4330,
+"users": 2943,
+"purchased_7d": 1159,
+"pdp": 2039,
+"catalog": 1099,
+"category": 611,
+"cart": 83,
+"home": 80,
+"reco": 418
+},
+{
+"item_id": 2,
+"item_name": "Дієт.добавка Омега-3 Тріска (120)",
+"price": 836,
+"atc_items": 4168,
+"users": 2839,
+"purchased_7d": 1357,
+"pdp": 1831,
+"catalog": 578,
+"category": 621,
+"cart": 54,
+"home": 155,
+"reco": 928
+},
+{
+"item_id": 147,
+"item_name": "Omega 3 rtg",
+"price": 1063,
+"atc_items": 3836,
+"users": 2547,
+"purchased_7d": 1324,
+"pdp": 2215,
+"catalog": 745,
+"category": 649,
+"cart": 55,
+"home": 77,
+"reco": 95
+},
+{
+"item_id": 161,
+"item_name": "Daily Fiber GLP-1 Booster",
+"price": 1282,
+"atc_items": 3485,
+"users": 2680,
+"purchased_7d": 1114,
+"pdp": 2405,
+"catalog": 843,
+"category": 155,
+"cart": 18,
+"home": 7,
+"reco": 57
+},
+{
+"item_id": 1,
+"item_name": "Дієт.добавка Омега-3 Тунець (120)",
+"price": 1076,
+"atc_items": 2855,
+"users": 1956,
+"purchased_7d": 871,
+"pdp": 1267,
+"catalog": 489,
+"category": 496,
+"cart": 33,
+"home": 7,
+"reco": 562
+},
+{
+"item_id": 6,
+"item_name": "Дієт.добавка Вітамін Д3 5000 (60)",
+"price": 586,
+"atc_items": 2659,
+"users": 1987,
+"purchased_7d": 886,
+"pdp": 1097,
+"catalog": 701,
+"category": 722,
+"cart": 24,
+"home": 6,
+"reco": 108
+},
+{
+"item_id": 133,
+"item_name": "Морський колаген зі смаком персика",
+"price": 1278,
+"atc_items": 2438,
+"users": 1684,
+"purchased_7d": 574,
+"pdp": 1477,
+"catalog": 387,
+"category": 418,
+"cart": 30,
+"home": 92,
+"reco": 34
+},
+{
+"item_id": 145,
+"item_name": "Collagen Nectar Jelly",
+"price": 1424,
+"atc_items": 2304,
+"users": 1535,
+"purchased_7d": 692,
+"pdp": 1458,
+"catalog": 433,
+"category": 372,
+"cart": 24,
+"home": 4,
+"reco": 13
+},
+{
+"item_id": 7,
+"item_name": "Дієт.добавка Вітамін Д3 1000 Кідс (60)",
+"price": 453,
+"atc_items": 2265,
+"users": 1592,
+"purchased_7d": 766,
+"pdp": 1316,
+"catalog": 325,
+"category": 384,
+"cart": 20,
+"home": 13,
+"reco": 207
+},
+{
+"item_id": 135,
+"item_name": "Daily Vegan Protein",
+"price": 1407,
+"atc_items": 2210,
+"users": 1731,
+"purchased_7d": 804,
+"pdp": 1298,
+"catalog": 405,
+"category": 183,
+"cart": 25,
+"home": 21,
+"reco": 278
+},
+{
+"item_id": 65,
+"item_name": "Дієт. добавка Колаген Нектар 1 уп.",
+"price": 1588,
+"atc_items": 2198,
+"users": 1385,
+"purchased_7d": 349,
+"pdp": 1296,
+"catalog": 297,
+"category": 199,
+"cart": 23,
+"home": 38,
+"reco": 343
+},
+{
+"item_id": 20,
+"item_name": "Дієт.добавка Вітамін Д3 5000 + К2 (60)",
+"price": 943,
+"atc_items": 2084,
+"users": 1435,
+"purchased_7d": 709,
+"pdp": 1219,
+"catalog": 464,
+"category": 339,
+"cart": 27,
+"home": 5,
+"reco": 30
+},
+{
+"item_id": 4,
+"item_name": "Дієт.добавка Омега-3 Тунець Кідс (120)",
+"price": 792,
+"atc_items": 2083,
+"users": 1501,
+"purchased_7d": 826,
+"pdp": 1208,
+"catalog": 253,
+"category": 293,
+"cart": 13,
+"home": 4,
+"reco": 311
+},
+{
+"item_id": 116,
+"item_name": "Super Greens",
+"price": 856,
+"atc_items": 2004,
+"users": 1505,
+"purchased_7d": 578,
+"pdp": 987,
+"catalog": 557,
+"category": 326,
+"cart": 16,
+"home": 40,
+"reco": 78
+},
+{
+"item_id": 63,
+"item_name": "Sleeps мелатонін Strong 5мг",
+"price": 799,
+"atc_items": 2000,
+"users": 1544,
+"purchased_7d": 872,
+"pdp": 1306,
+"catalog": 389,
+"category": 234,
+"cart": 14,
+"home": 8,
+"reco": 47
+},
+{
+"item_id": 64,
+"item_name": "Sleeps мелатонін Gentle 1мг",
+"price": 709,
+"atc_items": 1993,
+"users": 1546,
+"purchased_7d": 744,
+"pdp": 1341,
+"catalog": 283,
+"category": 141,
+"cart": 24,
+"home": 7,
+"reco": 197
+},
+{
+"item_id": 144,
+"item_name": "Creatine Gummies",
+"price": 1481,
+"atc_items": 1970,
+"users": 1512,
+"purchased_7d": 804,
+"pdp": 1390,
+"catalog": 377,
+"category": 121,
+"cart": 13,
+"home": 33,
+"reco": 36
+},
+{
+"item_id": 134,
+"item_name": "Crystal Mind",
+"price": 1271,
+"atc_items": 1599,
+"users": 1149,
+"purchased_7d": 489,
+"pdp": 952,
+"catalog": 429,
+"category": 126,
+"cart": 14,
+"home": 4,
+"reco": 74
+},
+{
+"item_id": 138,
+"item_name": "Synbiotic 3 in 1",
+"price": 1301,
+"atc_items": 1307,
+"users": 1029,
+"purchased_7d": 435,
+"pdp": 731,
+"catalog": 364,
+"category": 95,
+"cart": 14,
+"home": 23,
+"reco": 80
+},
+{
+"item_id": 3,
+"item_name": "Дієт.добавка Омега-3 Тріска Кідс (120)",
+"price": 755,
+"atc_items": 1172,
+"users": 882,
+"purchased_7d": 381,
+"pdp": 685,
+"catalog": 150,
+"category": 185,
+"cart": 6,
+"home": 3,
+"reco": 143
+},
+{
+"item_id": 10,
+"item_name": "Дієт.добавка Сквален (120)",
+"price": 1457,
+"atc_items": 1032,
+"users": 737,
+"purchased_7d": 305,
+"pdp": 344,
+"catalog": 419,
+"category": 218,
+"cart": 22,
+"home": 13,
+"reco": 16
+},
+{
+"item_id": 121,
+"item_name": "Mushroom Cacao",
+"price": 879,
+"atc_items": 844,
+"users": 615,
+"purchased_7d": 180,
+"pdp": 294,
+"catalog": 356,
+"category": 162,
+"cart": 10,
+"home": 17,
+"reco": 5
+}
+],
+"b4a_upsell_monthly": [
+{
+"month": "2026-01",
+"orders": 16450,
+"with_upsell_online": 160,
+"with_upsell_manager": 236,
+"with_any_upsell": 395,
+"with_gift": 262,
+"upsell_online_uah": 98177.0,
+"upsell_manager_uah": 230926.0,
+"upsell_online_rev_uah": 137327.0,
+"upsell_manager_rev_uah": 414289.0,
+"revenue_uah": 34140116.0,
+"aov_with_upsell": 3195.0,
+"aov_without_upsell": 2053.5,
+"aov_with_manager": 3149.7,
+"aov_with_online": 3261.7,
+"upo_with_upsell": 3.689,
+"upo_without_upsell": 2.387
+},
+{
+"month": "2026-02",
+"orders": 15093,
+"with_upsell_online": 136,
+"with_upsell_manager": 913,
+"with_any_upsell": 1042,
+"with_gift": 354,
+"upsell_online_uah": 94621.0,
+"upsell_manager_uah": 809347.0,
+"upsell_online_rev_uah": 139329.0,
+"upsell_manager_rev_uah": 1557461.0,
+"revenue_uah": 32854426.0,
+"aov_with_upsell": 3043.1,
+"aov_without_upsell": 2113.7,
+"aov_with_manager": 3010.6,
+"aov_with_online": 3297.3,
+"upo_with_upsell": 3.46,
+"upo_without_upsell": 2.412
+},
+{
+"month": "2026-03",
+"orders": 14977,
+"with_upsell_online": 225,
+"with_upsell_manager": 1421,
+"with_any_upsell": 1632,
+"with_gift": 295,
+"upsell_online_uah": 157802.0,
+"upsell_manager_uah": 1401653.0,
+"upsell_online_rev_uah": 234854.0,
+"upsell_manager_rev_uah": 2495561.0,
+"revenue_uah": 37768010.0,
+"aov_with_upsell": 3453.2,
+"aov_without_upsell": 2408.5,
+"aov_with_manager": 3426.0,
+"aov_with_online": 3701.2,
+"upo_with_upsell": 4.007,
+"upo_without_upsell": 2.769
+},
+{
+"month": "2026-04",
+"orders": 12103,
+"with_upsell_online": 161,
+"with_upsell_manager": 1839,
+"with_any_upsell": 1980,
+"with_gift": 204,
+"upsell_online_uah": 114139.0,
+"upsell_manager_uah": 1755252.0,
+"upsell_online_rev_uah": 170285.0,
+"upsell_manager_rev_uah": 3468065.0,
+"revenue_uah": 30433591.0,
+"aov_with_upsell": 3352.8,
+"aov_without_upsell": 2350.6,
+"aov_with_manager": 3333.1,
+"aov_with_online": 3794.4,
+"upo_with_upsell": 3.859,
+"upo_without_upsell": 2.667
+},
+{
+"month": "2026-05",
+"orders": 11443,
+"with_upsell_online": 164,
+"with_upsell_manager": 1712,
+"with_any_upsell": 1860,
+"with_gift": 219,
+"upsell_online_uah": 112215.0,
+"upsell_manager_uah": 1793525.0,
+"upsell_online_rev_uah": 171213.0,
+"upsell_manager_rev_uah": 3180196.0,
+"revenue_uah": 27546884.0,
+"aov_with_upsell": 3461.9,
+"aov_without_upsell": 2204.1,
+"aov_with_manager": 3471.1,
+"aov_with_online": 3454.8,
+"upo_with_upsell": 3.84,
+"upo_without_upsell": 2.475
+},
+{
+"month": "2026-06",
+"orders": 11633,
+"with_upsell_online": 163,
+"with_upsell_manager": 1422,
+"with_any_upsell": 1576,
+"with_gift": 179,
+"upsell_online_uah": 97479.0,
+"upsell_manager_uah": 1370480.0,
+"upsell_online_rev_uah": 153893.0,
+"upsell_manager_rev_uah": 2660468.0,
+"revenue_uah": 25908499.0,
+"aov_with_upsell": 3185.9,
+"aov_without_upsell": 2082.7,
+"aov_with_manager": 3208.4,
+"aov_with_online": 3051.8,
+"upo_with_upsell": 3.661,
+"upo_without_upsell": 2.484
+},
+{
+"month": "2026-07",
+"orders": 15028,
+"with_upsell_online": 211,
+"with_upsell_manager": 1601,
+"with_any_upsell": 1791,
+"with_gift": 247,
+"upsell_online_uah": 114455.0,
+"upsell_manager_uah": 1601360.0,
+"upsell_online_rev_uah": 185943.0,
+"upsell_manager_rev_uah": 3233591.0,
+"revenue_uah": 33012863.0,
+"aov_with_upsell": 3183.8,
+"aov_without_upsell": 2064.1,
+"aov_with_manager": 3220.9,
+"aov_with_online": 2990.5,
+"upo_with_upsell": 3.662,
+"upo_without_upsell": 2.5
+},
+{
+"month": "2026-08",
+"orders": 14268,
+"with_upsell_online": 249,
+"with_upsell_manager": 1282,
+"with_any_upsell": 1510,
+"with_gift": 330,
+"upsell_online_uah": 130461.0,
+"upsell_manager_uah": 1241413.0,
+"upsell_online_rev_uah": 215653.0,
+"upsell_manager_rev_uah": 2536516.0,
+"revenue_uah": 32891923.0,
+"aov_with_upsell": 3209.9,
+"aov_without_upsell": 2198.2,
+"aov_with_manager": 3246.0,
+"aov_with_online": 3109.2,
+"upo_with_upsell": 3.726,
+"upo_without_upsell": 2.488
+},
+{
+"month": "2026-09",
+"orders": 9825,
+"with_upsell_online": 158,
+"with_upsell_manager": 702,
+"with_any_upsell": 848,
+"with_gift": 1545,
+"upsell_online_uah": 72731.0,
+"upsell_manager_uah": 684603.0,
+"upsell_online_rev_uah": 129203.0,
+"upsell_manager_rev_uah": 1276866.0,
+"revenue_uah": 21728591.0,
+"aov_with_upsell": 3176.1,
+"aov_without_upsell": 2120.9,
+"aov_with_manager": 3325.9,
+"aov_with_online": 2523.9,
+"upo_with_upsell": 3.428,
+"upo_without_upsell": 2.249
+}
+],
+"b4b_upsell_widget_monthly": [
+{
+"month": "2026-01",
+"event_name": "upsell",
+"location": "n/a",
+"events": 61585,
+"users": 27807,
+"sessions": 31993
+},
+{
+"month": "2026-01",
+"event_name": "upsell_add_product",
+"location": "cart",
+"events": 5739,
+"users": 4225,
+"sessions": 4432
+},
+{
+"month": "2026-01",
+"event_name": "upsell_add_product",
+"location": "product",
+"events": 1487,
+"users": 1310,
+"sessions": 1333
+},
+{
+"month": "2026-01",
+"event_name": "upsell_add_product",
+"location": "search",
+"events": 1039,
+"users": 860,
+"sessions": 885
+},
+{
+"month": "2026-01",
+"event_name": "upsell_select_product",
+"location": "product",
+"events": 8518,
+"users": 6368,
+"sessions": 6704
+},
+{
+"month": "2026-01",
+"event_name": "upsell_select_product",
+"location": "search",
+"events": 5628,
+"users": 4172,
+"sessions": 4461
+},
+{
+"month": "2026-01",
+"event_name": "upsell_select_product",
+"location": "cart",
+"events": 3816,
+"users": 3231,
+"sessions": 3349
+},
+{
+"month": "2026-02",
+"event_name": "upsell",
+"location": "n/a",
+"events": 53773,
+"users": 24579,
+"sessions": 28375
+},
+{
+"month": "2026-02",
+"event_name": "upsell_add_product",
+"location": "cart",
+"events": 5480,
+"users": 3916,
+"sessions": 4126
+},
+{
+"month": "2026-02",
+"event_name": "upsell_add_product",
+"location": "product",
+"events": 1339,
+"users": 1124,
+"sessions": 1143
+},
+{
+"month": "2026-02",
+"event_name": "upsell_add_product",
+"location": "search",
+"events": 897,
+"users": 697,
+"sessions": 721
+},
+{
+"month": "2026-02",
+"event_name": "upsell_select_product",
+"location": "product",
+"events": 7760,
+"users": 5829,
+"sessions": 6120
+},
+{
+"month": "2026-02",
+"event_name": "upsell_select_product",
+"location": "search",
+"events": 4948,
+"users": 3659,
+"sessions": 3912
+},
+{
+"month": "2026-02",
+"event_name": "upsell_select_product",
+"location": "cart",
+"events": 3367,
+"users": 2861,
+"sessions": 2963
+},
+{
+"month": "2026-03",
+"event_name": "upsell",
+"location": "n/a",
+"events": 50016,
+"users": 23202,
+"sessions": 26885
+},
+{
+"month": "2026-03",
+"event_name": "upsell_add_product",
+"location": "cart",
+"events": 6202,
+"users": 4286,
+"sessions": 4601
+},
+{
+"month": "2026-03",
+"event_name": "upsell_add_product",
+"location": "product",
+"events": 1225,
+"users": 1045,
+"sessions": 1067
+},
+{
+"month": "2026-03",
+"event_name": "upsell_add_product",
+"location": "search",
+"events": 1124,
+"users": 848,
+"sessions": 884
+},
+{
+"month": "2026-03",
+"event_name": "upsell_select_product",
+"location": "product",
+"events": 7020,
+"users": 5373,
+"sessions": 5667
+},
+{
+"month": "2026-03",
+"event_name": "upsell_select_product",
+"location": "search",
+"events": 4694,
+"users": 3484,
+"sessions": 3715
+},
+{
+"month": "2026-03",
+"event_name": "upsell_select_product",
+"location": "cart",
+"events": 3056,
+"users": 2619,
+"sessions": 2741
+},
+{
+"month": "2026-04",
+"event_name": "upsell",
+"location": "n/a",
+"events": 40940,
+"users": 19102,
+"sessions": 21868
+},
+{
+"month": "2026-04",
+"event_name": "upsell_add_product",
+"location": "cart",
+"events": 4699,
+"users": 3272,
+"sessions": 3481
+},
+{
+"month": "2026-04",
+"event_name": "upsell_add_product",
+"location": "product",
+"events": 779,
+"users": 666,
+"sessions": 679
+},
+{
+"month": "2026-04",
+"event_name": "upsell_add_product",
+"location": "search",
+"events": 751,
+"users": 593,
+"sessions": 613
+},
+{
+"month": "2026-04",
+"event_name": "upsell_select_product",
+"location": "product",
+"events": 4780,
+"users": 3715,
+"sessions": 3872
+},
+{
+"month": "2026-04",
+"event_name": "upsell_select_product",
+"location": "search",
+"events": 4043,
+"users": 3019,
+"sessions": 3223
+},
+{
+"month": "2026-04",
+"event_name": "upsell_select_product",
+"location": "cart",
+"events": 2603,
+"users": 2253,
+"sessions": 2314
+},
+{
+"month": "2026-05",
+"event_name": "upsell",
+"location": "n/a",
+"events": 39288,
+"users": 18562,
+"sessions": 21275
+},
+{
+"month": "2026-05",
+"event_name": "upsell_add_product",
+"location": "cart",
+"events": 3886,
+"users": 2805,
+"sessions": 2950
+},
+{
+"month": "2026-05",
+"event_name": "upsell_add_product",
+"location": "product",
+"events": 846,
+"users": 717,
+"sessions": 727
+},
+{
+"month": "2026-05",
+"event_name": "upsell_add_product",
+"location": "search",
+"events": 812,
+"users": 646,
+"sessions": 667
+},
+{
+"month": "2026-05",
+"event_name": "upsell_select_product",
+"location": "product",
+"events": 4889,
+"users": 3805,
+"sessions": 3975
+},
+{
+"month": "2026-05",
+"event_name": "upsell_select_product",
+"location": "search",
+"events": 3799,
+"users": 2848,
+"sessions": 3056
+},
+{
+"month": "2026-05",
+"event_name": "upsell_select_product",
+"location": "cart",
+"events": 2519,
+"users": 2165,
+"sessions": 2235
+},
+{
+"month": "2026-06",
+"event_name": "upsell",
+"location": "n/a",
+"events": 34297,
+"users": 15843,
+"sessions": 18060
+},
+{
+"month": "2026-06",
+"event_name": "upsell_add_product",
+"location": "cart",
+"events": 3537,
+"users": 2699,
+"sessions": 2811
+},
+{
+"month": "2026-06",
+"event_name": "upsell_add_product",
+"location": "product",
+"events": 998,
+"users": 835,
+"sessions": 852
+},
+{
+"month": "2026-06",
+"event_name": "upsell_add_product",
+"location": "search",
+"events": 747,
+"users": 600,
+"sessions": 615
+},
+{
+"month": "2026-06",
+"event_name": "upsell_select_product",
+"location": "product",
+"events": 4214,
+"users": 3265,
+"sessions": 3405
+},
+{
+"month": "2026-06",
+"event_name": "upsell_select_product",
+"location": "search",
+"events": 3529,
+"users": 2650,
+"sessions": 2813
+},
+{
+"month": "2026-06",
+"event_name": "upsell_select_product",
+"location": "cart",
+"events": 2558,
+"users": 2176,
+"sessions": 2259
+},
+{
+"month": "2026-07",
+"event_name": "upsell",
+"location": "n/a",
+"events": 48956,
+"users": 22460,
+"sessions": 25816
+},
+{
+"month": "2026-07",
+"event_name": "upsell_add_product",
+"location": "cart",
+"events": 5441,
+"users": 4027,
+"sessions": 4232
+},
+{
+"month": "2026-07",
+"event_name": "upsell_add_product",
+"location": "product",
+"events": 1352,
+"users": 1121,
+"sessions": 1136
+},
+{
+"month": "2026-07",
+"event_name": "upsell_add_product",
+"location": "search",
+"events": 917,
+"users": 726,
+"sessions": 752
+},
+{
+"month": "2026-07",
+"event_name": "upsell_select_product",
+"location": "product",
+"events": 6780,
+"users": 5187,
+"sessions": 5447
+},
+{
+"month": "2026-07",
+"event_name": "upsell_select_product",
+"location": "search",
+"events": 4761,
+"users": 3553,
+"sessions": 3800
+},
+{
+"month": "2026-07",
+"event_name": "upsell_select_product",
+"location": "cart",
+"events": 3726,
+"users": 3170,
+"sessions": 3271
+},
+{
+"month": "2026-08",
+"event_name": "upsell",
+"location": "n/a",
+"events": 47757,
+"users": 21495,
+"sessions": 24443
+},
+{
+"month": "2026-08",
+"event_name": "upsell_add_product",
+"location": "cart",
+"events": 6568,
+"users": 4635,
+"sessions": 4979
+},
+{
+"month": "2026-08",
+"event_name": "upsell_add_product",
+"location": "product",
+"events": 1604,
+"users": 1326,
+"sessions": 1355
+},
+{
+"month": "2026-08",
+"event_name": "upsell_add_product",
+"location": "search",
+"events": 964,
+"users": 773,
+"sessions": 801
+},
+{
+"month": "2026-08",
+"event_name": "upsell_select_product",
+"location": "product",
+"events": 7440,
+"users": 5714,
+"sessions": 5988
+},
+{
+"month": "2026-08",
+"event_name": "upsell_select_product",
+"location": "search",
+"events": 4345,
+"users": 3214,
+"sessions": 3452
+},
+{
+"month": "2026-08",
+"event_name": "upsell_select_product",
+"location": "cart",
+"events": 3989,
+"users": 3355,
+"sessions": 3503
+},
+{
+"month": "2026-09",
+"event_name": "upsell",
+"location": "n/a",
+"events": 43286,
+"users": 19715,
+"sessions": 22568
+},
+{
+"month": "2026-09",
+"event_name": "upsell_add_product",
+"location": "cart",
+"events": 5695,
+"users": 3971,
+"sessions": 4213
+},
+{
+"month": "2026-09",
+"event_name": "upsell_add_product",
+"location": "product",
+"events": 1559,
+"users": 1258,
+"sessions": 1281
+},
+{
+"month": "2026-09",
+"event_name": "upsell_add_product",
+"location": "search",
+"events": 966,
+"users": 743,
+"sessions": 772
+},
+{
+"month": "2026-09",
+"event_name": "upsell_select_product",
+"location": "product",
+"events": 9095,
+"users": 6710,
+"sessions": 7105
+},
+{
+"month": "2026-09",
+"event_name": "upsell_select_product",
+"location": "search",
+"events": 4631,
+"users": 3363,
+"sessions": 3654
+},
+{
+"month": "2026-09",
+"event_name": "upsell_select_product",
+"location": "cart",
+"events": 3804,
+"users": 3172,
+"sessions": 3309
+}
+],
+"b4c_cancel_reasons_q3": [
+{
+"stage_group": "canceled",
+"reason": "Дублікат замовлення",
+"jul": 1039,
+"aug": 925,
+"sep": 702,
+"total": 2666,
+"cod": 356,
+"prepaid": 2297
+},
+{
+"stage_group": "canceled",
+"reason": "Не дозвонились для підтвердження",
+"jul": 501,
+"aug": 449,
+"sep": 365,
+"total": 1315,
+"cod": 105,
+"prepaid": 1207
+},
+{
+"stage_group": "canceled",
+"reason": "Відмовився (без пояснень)",
+"jul": 133,
+"aug": 145,
+"sep": 136,
+"total": 414,
+"cod": 117,
+"prepaid": 294
+},
+{
+"stage_group": "canceled",
+"reason": "Передумав / Більше не потрібно",
+"jul": 75,
+"aug": 49,
+"sep": 34,
+"total": 158,
+"cod": 38,
+"prepaid": 120
+},
+{
+"stage_group": "canceled",
+"reason": "Довгий термін доставки",
+"jul": 20,
+"aug": 38,
+"sep": 35,
+"total": 93,
+"cod": 35,
+"prepaid": 58
+},
+{
+"stage_group": "canceled",
+"reason": "Немає в наявності",
+"jul": 19,
+"aug": 24,
+"sep": 21,
+"total": 64,
+"cod": 23,
+"prepaid": 41
+},
+{
+"stage_group": "canceled",
+"reason": "Інше",
+"jul": 33,
+"aug": 14,
+"sep": 5,
+"total": 52,
+"cod": 7,
+"prepaid": 44
+},
+{
+"stage_group": "canceled",
+"reason": "Нічого не замовляв",
+"jul": 17,
+"aug": 17,
+"sep": 7,
+"total": 41,
+"cod": 17,
+"prepaid": 24
+},
+{
+"stage_group": "canceled",
+"reason": "Купив наш продукт в іншому місці",
+"jul": 11,
+"aug": 17,
+"sep": 10,
+"total": 38,
+"cod": 10,
+"prepaid": 28
+},
+{
+"stage_group": "canceled",
+"reason": "Протипоказання / Не підійшов продукт",
+"jul": 16,
+"aug": 14,
+"sep": 3,
+"total": 33,
+"cod": 18,
+"prepaid": 15
+},
+{
+"stage_group": "refused",
+"reason": "(не указана)",
+"jul": 853,
+"aug": 905,
+"sep": 571,
+"total": 2329,
+"cod": 2254,
+"prepaid": 75
+}
+],
+"b5b2_fail_reasons_q3": [
+{
+"status": "Expired",
+"reason_code": 1124,
+"reason_message": "Cardholder session expired",
+"attempts": 20223,
+"orders": 11030,
+"share_attempts": 0.8097,
+"last_seen": "2026-10-02"
+},
+{
+"status": "Declined",
+"reason_code": 1124,
+"reason_message": "Cardholder session expired",
+"attempts": 1989,
+"orders": 1537,
+"share_attempts": 0.0796,
+"last_seen": "2026-10-02"
+},
+{
+"status": "Declined",
+"reason_code": 1122,
+"reason_message": "Gate Declined",
+"attempts": 1373,
+"orders": 1317,
+"share_attempts": 0.055,
+"last_seen": "2026-09-30"
+},
+{
+"status": "Declined",
+"reason_code": 1108,
+"reason_message": "Three Ds Fail",
+"attempts": 433,
+"orders": 380,
+"share_attempts": 0.0173,
+"last_seen": "2026-09-30"
+},
+{
+"status": "Declined",
+"reason_code": 1101,
+"reason_message": "Declined To Card Issuer",
+"attempts": 392,
+"orders": 338,
+"share_attempts": 0.0157,
+"last_seen": "2026-09-29"
+},
+{
+"status": "Declined",
+"reason_code": 1104,
+"reason_message": "Insufficient funds",
+"attempts": 235,
+"orders": 222,
+"share_attempts": 0.0094,
+"last_seen": "2026-09-30"
+},
+{
+"status": "Declined",
+"reason_code": 1106,
+"reason_message": "Exceed Withdrawal Frequency",
+"attempts": 156,
+"orders": 131,
+"share_attempts": 0.0062,
+"last_seen": "2026-09-30"
+},
+{
+"status": "Declined",
+"reason_code": 1125,
+"reason_message": "Cardholder canceled the request",
+"attempts": 48,
+"orders": 41,
+"share_attempts": 0.0019,
+"last_seen": "2026-09-30"
+},
+{
+"status": "Declined",
+"reason_code": 1114,
+"reason_message": "Fraud transaction",
+"attempts": 33,
+"orders": 23,
+"share_attempts": 0.0013,
+"last_seen": "2026-09-29"
+},
+{
+"status": "Declined",
+"reason_code": 1126,
+"reason_message": "Illegal Order State",
+"attempts": 31,
+"orders": 27,
+"share_attempts": 0.0012,
+"last_seen": "2026-09-20"
+},
+{
+"status": "Expired",
+"reason_code": 5103,
+"reason_message": "Wait For Keep",
+"attempts": 24,
+"orders": 24,
+"share_attempts": 0.001,
+"last_seen": "2026-09-12"
+},
+{
+"status": "Expired",
+"reason_code": 1125,
+"reason_message": "Cardholder canceled the request",
+"attempts": 18,
+"orders": 15,
+"share_attempts": 0.0007,
+"last_seen": "2026-09-30"
+},
+{
+"status": "Declined",
+"reason_code": 1105,
+"reason_message": "Invalid card number",
+"attempts": 17,
+"orders": 16,
+"share_attempts": 0.0007,
+"last_seen": "2026-09-23"
+},
+{
+"status": "Declined",
+"reason_code": 1135,
+"reason_message": "Card limits failed. Limit failed with message: Blocked country 834",
+"attempts": 2,
+"orders": 1,
+"share_attempts": 0.0001,
+"last_seen": "2026-08-06"
+},
+{
+"status": "Declined",
+"reason_code": 1135,
+"reason_message": "Card limits failed. Limit failed with message: Blocked country 630",
+"attempts": 1,
+"orders": 1,
+"share_attempts": 0.0,
+"last_seen": "2026-07-14"
+}
+],
+"b5b_payments_monthly": [
+{
+"month": "2026-01",
+"online_orders": 10764,
+"approved_first": 6124,
+"approved_after_fail": 2717,
+"failed_only": 1276,
+"no_attempt": 647,
+"in_processing": 0,
+"failed_canceled": 1165,
+"failed_went_through": 111,
+"with_any_fail": 3993,
+"cc_contacted": 2235,
+"esputnik": 81,
+"rescued": 1291,
+"lost_billed_uah": 2014394.0,
+"avg_attempts": 1.87
+},
+{
+"month": "2026-02",
+"online_orders": 10089,
+"approved_first": 5478,
+"approved_after_fail": 2631,
+"failed_only": 1197,
+"no_attempt": 783,
+"in_processing": 0,
+"failed_canceled": 1082,
+"failed_went_through": 115,
+"with_any_fail": 3828,
+"cc_contacted": 2196,
+"esputnik": 150,
+"rescued": 1311,
+"lost_billed_uah": 2405386.0,
+"avg_attempts": 1.94
+},
+{
+"month": "2026-03",
+"online_orders": 10299,
+"approved_first": 5298,
+"approved_after_fail": 2940,
+"failed_only": 1099,
+"no_attempt": 962,
+"in_processing": 0,
+"failed_canceled": 1002,
+"failed_went_through": 90,
+"with_any_fail": 4039,
+"cc_contacted": 1369,
+"esputnik": 206,
+"rescued": 847,
+"lost_billed_uah": 2470937.0,
+"avg_attempts": 2.02
+},
+{
+"month": "2026-04",
+"online_orders": 8410,
+"approved_first": 4238,
+"approved_after_fail": 2616,
+"failed_only": 872,
+"no_attempt": 684,
+"in_processing": 0,
+"failed_canceled": 798,
+"failed_went_through": 74,
+"with_any_fail": 3488,
+"cc_contacted": 865,
+"esputnik": 127,
+"rescued": 511,
+"lost_billed_uah": 1929829.0,
+"avg_attempts": 2.3
+},
+{
+"month": "2026-05",
+"online_orders": 8949,
+"approved_first": 4718,
+"approved_after_fail": 2589,
+"failed_only": 1010,
+"no_attempt": 632,
+"in_processing": 0,
+"failed_canceled": 904,
+"failed_went_through": 106,
+"with_any_fail": 3599,
+"cc_contacted": 1012,
+"esputnik": 136,
+"rescued": 556,
+"lost_billed_uah": 1982204.0,
+"avg_attempts": 2.18
+},
+{
+"month": "2026-06",
+"online_orders": 8493,
+"approved_first": 4619,
+"approved_after_fail": 2394,
+"failed_only": 1073,
+"no_attempt": 407,
+"in_processing": 0,
+"failed_canceled": 965,
+"failed_went_through": 100,
+"with_any_fail": 3467,
+"cc_contacted": 1039,
+"esputnik": 175,
+"rescued": 555,
+"lost_billed_uah": 1870014.0,
+"avg_attempts": 2.06
+},
+{
+"month": "2026-07",
+"online_orders": 11157,
+"approved_first": 6028,
+"approved_after_fail": 3159,
+"failed_only": 1554,
+"no_attempt": 416,
+"in_processing": 0,
+"failed_canceled": 1449,
+"failed_went_through": 104,
+"with_any_fail": 4713,
+"cc_contacted": 1443,
+"esputnik": 274,
+"rescued": 742,
+"lost_billed_uah": 2864758.0,
+"avg_attempts": 2.1
+},
+{
+"month": "2026-08",
+"online_orders": 10179,
+"approved_first": 5747,
+"approved_after_fail": 2712,
+"failed_only": 1362,
+"no_attempt": 358,
+"in_processing": 0,
+"failed_canceled": 1254,
+"failed_went_through": 108,
+"with_any_fail": 4074,
+"cc_contacted": 1423,
+"esputnik": 457,
+"rescued": 867,
+"lost_billed_uah": 2596149.0,
+"avg_attempts": 2.08
+},
+{
+"month": "2026-09",
+"online_orders": 8061,
+"approved_first": 4613,
+"approved_after_fail": 2136,
+"failed_only": 997,
+"no_attempt": 315,
+"in_processing": 0,
+"failed_canceled": 906,
+"failed_went_through": 66,
+"with_any_fail": 3133,
+"cc_contacted": 918,
+"esputnik": 265,
+"rescued": 541,
+"lost_billed_uah": 1656373.0,
+"avg_attempts": 2.0
+}
+],
+"b5c2_one_click_places_monthly": [
+{
+"month": "2026-01",
+"click_place": "pdp",
+"events": 334,
+"sessions": 315
+},
+{
+"month": "2026-01",
+"click_place": "checkout",
+"events": 225,
+"sessions": 177
+},
+{
+"month": "2026-01",
+"click_place": "home",
+"events": 66,
+"sessions": 58
+},
+{
+"month": "2026-01",
+"click_place": "catalog",
+"events": 50,
+"sessions": 49
+},
+{
+"month": "2026-01",
+"click_place": "category",
+"events": 15,
+"sessions": 15
+},
+{
+"month": "2026-02",
+"click_place": "pdp",
+"events": 267,
+"sessions": 243
+},
+{
+"month": "2026-02",
+"click_place": "home",
+"events": 58,
+"sessions": 55
+},
+{
+"month": "2026-02",
+"click_place": "catalog",
+"events": 53,
+"sessions": 50
+},
+{
+"month": "2026-02",
+"click_place": "checkout",
+"events": 20,
+"sessions": 19
+},
+{
+"month": "2026-02",
+"click_place": "category",
+"events": 9,
+"sessions": 9
+},
+{
+"month": "2026-03",
+"click_place": "pdp",
+"events": 401,
+"sessions": 361
+},
+{
+"month": "2026-03",
+"click_place": "home",
+"events": 97,
+"sessions": 88
+},
+{
+"month": "2026-03",
+"click_place": "catalog",
+"events": 79,
+"sessions": 71
+},
+{
+"month": "2026-03",
+"click_place": "checkout",
+"events": 43,
+"sessions": 41
+},
+{
+"month": "2026-03",
+"click_place": "category",
+"events": 15,
+"sessions": 14
+},
+{
+"month": "2026-04",
+"click_place": "pdp",
+"events": 284,
+"sessions": 247
+},
+{
+"month": "2026-04",
+"click_place": "home",
+"events": 66,
+"sessions": 59
+},
+{
+"month": "2026-04",
+"click_place": "catalog",
+"events": 37,
+"sessions": 32
+},
+{
+"month": "2026-04",
+"click_place": "checkout",
+"events": 34,
+"sessions": 31
+},
+{
+"month": "2026-04",
+"click_place": "category",
+"events": 22,
+"sessions": 20
+},
+{
+"month": "2026-05",
+"click_place": "pdp",
+"events": 311,
+"sessions": 263
+},
+{
+"month": "2026-05",
+"click_place": "home",
+"events": 95,
+"sessions": 82
+},
+{
+"month": "2026-05",
+"click_place": "catalog",
+"events": 46,
+"sessions": 43
+},
+{
+"month": "2026-05",
+"click_place": "checkout",
+"events": 37,
+"sessions": 33
+},
+{
+"month": "2026-05",
+"click_place": "category",
+"events": 33,
+"sessions": 32
+},
+{
+"month": "2026-06",
+"click_place": "pdp",
+"events": 286,
+"sessions": 242
+},
+{
+"month": "2026-06",
+"click_place": "home",
+"events": 55,
+"sessions": 45
+},
+{
+"month": "2026-06",
+"click_place": "catalog",
+"events": 50,
+"sessions": 44
+},
+{
+"month": "2026-06",
+"click_place": "category",
+"events": 43,
+"sessions": 35
+},
+{
+"month": "2026-06",
+"click_place": "checkout",
+"events": 30,
+"sessions": 26
+},
+{
+"month": "2026-06",
+"click_place": "blog",
+"events": 1,
+"sessions": 1
+},
+{
+"month": "2026-07",
+"click_place": "pdp",
+"events": 323,
+"sessions": 271
+},
+{
+"month": "2026-07",
+"click_place": "home",
+"events": 45,
+"sessions": 40
+},
+{
+"month": "2026-07",
+"click_place": "category",
+"events": 42,
+"sessions": 34
+},
+{
+"month": "2026-07",
+"click_place": "catalog",
+"events": 41,
+"sessions": 37
+},
+{
+"month": "2026-07",
+"click_place": "checkout",
+"events": 39,
+"sessions": 34
+},
+{
+"month": "2026-08",
+"click_place": "pdp",
+"events": 421,
+"sessions": 361
+},
+{
+"month": "2026-08",
+"click_place": "home",
+"events": 97,
+"sessions": 91
+},
+{
+"month": "2026-08",
+"click_place": "catalog",
+"events": 49,
+"sessions": 40
+},
+{
+"month": "2026-08",
+"click_place": "checkout",
+"events": 46,
+"sessions": 35
+},
+{
+"month": "2026-08",
+"click_place": "category",
+"events": 45,
+"sessions": 41
+},
+{
+"month": "2026-08",
+"click_place": "blog",
+"events": 1,
+"sessions": 1
+},
+{
+"month": "2026-09",
+"click_place": "pdp",
+"events": 671,
+"sessions": 536
+},
+{
+"month": "2026-09",
+"click_place": "home",
+"events": 185,
+"sessions": 158
+},
+{
+"month": "2026-09",
+"click_place": "catalog",
+"events": 83,
+"sessions": 75
+},
+{
+"month": "2026-09",
+"click_place": "category",
+"events": 50,
+"sessions": 46
+},
+{
+"month": "2026-09",
+"click_place": "checkout",
+"events": 44,
+"sessions": 41
+},
+{
+"month": "2026-09",
+"click_place": "blog",
+"events": 1,
+"sessions": 1
+}
+],
+"b5c_one_click_monthly": [
+{
+"month": "2026-01",
+"requests": 144,
+"successful": 101,
+"in_progress": 1,
+"canceled": 36,
+"refused": 5,
+"cod": 59,
+"called": 104,
+"reached": 89,
+"median_min_to_call": 28,
+"new_customers": 27,
+"billed_successful": 233301.0
+},
+{
+"month": "2026-02",
+"requests": 363,
+"successful": 248,
+"in_progress": 1,
+"canceled": 107,
+"refused": 7,
+"cod": 153,
+"called": 331,
+"reached": 291,
+"median_min_to_call": 8,
+"new_customers": 91,
+"billed_successful": 657812.0
+},
+{
+"month": "2026-03",
+"requests": 370,
+"successful": 264,
+"in_progress": 2,
+"canceled": 92,
+"refused": 12,
+"cod": 154,
+"called": 174,
+"reached": 145,
+"median_min_to_call": 41,
+"new_customers": 67,
+"billed_successful": 791865.0
+},
+{
+"month": "2026-04",
+"requests": 323,
+"successful": 225,
+"in_progress": 4,
+"canceled": 82,
+"refused": 12,
+"cod": 125,
+"called": 90,
+"reached": 74,
+"median_min_to_call": 208,
+"new_customers": 58,
+"billed_successful": 661316.0
+},
+{
+"month": "2026-05",
+"requests": 311,
+"successful": 205,
+"in_progress": 1,
+"canceled": 97,
+"refused": 8,
+"cod": 105,
+"called": 82,
+"reached": 62,
+"median_min_to_call": 600,
+"new_customers": 62,
+"billed_successful": 606812.0
+},
+{
+"month": "2026-06",
+"requests": 302,
+"successful": 190,
+"in_progress": 1,
+"canceled": 100,
+"refused": 11,
+"cod": 106,
+"called": 91,
+"reached": 66,
+"median_min_to_call": 165,
+"new_customers": 55,
+"billed_successful": 500639.0
+},
+{
+"month": "2026-07",
+"requests": 397,
+"successful": 237,
+"in_progress": 1,
+"canceled": 147,
+"refused": 12,
+"cod": 129,
+"called": 109,
+"reached": 82,
+"median_min_to_call": 145,
+"new_customers": 88,
+"billed_successful": 609742.0
+},
+{
+"month": "2026-08",
+"requests": 410,
+"successful": 237,
+"in_progress": 8,
+"canceled": 151,
+"refused": 13,
+"cod": 158,
+"called": 114,
+"reached": 84,
+"median_min_to_call": 498,
+"new_customers": 85,
+"billed_successful": 723493.0
+},
+{
+"month": "2026-09",
+"requests": 252,
+"successful": 112,
+"in_progress": 29,
+"canceled": 96,
+"refused": 11,
+"cod": 106,
+"called": 73,
+"reached": 54,
+"median_min_to_call": 189,
+"new_customers": 57,
+"billed_successful": 281412.0
+}
+],
+"b5d_carts_monthly": [
+{
+"month": "2026-01",
+"carts": 46570,
+"reached_checkout": 26665,
+"contact_known": 18172,
+"returning_known": 3742,
+"new_known": 14350,
+"abandoned_7d": 32295,
+"abandoned_with_contact": 5951,
+"abandoned_after_checkout": 13787,
+"above_threshold": 16603,
+"with_value": 43793,
+"avg_cart_value_uah": 2235,
+"avg_cart_lines": 1.83,
+"abandoned_value_uah": 67021906,
+"avg_abandoned_value_uah": 2251,
+"abandoned_above_threshold": 11208,
+"abandoned_below_threshold": 18571
+},
+{
+"month": "2026-02",
+"carts": 44520,
+"reached_checkout": 24356,
+"contact_known": 16534,
+"returning_known": 3850,
+"new_known": 12638,
+"abandoned_7d": 31654,
+"abandoned_with_contact": 5620,
+"abandoned_after_checkout": 12861,
+"above_threshold": 16502,
+"with_value": 42043,
+"avg_cart_value_uah": 2309,
+"avg_cart_lines": 1.87,
+"abandoned_value_uah": 68902341,
+"avg_abandoned_value_uah": 2341,
+"abandoned_above_threshold": 11432,
+"abandoned_below_threshold": 17999
+},
+{
+"month": "2026-03",
+"carts": 43627,
+"reached_checkout": 23519,
+"contact_known": 15390,
+"returning_known": 3859,
+"new_known": 11504,
+"abandoned_7d": 30946,
+"abandoned_with_contact": 4892,
+"abandoned_after_checkout": 12341,
+"above_threshold": 19630,
+"with_value": 41068,
+"avg_cart_value_uah": 2504,
+"avg_cart_lines": 2.09,
+"abandoned_value_uah": 71936947,
+"avg_abandoned_value_uah": 2510,
+"abandoned_above_threshold": 13507,
+"abandoned_below_threshold": 15150
+},
+{
+"month": "2026-04",
+"carts": 34004,
+"reached_checkout": 17687,
+"contact_known": 12659,
+"returning_known": 2926,
+"new_known": 9704,
+"abandoned_7d": 23189,
+"abandoned_with_contact": 3449,
+"abandoned_after_checkout": 8049,
+"above_threshold": 15091,
+"with_value": 32229,
+"avg_cart_value_uah": 2435,
+"avg_cart_lines": 2.01,
+"abandoned_value_uah": 52508979,
+"avg_abandoned_value_uah": 2434,
+"abandoned_above_threshold": 9870,
+"abandoned_below_threshold": 11706
+},
+{
+"month": "2026-05",
+"carts": 33143,
+"reached_checkout": 17447,
+"contact_known": 12729,
+"returning_known": 2288,
+"new_known": 10378,
+"abandoned_7d": 22430,
+"abandoned_with_contact": 3470,
+"abandoned_after_checkout": 7808,
+"above_threshold": 13711,
+"with_value": 31401,
+"avg_cart_value_uah": 2403,
+"avg_cart_lines": 1.96,
+"abandoned_value_uah": 50965466,
+"avg_abandoned_value_uah": 2440,
+"abandoned_above_threshold": 9157,
+"abandoned_below_threshold": 11728
+},
+{
+"month": "2026-06",
+"carts": 33247,
+"reached_checkout": 17169,
+"contact_known": 12954,
+"returning_known": 2778,
+"new_known": 10083,
+"abandoned_7d": 22209,
+"abandoned_with_contact": 3430,
+"abandoned_after_checkout": 7293,
+"above_threshold": 12354,
+"with_value": 31668,
+"avg_cart_value_uah": 2248,
+"avg_cart_lines": 1.91,
+"abandoned_value_uah": 47101898,
+"avg_abandoned_value_uah": 2267,
+"abandoned_above_threshold": 8016,
+"abandoned_below_threshold": 12759
+},
+{
+"month": "2026-07",
+"carts": 45791,
+"reached_checkout": 22739,
+"contact_known": 16176,
+"returning_known": 3639,
+"new_known": 12499,
+"abandoned_7d": 31325,
+"abandoned_with_contact": 3955,
+"abandoned_after_checkout": 9904,
+"above_threshold": 16309,
+"with_value": 43716,
+"avg_cart_value_uah": 2149,
+"avg_cart_lines": 1.93,
+"abandoned_value_uah": 62926293,
+"avg_abandoned_value_uah": 2136,
+"abandoned_above_threshold": 10662,
+"abandoned_below_threshold": 18791
+},
+{
+"month": "2026-08",
+"carts": 47146,
+"reached_checkout": 23953,
+"contact_known": 15546,
+"returning_known": 3281,
+"new_known": 12236,
+"abandoned_7d": 33171,
+"abandoned_with_contact": 3858,
+"abandoned_after_checkout": 11541,
+"above_threshold": 20322,
+"with_value": 44270,
+"avg_cart_value_uah": 2444,
+"avg_cart_lines": 2.0,
+"abandoned_value_uah": 75849080,
+"avg_abandoned_value_uah": 2481,
+"abandoned_above_threshold": 14076,
+"abandoned_below_threshold": 16495
+},
+{
+"month": "2026-09",
+"carts": 41861,
+"reached_checkout": 21137,
+"contact_known": 14449,
+"returning_known": 3256,
+"new_known": 11186,
+"abandoned_7d": 29027,
+"abandoned_with_contact": 3457,
+"abandoned_after_checkout": 9644,
+"above_threshold": 16282,
+"with_value": 38951,
+"avg_cart_value_uah": 2363,
+"avg_cart_lines": 2.1,
+"abandoned_value_uah": 62986528,
+"avg_abandoned_value_uah": 2390,
+"abandoned_above_threshold": 11005,
+"abandoned_below_threshold": 15349
+}
+],
+"b6a_order_structure_monthly": [
+{
+"month": "2026-01",
+"orders": 16450,
+"lines_1": 8655,
+"lines_2": 4395,
+"lines_3": 2100,
+"lines_4plus": 1300,
+"with_qty_gt1": 4976,
+"with_bundle": 771,
+"with_gift": 262,
+"with_discount": 15878,
+"aov_lines_1": 1295,
+"aov_lines_2": 2297,
+"aov_lines_3plus": 3800,
+"upo": 2.418
+},
+{
+"month": "2026-02",
+"orders": 15093,
+"lines_1": 7149,
+"lines_2": 4311,
+"lines_3": 2459,
+"lines_4plus": 1174,
+"with_qty_gt1": 4806,
+"with_bundle": 334,
+"with_gift": 354,
+"with_discount": 14148,
+"aov_lines_1": 1321,
+"aov_lines_2": 2382,
+"aov_lines_3plus": 3621,
+"upo": 2.485
+},
+{
+"month": "2026-03",
+"orders": 14977,
+"lines_1": 4529,
+"lines_2": 4170,
+"lines_3": 4173,
+"lines_4plus": 2104,
+"with_qty_gt1": 5646,
+"with_bundle": 239,
+"with_gift": 295,
+"with_discount": 12111,
+"aov_lines_1": 1310,
+"aov_lines_2": 2535,
+"aov_lines_3plus": 3389,
+"upo": 2.904
+},
+{
+"month": "2026-04",
+"orders": 12103,
+"lines_1": 3638,
+"lines_2": 3619,
+"lines_3": 3354,
+"lines_4plus": 1492,
+"with_qty_gt1": 4546,
+"with_bundle": 197,
+"with_gift": 204,
+"with_discount": 10274,
+"aov_lines_1": 1313,
+"aov_lines_2": 2553,
+"aov_lines_3plus": 3388,
+"upo": 2.862
+},
+{
+"month": "2026-05",
+"orders": 11443,
+"lines_1": 4116,
+"lines_2": 3392,
+"lines_3": 2512,
+"lines_4plus": 1423,
+"with_qty_gt1": 4027,
+"with_bundle": 178,
+"with_gift": 219,
+"with_discount": 10588,
+"aov_lines_1": 1282,
+"aov_lines_2": 2430,
+"aov_lines_3plus": 3569,
+"upo": 2.697
+},
+{
+"month": "2026-06",
+"orders": 11633,
+"lines_1": 5044,
+"lines_2": 3427,
+"lines_3": 1969,
+"lines_4plus": 1193,
+"with_qty_gt1": 4169,
+"with_bundle": 169,
+"with_gift": 179,
+"with_discount": 10391,
+"aov_lines_1": 1348,
+"aov_lines_2": 2270,
+"aov_lines_3plus": 3598,
+"upo": 2.643
+},
+{
+"month": "2026-07",
+"orders": 15028,
+"lines_1": 6380,
+"lines_2": 4386,
+"lines_3": 2699,
+"lines_4plus": 1563,
+"with_qty_gt1": 4658,
+"with_bundle": 202,
+"with_gift": 247,
+"with_discount": 13849,
+"aov_lines_1": 1310,
+"aov_lines_2": 2236,
+"aov_lines_3plus": 3487,
+"upo": 2.638
+},
+{
+"month": "2026-08",
+"orders": 14268,
+"lines_1": 5822,
+"lines_2": 4265,
+"lines_3": 2670,
+"lines_4plus": 1511,
+"with_qty_gt1": 4530,
+"with_bundle": 183,
+"with_gift": 330,
+"with_discount": 12452,
+"aov_lines_1": 1380,
+"aov_lines_2": 2421,
+"aov_lines_3plus": 3476,
+"upo": 2.619
+},
+{
+"month": "2026-09",
+"orders": 9825,
+"lines_1": 4891,
+"lines_2": 2583,
+"lines_3": 1326,
+"lines_4plus": 1025,
+"with_qty_gt1": 2470,
+"with_bundle": 1826,
+"with_gift": 1545,
+"with_discount": 8875,
+"aov_lines_1": 1356,
+"aov_lines_2": 2335,
+"aov_lines_3plus": 3857,
+"upo": 2.351
+}
+],
+"b6b_product_pairs_q3": [
+{
+"product_a": "UA Triple Magnesium №60",
+"product_b": "UA Vitamin D3 Base 2000 №60",
+"pair_orders": 966,
+"orders_a": 6657,
+"orders_b": 4443,
+"support": 0.0247,
+"p_b_given_a": 0.145,
+"lift": 1.28
+},
+{
+"product_a": "UA Omega-3 Cod №120",
+"product_b": "UA Vitamin D3 Base 2000 №60",
+"pair_orders": 870,
+"orders_a": 3726,
+"orders_b": 4443,
+"support": 0.0223,
+"p_b_given_a": 0.233,
+"lift": 2.05
+},
+{
+"product_a": "UA Kids Omega-3 Tuna №120",
+"product_b": "UA Kids Vitamin D3 №60",
+"pair_orders": 599,
+"orders_a": 1627,
+"orders_b": 1506,
+"support": 0.0153,
+"p_b_given_a": 0.368,
+"lift": 9.56
+},
+{
+"product_a": "UA Omega-3 Cod №120",
+"product_b": "UA Triple Magnesium №60",
+"pair_orders": 596,
+"orders_a": 3726,
+"orders_b": 6657,
+"support": 0.0152,
+"p_b_given_a": 0.16,
+"lift": 0.94
+},
+{
+"product_a": "UA Multi Beauty Duo-Caps №60",
+"product_b": "UA Triple Magnesium №60",
+"pair_orders": 566,
+"orders_a": 3535,
+"orders_b": 6657,
+"support": 0.0145,
+"p_b_given_a": 0.16,
+"lift": 0.94
+},
+{
+"product_a": "UA Omega-3 Tuna №120",
+"product_b": "UA Triple Magnesium №60",
+"pair_orders": 562,
+"orders_a": 2235,
+"orders_b": 6657,
+"support": 0.0144,
+"p_b_given_a": 0.251,
+"lift": 1.48
+},
+{
+"product_a": "UA Omega-3 Tuna №120",
+"product_b": "UA Vitamin D3 Base 2000 №60",
+"pair_orders": 556,
+"orders_a": 2235,
+"orders_b": 4443,
+"support": 0.0142,
+"p_b_given_a": 0.249,
+"lift": 2.19
+},
+{
+"product_a": "UA Omega-3 X4 Strength №60",
+"product_b": "UA Triple Magnesium №60",
+"pair_orders": 552,
+"orders_a": 2633,
+"orders_b": 6657,
+"support": 0.0141,
+"p_b_given_a": 0.21,
+"lift": 1.23
+},
+{
+"product_a": "UA Triple Magnesium №60",
+"product_b": "UA Vitamin D3 5000 №60",
+"pair_orders": 520,
+"orders_a": 6657,
+"orders_b": 3088,
+"support": 0.0133,
+"p_b_given_a": 0.078,
+"lift": 0.99
+},
+{
+"product_a": "UA Omega-3 X4 Strength №60",
+"product_b": "UA Vitamin D3 Base 2000 №60",
+"pair_orders": 508,
+"orders_a": 2633,
+"orders_b": 4443,
+"support": 0.013,
+"p_b_given_a": 0.193,
+"lift": 1.7
+},
+{
+"product_a": "UA Collagen Nectar Wild Berries 450ml",
+"product_b": "UA Vitamin D3 Base 2000 №60",
+"pair_orders": 505,
+"orders_a": 5002,
+"orders_b": 4443,
+"support": 0.0129,
+"p_b_given_a": 0.101,
+"lift": 0.89
+},
+{
+"product_a": "UA Liposomal Iron (Vitamin C + MCT Oil) №60",
+"product_b": "UA Triple Magnesium №60",
+"pair_orders": 500,
+"orders_a": 3091,
+"orders_b": 6657,
+"support": 0.0128,
+"p_b_given_a": 0.162,
+"lift": 0.95
+},
+{
+"product_a": "UA Collagen Nectar Wild Berries 450ml",
+"product_b": "UA Omega-3 Cod №120",
+"pair_orders": 491,
+"orders_a": 5002,
+"orders_b": 3726,
+"support": 0.0126,
+"p_b_given_a": 0.098,
+"lift": 1.03
+},
+{
+"product_a": "UA Omega-3 Cod №120",
+"product_b": "UA Vitamin D3 5000 №60",
+"pair_orders": 487,
+"orders_a": 3726,
+"orders_b": 3088,
+"support": 0.0125,
+"p_b_given_a": 0.131,
+"lift": 1.65
+},
+{
+"product_a": "UA Sleeps Strong 5 mg №30",
+"product_b": "UA Triple Magnesium №60",
+"pair_orders": 484,
+"orders_a": 2085,
+"orders_b": 6657,
+"support": 0.0124,
+"p_b_given_a": 0.232,
+"lift": 1.36
+},
+{
+"product_a": "UA Collagen Nectar Wild Berries 450ml",
+"product_b": "UA Triple Magnesium №60",
+"pair_orders": 482,
+"orders_a": 5002,
+"orders_b": 6657,
+"support": 0.0123,
+"p_b_given_a": 0.096,
+"lift": 0.57
+},
+{
+"product_a": "UA A-Biotin №30",
+"product_b": "UA Triple Magnesium №60",
+"pair_orders": 480,
+"orders_a": 3048,
+"orders_b": 6657,
+"support": 0.0123,
+"p_b_given_a": 0.157,
+"lift": 0.92
+},
+{
+"product_a": "UA Crystal Mind №40",
+"product_b": "UA Triple Magnesium №60",
+"pair_orders": 414,
+"orders_a": 1594,
+"orders_b": 6657,
+"support": 0.0106,
+"p_b_given_a": 0.26,
+"lift": 1.53
+},
+{
+"product_a": "UA Kids Vitamin D3 №60",
+"product_b": "UA Vitamin D3 Base 2000 №60",
+"pair_orders": 413,
+"orders_a": 1506,
+"orders_b": 4443,
+"support": 0.0106,
+"p_b_given_a": 0.274,
+"lift": 2.41
+},
+{
+"product_a": "UA Collagen Nectar Wild Berries 450ml",
+"product_b": "UA Multi Beauty Duo-Caps №60",
+"pair_orders": 399,
+"orders_a": 5002,
+"orders_b": 3535,
+"support": 0.0102,
+"p_b_given_a": 0.08,
+"lift": 0.88
+},
+{
+"product_a": "UA A-Biotin №30",
+"product_b": "UA Collagen Nectar Wild Berries 450ml",
+"pair_orders": 398,
+"orders_a": 3048,
+"orders_b": 5002,
+"support": 0.0102,
+"p_b_given_a": 0.131,
+"lift": 1.02
+},
+{
+"product_a": "UA Multi Beauty Duo-Caps №60",
+"product_b": "UA Vitamin D3 Base 2000 №60",
+"pair_orders": 391,
+"orders_a": 3535,
+"orders_b": 4443,
+"support": 0.01,
+"p_b_given_a": 0.111,
+"lift": 0.97
+},
+{
+"product_a": "UA Collagen Marine №30",
+"product_b": "UA Omega-3 Cod №120",
+"pair_orders": 384,
+"orders_a": 4122,
+"orders_b": 3726,
+"support": 0.0098,
+"p_b_given_a": 0.093,
+"lift": 0.98
+},
+{
+"product_a": "UA Vitamin D3 5000 №60",
+"product_b": "UA Vitamin D3 Base 2000 №60",
+"pair_orders": 383,
+"orders_a": 3088,
+"orders_b": 4443,
+"support": 0.0098,
+"p_b_given_a": 0.124,
+"lift": 1.09
+},
+{
+"product_a": "UA A-Biotin №30",
+"product_b": "UA Omega-3 Cod №120",
+"pair_orders": 382,
+"orders_a": 3048,
+"orders_b": 3726,
+"support": 0.0098,
+"p_b_given_a": 0.125,
+"lift": 1.32
+},
+{
+"product_a": "UA Kids Omega-3 Cod №120",
+"product_b": "UA Kids Vitamin D3 №60",
+"pair_orders": 380,
+"orders_a": 1020,
+"orders_b": 1506,
+"support": 0.0097,
+"p_b_given_a": 0.373,
+"lift": 9.67
+},
+{
+"product_a": "UA Sleeps Gentle 1 mg №30",
+"product_b": "UA Triple Magnesium №60",
+"pair_orders": 368,
+"orders_a": 1441,
+"orders_b": 6657,
+"support": 0.0094,
+"p_b_given_a": 0.255,
+"lift": 1.5
+},
+{
+"product_a": "UA Liposomal Iron (Vitamin C + MCT Oil) №60",
+"product_b": "UA Vitamin D3 Base 2000 №60",
+"pair_orders": 363,
+"orders_a": 3091,
+"orders_b": 4443,
+"support": 0.0093,
+"p_b_given_a": 0.117,
+"lift": 1.03
+},
+{
+"product_a": "UA Collagen Nectar Wild Berries 450ml",
+"product_b": "UA Vitamin D3 5000 №60",
+"pair_orders": 357,
+"orders_a": 5002,
+"orders_b": 3088,
+"support": 0.0091,
+"p_b_given_a": 0.071,
+"lift": 0.9
+},
+{
+"product_a": "UA Daily Fiber GLP-1 Booster 270 mg",
+"product_b": "UA Daily Vegan Protein 450g",
+"pair_orders": 354,
+"orders_a": 2573,
+"orders_b": 3001,
+"support": 0.0091,
+"p_b_given_a": 0.138,
+"lift": 1.79
+}
+],
+"b6c_product_attach_sept": [
+{
+"product": "UA Triple Magnesium №60",
+"product_type": "Goods",
+"orders": 1770,
+"units": 2468,
+"revenue_lines_uah": 2949260,
+"alone_orders": 589,
+"avg_lines_with": 2.56,
+"avg_order_value_uah": 2851,
+"as_upsell": 98,
+"as_gift": 0,
+"qty_gt1": 444
+},
+{
+"product": "UA Collagen Nectar Wild Berries 450ml",
+"product_type": "Goods",
+"orders": 1334,
+"units": 1729,
+"revenue_lines_uah": 3103555,
+"alone_orders": 556,
+"avg_lines_with": 2.22,
+"avg_order_value_uah": 2682,
+"as_upsell": 42,
+"as_gift": 0,
+"qty_gt1": 281
+},
+{
+"product": "UA Vitamin D3 Base 2000 №60",
+"product_type": "Goods",
+"orders": 1289,
+"units": 1644,
+"revenue_lines_uah": 1050516,
+"alone_orders": 182,
+"avg_lines_with": 2.84,
+"avg_order_value_uah": 2546,
+"as_upsell": 95,
+"as_gift": 0,
+"qty_gt1": 227
+},
+{
+"product": "UA Multi Beauty Duo-Caps №60",
+"product_type": "Goods",
+"orders": 1270,
+"units": 1411,
+"revenue_lines_uah": 2679489,
+"alone_orders": 400,
+"avg_lines_with": 2.55,
+"avg_order_value_uah": 2831,
+"as_upsell": 23,
+"as_gift": 0,
+"qty_gt1": 82
+},
+{
+"product": "UA Collagen Marine №30",
+"product_type": "Goods",
+"orders": 1235,
+"units": 1652,
+"revenue_lines_uah": 2304540,
+"alone_orders": 543,
+"avg_lines_with": 2.16,
+"avg_order_value_uah": 2549,
+"as_upsell": 47,
+"as_gift": 0,
+"qty_gt1": 260
+},
+{
+"product": "UA Дієтична добавка Комплекс ''Gift Sample Kit 3500''",
+"product_type": "Complexes",
+"orders": 1214,
+"units": 173,
+"revenue_lines_uah": 170,
+"alone_orders": 5,
+"avg_lines_with": 3.84,
+"avg_order_value_uah": 4138,
+"as_upsell": 0,
+"as_gift": 1043,
+"qty_gt1": 2
+},
+{
+"product": "UA Omega-3 Cod №120",
+"product_type": "Goods",
+"orders": 878,
+"units": 1109,
+"revenue_lines_uah": 1103455,
+"alone_orders": 136,
+"avg_lines_with": 2.79,
+"avg_order_value_uah": 2813,
+"as_upsell": 39,
+"as_gift": 0,
+"qty_gt1": 159
+},
+{
+"product": "UA A-Biotin №30",
+"product_type": "Goods",
+"orders": 871,
+"units": 1118,
+"revenue_lines_uah": 888810,
+"alone_orders": 319,
+"avg_lines_with": 2.41,
+"avg_order_value_uah": 2474,
+"as_upsell": 107,
+"as_gift": 0,
+"qty_gt1": 159
+},
+{
+"product": "UA Daily Fiber GLP-1 Booster 270 mg",
+"product_type": "Goods",
+"orders": 782,
+"units": 855,
+"revenue_lines_uah": 1107225,
+"alone_orders": 288,
+"avg_lines_with": 2.54,
+"avg_order_value_uah": 2711,
+"as_upsell": 9,
+"as_gift": 0,
+"qty_gt1": 56
+},
+{
+"product": "UA Omega-3 X4 Strength №60",
+"product_type": "Goods",
+"orders": 723,
+"units": 959,
+"revenue_lines_uah": 1389459,
+"alone_orders": 150,
+"avg_lines_with": 3.05,
+"avg_order_value_uah": 3090,
+"as_upsell": 32,
+"as_gift": 0,
+"qty_gt1": 168
+},
+{
+"product": "UA Сreatine Gummies - Orange №60",
+"product_type": "Goods",
+"orders": 621,
+"units": 816,
+"revenue_lines_uah": 1219920,
+"alone_orders": 231,
+"avg_lines_with": 2.73,
+"avg_order_value_uah": 3143,
+"as_upsell": 17,
+"as_gift": 0,
+"qty_gt1": 120
+},
+{
+"product": "UA Vitamin D3 5000 №60",
+"product_type": "Goods",
+"orders": 614,
+"units": 727,
+"revenue_lines_uah": 534345,
+"alone_orders": 117,
+"avg_lines_with": 2.81,
+"avg_order_value_uah": 2524,
+"as_upsell": 76,
+"as_gift": 0,
+"qty_gt1": 79
+},
+{
+"product": "UA Collagen Jelly Sticks Mango",
+"product_type": "Goods",
+"orders": 608,
+"units": 783,
+"revenue_lines_uah": 1405485,
+"alone_orders": 231,
+"avg_lines_with": 2.52,
+"avg_order_value_uah": 2947,
+"as_upsell": 82,
+"as_gift": 0,
+"qty_gt1": 106
+},
+{
+"product": "UA Sleeps Strong 5 mg №30",
+"product_type": "Goods",
+"orders": 586,
+"units": 712,
+"revenue_lines_uah": 637240,
+"alone_orders": 241,
+"avg_lines_with": 2.37,
+"avg_order_value_uah": 2466,
+"as_upsell": 20,
+"as_gift": 0,
+"qty_gt1": 91
+},
+{
+"product": "UA Daily Vegan Protein 450g",
+"product_type": "Goods",
+"orders": 585,
+"units": 681,
+"revenue_lines_uah": 1133865,
+"alone_orders": 195,
+"avg_lines_with": 2.74,
+"avg_order_value_uah": 2964,
+"as_upsell": 6,
+"as_gift": 0,
+"qty_gt1": 65
+},
+{
+"product": "UA Omega-3 Tuna №120",
+"product_type": "Goods",
+"orders": 582,
+"units": 748,
+"revenue_lines_uah": 1043460,
+"alone_orders": 74,
+"avg_lines_with": 3.03,
+"avg_order_value_uah": 3169,
+"as_upsell": 45,
+"as_gift": 0,
+"qty_gt1": 113
+},
+{
+"product": "UA Дієтична добавка Комплекс ''Gift Sample Kit 4000''",
+"product_type": "Complexes",
+"orders": 528,
+"units": 87,
+"revenue_lines_uah": 87,
+"alone_orders": 3,
+"avg_lines_with": 4.13,
+"avg_order_value_uah": 4889,
+"as_upsell": 0,
+"as_gift": 442,
+"qty_gt1": 0
+},
+{
+"product": "UA Sleeps Gentle 1 mg №30",
+"product_type": "Goods",
+"orders": 513,
+"units": 629,
+"revenue_lines_uah": 500055,
+"alone_orders": 160,
+"avg_lines_with": 2.81,
+"avg_order_value_uah": 2358,
+"as_upsell": 10,
+"as_gift": 0,
+"qty_gt1": 69
+},
+{
+"product": "UA Kids Omega-3 Tuna №120",
+"product_type": "Goods",
+"orders": 499,
+"units": 601,
+"revenue_lines_uah": 597995,
+"alone_orders": 123,
+"avg_lines_with": 2.76,
+"avg_order_value_uah": 2504,
+"as_upsell": 17,
+"as_gift": 0,
+"qty_gt1": 72
+},
+{
+"product": "UA Kids Vitamin D3 №60",
+"product_type": "Goods",
+"orders": 356,
+"units": 427,
+"revenue_lines_uah": 242963,
+"alone_orders": 35,
+"avg_lines_with": 3.04,
+"avg_order_value_uah": 2554,
+"as_upsell": 6,
+"as_gift": 0,
+"qty_gt1": 56
+},
+{
+"product": "UA Super Greens 154g",
+"product_type": "Goods",
+"orders": 332,
+"units": 379,
+"revenue_lines_uah": 526431,
+"alone_orders": 64,
+"avg_lines_with": 3.05,
+"avg_order_value_uah": 3187,
+"as_upsell": 5,
+"as_gift": 0,
+"qty_gt1": 40
+},
+{
+"product": "UA Synbiotic 3-in-1 №30",
+"product_type": "Goods",
+"orders": 300,
+"units": 349,
+"revenue_lines_uah": 477781,
+"alone_orders": 85,
+"avg_lines_with": 2.96,
+"avg_order_value_uah": 3152,
+"as_upsell": 7,
+"as_gift": 0,
+"qty_gt1": 37
+},
+{
+"product": "UA Collagen Nectar Mango-Pineapple 450ml",
+"product_type": "Goods",
+"orders": 280,
+"units": 343,
+"revenue_lines_uah": 615685,
+"alone_orders": 65,
+"avg_lines_with": 2.91,
+"avg_order_value_uah": 3659,
+"as_upsell": 10,
+"as_gift": 0,
+"qty_gt1": 45
+},
+{
+"product": "UA Kids Omega-3 Cod №120",
+"product_type": "Goods",
+"orders": 257,
+"units": 309,
+"revenue_lines_uah": 276555,
+"alone_orders": 43,
+"avg_lines_with": 2.98,
+"avg_order_value_uah": 2663,
+"as_upsell": 14,
+"as_gift": 0,
+"qty_gt1": 40
+},
+{
+"product": "UA Electrolytees Hydration Drink – Orange, 20 x 10 g Sticks",
+"product_type": "Goods",
+"orders": 222,
+"units": 242,
+"revenue_lines_uah": 277090,
+"alone_orders": 52,
+"avg_lines_with": 3.17,
+"avg_order_value_uah": 2939,
+"as_upsell": 4,
+"as_gift": 0,
+"qty_gt1": 19
+},
+{
+"product": "UA Shark Squalene №120",
+"product_type": "Goods",
+"orders": 198,
+"units": 234,
+"revenue_lines_uah": 490310,
+"alone_orders": 26,
+"avg_lines_with": 3.14,
+"avg_order_value_uah": 4013,
+"as_upsell": 7,
+"as_gift": 0,
+"qty_gt1": 23
+},
+{
+"product": "UA Electrolytees Hydration Drink – Watermelon & Lime, 20 × 10 g Sticks",
+"product_type": "Goods",
+"orders": 182,
+"units": 203,
+"revenue_lines_uah": 232435,
+"alone_orders": 36,
+"avg_lines_with": 3.07,
+"avg_order_value_uah": 3052,
+"as_upsell": 9,
+"as_gift": 0,
+"qty_gt1": 12
+},
+{
+"product": "UA Crystal Mind №40",
+"product_type": "Goods",
+"orders": 168,
+"units": 218,
+"revenue_lines_uah": 303020,
+"alone_orders": 30,
+"avg_lines_with": 3.79,
+"avg_order_value_uah": 3747,
+"as_upsell": 15,
+"as_gift": 0,
+"qty_gt1": 24
+},
+{
+"product": "UA Joint Collagen Raspberry 500ml",
+"product_type": "Goods",
+"orders": 161,
+"units": 236,
+"revenue_lines_uah": 470820,
+"alone_orders": 54,
+"avg_lines_with": 2.82,
+"avg_order_value_uah": 3976,
+"as_upsell": 20,
+"as_gift": 0,
+"qty_gt1": 44
+},
+{
+"product": "UA Liposomal Iron (Vitamin C + MCT Oil) №60",
+"product_type": "Goods",
+"orders": 143,
+"units": 157,
+"revenue_lines_uah": 203315,
+"alone_orders": 30,
+"avg_lines_with": 3.45,
+"avg_order_value_uah": 3203,
+"as_upsell": 4,
+"as_gift": 0,
+"qty_gt1": 11
+},
+{
+"product": "\"Курс вправ для всього тіла\" UA",
+"product_type": "Services",
+"orders": 126,
+"units": 1,
+"revenue_lines_uah": 1,
+"alone_orders": 0,
+"avg_lines_with": 4.0,
+"avg_order_value_uah": 3111,
+"as_upsell": 0,
+"as_gift": 125,
+"qty_gt1": 0
+},
+{
+"product": "UA Mushroom Cacao 175g",
+"product_type": "Goods",
+"orders": 122,
+"units": 130,
+"revenue_lines_uah": 180570,
+"alone_orders": 17,
+"avg_lines_with": 3.47,
+"avg_order_value_uah": 3115,
+"as_upsell": 13,
+"as_gift": 0,
+"qty_gt1": 7
+},
+{
+"product": "UA Electrolytees Hydration Drink – Blueberry, 20 x 10 g Sticks",
+"product_type": "Goods",
+"orders": 119,
+"units": 132,
+"revenue_lines_uah": 151140,
+"alone_orders": 25,
+"avg_lines_with": 3.53,
+"avg_order_value_uah": 2791,
+"as_upsell": 4,
+"as_gift": 0,
+"qty_gt1": 8
+},
+{
+"product": "UA Vitamin D3 5000+K2 №60",
+"product_type": "Goods",
+"orders": 105,
+"units": 132,
+"revenue_lines_uah": 131472,
+"alone_orders": 19,
+"avg_lines_with": 3.3,
+"avg_order_value_uah": 3368,
+"as_upsell": 7,
+"as_gift": 0,
+"qty_gt1": 19
+},
+{
+"product": "UA Collagen Marine Peach №30",
+"product_type": "Goods",
+"orders": 102,
+"units": 132,
+"revenue_lines_uah": 197340,
+"alone_orders": 26,
+"avg_lines_with": 2.75,
+"avg_order_value_uah": 3137,
+"as_upsell": 17,
+"as_gift": 0,
+"qty_gt1": 16
+},
+{
+"product": "UA Box Relax Drink 250 ml x 4",
+"product_type": "Complexes",
+"orders": 59,
+"units": 74,
+"revenue_lines_uah": 37000,
+"alone_orders": 6,
+"avg_lines_with": 3.85,
+"avg_order_value_uah": 3517,
+"as_upsell": 6,
+"as_gift": 0,
+"qty_gt1": 6
+},
+{
+"product": "UA Pills Organizer Rose Gold",
+"product_type": "Goods",
+"orders": 53,
+"units": 56,
+"revenue_lines_uah": 38920,
+"alone_orders": 8,
+"avg_lines_with": 3.87,
+"avg_order_value_uah": 3190,
+"as_upsell": 1,
+"as_gift": 0,
+"qty_gt1": 3
+},
+{
+"product": "UA Mushroom Cacao Unsweetened 175g",
+"product_type": "Goods",
+"orders": 51,
+"units": 64,
+"revenue_lines_uah": 88896,
+"alone_orders": 6,
+"avg_lines_with": 3.72,
+"avg_order_value_uah": 3831,
+"as_upsell": 0,
+"as_gift": 0,
+"qty_gt1": 10
+},
+{
+"product": "UA Pills Organizer Silver",
+"product_type": "Goods",
+"orders": 50,
+"units": 50,
+"revenue_lines_uah": 34750,
+"alone_orders": 12,
+"avg_lines_with": 3.24,
+"avg_order_value_uah": 2824,
+"as_upsell": 2,
+"as_gift": 0,
+"qty_gt1": 0
+},
+{
+"product": "UA Box Mix Drink 250 ml x 3",
+"product_type": "Complexes",
+"orders": 48,
+"units": 52,
+"revenue_lines_uah": 20020,
+"alone_orders": 2,
+"avg_lines_with": 4.31,
+"avg_order_value_uah": 2974,
+"as_upsell": 0,
+"as_gift": 0,
+"qty_gt1": 2
+}
+],
+"b7_new_repeat_monthly": [
+{
+"month": "2026-01",
+"ctype": "new",
+"orders": 7785,
+"revenue_uah": 15154224.0,
+"aov": 1946.6,
+"upo": 2.161,
+"lines": 1.721,
+"single_line": 4500,
+"upsell_uah": 176953.0
+},
+{
+"month": "2026-01",
+"ctype": "repeat",
+"orders": 8621,
+"revenue_uah": 18985892.0,
+"aov": 2202.3,
+"upo": 2.653,
+"lines": 1.914,
+"single_line": 4127,
+"upsell_uah": 152150.0
+},
+{
+"month": "2026-01",
+"ctype": "unknown",
+"orders": 44,
+"revenue_uah": null,
+"aov": null,
+"upo": 1.909,
+"lines": 1.523,
+"single_line": 28,
+"upsell_uah": 0.0
+},
+{
+"month": "2026-02",
+"ctype": "new",
+"orders": 6544,
+"revenue_uah": 13361179.0,
+"aov": 2041.7,
+"upo": 2.24,
+"lines": 1.773,
+"single_line": 3528,
+"upsell_uah": 452344.0
+},
+{
+"month": "2026-02",
+"ctype": "repeat",
+"orders": 8542,
+"revenue_uah": 19493247.0,
+"aov": 2282.0,
+"upo": 2.673,
+"lines": 1.996,
+"single_line": 3618,
+"upsell_uah": 451088.0
+},
+{
+"month": "2026-02",
+"ctype": "unknown",
+"orders": 7,
+"revenue_uah": null,
+"aov": null,
+"upo": 2.0,
+"lines": 1.571,
+"single_line": 3,
+"upsell_uah": 536.0
+},
+{
+"month": "2026-03",
+"ctype": "new",
+"orders": 5624,
+"revenue_uah": 13641446.0,
+"aov": 2425.6,
+"upo": 2.656,
+"lines": 2.182,
+"single_line": 2149,
+"upsell_uah": 596127.0
+},
+{
+"month": "2026-03",
+"ctype": "repeat",
+"orders": 9349,
+"revenue_uah": 24126564.0,
+"aov": 2580.7,
+"upo": 3.052,
+"lines": 2.457,
+"single_line": 2379,
+"upsell_uah": 963328.0
+},
+{
+"month": "2026-03",
+"ctype": "unknown",
+"orders": 4,
+"revenue_uah": null,
+"aov": null,
+"upo": 6.0,
+"lines": 4.75,
+"single_line": 1,
+"upsell_uah": 0.0
+},
+{
+"month": "2026-04",
+"ctype": "new",
+"orders": 4294,
+"revenue_uah": 10281656.0,
+"aov": 2394.4,
+"upo": 2.613,
+"lines": 2.153,
+"single_line": 1639,
+"upsell_uah": 709789.0
+},
+{
+"month": "2026-04",
+"ctype": "repeat",
+"orders": 7809,
+"revenue_uah": 20151936.0,
+"aov": 2580.6,
+"upo": 2.998,
+"lines": 2.384,
+"single_line": 1999,
+"upsell_uah": 1159602.0
+},
+{
+"month": "2026-05",
+"ctype": "new",
+"orders": 4263,
+"revenue_uah": 9557418.0,
+"aov": 2241.9,
+"upo": 2.415,
+"lines": 2.02,
+"single_line": 1911,
+"upsell_uah": 742054.0
+},
+{
+"month": "2026-05",
+"ctype": "repeat",
+"orders": 7174,
+"revenue_uah": 17989466.0,
+"aov": 2507.6,
+"upo": 2.865,
+"lines": 2.29,
+"single_line": 2202,
+"upsell_uah": 1162335.0
+},
+{
+"month": "2026-05",
+"ctype": "unknown",
+"orders": 6,
+"revenue_uah": null,
+"aov": null,
+"upo": 2.167,
+"lines": 1.667,
+"single_line": 3,
+"upsell_uah": 1351.0
+},
+{
+"month": "2026-06",
+"ctype": "new",
+"orders": 4502,
+"revenue_uah": 9078297.0,
+"aov": 2016.5,
+"upo": 2.263,
+"lines": 1.824,
+"single_line": 2301,
+"upsell_uah": 590380.0
+},
+{
+"month": "2026-06",
+"ctype": "repeat",
+"orders": 7110,
+"revenue_uah": 16830202.0,
+"aov": 2367.1,
+"upo": 2.884,
+"lines": 2.13,
+"single_line": 2733,
+"upsell_uah": 862534.0
+},
+{
+"month": "2026-06",
+"ctype": "unknown",
+"orders": 21,
+"revenue_uah": null,
+"aov": null,
+"upo": 2.619,
+"lines": 1.905,
+"single_line": 10,
+"upsell_uah": 15045.0
+},
+{
+"month": "2026-07",
+"ctype": "new",
+"orders": 6079,
+"revenue_uah": 12189870.0,
+"aov": 2005.2,
+"upo": 2.229,
+"lines": 1.873,
+"single_line": 3011,
+"upsell_uah": 732097.0
+},
+{
+"month": "2026-07",
+"ctype": "repeat",
+"orders": 8944,
+"revenue_uah": 20822994.0,
+"aov": 2328.2,
+"upo": 2.917,
+"lines": 2.146,
+"single_line": 3366,
+"upsell_uah": 982389.0
+},
+{
+"month": "2026-07",
+"ctype": "unknown",
+"orders": 5,
+"revenue_uah": null,
+"aov": null,
+"upo": 1.8,
+"lines": 1.6,
+"single_line": 3,
+"upsell_uah": 1329.0
+},
+{
+"month": "2026-08",
+"ctype": "new",
+"orders": 5742,
+"revenue_uah": 12329206.0,
+"aov": 2147.2,
+"upo": 2.253,
+"lines": 1.937,
+"single_line": 2744,
+"upsell_uah": 574501.0
+},
+{
+"month": "2026-08",
+"ctype": "repeat",
+"orders": 8526,
+"revenue_uah": 20562717.0,
+"aov": 2411.8,
+"upo": 2.865,
+"lines": 2.154,
+"single_line": 3078,
+"upsell_uah": 797373.0
+},
+{
+"month": "2026-09",
+"ctype": "new",
+"orders": 3876,
+"revenue_uah": 7753839.0,
+"aov": 2000.5,
+"upo": 1.99,
+"lines": 1.774,
+"single_line": 2185,
+"upsell_uah": 295156.0
+},
+{
+"month": "2026-09",
+"ctype": "repeat",
+"orders": 5947,
+"revenue_uah": 13974751.0,
+"aov": 2349.9,
+"upo": 2.586,
+"lines": 2.023,
+"single_line": 2704,
+"upsell_uah": 462178.0
+},
+{
+"month": "2026-09",
+"ctype": "unknown",
+"orders": 2,
+"revenue_uah": null,
+"aov": null,
+"upo": 1.0,
+"lines": 1.0,
+"single_line": 2,
+"upsell_uah": 0.0
+}
+],
+"b8a_first_product_cohorts": [
+{
+"first_product": "UA Triple Magnesium №60",
+"customers": 7906,
+"solo_customers": 2755,
+"avg_first_order_uah": 2507,
+"repeat_90": 0.2126,
+"repeat_180_q1": 0.2761,
+"avg_repeat_rev_180_q1": 1049
+},
+{
+"first_product": "UA Collagen Marine №30",
+"customers": 5722,
+"solo_customers": 2790,
+"avg_first_order_uah": 2533,
+"repeat_90": 0.2242,
+"repeat_180_q1": 0.2898,
+"avg_repeat_rev_180_q1": 1098
+},
+{
+"first_product": "UA A-Biotin №30",
+"customers": 4813,
+"solo_customers": 1846,
+"avg_first_order_uah": 2135,
+"repeat_90": 0.1882,
+"repeat_180_q1": 0.2399,
+"avg_repeat_rev_180_q1": 849
+},
+{
+"first_product": "UA Multi Beauty Duo-Caps №60",
+"customers": 3734,
+"solo_customers": 1066,
+"avg_first_order_uah": 3014,
+"repeat_90": 0.1794,
+"repeat_180_q1": 0.2402,
+"avg_repeat_rev_180_q1": 1045
+},
+{
+"first_product": "UA Vitamin D3 Base 2000 №60",
+"customers": 2805,
+"solo_customers": 376,
+"avg_first_order_uah": 2540,
+"repeat_90": 0.2004,
+"repeat_180_q1": 0.2636,
+"avg_repeat_rev_180_q1": 1020
+},
+{
+"first_product": "UA Omega-3 Cod №120",
+"customers": 2578,
+"solo_customers": 269,
+"avg_first_order_uah": 3050,
+"repeat_90": 0.2176,
+"repeat_180_q1": 0.2872,
+"avg_repeat_rev_180_q1": 1124
+},
+{
+"first_product": "UA Liposomal Iron (Vitamin C + MCT Oil) №60",
+"customers": 2113,
+"solo_customers": 895,
+"avg_first_order_uah": 2551,
+"repeat_90": 0.1978,
+"repeat_180_q1": 0.2443,
+"avg_repeat_rev_180_q1": 926
+},
+{
+"first_product": "UA Omega-3 Tuna №120",
+"customers": 1997,
+"solo_customers": 184,
+"avg_first_order_uah": 3594,
+"repeat_90": 0.2178,
+"repeat_180_q1": 0.311,
+"avg_repeat_rev_180_q1": 1495
+},
+{
+"first_product": "UA Collagen Nectar Black Cherry 450ml",
+"customers": 1974,
+"solo_customers": 547,
+"avg_first_order_uah": 3373,
+"repeat_90": 0.1874,
+"repeat_180_q1": 0.2517,
+"avg_repeat_rev_180_q1": 1112
+},
+{
+"first_product": "UA Collagen Nectar Wild Berries 450ml",
+"customers": 1933,
+"solo_customers": 530,
+"avg_first_order_uah": 3341,
+"repeat_90": 0.2059,
+"repeat_180_q1": 0.2604,
+"avg_repeat_rev_180_q1": 1088
+},
+{
+"first_product": "UA Sleeps Strong 5 mg №30",
+"customers": 1852,
+"solo_customers": 695,
+"avg_first_order_uah": 2310,
+"repeat_90": 0.196,
+"repeat_180_q1": 0.2647,
+"avg_repeat_rev_180_q1": 1031
+},
+{
+"first_product": "UA Collagen Nectar Mango-Pineapple 450ml",
+"customers": 1777,
+"solo_customers": 449,
+"avg_first_order_uah": 3561,
+"repeat_90": 0.2099,
+"repeat_180_q1": 0.2888,
+"avg_repeat_rev_180_q1": 1301
+},
+{
+"first_product": "UA Vitamin D3 5000+K2 №60",
+"customers": 1729,
+"solo_customers": 378,
+"avg_first_order_uah": 3013,
+"repeat_90": 0.2186,
+"repeat_180_q1": 0.2992,
+"avg_repeat_rev_180_q1": 1186
+},
+{
+"first_product": "UA Vitamin D3 5000 №60",
+"customers": 1604,
+"solo_customers": 365,
+"avg_first_order_uah": 2362,
+"repeat_90": 0.2001,
+"repeat_180_q1": 0.2672,
+"avg_repeat_rev_180_q1": 904
+},
+{
+"first_product": "UA Daily Vegan Protein 450g",
+"customers": 1523,
+"solo_customers": 721,
+"avg_first_order_uah": 2499,
+"repeat_90": 0.1661,
+"repeat_180_q1": 0.2602,
+"avg_repeat_rev_180_q1": 1071
+},
+{
+"first_product": "UA Crystal Mind №40",
+"customers": 1261,
+"solo_customers": 433,
+"avg_first_order_uah": 3196,
+"repeat_90": 0.2355,
+"repeat_180_q1": 0.2908,
+"avg_repeat_rev_180_q1": 1295
+},
+{
+"first_product": "UA Collagen Marine Peach №30",
+"customers": 1154,
+"solo_customers": 485,
+"avg_first_order_uah": 3128,
+"repeat_90": 0.2158,
+"repeat_180_q1": 0.2602,
+"avg_repeat_rev_180_q1": 1007
+},
+{
+"first_product": "UA Super Greens 154g",
+"customers": 1069,
+"solo_customers": 228,
+"avg_first_order_uah": 3426,
+"repeat_90": 0.1908,
+"repeat_180_q1": 0.2452,
+"avg_repeat_rev_180_q1": 1146
+},
+{
+"first_product": "UA Sleeps Gentle 1 mg №30",
+"customers": 973,
+"solo_customers": 318,
+"avg_first_order_uah": 2435,
+"repeat_90": 0.1973,
+"repeat_180_q1": 0.2686,
+"avg_repeat_rev_180_q1": 946
+},
+{
+"first_product": "UA Synbiotic 3-in-1 №30",
+"customers": 962,
+"solo_customers": 371,
+"avg_first_order_uah": 3126,
+"repeat_90": 0.2131,
+"repeat_180_q1": 0.2749,
+"avg_repeat_rev_180_q1": 1312
+},
+{
+"first_product": "UA Electrolytees Mix, 9 × 10 g Sticks (Blueberry, Orange, Watermelon & Lime Flavors)",
+"customers": 903,
+"solo_customers": 395,
+"avg_first_order_uah": 2056,
+"repeat_90": 0.1728,
+"repeat_180_q1": 0.1806,
+"avg_repeat_rev_180_q1": 870
+},
+{
+"first_product": "UA Kids Vitamin D3 №60",
+"customers": 757,
+"solo_customers": 109,
+"avg_first_order_uah": 2571,
+"repeat_90": 0.1717,
+"repeat_180_q1": 0.2292,
+"avg_repeat_rev_180_q1": 714
+},
+{
+"first_product": "UA Joint Collagen Raspberry 500ml",
+"customers": 721,
+"solo_customers": 230,
+"avg_first_order_uah": 4230,
+"repeat_90": 0.2524,
+"repeat_180_q1": 0.2829,
+"avg_repeat_rev_180_q1": 1687
+},
+{
+"first_product": "UA Kids Omega-3 Tuna №120",
+"customers": 712,
+"solo_customers": 147,
+"avg_first_order_uah": 2746,
+"repeat_90": 0.177,
+"repeat_180_q1": 0.2424,
+"avg_repeat_rev_180_q1": 898
+},
+{
+"first_product": "UA Сreatine Gummies - Orange №60",
+"customers": 700,
+"solo_customers": 282,
+"avg_first_order_uah": 3351,
+"repeat_90": 0.2129,
+"repeat_180_q1": 0.2578,
+"avg_repeat_rev_180_q1": 1293
+}
+],
+"b8b_first_to_second_product": [
+{
+"first_product": "UA Triple Magnesium №60",
+"second_product": "UA Triple Magnesium №60",
+"customers": 1196,
+"customers_with_first": 2164,
+"share": 0.553,
+"same_product": true
+},
+{
+"first_product": "UA Collagen Marine №30",
+"second_product": "UA Collagen Marine №30",
+"customers": 778,
+"customers_with_first": 1609,
+"share": 0.484,
+"same_product": true
+},
+{
+"first_product": "UA A-Biotin №30",
+"second_product": "UA A-Biotin №30",
+"customers": 523,
+"customers_with_first": 1143,
+"share": 0.458,
+"same_product": true
+},
+{
+"first_product": "UA Collagen Marine №30",
+"second_product": "UA Triple Magnesium №60",
+"customers": 266,
+"customers_with_first": 1609,
+"share": 0.165,
+"same_product": false
+},
+{
+"first_product": "UA Omega-3 Cod №120",
+"second_product": "UA Omega-3 Cod №120",
+"customers": 236,
+"customers_with_first": 729,
+"share": 0.324,
+"same_product": true
+},
+{
+"first_product": "UA Multi Beauty Duo-Caps №60",
+"second_product": "UA Multi Beauty Duo-Caps №60",
+"customers": 234,
+"customers_with_first": 881,
+"share": 0.266,
+"same_product": true
+},
+{
+"first_product": "UA Triple Magnesium №60",
+"second_product": "UA A-Biotin №30",
+"customers": 223,
+"customers_with_first": 2164,
+"share": 0.103,
+"same_product": false
+},
+{
+"first_product": "UA Triple Magnesium №60",
+"second_product": "UA Vitamin D3 Base 2000 №60",
+"customers": 219,
+"customers_with_first": 2164,
+"share": 0.101,
+"same_product": false
+},
+{
+"first_product": "UA Vitamin D3 Base 2000 №60",
+"second_product": "UA Triple Magnesium №60",
+"customers": 211,
+"customers_with_first": 722,
+"share": 0.292,
+"same_product": false
+},
+{
+"first_product": "UA A-Biotin №30",
+"second_product": "UA Triple Magnesium №60",
+"customers": 205,
+"customers_with_first": 1143,
+"share": 0.179,
+"same_product": false
+},
+{
+"first_product": "UA Triple Magnesium №60",
+"second_product": "UA Multi Beauty Duo-Caps №60",
+"customers": 204,
+"customers_with_first": 2164,
+"share": 0.094,
+"same_product": false
+},
+{
+"first_product": "UA Collagen Marine №30",
+"second_product": "UA A-Biotin №30",
+"customers": 202,
+"customers_with_first": 1609,
+"share": 0.126,
+"same_product": false
+},
+{
+"first_product": "UA Multi Beauty Duo-Caps №60",
+"second_product": "UA Triple Magnesium №60",
+"customers": 198,
+"customers_with_first": 881,
+"share": 0.225,
+"same_product": false
+},
+{
+"first_product": "UA Triple Magnesium №60",
+"second_product": "UA Omega-3 Cod №120",
+"customers": 198,
+"customers_with_first": 2164,
+"share": 0.091,
+"same_product": false
+},
+{
+"first_product": "UA Triple Magnesium №60",
+"second_product": "UA Collagen Marine №30",
+"customers": 196,
+"customers_with_first": 2164,
+"share": 0.091,
+"same_product": false
+},
+{
+"first_product": "UA Triple Magnesium №60",
+"second_product": "UA Omega-3 Tuna №120",
+"customers": 193,
+"customers_with_first": 2164,
+"share": 0.089,
+"same_product": false
+},
+{
+"first_product": "UA Collagen Nectar Wild Berries 450ml",
+"second_product": "UA Collagen Nectar Wild Berries 450ml",
+"customers": 187,
+"customers_with_first": 495,
+"share": 0.378,
+"same_product": true
+},
+{
+"first_product": "UA Liposomal Iron (Vitamin C + MCT Oil) №60",
+"second_product": "UA Liposomal Iron (Vitamin C + MCT Oil) №60",
+"customers": 184,
+"customers_with_first": 521,
+"share": 0.353,
+"same_product": true
+},
+{
+"first_product": "UA Sleeps Strong 5 mg №30",
+"second_product": "UA Sleeps Strong 5 mg №30",
+"customers": 183,
+"customers_with_first": 478,
+"share": 0.383,
+"same_product": true
+},
+{
+"first_product": "UA Triple Magnesium №60",
+"second_product": "UA Crystal Mind №40",
+"customers": 181,
+"customers_with_first": 2164,
+"share": 0.084,
+"same_product": false
+},
+{
+"first_product": "UA Omega-3 Cod №120",
+"second_product": "UA Triple Magnesium №60",
+"customers": 176,
+"customers_with_first": 729,
+"share": 0.241,
+"same_product": false
+},
+{
+"first_product": "UA Omega-3 Tuna №120",
+"second_product": "UA Triple Magnesium №60",
+"customers": 175,
+"customers_with_first": 560,
+"share": 0.313,
+"same_product": false
+},
+{
+"first_product": "UA Vitamin D3 Base 2000 №60",
+"second_product": "UA Vitamin D3 Base 2000 №60",
+"customers": 174,
+"customers_with_first": 722,
+"share": 0.241,
+"same_product": true
+},
+{
+"first_product": "UA Crystal Mind №40",
+"second_product": "UA Crystal Mind №40",
+"customers": 171,
+"customers_with_first": 363,
+"share": 0.471,
+"same_product": true
+},
+{
+"first_product": "UA Omega-3 Tuna №120",
+"second_product": "UA Omega-3 Tuna №120",
+"customers": 165,
+"customers_with_first": 560,
+"share": 0.295,
+"same_product": true
+},
+{
+"first_product": "UA Collagen Marine №30",
+"second_product": "UA Omega-3 Cod №120",
+"customers": 162,
+"customers_with_first": 1609,
+"share": 0.101,
+"same_product": false
+},
+{
+"first_product": "UA A-Biotin №30",
+"second_product": "UA Collagen Marine №30",
+"customers": 155,
+"customers_with_first": 1143,
+"share": 0.136,
+"same_product": false
+},
+{
+"first_product": "UA Sleeps Strong 5 mg №30",
+"second_product": "UA Triple Magnesium №60",
+"customers": 153,
+"customers_with_first": 478,
+"share": 0.32,
+"same_product": false
+},
+{
+"first_product": "UA Collagen Marine №30",
+"second_product": "UA Multi Beauty Duo-Caps №60",
+"customers": 147,
+"customers_with_first": 1609,
+"share": 0.091,
+"same_product": false
+},
+{
+"first_product": "UA Vitamin D3 5000+K2 №60",
+"second_product": "UA Triple Magnesium №60",
+"customers": 145,
+"customers_with_first": 491,
+"share": 0.295,
+"same_product": false
+},
+{
+"first_product": "UA Triple Magnesium №60",
+"second_product": "UA Liposomal Iron (Vitamin C + MCT Oil) №60",
+"customers": 144,
+"customers_with_first": 2164,
+"share": 0.067,
+"same_product": false
+},
+{
+"first_product": "UA Collagen Marine №30",
+"second_product": "UA Collagen Marine Peach №30",
+"customers": 141,
+"customers_with_first": 1609,
+"share": 0.088,
+"same_product": false
+},
+{
+"first_product": "UA Multi Beauty Duo-Caps №60",
+"second_product": "UA A-Biotin №30",
+"customers": 141,
+"customers_with_first": 881,
+"share": 0.16,
+"same_product": false
+},
+{
+"first_product": "UA Daily Vegan Protein 450g",
+"second_product": "UA Daily Vegan Protein 450g",
+"customers": 127,
+"customers_with_first": 332,
+"share": 0.383,
+"same_product": true
+},
+{
+"first_product": "UA A-Biotin №30",
+"second_product": "UA Omega-3 Cod №120",
+"customers": 126,
+"customers_with_first": 1143,
+"share": 0.11,
+"same_product": false
+},
+{
+"first_product": "UA Triple Magnesium №60",
+"second_product": "UA Sleeps Strong 5 mg №30",
+"customers": 125,
+"customers_with_first": 2164,
+"share": 0.058,
+"same_product": false
+},
+{
+"first_product": "UA Multi Beauty Duo-Caps №60",
+"second_product": "UA Collagen Marine №30",
+"customers": 125,
+"customers_with_first": 881,
+"share": 0.142,
+"same_product": false
+},
+{
+"first_product": "UA A-Biotin №30",
+"second_product": "UA Multi Beauty Duo-Caps №60",
+"customers": 123,
+"customers_with_first": 1143,
+"share": 0.108,
+"same_product": false
+},
+{
+"first_product": "UA Omega-3 Cod №120",
+"second_product": "UA A-Biotin №30",
+"customers": 119,
+"customers_with_first": 729,
+"share": 0.163,
+"same_product": false
+},
+{
+"first_product": "UA Collagen Nectar Mango-Pineapple 450ml",
+"second_product": "UA Collagen Nectar Wild Berries 450ml",
+"customers": 119,
+"customers_with_first": 486,
+"share": 0.245,
+"same_product": false
+}
+],
+"dq_weekly_links": [
+{
+"week_start": "2026-06-29",
+"zoho_orders": 3720,
+"zoho_created": 3357,
+"zoho_successful": 3176,
+"zoho_online": 2289,
+"zoho_with_ga_cookie": 3458,
+"zoho_linked_ga": 2951,
+"ga_purchases": 3015,
+"ga_transactions": 3014,
+"wfp_attempts": 5202,
+"wfp_approved": 2802,
+"wfp_linked": 5063
+},
+{
+"week_start": "2026-07-06",
+"zoho_orders": 3835,
+"zoho_created": 3384,
+"zoho_successful": 3202,
+"zoho_online": 2469,
+"zoho_with_ga_cookie": 3595,
+"zoho_linked_ga": 3055,
+"ga_purchases": 3116,
+"ga_transactions": 3103,
+"wfp_attempts": 5522,
+"wfp_approved": 2933,
+"wfp_linked": 5425
+},
+{
+"week_start": "2026-07-13",
+"zoho_orders": 4261,
+"zoho_created": 3792,
+"zoho_successful": 3547,
+"zoho_online": 2849,
+"zoho_with_ga_cookie": 4001,
+"zoho_linked_ga": 3414,
+"ga_purchases": 3422,
+"ga_transactions": 3416,
+"wfp_attempts": 6313,
+"wfp_approved": 3343,
+"wfp_linked": 6308
+},
+{
+"week_start": "2026-07-20",
+"zoho_orders": 4049,
+"zoho_created": 3608,
+"zoho_successful": 3415,
+"zoho_online": 2647,
+"zoho_with_ga_cookie": 3772,
+"zoho_linked_ga": 3231,
+"ga_purchases": 3245,
+"ga_transactions": 3230,
+"wfp_attempts": 6023,
+"wfp_approved": 3291,
+"wfp_linked": 5983
+},
+{
+"week_start": "2026-07-27",
+"zoho_orders": 3640,
+"zoho_created": 3183,
+"zoho_successful": 2989,
+"zoho_online": 2254,
+"zoho_with_ga_cookie": 3362,
+"zoho_linked_ga": 2885,
+"ga_purchases": 2900,
+"ga_transactions": 2892,
+"wfp_attempts": 5233,
+"wfp_approved": 2806,
+"wfp_linked": 5179
+},
+{
+"week_start": "2026-08-03",
+"zoho_orders": 3486,
+"zoho_created": 3117,
+"zoho_successful": 2959,
+"zoho_online": 2237,
+"zoho_with_ga_cookie": 3248,
+"zoho_linked_ga": 2797,
+"ga_purchases": 2808,
+"ga_transactions": 2802,
+"wfp_attempts": 4971,
+"wfp_approved": 2789,
+"wfp_linked": 4941
+},
+{
+"week_start": "2026-08-10",
+"zoho_orders": 4008,
+"zoho_created": 3635,
+"zoho_successful": 3387,
+"zoho_online": 2440,
+"zoho_with_ga_cookie": 3748,
+"zoho_linked_ga": 3268,
+"ga_purchases": 3287,
+"ga_transactions": 3273,
+"wfp_attempts": 5338,
+"wfp_approved": 3063,
+"wfp_linked": 5324
+},
+{
+"week_start": "2026-08-17",
+"zoho_orders": 3797,
+"zoho_created": 3371,
+"zoho_successful": 3104,
+"zoho_online": 2298,
+"zoho_with_ga_cookie": 3570,
+"zoho_linked_ga": 3025,
+"ga_purchases": 3066,
+"ga_transactions": 3053,
+"wfp_attempts": 5163,
+"wfp_approved": 2901,
+"wfp_linked": 5136
+},
+{
+"week_start": "2026-08-24",
+"zoho_orders": 3948,
+"zoho_created": 3550,
+"zoho_successful": 3000,
+"zoho_online": 2277,
+"zoho_with_ga_cookie": 3675,
+"zoho_linked_ga": 3183,
+"ga_purchases": 3204,
+"ga_transactions": 3196,
+"wfp_attempts": 5127,
+"wfp_approved": 2919,
+"wfp_linked": 5057
+},
+{
+"week_start": "2026-08-31",
+"zoho_orders": 3893,
+"zoho_created": 3563,
+"zoho_successful": 2910,
+"zoho_online": 2150,
+"zoho_with_ga_cookie": 3786,
+"zoho_linked_ga": 3317,
+"ga_purchases": 3340,
+"ga_transactions": 3324,
+"wfp_attempts": 4773,
+"wfp_approved": 2764,
+"wfp_linked": 4769
+},
+{
+"week_start": "2026-09-07",
+"zoho_orders": 3445,
+"zoho_created": 3118,
+"zoho_successful": 2391,
+"zoho_online": 1852,
+"zoho_with_ga_cookie": 3337,
+"zoho_linked_ga": 2959,
+"ga_purchases": 2982,
+"ga_transactions": 2969,
+"wfp_attempts": 4076,
+"wfp_approved": 2366,
+"wfp_linked": 4052
+},
+{
+"week_start": "2026-09-14",
+"zoho_orders": 3208,
+"zoho_created": 2881,
+"zoho_successful": 2079,
+"zoho_online": 1827,
+"zoho_with_ga_cookie": 3062,
+"zoho_linked_ga": 2670,
+"ga_purchases": 2672,
+"ga_transactions": 2670,
+"wfp_attempts": 4187,
+"wfp_approved": 2344,
+"wfp_linked": 4187
+},
+{
+"week_start": "2026-09-21",
+"zoho_orders": 2960,
+"zoho_created": 2683,
+"zoho_successful": 1846,
+"zoho_online": 1623,
+"zoho_with_ga_cookie": 2843,
+"zoho_linked_ga": 2510,
+"ga_purchases": 2536,
+"ga_transactions": 2530,
+"wfp_attempts": 3650,
+"wfp_approved": 2107,
+"wfp_linked": 3620
+},
+{
+"week_start": "2026-09-28",
+"zoho_orders": 1630,
+"zoho_created": 1500,
+"zoho_successful": 496,
+"zoho_online": 904,
+"zoho_with_ga_cookie": 1536,
+"zoho_linked_ga": 1380,
+"ga_purchases": 1380,
+"ga_transactions": 1380,
+"wfp_attempts": 2013,
+"wfp_approved": 1210,
+"wfp_linked": 1985
+}
+]
+},
+"meta": {
+"b1a_monthly_business": {
+"_query": "ecom/sql/blocks/b1a_monthly_business.sql",
+"_extracted": "2026-10-02"
+},
+"b1b_sept_daily_fact_plan": {
+"_query": "ecom/sql/blocks/b1b_sept_daily_fact_plan.sql",
+"_extracted": "2026-10-02"
+},
+"b1c_monthly_funnel": {
+"_query": "ecom/sql/blocks/b1c_monthly_funnel.sql",
+"_extracted": "2026-10-02"
+},
+"b1d_new_returning_monthly": {
+"_query": "ecom/sql/blocks/b1d_new_returning_monthly.sql",
+"_extracted": "2026-10-02"
+},
+"b1e_weekly_kpi": {
+"_query": "ecom/sql/blocks/b1e_weekly_kpi.sql",
+"_extracted": "2026-10-02",
+"_note": "days < 7: неполная неделя или нет данных за часть дней (март–июнь по 6 дней в daily_kpi_metrics)"
+},
+"b2_entry_types_monthly": {
+"_query": "ecom/sql/blocks/b2_entry_types_monthly.sql",
+"_extracted": "2026-10-02",
+"_note": "zoho_successful/zoho_revenue_uah за сентябрь занижены: часть заказов ещё в доставке (in_progress)"
+},
+"b3a_atc_place_monthly": {
+"_query": "ecom/sql/blocks/b3a_atc_place_monthly.sql",
+"_extracted": "2026-10-02",
+"_note": "atc_place по URL страницы события; reco_* — добавление из виджета рекомендаций (upsell_add_product ±5 с, location = cart/product/search); сентябрь: purchased_7d для последних дней ещё дозревает"
+},
+"b3b_atc_items_sept": {
+"_query": "ecom/sql/blocks/b3b_atc_items_sept.sql",
+"_extracted": "2026-10-02",
+"_note": "item_id GA4 → товар Zoho через ecom/data/ga_item_map.json; 163/165 — подарочные наборы (gift), добавляются автоматически по порогу"
+},
+"b4a_upsell_monthly": {
+"_query": "ecom/sql/blocks/b4a_upsell_monthly.sql",
+"_extracted": "2026-10-02"
+},
+"b4b_upsell_widget_monthly": {
+"_query": "ecom/sql/blocks/b4b_upsell_widget_monthly.sql",
+"_extracted": "2026-10-02",
+"_note": "upsell = показ виджета рекомендаций (без location), upsell_select_product = клик по товару в виджете, upsell_add_product = добавление из виджета; location = cart/product/search"
+},
+"b4c_cancel_reasons_q3": {
+"_query": "ecom/sql/blocks/b4c_cancel_reasons_q3.sql",
+"_extracted": "2026-10-02",
+"_note": "Reason_B2C_Cancel заполняется только для Canceled; у Terminated (отказ при получении) причина не фиксируется"
+},
+"b5b2_fail_reasons_q3": {
+"_query": "ecom/sql/blocks/b5b2_fail_reasons_q3.sql",
+"_extracted": "2026-10-02"
+},
+"b5b_payments_monthly": {
+"_query": "ecom/sql/blocks/b5b_payments_monthly.sql",
+"_extracted": "2026-10-02"
+},
+"b5c2_one_click_places_monthly": {
+"_query": "ecom/sql/blocks/b5c2_one_click_places_monthly.sql",
+"_extracted": "2026-10-02"
+},
+"b5c_one_click_monthly": {
+"_query": "ecom/sql/blocks/b5c_one_click_monthly.sql",
+"_extracted": "2026-10-02"
+},
+"b5d_carts_monthly": {
+"_query": "ecom/sql/blocks/b5d_carts_monthly.sql",
+"_extracted": "2026-10-02",
+"_note": "корзина = user_pseudo_id × день; сумма корзины = Σ items.price×quantity последнего view_cart (параметр value события = цена последнего добавленного товара, не сумма); брошена = нет purchase у пользователя 7 дней; порог бесплатной доставки 2300 ₴ → 2100 ₴ с 25.09"
+},
+"b6a_order_structure_monthly": {
+"_query": "ecom/sql/blocks/b6a_order_structure_monthly.sql",
+"_extracted": "2026-10-02",
+"_note": "сентябрь: только успешные заказы на дату выгрузки (часть ещё в доставке); with_bundle в сентябре вырос из-за наборов/подарочных комплектов"
+},
+"b6b_product_pairs_q3": {
+"_query": "ecom/sql/blocks/b6b_product_pairs_q3.sql",
+"_extracted": "2026-10-02",
+"_note": "успешные заказы 07–09.2026 (n ≈ 39 тыс.); lift = P(A∧B)/(P(A)·P(B))"
+},
+"b6c_product_attach_sept": {
+"_query": "ecom/sql/blocks/b6c_product_attach_sept.sql",
+"_extracted": "2026-10-02",
+"_note": "успешные заказы сентября 2026 на дату выгрузки; as_gift — строки Gift (подарочные наборы по порогу)"
+},
+"b7_new_repeat_monthly": {
+"_query": "ecom/sql/blocks/b7_new_repeat_monthly.sql",
+"_extracted": "2026-10-02"
+},
+"b8a_first_product_cohorts": {
+"_query": "ecom/sql/blocks/b8a_first_product_cohorts.sql",
+"_extracted": "2026-10-02",
+"_note": "когорта: первые оплаченные заказы 01–06.2026 (дедупликация клиентов по телефону); клиент учитывается в строке каждого платного товара первого заказа; repeat_180 и выручка повтора — только когорта Q1"
+},
+"b8b_first_to_second_product": {
+"_query": "ecom/sql/blocks/b8b_first_to_second_product.sql",
+"_extracted": "2026-10-02",
+"_note": "когорта первых заказов 01–06.2026, второй заказ в течение 180 дней; share = доля клиентов с первым товаром, у которых во втором заказе есть второй товар"
+},
+"dq_weekly_links": {
+"_query": "ecom/sql/blocks/dq_weekly_links.sql",
+"_extracted": "2026-10-02",
+"_note": "последняя неделя неполная (до 30.09)"
+}
+},
+"item_map": {
+"68": {
+"zoho": "UA Triple Magnesium №60",
+"code": "UA0008S",
+"kind": "paid"
+},
+"136": {
+"zoho": "UA Liposomal Iron (Vitamin C + MCT Oil) №60",
+"code": "UA0172S",
+"kind": "paid"
+},
+"109": {
+"zoho": "UA Collagen Nectar Wild Berries 450ml",
+"code": "UA0131S",
+"kind": "paid"
+},
+"9": {
+"zoho": "UA Collagen Marine №30",
+"code": "UA0017S",
+"kind": "paid"
+},
+"5": {
+"zoho": "UA Vitamin D3 Base 2000 №60",
+"code": "UA0015S",
+"kind": "paid"
+},
+"72": {
+"zoho": "UA Multi Beauty Duo-Caps №60",
+"code": "UA0007S",
+"kind": "paid"
+},
+"71": {
+"zoho": "UA A-Biotin №30",
+"code": "UA0006S",
+"kind": "paid"
+},
+"2": {
+"zoho": "UA Omega-3 Cod №120",
+"code": "UA0001S",
+"kind": "paid"
+},
+"147": {
+"zoho": "UA Omega-3 X4 Strength №60",
+"code": "UA0202S",
+"kind": "paid"
+},
+"161": {
+"zoho": "UA Daily Fiber GLP-1 Booster 270 mg",
+"code": "UA0204S",
+"kind": "paid"
+},
+"1": {
+"zoho": "UA Omega-3 Tuna №120",
+"code": "UA0003S",
+"kind": "paid"
+},
+"6": {
+"zoho": "UA Vitamin D3 5000 №60",
+"code": "UA0014S",
+"kind": "paid"
+},
+"133": {
+"zoho": "UA Collagen Marine Peach №30",
+"code": "UA0166S",
+"kind": "paid"
+},
+"145": {
+"zoho": "UA Collagen Jelly Sticks Mango",
+"code": "UA0194S",
+"kind": "paid"
+},
+"7": {
+"zoho": "UA Kids Vitamin D3 №60",
+"code": "UA0016S",
+"kind": "paid"
+},
+"135": {
+"zoho": "UA Daily Vegan Protein 450g",
+"code": "UA0173S",
+"kind": "paid"
+},
+"65": {
+"zoho": "UA Collagen Nectar Mango-Pineapple 450ml",
+"code": "UA0009S",
+"kind": "paid"
+},
+"20": {
+"zoho": "UA Vitamin D3 5000+K2 №60",
+"code": "UA0013S",
+"kind": "paid"
+},
+"4": {
+"zoho": "UA Kids Omega-3 Tuna №120",
+"code": "UA0004S",
+"kind": "paid"
+},
+"116": {
+"zoho": "UA Super Greens 154g",
+"code": "UA0150S",
+"kind": "paid"
+},
+"63": {
+"zoho": "UA Sleeps Strong 5 mg №30",
+"code": "UA0010S",
+"kind": "paid"
+},
+"64": {
+"zoho": "UA Sleeps Gentle 1 mg №30",
+"code": "UA0011S",
+"kind": "paid"
+},
+"144": {
+"zoho": "UA Сreatine Gummies - Orange №60",
+"code": "UA0191S",
+"kind": "paid"
+},
+"134": {
+"zoho": "UA Crystal Mind №40",
+"code": "UA0136S",
+"kind": "paid"
+},
+"138": {
+"zoho": "UA Synbiotic 3-in-1 №30",
+"code": "UA0192S",
+"kind": "paid"
+},
+"3": {
+"zoho": "UA Kids Omega-3 Cod №120",
+"code": "UA0002S",
+"kind": "paid"
+},
+"10": {
+"zoho": "UA Shark Squalene №120",
+"code": "UA0012S",
+"kind": "paid"
+},
+"121": {
+"zoho": "UA Mushroom Cacao 175g",
+"code": "UA0151S",
+"kind": "paid"
+},
+"117": {
+"zoho": "UA Joint Collagen Raspberry 500ml",
+"code": "UA0134S",
+"kind": "paid"
+},
+"140": {
+"zoho": "UA Electrolytees Hydration Drink – Orange, 20 x 10 g Sticks",
+"code": "UA0187S",
+"kind": "paid"
+},
+"139": {
+"zoho": "UA Electrolytees Hydration Drink – Blueberry, 20 x 10 g Sticks",
+"code": "UA0188S",
+"kind": "paid"
+},
+"141": {
+"zoho": "UA Electrolytees Hydration Drink – Watermelon & Lime, 20 × 10 g Sticks",
+"code": "UA0189S",
+"kind": "paid"
+},
+"142": {
+"zoho": "UA Electrolytees Mix, 9 × 10 g Sticks (Blueberry, Orange, Watermelon & Lime Flavors)",
+"code": "UA0190S",
+"kind": "paid"
+},
+"163": {
+"zoho": "Подарунковий набір (Gift)",
+"code": null,
+"kind": "gift"
+},
+"165": {
+"zoho": "UA Дієтична добавка Комплекс ''Gift Sample Kit 4000''",
+"code": "UA0213C",
+"kind": "gift"
+},
+"137": {
+"zoho": "\"Курс вправ для всього тіла\" UA",
+"code": "UA0186S",
+"kind": "service"
+}
+},
+"defs": {
+"definitions": [
+{
+"term": "Замовлення створене",
+"def": "Угода Zoho CRM (Region UA, без B2B / PR / співробітників), стадія не Canceled. База для конверсії, скасувань і типів входу.",
+"src": "crm_data.zoho_deals · analytics.orders_with_upsell"
+},
+{
+"term": "Замовлення успішне",
+"def": "Стадія Successful або Successful/Deferred Shipment. База для виручки, середнього чека, UPO, апсейлу, складу чека. У доставці (Delivery, Deferred Shipment, Out for Delivery) — окремо; Terminated — відмова при отриманні.",
+"src": "01_ecom_orders · status_group"
+},
+{
+"term": "Виручка",
+"def": "Сума успішних замовлень за датою замовлення (revenue_uah). Для порівняння з планом і для фінансів — виручка за датою відвантаження з daily_kpi_metrics (як у Cockpit), перерахована в ₴ за курсом місяця.",
+"src": "analytics.orders · analytics.daily_kpi_metrics · month_exchange_rates"
+},
+{
+"term": "План по днях",
+"def": "Місячний план по SKU (B2C) розбито по днях вагами = фактична виручка того ж дня тижня за попередні 8 тижнів; альтернатива — порівну. Правило на погодження з фінансами.",
+"src": "09_ecom_plan_daily · monthly_revenue_plan_by_sku"
+},
+{
+"term": "Платна позиція · UPO",
+"def": "Рядок інвойсу з джерелом Order, Upsell Online або Upsell Manager; подарунки (Gift) і сервісні товари окремо. UPO = сума quantity платних позицій успішного замовлення.",
+"src": "02_ecom_order_items · unit_type"
+},
+{
+"term": "Апсейл",
+"def": "Рядки інвойсу Upsell Manager (кол-центр) і Upsell Online (сайт); сума апсейлу — sku_upsell_sum. Віджет рекомендацій на сайті — події upsell (показ), upsell_select_product (клік), upsell_add_product (додавання) з параметром location.",
+"src": "analytics.orders_with_upsell · GA4 events"
+},
+{
+"term": "Новий / постійний клієнт",
+"def": "Новий — перше оплачене замовлення клієнта в історії (order_num = 1). У вітрині клієнтів контакти дедубльовано за останніми 9 цифрами телефону; телефони не зберігаються, лише хеш.",
+"src": "analytics.orders.order_num · 03_ecom_customers"
+},
+{
+"term": "Вікно воронки 7 днів",
+"def": "Додавання в кошик або кошик вважається конвертованим, якщо той самий user_pseudo_id зробив purchase протягом 7 діб. Для товару — покупка саме цього item_id.",
+"src": "04_ecom_sessions · 05_ecom_atc_items · 08_ecom_carts"
+},
+{
+"term": "Тип входу",
+"def": "За посадковою сторінкою сесії: головна, картка товару, Meta-лендинг (…-meta), каталог (/store, /category/vse), категорія-продукт, категорія-потреба, акційна категорія, блог, пошук, квіз, кошик, сервісні. Після трекінгу P2 — параметр page_type.",
+"src": "00_dictionaries.sql · entry_type"
+},
+{
+"term": "Місце додавання в кошик",
+"def": "За сторінкою події add_to_cart; якщо в ті самі ±5 с є upsell_add_product — місце «віджет рекомендацій» з його location. Після трекінгу P1 — item_list_id / item_list_name.",
+"src": "05_ecom_atc_items · atc_place"
+},
+{
+"term": "Канал (channel_group)",
+"def": "Єдиний словник маркетингу: Google, Meta e-com, Meta funnels, SMM, Organic, Direct, Influence, CRM, Referral, Other — за source / medium / campaign сесії або UTM замовлення.",
+"src": "00_dictionaries.sql · channel_group"
+},
+{
+"term": "Онлайн-оплата і порятунок",
+"def": "Онлайн-замовлення — Payment_Scheme Buyout або Mixed. Результат — за транзакціями WayForPay (type PURCHASE): з першої спроби, після невдалої, лише невдалі, без спроби. Врятоване — після невдалої спроби протягом 7 днів був контакт кол-центру (Consultation_Reason «Неуспішна оплата» або дзвінок) чи тригер eSputnik, і замовлення оплачено або доставлено.",
+"src": "06_ecom_payments · billing_wayforpay_transaction_history · zoho_payments"
+},
+{
+"term": "Купити в 1 клік",
+"def": "Угода Zoho з Channel = Fast Order. Додзвон — вихідний дзвінок з розмовою протягом 48 годин на номер заявки. Місце кнопки — сторінка події buy_1_click (після P1 — параметр location).",
+"src": "07_ecom_one_click · analytics.calls"
+},
+{
+"term": "Покинутий кошик",
+"def": "Кошик = user_pseudo_id × день з view_cart або begin_checkout; покинутий — без purchase протягом 7 днів. Сума кошика — Σ price × quantity з items останнього view_cart (параметр value події — ціна останнього товару, не сума).",
+"src": "08_ecom_carts"
+},
+{
+"term": "Поріг безкоштовної доставки",
+"def": "2300 ₴ до 24.09.2026, 2100 ₴ з 25.09.2026 (підтвердити історію змін у e-com PM).",
+"src": "00_dictionaries.sql · free_delivery_threshold"
+},
+{
+"term": "GP по SKU · CM2",
+"def": "З fct_sku_revenue: виручка − собівартість − доставка − фулфілмент − комісії − маркетинг (за UTM-днем). CM2 = GP + маркетинг. Собівартість — за останніми поставками, не FIFO.",
+"src": "analytics.fct_sku_revenue · 02_ecom_order_items"
+}
+],
+"decisions": [
+{
+"text": "Дві бази замовлень (створені / успішні) і база виручки для e-com сторінки — за датою замовлення, для фінансів — за відвантаженням. Затвердити або звести до однієї.",
+"owner": "фінанси · e-com PM",
+"due": "2026-10-10"
+},
+{
+"text": "Правило розбивки місячного плану по днях: за днями тижня (v1) чи порівну; хто веде план по SKU.",
+"owner": "фінанси",
+"due": "2026-10-10"
+},
+{
+"text": "Визначення нового клієнта (order_num проти дедублікації за телефоном) і вікно воронки 7 днів.",
+"owner": "маркетинг-аналітик",
+"due": "2026-10-10"
+},
+{
+"text": "Поріг безкоштовної доставки й історія змін (2300 → 2100 ₴ з 25.09); правило автододавання подарунка.",
+"owner": "e-com PM",
+"due": "2026-10-10"
+},
+{
+"text": "Словник типів входу і page_type; список акційних категорій і Meta-лендингів.",
+"owner": "e-com PM · маркетинг",
+"due": "2026-10-10"
+},
+{
+"text": "Канальний словник channel_group як єдиний для GA4, Zoho і звітів маркетингу.",
+"owner": "маркетинг",
+"due": "2026-10-10"
+},
+{
+"text": "Склад релізу трекінгу P1 і дата: item_list_name, location для buy_1_click, події payment_redirect / payment_result, показ віджета з location.",
+"owner": "e-com PM · розробка",
+"due": "2026-10-10"
+},
+{
+"text": "Власник sGTM і Consent Mode v2; виключення стейдж-хостів з GA4; Product_Code у dataLayer замість item_id.",
+"owner": "розробка · маркетинг",
+"due": "2026-10-10"
+}
+],
+"tracking": [
+{
+"p": "P1",
+"text": "item_list_id / item_list_name у view_item_list, select_item, add_to_cart і purchase: каталог, категорія (slug), пошук, віджет рекомендацій (cart / product / search), головна, блог."
+},
+{
+"p": "P1",
+"text": "Віджет рекомендацій: подія показу з location і списком item_id; показ післяпродажної пропозиції (post-purchase offer) і її прийняття."
+},
+{
+"p": "P1",
+"text": "buy_1_click з параметрами location (home / pdp / catalog / category / cart) і item_id; stage (contact / shipping / submitted)."
+},
+{
+"p": "P1",
+"text": "payment_redirect (перехід у WayForPay) і payment_result (approved / declined / expired, reason_code) з transaction_id — замість оцінки «без спроби» за даними WFP."
+},
+{
+"p": "P2",
+"text": "user_id (хеш клієнта) і customer_type (new / returning) у всіх подіях після авторизації або введення телефону; page_type у page_view."
+},
+{
+"p": "P2",
+"text": "Product_Code Zoho в items.item_id (зараз внутрішній id сайту), item_category і item_variant; coupon у purchase як рядок (зараз «[object Object]»)."
+},
+{
+"p": "P2",
+"text": "Розділення Upsell Online у Zoho за місцем (кошик / картка / пошук / після покупки) через поле джерела рядка інвойсу."
+},
+{
+"p": "P3",
+"text": "Виключити стейдж-хости з потоку GA4; визначити власника sGTM; дата впровадження Consent Mode v2; версіонування dataLayer."
+}
+],
+"dq_notes": [
+"GA4 ↔ Zoho: номер замовлення в transaction_id події purchase знаходить 97% замовлень з наложкою і 83% з передоплатою; cookie GA (client id + session id) у Zoho є у 96% чекаутів.",
+"WayForPay ↔ Zoho: Reference_id платежу Zoho = order_reference транзакції — 99% транзакцій; решта — за 18-значним префіксом номера угоди.",
+"Параметр value події view_cart дорівнює ціні останнього доданого товару, а не сумі кошика (перевірено 15–20.09.2026): суму кошика рахуємо за items.",
+"GP по SKU (fct_sku_revenue) є у 88% платних рядків вересня; немає у товарів без собівартості й у частини наборів. Зв'язка — назва товару Zoho (offer).",
+"item_id у GA4 — внутрішній id сайту: тимчасовий словник на 36 позицій (ecom/data/ga_item_map.json); у dataLayer потрібен Product_Code.",
+"Причини відмов при отриманні (Terminated) у Zoho не фіксуються; причини скасувань є лише для Canceled.",
+"Подія upsell (показ віджета) не має параметра location; клік і додавання — мають (cart / product / search).",
+"Поточний місяць дозріває: успішні замовлення, покупки за 7 днів після ATC, порятунок після невдалої оплати — остаточні через 2–3 тижні.",
+"daily_kpi_metrics за березень–червень містить 6 днів на тиждень (неділі без відвантажень); тижневий графік показує це як неповні тижні.",
+"Події buy_1_click у плоскій таблиці ga_events_ua не мають місця кнопки; місце — за URL сторінки; cookie-зв'язка заявки з сесією спрацьовує рідко."
+],
+"howto": [
+"Запити блоків лежать у ecom/sql/blocks/*.sql (23 файли), вітрини — у ecom/sql/marts/*.sql. Виконати у BigQuery, проєкт perla-holistic-com (конектор BigQuery або bq CLI); діапазон дат у запитах — 2026-01-01 … останній закритий день.",
+"Результат кожного блоку зберегти як ecom/data/raw/<назва блоку>.json: {\"fields\": [...], \"rows\": [[...]]} або відповідь BigQuery API (schema + rows).",
+"python3 ecom/build.py — зібрати ecom/data/snapshot.json і ecom/index.html (шаблон з ecom/parts/*).",
+"Опублікувати ecom/index.html як оновлення цього артефакту (той самий URL); відкриті вкладки оновляться самі.",
+"Щомісяця 1-го числа рутина Cockpit запускає той самий збір для борду; e-com блоки додаються до неї після погодження визначень 10.10."
+]
+}
+}

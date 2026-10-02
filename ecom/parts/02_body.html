@@ -1,0 +1,322 @@
+<div class="wrap">
+<header class="top">
+  <div class="row">
+    <div class="brand">
+      <div class="eyebrow">Perla Helsa · Україна · e-com аналітика за ТЗ</div>
+      <h1>Perla Helsa E-com</h1>
+      <p class="meta" id="meta">Дані BigQuery: GA4, Zoho CRM, WayForPay. Суми в гривні.</p>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="month">Місяць</label>
+        <select id="month"></select>
+      </div>
+      <div class="field" style="min-width:0">
+        <label id="tabs-label">Блок ТЗ</label>
+        <nav class="tabs" role="tablist" aria-labelledby="tabs-label">
+          <button class="tab" role="tab" id="t-over" data-v="over" aria-controls="v-over"><span class="k">1</span>Огляд</button>
+          <button class="tab" role="tab" id="t-entry" data-v="entry" aria-controls="v-entry"><span class="k">2</span>Вхід</button>
+          <button class="tab" role="tab" id="t-cart" data-v="cart" aria-controls="v-cart"><span class="k">3</span>Кошик</button>
+          <button class="tab" role="tab" id="t-upsell" data-v="upsell" aria-controls="v-upsell"><span class="k">4</span>Апсейл</button>
+          <button class="tab" role="tab" id="t-pay" data-v="pay" aria-controls="v-pay"><span class="k">5</span>Оплати</button>
+          <button class="tab" role="tab" id="t-struct" data-v="struct" aria-controls="v-struct"><span class="k">6</span>Склад чека</button>
+          <button class="tab" role="tab" id="t-cust" data-v="cust" aria-controls="v-cust"><span class="k">7–8</span>Клієнти</button>
+          <button class="tab" role="tab" id="t-data" data-v="data" aria-controls="v-data"><span class="k">DQ</span>Дані й визначення</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 1 · Огляд -->
+<section class="view" id="v-over" role="tabpanel" aria-labelledby="t-over">
+  <div class="vhead">
+    <h2>Блок 1 · Бізнес-метрики і воронка</h2>
+    <p>Замовлення і гроші — з Zoho (дві бази: створені без скасованих і успішні), план — помісячний план по SKU, розбитий по днях тижня; поведінка — GA4.</p>
+  </div>
+  <div class="card verdict" id="ov-verdict"></div>
+  <div class="tiles" id="ov-tiles"></div>
+  <div class="grid g57">
+    <div class="card">
+      <h3>Тиждень за тижнем</h3>
+      <p class="sub">Виручка B2C за тиждень (стовпчики) і валовий прибуток до маркетингу (лінія), ₴. Неповні тижні приглушено.</p>
+      <div class="plot" id="ov-weekly"></div>
+      <div class="legend" id="ov-weekly-legend"></div>
+    </div>
+    <div class="card">
+      <h3 id="ov-daily-h">Факт і план по днях</h3>
+      <p class="sub" id="ov-daily-sub">Накопичена виручка за місяць проти плану: план за днями тижня (v1) і план «порівну» (альтернатива).</p>
+      <div class="plot" id="ov-daily"></div>
+      <div class="legend" id="ov-daily-legend"></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3 id="ov-funnel-h">Воронка GA4 за місяць</h3>
+      <p class="sub">Сесії, що дійшли до кроку; у дужках — конверсія з попереднього кроку. Купити в 1 клік — окрема гілка.</p>
+      <div class="funnel" id="ov-funnel"></div>
+    </div>
+    <div class="card">
+      <h3>Нові та постійні відвідувачі (GA4)</h3>
+      <p class="sub">Сесії за місяцями: перша сесія користувача проти повторних, і конверсія кожної групи в покупку.</p>
+      <div class="plot" id="ov-newret"></div>
+      <div class="legend" id="ov-newret-legend"></div>
+      <div class="pill-row" id="ov-newret-pills"></div>
+    </div>
+  </div>
+  <div class="tablebar"><h3>Місяць за місяцем</h3><button class="btn" type="button" data-copy="ov-table">Копіювати таблицю</button></div>
+  <div class="scroll"><table id="ov-table"></table></div>
+  <p class="note" style="margin-top:8px">Успішні замовлення поточного місяця ще дозрівають (частина в доставці), тому виручка успішних за останній місяць занижена. Створені замовлення і сесії — остаточні.</p>
+</section>
+
+<!-- 2 · Вхід -->
+<section class="view" id="v-entry" role="tabpanel" aria-labelledby="t-entry" hidden>
+  <div class="vhead">
+    <h2>Блок 2 · Типи входу на сайт</h2>
+    <p>Тип входу визначається за посадковою сторінкою сесії (правила в словнику), гроші — з Zoho через номер замовлення в події purchase.</p>
+  </div>
+  <div class="tiles" id="en-tiles"></div>
+  <div class="grid g57">
+    <div class="card">
+      <h3>Частка сесій за типом входу</h3>
+      <p class="sub">Стовпчики = 100% сесій місяця. Картки товарів (PDP) і мета-лендинги показано окремо.</p>
+      <div class="plot" id="en-share"></div>
+      <div class="legend" id="en-share-legend"></div>
+    </div>
+    <div class="card">
+      <h3 id="en-cr-h">Конверсія в покупку за типом входу</h3>
+      <p class="sub">Сесії з purchase до всіх сесій типу; крапкою — середнє по всіх сесіях місяця.</p>
+      <div class="plot" id="en-cr"></div>
+    </div>
+  </div>
+  <div class="tablebar"><h3 id="en-table-h">Типи входу за місяць</h3><button class="btn" type="button" data-copy="en-table">Копіювати таблицю</button></div>
+  <div class="scroll"><table id="en-table"></table></div>
+</section>
+
+<!-- 3 · Кошик -->
+<section class="view" id="v-cart" role="tabpanel" aria-labelledby="t-cart" hidden>
+  <div class="vhead">
+    <h2>Блок 3 · Додавання до кошика</h2>
+    <p>Місце додавання — за сторінкою події add_to_cart; додавання з віджета рекомендацій (reco) розпізнаються за подією upsell_add_product у ті самі ±5 секунд. Після релізу трекінгу P1 джерелом стане item_list_name.</p>
+  </div>
+  <div class="tiles" id="ca-tiles"></div>
+  <div class="grid g57">
+    <div class="card">
+      <h3>Де додають у кошик</h3>
+      <p class="sub">Додавання товарів (рядків items) за місяцями, за місцем.</p>
+      <div class="plot" id="ca-place"></div>
+      <div class="legend" id="ca-place-legend"></div>
+    </div>
+    <div class="card">
+      <h3 id="ca-cr-h">Купили цей товар за 7 днів після додавання</h3>
+      <p class="sub">Частка додавань, після яких той самий користувач купив цей товар протягом 7 днів.</p>
+      <div class="plot" id="ca-cr"></div>
+    </div>
+  </div>
+  <div class="tablebar"><h3>Топ товарів за додаваннями у вересні</h3><button class="btn" type="button" data-copy="ca-items">Копіювати таблицю</button></div>
+  <div class="scroll"><table id="ca-items"></table></div>
+  <p class="note" style="margin-top:8px">Назви — як у GA4 (item_name); відповідність до товарів Zoho — у словнику item_id (тимчасово, до появи Product_Code у dataLayer). Подарункові набори (id 163, 165) додаються автоматично за порогом.</p>
+</section>
+
+<!-- 4 · Апсейл -->
+<section class="view" id="v-upsell" role="tabpanel" aria-labelledby="t-upsell" hidden>
+  <div class="vhead">
+    <h2>Блок 4 · Апсейл</h2>
+    <p>Апсейл — рядки інвойсу з джерелом Upsell Manager (кол-центр) або Upsell Online (сайт). Віджет рекомендацій на сайті — події upsell / upsell_select_product / upsell_add_product.</p>
+  </div>
+  <div class="tiles" id="up-tiles"></div>
+  <div class="grid g57">
+    <div class="card">
+      <h3>Успішні замовлення з апсейлом</h3>
+      <p class="sub">Частка замовлень з апсейлом менеджера і онлайн; лінія — сума апсейлу, ₴ млн.</p>
+      <div class="plot" id="up-month"></div>
+      <div class="legend" id="up-month-legend"></div>
+    </div>
+    <div class="card">
+      <h3 id="up-widget-h">Віджет рекомендацій: показ → клік → додавання</h3>
+      <p class="sub">Сесії з подією за місцем показу (кошик, картка товару, пошук). Показ віджета не має параметра місця, тож рахується разом.</p>
+      <div class="funnel" id="up-widget"></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Середній чек і UPO з апсейлом і без</h3>
+      <p class="sub">Успішні замовлення, ₴. UPO — платних одиниць у замовленні.</p>
+      <div class="plot" id="up-aov"></div>
+      <div class="legend" id="up-aov-legend"></div>
+    </div>
+    <div class="card">
+      <h3>Чому скасовують і відмовляються (лип–вер)</h3>
+      <p class="sub">Скасовані до відправки — причина з Zoho; відмови при отриманні (Terminated) причини не мають — це перший запит до кол-центру.</p>
+      <div class="scroll"><table id="up-cancel"></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Оплати -->
+<section class="view" id="v-pay" role="tabpanel" aria-labelledby="t-pay" hidden>
+  <div class="vhead">
+    <h2>Блок 5 · Оплати, «1 клік», покинуті кошики</h2>
+    <p>Онлайн-замовлення (передоплата або змішана схема) зв'язано з транзакціями WayForPay через Reference_id платежу Zoho (99%). Порятунок — контакт кол-центру або тригер eSputnik протягом 7 днів після невдалої спроби, і замовлення оплачено або доставлено.</p>
+  </div>
+  <div class="tiles" id="pa-tiles"></div>
+  <div class="grid g57">
+    <div class="card">
+      <h3>Результат онлайн-оплати по місяцях</h3>
+      <p class="sub">Частка онлайн-замовлень за результатом: з першої спроби, після невдалої, лише невдалі, без спроби у WayForPay.</p>
+      <div class="plot" id="pa-outcome"></div>
+      <div class="legend" id="pa-outcome-legend"></div>
+    </div>
+    <div class="card">
+      <h3>Чому не проходить оплата (лип–вер)</h3>
+      <p class="sub">Неуспішні спроби WayForPay за причиною; одна людина може зробити кілька спроб.</p>
+      <div class="scroll"><table id="pa-reasons"></table></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Купити в 1 клік</h3>
+      <p class="sub">Заявки Fast Order у Zoho: успішні, скасовані, відмови; лінія — частка, кому кол-центр додзвонився за 48 годин.</p>
+      <div class="plot" id="pa-oneclick"></div>
+      <div class="legend" id="pa-oneclick-legend"></div>
+      <div class="pill-row" id="pa-oneclick-pills"></div>
+    </div>
+    <div class="card">
+      <h3>Де натискають «1 клік»</h3>
+      <p class="sub">Події buy_1_click у GA4 за сторінкою.</p>
+      <div class="plot" id="pa-ocplace"></div>
+      <div class="legend" id="pa-ocplace-legend"></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Покинуті кошики</h3>
+      <p class="sub">Кошик = користувач × день з view_cart або begin_checkout. Покинутий — без purchase протягом 7 днів.</p>
+      <div class="plot" id="pa-carts"></div>
+      <div class="legend" id="pa-carts-legend"></div>
+    </div>
+    <div class="card">
+      <h3>Кошики відносно порогу безкоштовної доставки</h3>
+      <p class="sub">Сума кошика за items останнього view_cart; поріг 2300 ₴, з 25.09 — 2100 ₴.</p>
+      <div class="plot" id="pa-thr"></div>
+      <div class="legend" id="pa-thr-legend"></div>
+      <div class="pill-row" id="pa-thr-pills"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Склад чека -->
+<section class="view" id="v-struct" role="tabpanel" aria-labelledby="t-struct" hidden>
+  <div class="vhead">
+    <h2>Блок 6 · Склад замовлення</h2>
+    <p>Успішні замовлення B2C: кількість платних позицій, кількість >1, набори, подарунки, знижки; пари товарів в одному чеку.</p>
+  </div>
+  <div class="tiles" id="st-tiles"></div>
+  <div class="grid g57">
+    <div class="card">
+      <h3>Скільки позицій у замовленні</h3>
+      <p class="sub">Частка успішних замовлень за кількістю платних позицій (SKU).</p>
+      <div class="plot" id="st-lines"></div>
+      <div class="legend" id="st-lines-legend"></div>
+    </div>
+    <div class="card">
+      <h3>Середній чек за кількістю позицій</h3>
+      <p class="sub">₴, успішні замовлення.</p>
+      <div class="plot" id="st-aov"></div>
+      <div class="legend" id="st-aov-legend"></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Пари товарів в одному чеку (лип–вер)</h3>
+      <p class="sub">Lift > 1 — товари купують разом частіше, ніж випадково. P(B|A) — частка замовлень з A, де є і B.</p>
+      <div class="scroll"><table id="st-pairs"></table></div>
+    </div>
+    <div class="card">
+      <h3>Товари у вересні: самі чи в комплекті</h3>
+      <p class="sub">Частка замовлень, де товар — єдина позиція; середня кількість позицій поруч; скільки разів товар був апсейлом.</p>
+      <div class="scroll"><table id="st-attach"></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7–8 · Клієнти -->
+<section class="view" id="v-cust" role="tabpanel" aria-labelledby="t-cust" hidden>
+  <div class="vhead">
+    <h2>Блоки 7–8 · Нові та постійні клієнти, товари як точки входу</h2>
+    <p>Новий клієнт — перше оплачене замовлення в історії (контакти дедубльовано за телефоном). Когорти — перші замовлення січня–червня 2026, повтор за 90 днів.</p>
+  </div>
+  <div class="tiles" id="cu-tiles"></div>
+  <div class="grid g57">
+    <div class="card">
+      <h3>Нові та постійні клієнти по місяцях</h3>
+      <p class="sub">Успішні замовлення; лінія — частка нових.</p>
+      <div class="plot" id="cu-month"></div>
+      <div class="legend" id="cu-month-legend"></div>
+    </div>
+    <div class="card">
+      <h3>Середній чек і UPO: нові проти постійних</h3>
+      <p class="sub">₴ і платних одиниць у замовленні.</p>
+      <div class="plot" id="cu-aov"></div>
+      <div class="legend" id="cu-aov-legend"></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Повтор за 90 днів за товаром першої покупки</h3>
+      <p class="sub">Когорта січень–червень 2026, клієнти з ≥100 у когорті; крапка — середнє по всіх.</p>
+      <div class="plot" id="cu-rep"></div>
+    </div>
+    <div class="card">
+      <h3>Перша покупка → друга покупка</h3>
+      <p class="sub">Що купують у другому замовленні (180 днів) клієнти, які починали з товару.</p>
+      <div class="scroll"><table id="cu-trans"></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- DQ · Дані й визначення -->
+<section class="view" id="v-data" role="tabpanel" aria-labelledby="t-data" hidden>
+  <div class="vhead">
+    <h2>Дані, визначення, рішення, трекінг</h2>
+    <p>Сторінка збирається з 9 вітрин BigQuery і 23 запитів-блоків; тут — звірка джерел, словник метрик v1, що треба вирішити до 10.10 і що додати в dataLayer.</p>
+  </div>
+  <div class="grid g57">
+    <div class="card">
+      <h3>Звірка GA4 ↔ Zoho ↔ WayForPay по тижнях</h3>
+      <p class="sub">Покупки в GA4 проти замовлень Zoho і спроб оплати WayForPay; зв'язка — номер замовлення в transaction_id.</p>
+      <div class="scroll"><table id="dq-table"></table></div>
+    </div>
+    <div class="card">
+      <h3>Що перевірено і що треба знати</h3>
+      <ul class="facts" id="dq-notes"></ul>
+    </div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <h3>Визначення v1 — на погодження до 10.10</h3>
+    <p class="sub">Так рахує ця сторінка і вітрини. Зміна визначення = зміна в одному місці (00_dictionaries.sql).</p>
+    <div class="deflist" id="defs"></div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Рішення до 10.10</h3>
+      <p class="sub">Без них неможливо закрити ТЗ: кожне — власник і термін.</p>
+      <ul class="flags" id="decisions"></ul>
+    </div>
+    <div class="card">
+      <h3>Трекінг: що додати в dataLayer</h3>
+      <p class="sub">P1 — без цього блоки 3–5 лишаються оцінкою за URL; P2 — якість; P3 — гігієна. Повна специфікація — ecom/tracking_spec.md.</p>
+      <ul class="facts" id="tracking"></ul>
+    </div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <h3>Як оновити сторінку</h3>
+    <ol class="steps" id="howto"></ol>
+    <div id="sql-list"></div>
+  </div>
+  <footer class="foot">
+    <span id="foot-src"></span>
+    <span>Сторінка-сестра: <a href="https://claude.ai/artifact/NcxzZ4dozRDuNuttH2Hg17" target="_blank" rel="noopener">Perla Helsa Cockpit</a> (місячний знімок для Борду). Код і SQL: папка <code>ecom/</code> у репозиторії perla.</span>
+  </footer>
+</div>
+<div class="tip" id="tip" hidden></div>
