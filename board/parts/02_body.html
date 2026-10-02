@@ -1,0 +1,364 @@
+<div class="wrap">
+<header class="top">
+  <div class="row">
+    <div class="brand">
+      <div class="eyebrow">Perla Helsa · Україна · щомісячний знімок для Борду</div>
+      <h1>Perla Helsa Cockpit</h1>
+      <p class="meta" id="meta">Дані BigQuery, база — дата відвантаження, суми в USD.</p>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="month">Звітний місяць</label>
+        <select id="month"></select>
+      </div>
+      <div class="field" style="min-width:0">
+        <label id="tabs-label">Для кого</label>
+        <nav class="tabs" role="tablist" aria-labelledby="tabs-label">
+          <button class="tab" role="tab" id="t-ceo" data-v="ceo" aria-controls="v-ceo"><span class="k">CEO</span>Стан компанії</button>
+          <button class="tab" role="tab" id="t-cmo" data-v="cmo" aria-controls="v-cmo"><span class="k">CMO</span>Маркетинг</button>
+          <button class="tab" role="tab" id="t-cfo" data-v="cfo" aria-controls="v-cfo"><span class="k">CFO</span>Фінанси</button>
+          <button class="tab" role="tab" id="t-clust" data-v="clust" aria-controls="v-clust"><span class="k">CLUST</span>Board Pack</button>
+          <button class="tab" role="tab" id="t-bench" data-v="bench" aria-controls="v-bench"><span class="k">Ринок</span>Бенчмарки</button>
+          <button class="tab" role="tab" id="t-flow" data-v="flow" aria-controls="v-flow"><span class="k">Процес</span>Як це працює</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CEO -->
+<section class="view" id="v-ceo" role="tabpanel" aria-labelledby="t-ceo">
+  <div class="vhead">
+    <h2>Стан компанії за місяць</h2>
+    <p>Одна сторінка для CEO: три висновки, вісім цифр, що потребує рішення, пульс останніх шести тижнів і лог рішень.</p>
+  </div>
+  <div class="card verdict" id="ceo-verdict"></div>
+  <div class="tiles" id="ceo-tiles"></div>
+  <div class="grid g57">
+    <div class="card">
+      <h3>Що потребує рішення</h3>
+      <p class="sub">Прапорці формуються автоматично з даних і ручних вводів CFO; відсортовано за важливістю</p>
+      <ul class="flags" id="ceo-flags"></ul>
+    </div>
+    <div class="card">
+      <h3>Пульс: останні 6 тижнів по днях</h3>
+      <p class="sub" id="pulse-sub">Виручка B2C за день (стовпчики) і середнє за 7 днів (лінія). Неділі без відвантажень — порожні.</p>
+      <div class="plot" id="pulse"></div>
+      <div class="legend" id="pulse-legend"></div>
+      <div class="plot" id="pulse2"></div>
+      <div class="legend" id="pulse2-legend"></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Факти місяця</h3>
+      <p class="sub">Формуються з даних автоматично</p>
+      <ul class="facts" id="ceo-facts"></ul>
+    </div>
+    <div class="card">
+      <h3>Лог рішень</h3>
+      <p class="sub">Рішення = власник + термін + цифра ефекту. Один лог замість трьох (Improving Net Profit, Follow up, ClickUp).</p>
+      <ul class="decisions" id="decisions"></ul>
+      <form class="form" id="decision-form">
+        <div class="frow">
+          <div class="fld" style="grid-column:1/-1"><label for="d-text">Рішення і цифра ефекту</label><input type="text" id="d-text" placeholder="Напр.: ліміт маркетингу жовтня $132k; ефект — CM3 ≥ 35%" maxlength="300"></div>
+          <div class="fld"><label for="d-owner">Власник</label><input type="text" id="d-owner" maxlength="60"></div>
+          <div class="fld"><label for="d-due">Термін</label><input type="date" id="d-due"></div>
+        </div>
+        <div class="actions"><button class="btn primary" type="submit" id="d-add">Додати рішення</button><span class="status" id="d-status"></span></div>
+      </form>
+      <p class="dbnote" id="d-note"></p>
+    </div>
+  </div>
+</section>
+
+<!-- CMO -->
+<section class="view" id="v-cmo" role="tabpanel" aria-labelledby="t-cmo" hidden>
+  <div class="vhead">
+    <h2>Маркетинг B2C</h2>
+    <p>Для CMO і п'ятничного звіту «знижка + маркетинг»: бюджет і ліміт, вартість замовлення і клієнта, канали, тижні, нові та повторні, когорти, знижки, коментар до Борду.</p>
+  </div>
+  <div class="card verdict" id="cmo-verdict"></div>
+  <div class="tiles" id="cmo-tiles"></div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Маркетинг по каналах, $k на місяць</h3>
+      <p class="sub">fct_ad_stats, з січня 2025. Блогери — обидві половини бюджету. «Інше» — email, SMS, TikTok.</p>
+      <div class="plot" id="ch-chart"></div>
+      <div class="legend" id="ch-legend"></div>
+    </div>
+    <div class="card">
+      <h3>Маркетинг, % виручки B2C, і CPO</h3>
+      <p class="sub">2026 — факт BigQuery; 2025 — P&amp;L. Пунктир — орієнтир 20%.</p>
+      <div class="plot" id="share-chart"></div>
+      <div class="legend" id="share-legend"></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <div class="tablebar" style="margin-top:0">
+      <div><h3>Тижні: останні 16</h3><p class="sub">Пн–нд, база — дата відвантаження. Останній тиждень неповний, маркетинг за останні дні довантажується — CPO і маржу по ньому не цитувати.</p></div>
+      <button class="btn" id="copy-w" type="button">Скопіювати для Google Sheets</button>
+    </div>
+    <div class="scroll"><table id="tbl-w"></table></div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Нові та повторні замовлення</h3>
+      <p class="sub">Оплачені B2C-замовлення за датою створення (analytics.orders). Нове = перше замовлення клієнта в CRM.</p>
+      <div class="plot" id="nr-chart"></div>
+      <div class="legend" id="nr-legend"></div>
+    </div>
+    <div class="card">
+      <h3>Когорти: повтор за 90 / 180 / 365 днів</h3>
+      <p class="sub">За кварталом першого оплаченого замовлення. Сірі клітинки — когорта ще не дозріла для вікна.</p>
+      <div class="scroll" style="margin-top:10px"><table id="tbl-coh"></table></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Замовлення за джерелом (last-click UTM)</h3>
+      <p class="sub">Відвантажені B2C-замовлення, частка. CRM = email + Viber. Офлайн = месенджери, сервіс, кол-центр.</p>
+      <div class="plot" id="utm-chart"></div>
+      <div class="legend" id="utm-legend"></div>
+    </div>
+    <div class="card">
+      <h3>Ефективна знижка з 2024</h3>
+      <p class="sub">За датою створення (1 − чек / повна ціна) і за daily_kpi_metrics у 2026 (дата відвантаження). Пунктир — план 25%.</p>
+      <div class="plot" id="disc-chart"></div>
+      <div class="legend" id="disc-legend"></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <h3>Коментар CMO до Борду · заповнює маркетинг до 3-го робочого дня</h3>
+    <p class="sub" id="cmo-form-sub"></p>
+    <form class="form" id="cmo-form">
+      <div class="fld"><label for="c-q1">1. Що сталося з виручкою, замовленнями і CPO і чому?</label><textarea id="c-q1" maxlength="2000"></textarea></div>
+      <div class="fld"><label for="c-q2">2. Які рішення ухвалені за місяць і що вони дали в цифрах?</label><textarea id="c-q2" maxlength="2000"></textarea></div>
+      <div class="fld"><label for="c-q3" id="c-q3-label">3. План і бюджет на наступний місяць за правилом скейлу, по каналах.</label><textarea id="c-q3" maxlength="2000"></textarea></div>
+      <div class="actions"><button class="btn primary" type="submit" id="c-save">Зберегти коментар</button><span class="status" id="c-status"></span></div>
+    </form>
+    <p class="dbnote" id="c-note"></p>
+  </div>
+</section>
+
+<!-- CFO -->
+<section class="view" id="v-cfo" role="tabpanel" aria-labelledby="t-cfo" hidden>
+  <div class="vhead">
+    <h2>Фінанси</h2>
+    <p>Для CFO і звірки до 10-го: усі сегменти, NC компанії, P&amp;L з Finance Dashboard, B2B і дебіторка, запаси й кеш (ручні вводи), звірка BigQuery ↔ FD.</p>
+  </div>
+  <div class="tiles" id="cfo-tiles"></div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>P&amp;L 2026 за Finance Dashboard, $ тис.</h3>
+      <p class="sub" id="pnl-sub"></p>
+      <div class="scroll" style="margin-top:10px"><table id="tbl-pnl"></table></div>
+      <p class="note" id="pnl-note" style="margin-top:8px"></p>
+    </div>
+    <div class="card">
+      <h3>Звірка BigQuery ↔ Finance Dashboard</h3>
+      <p class="sub">Допуск 2%. Розбіжність понад 3% — окремий рядок з поясненням у Board Pack. Знімок на 1-ше не переписується, зміни видно як ревізію.</p>
+      <div class="scroll" style="margin-top:10px"><table id="tbl-rec"></table></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <div class="tablebar" style="margin-top:0">
+      <div><h3>Усі сегменти по місяцях, $ тис.</h3><p class="sub">B2C, B2B, інше; COGS, маржі, маркетинг, NC компанії. База — дата відвантаження.</p></div>
+      <button class="btn" id="copy-seg" type="button">Скопіювати для Google Sheets</button>
+    </div>
+    <div class="scroll"><table id="tbl-seg"></table></div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>B2B: відвантажено і отримано грошей, $k</h3>
+      <p class="sub">Відвантаження — daily_kpi_metrics; надходження — fct_b2b_payments за датою оплати. Різниця накопичується в дебіторці.</p>
+      <div class="plot" id="b2b-chart"></div>
+      <div class="legend" id="b2b-legend"></div>
+    </div>
+    <div class="card">
+      <h3>B2B: концентрація, рахунки 2026</h3>
+      <p class="sub" id="b2b-sub"></p>
+      <div class="chan" id="b2b-clients"></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Кеш, дебіторка, запаси · ручні вводи фінансів</h3>
+      <p class="sub" id="cfo-form-sub"></p>
+      <form class="form" id="cfo-form">
+        <div class="frow">
+          <div class="fld"><label for="f-cash">Звірений з банком залишок, $</label><input type="number" id="f-cash" min="0" step="1000"></div>
+          <div class="fld"><label for="f-cash-date">Дата звірки</label><input type="date" id="f-cash-date"></div>
+          <div class="fld"><label for="f-liab">Реєстр зобов'язань, грн</label><input type="number" id="f-liab" min="0" step="100000"></div>
+        </div>
+        <div class="frow">
+          <div class="fld"><label for="f-ar">Дебіторка B2B, грн</label><input type="number" id="f-ar" min="0" step="100000"></div>
+          <div class="fld"><label for="f-overdue">Просрочка, %</label><input type="number" id="f-overdue" min="0" max="100" step="0.1"></div>
+          <div class="fld"><label for="f-dso">DSO, днів</label><input type="number" id="f-dso" min="0" step="1"></div>
+        </div>
+        <div class="frow">
+          <div class="fld"><label for="f-stock-ua">Склад Україна, $</label><input type="number" id="f-stock-ua" min="0" step="1000"></div>
+          <div class="fld"><label for="f-stock-pl">Склад Польща, $</label><input type="number" id="f-stock-pl" min="0" step="1000"></div>
+          <div class="fld"><label for="f-transit">У дорозі і підтверджено, $</label><input type="number" id="f-transit" min="0" step="1000"></div>
+        </div>
+        <div class="fld"><label for="f-note">Коментар фінансів (що не сходиться і чому)</label><textarea id="f-note" maxlength="2000"></textarea></div>
+        <div class="actions"><button class="btn primary" type="submit" id="f-save">Зберегти</button><span class="status" id="f-status"></span></div>
+      </form>
+      <p class="dbnote" id="f-note-db"></p>
+    </div>
+    <div class="card">
+      <h3>Що відомо про кеш і борг</h3>
+      <p class="sub">З діагностики 27.09; оновлюється разом із ручними вводами</p>
+      <dl class="kv" id="cash-kv"></dl>
+      <div class="scroll" style="margin-top:12px"><table id="tbl-debt"></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLUST -->
+<section class="view" id="v-clust" role="tabpanel" aria-labelledby="t-clust" hidden>
+  <div class="vhead">
+    <h2>Board Pack: таблиця ≤ 15 метрик</h2>
+    <p>Формат аркуша Board Pack: усі місяці 2026, план (бюджет і RF CLUST), 2025 і YTD. Гроші — $ тис.; CPO, CAC, AOV — $. Статус — за порогами CLUST.</p>
+  </div>
+  <div class="tablebar">
+    <div class="legend-t">
+      <span><i class="sq" style="background:var(--crit-wash)"></i>гірше порогу</span>
+      <span><i class="sq" style="background:var(--warn-wash)"></i>зона уваги</span>
+      <span><i class="sq" style="background:var(--good-wash)"></i>у нормі</span>
+      <span><i class="sq" style="background:repeating-linear-gradient(135deg,transparent 0 3px,var(--line-2) 3px 4px)"></i>місяць не закритий</span>
+    </div>
+    <button class="btn" id="copy-bp" type="button">Скопіювати для Google Sheets</button>
+  </div>
+  <div class="scroll"><table id="tbl-bp"></table></div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Словник метрик</h3>
+      <dl class="defs">
+        <dt>Виручка B2C</dt><dd>Відвантажені замовлення B2C (сайт, Instagram, месенджери, сервіс) без скасованих і повернених. Та сама таблиця, що і Financial Overview.</dd>
+        <dt>Виручка B2B</dt><dd>Відвантажені B2B-замовлення за daily_kpi_metrics. Оплати B2B — окремо, за датою надходження грошей.</dd>
+        <dt>Маркетинг</dt><dd>Увесь маркетинг B2C: Meta, Google Ads, блогери, email і SMS. Розбивка по каналах — з fct_ad_stats. Google включає ПДВ.</dd>
+        <dt>CPO</dt><dd>Вартість замовлення = маркетинг / відвантажені замовлення.</dd>
+        <dt>CAC</dt><dd>Вартість нового клієнта = маркетинг / нові клієнти. Новий клієнт — перше замовлення клієнта в CRM у місяці відвантаження. Весь маркетинг віднесено на нових — консервативно.</dd>
+        <dt>CM2</dt><dd>Маржа до маркетингу = виручка − COGS (собівартість, доставка, фулфілмент, еквайринг, комісії).</dd>
+        <dt>CM3</dt><dd>Маржа після маркетингу = CM2 − маркетинг. У BigQuery і FD цей показник називається Gross Profit.</dd>
+        <dt>NC компанії</dt><dd>Net contribution: CM3 B2C + GP B2B + GP інших сегментів. NC / маркетинг — тригер Борду 2,5x. Попередня оцінка з BigQuery, фінальна — з P&amp;L.</dd>
+        <dt>Ефективна знижка</dt><dd>Середньозважена за виручкою частка знижки від повної ціни.</dd>
+        <dt>Знижка + маркетинг на замовлення</dt><dd>Сума знижки на замовлення плюс CPO — спільний потолок, який пропонується замість окремого ліміту маркетингу.</dd>
+        <dt>Повтор за 90 днів</dt><dd>Частка нових клієнтів кварталу, що зробили друге оплачене замовлення протягом 90 днів після першого.</dd>
+        <dt>План</dt><dd>Січень–серпень — бюджет 2026. З вересня — RF CLUST (rolling forecast, пропозиція Борду 17.09).</dd>
+        <dt>2025</dt><dd>Факт P&amp;L з Finance Dashboard: у BigQuery рахунки до середини 2025 неповні.</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <h3>Джерела правди: яка цифра звідки</h3>
+      <p class="sub">Цифра з іншого місця йде з поміткою «не звірено» і поясненням різниці</p>
+      <div class="scroll" style="margin-top:10px"><table id="tbl-src"></table></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Що виправлено в даних і ревізії</h3>
+      <ul class="issues">
+        <li><b>У daily_kpi_metrics немає неділь без відвантажень</b> (березень–липень 2026). Разом із ними зникли ≈$48k реклами. Сторінка додає ці витрати з fct_ad_stats; після цього маркетинг березня–червня збігається з P&amp;L у межах 1%. Виправити треба в самій таблиці і, ймовірно, у Financial Overview.</li>
+        <li><b>Бюджет блогерів у fct_ad_stats записаний двома половинами</b>: google / organic і (direct) / (none). Звіти, що групують витрати за джерелом google, завищують Google Ads на половину бюджету блогерів. Тут обидві половини — інфлюенс.</li>
+        <li><b>Себестоимость: Net Cost у BigQuery і COGS у FD — різні визначення.</b> За серпень Net Cost $360k проти $286k у FD; різниця ≈ ПДВ, який у FD іде окремим рядком. Тут CM2 рахується за COGS BigQuery (з доставкою і фулфілментом).</li>
+        <li><b>Маркетинг липня: BigQuery $138k проти FD $147k</b> (−6%). Решта місяців сходяться в межах 2%. Потребує звірки блогерів за липень.</li>
+        <li><b>2026 з BigQuery і 2025 з P&amp;L — різні джерела.</b> По виручці розходяться на 1–2%, тому порівняння р/р коректне з такою похибкою.</li>
+        <li><b>Маркетинг за датою замовлення і за датою відвантаження</b> дає різні цифри до 7–8 числа наступного місяця. Усі таблиці тут — за датою відвантаження; CMO-звіт за датою замовлення йде з поміткою.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>SQL знімка</h3>
+      <p class="sub">Десять запитів із папки board/sql у репозиторії. Запускаються 1-го числа; результати — у board/data/raw.</p>
+      <div id="sql-list"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BENCH -->
+<section class="view" id="v-bench" role="tabpanel" aria-labelledby="t-bench" hidden>
+  <div class="vhead">
+    <h2>Perla проти ринку</h2>
+    <p>Орієнтири для DTC-брендів добавок і wellness, 2025–2026. Доларові абсолюти (CAC, CPA, AOV) — ринок США, тому порівнюємо відносні величини: % виручки, % чека, дні. Джерела — під кожним рядком.</p>
+  </div>
+  <div class="card verdict" id="bench-verdict"></div>
+  <div class="bench" id="bench"></div>
+  <p class="note" id="bench-note" style="margin-top:10px"></p>
+</section>
+
+<!-- FLOW -->
+<section class="view" id="v-flow" role="tabpanel" aria-labelledby="t-flow" hidden>
+  <div class="vhead">
+    <h2>Як це працює: цикл, власники, оновлення</h2>
+    <p>Повторюваний щомісячний цикл підготовки до Борду і тижневий ритм. Кожна цифра має одного власника, одне визначення і одне джерело.</p>
+  </div>
+  <ol class="flow">
+    <li class="card">
+      <span class="when">1-ше число, 11:00 за Києвом</span>
+      <h3>Автоматичний знімок</h3>
+      <p>Claude запускає 10 запитів у BigQuery (board/sql), додає закритий місяць, перераховує попередні і показує ревізії, збирає сторінку (build.py) і публікує нову версію. daily_kpi_metrics оновлюється щодня близько 09:00, тому об 11:00 місяць уже повний.</p>
+      <span class="who">Автоматично · сповіщення CEO</span>
+    </li>
+    <li class="card">
+      <span class="when">До 3-го робочого дня</span>
+      <h3>Коментар CMO</h3>
+      <p>Три відповіді на вкладці «Маркетинг»: що сталося і чому, які рішення дали результат, план і бюджет наступного місяця по каналах за правилом скейлу. Зберігається на сторінці.</p>
+      <span class="who">CMO</span>
+    </li>
+    <li class="card">
+      <span class="when">До 10-го числа</span>
+      <h3>Звірка з P&amp;L і ручні вводи</h3>
+      <p>Фінанси звіряють BigQuery з Finance Dashboard (вкладка «Фінанси»), вносять звірений залишок, реєстр зобов'язань, дебіторку, запаси. Розбіжність понад 3% — окремий рядок з поясненням.</p>
+      <span class="who">Фінанси · аналітик</span>
+    </li>
+    <li class="card">
+      <span class="when">Засідання Борду</span>
+      <h3>Рішення по бюджету</h3>
+      <p>Вкладка CEO або Board Pack + коментар CMO + звірка. Бюджет наступного місяця росте, лише якщо NC / маркетинг ≥ 2,5x і кожен додатковий долар маркетингу приніс ≥ $1 NC. Рішення — у лог з власником і терміном.</p>
+      <span class="who">CEO · Борд · CLUST</span>
+    </li>
+  </ol>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Тижневий ритм</h3>
+      <div class="scroll" style="margin-top:10px"><table id="tbl-rhythm"></table></div>
+    </div>
+    <div class="card">
+      <h3>Хто за що</h3>
+      <div class="scroll" style="margin-top:10px"><table id="tbl-owners"></table></div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Що дивиться кожна роль</h3>
+      <dl class="defs">
+        <dt>CEO</dt><dd>Три висновки, вісім цифр, прапорці «що потребує рішення», пульс по днях, лог рішень. Хвилина читання перед будь-якою зустріччю.</dd>
+        <dt>CMO</dt><dd>Бюджет проти ліміту і RF, CPO, CAC, знижка + маркетинг на замовлення, канали, 16 тижнів, нові/повторні, когорти, UTM, знижки з 2024, коментар до Борду.</dd>
+        <dt>CFO</dt><dd>Усі сегменти і NC, P&amp;L FD, звірка BigQuery ↔ FD, B2B відвантажено/оплачено і концентрація, ручні вводи кешу, дебіторки, запасів, борг.</dd>
+        <dt>CLUST</dt><dd>Таблиця Board Pack ≤ 15 метрик зі статусами і планом, словник, джерела правди, ревізії даних, SQL.</dd>
+        <dt>Усі</dt><dd>Вкладка «Бенчмарки»: де Perla відносно медіани і верхнього квартиля ринку, з джерелами.</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <h3>Як оновити вручну</h3>
+      <dl class="defs">
+        <dt>Репозиторій</dt><dd>github.com/asaharone/perla, папка <code>board/</code>: sql/ (10 запитів), data/raw/ (результати), data/*.json (план, пороги, бенчмарки, ручні вводи), build.py, template.html, index.html.</dd>
+        <dt>Крок 1</dt><dd>Запустити запити з sql/ у BigQuery (коннектор у Claude або <code>bq</code> з доступом до perla-holistic-com) і зберегти результати в data/raw/&lt;назва&gt;.json.</dd>
+        <dt>Крок 2</dt><dd><code>python3 build.py</code> — збирає data/snapshot.json та index.html.</dd>
+        <dt>Крок 3</dt><dd>Опублікувати index.html як нову версію цієї сторінки (та сама адреса) і закомітити в репозиторій.</dd>
+        <dt>План і пороги</dt><dd>data/plan.json (бюджет, RF, ліміти) і data/targets.json — міняються рішенням Борду, не в коді.</dd>
+        <dt>Ручні вводи</dt><dd>Кеш, дебіторка, запаси, коментар CMO і лог рішень живуть у базі цієї сторінки (claude.ai). Стартові значення — data/manual_inputs.json.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span id="foot-src"></span>
+  <span id="foot-targets"></span>
+</footer>
+</div>
+<div class="tip" id="tip" hidden></div>
+<script type="application/json" id="data">/*__DATA__*/</script>
+<script type="application/json" id="sql">/*__SQL__*/</script>

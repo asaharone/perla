@@ -1,0 +1,43 @@
+{
+  "_source": "Ручні дані, яких немає в BigQuery. Стартові значення — з діагностики CLUST 27.09 (зріз 25.09). Далі заповнює фінанси на сторінці (вкладка CFO) або в цьому файлі.",
+  "as_of": "2026-09-25",
+  "cash": {
+    "verified_usd": null,
+    "verified_date": null,
+    "note": "Звіреного з банком залишку немає. Останній розрахунок — $783k на 30.04 (Finmap, не звірено, включає транзитні, валютні і ФОП-рахунки). 02.09 усно: ≈12 млн грн на рахунках (≈$267k), вільно 2–4 млн. 25.09: зобов'язання ≈13 млн грн (≈$290k), «комфортно» оплатити 4–5 млн.",
+    "weekly_payments_plan_uah": 11500000,
+    "weekly_receipts_uah": 6500000,
+    "liabilities_uah": 13000000
+  },
+  "ar": {
+    "total_uah": 19400000,
+    "total_usd": 432000,
+    "overdue_pct": 0.162,
+    "dso_days": 77,
+    "top2_share": 0.63,
+    "at_risk_note": "АНЦ: 4.6 млн грн на 90-денній відстрочці у кошику 61–90 днів — у жовтні просрочка може зрости до ≈40%.",
+    "history": [
+      {"date": "2026-06-24", "total_uah": 10200000, "overdue_pct": null},
+      {"date": "2026-08-31", "total_uah": 21100000, "overdue_pct": 0.181},
+      {"date": "2026-09-25", "total_uah": 19400000, "overdue_pct": 0.162}
+    ]
+  },
+  "inventory": {
+    "stock_ua_usd": 336000, "stock_ua_units": 87273,
+    "stock_pl_usd": 73000, "stock_pl_units": 9341,
+    "in_transit_usd": 850000, "in_transit_units": 153550,
+    "open_po_eur": 1310000, "open_po_units": 288050, "open_po_no_price_rows": "25 з 72",
+    "payments_plan_q4_uah": 77800000, "payments_plan_q4_usd": 1730000, "payments_goods_usd": 1350000,
+    "cogs_month_usd": 230000,
+    "oos_skus": ["Liposomal Iron", "Omega-3 RTG", "Crystal Mind", "Kids D3", "Collagen Peach", "Electrolytes Mix", "D3+K2"],
+    "low_skus": ["D3 2000", "Jelly Sticks Mango", "Triple Magnesium", "Relax Drink"],
+    "overstock_note": "Батончики 26 164 шт (делістинг), напої Focus/Collagen ≈7 тис. шт зі строком 11.26, Synbiotic 36 тижнів запасу, Squalene 35, Sleeps Gentle 23, Omega-3 Tuna 21."
+  },
+  "debt": [
+    {"name": "Позика Seabass Trading → Perla Helsa EU", "amount": "€300k, 4% річних, тіло і відсотки одним платежем 28.06.2028", "status": "Діє; відсотки в CF не видно (≈€38k нараховано на кінець вересня, якщо не платили)"},
+    {"name": "Кредитна лінія RT", "amount": "до €2M, 8–10%, лише на маркетинговий трафік", "status": "Лише домовленість у Term Sheet; договору немає"},
+    {"name": "Поворотна фіндопомога КІД РАССЕЛ → Саплементско", "amount": "≥10.3 млн грн, 0%", "status": "Повернуто 8.52 млн грн (23.06–28.08); залишок по файлах не визначити"},
+    {"name": "Банки (Польща)", "amount": "гарантія €150k + лінія", "status": "Santander відмовив, mBank не довів, PKO вимагає заставу"}
+  ],
+  "eu": {"loss_8m_usd": 158900, "loss_monthly_usd": 6500}
+}
