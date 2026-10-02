@@ -1,0 +1,150 @@
+{
+"fields": [
+"status",
+"reason_code",
+"reason_message",
+"attempts",
+"orders",
+"share_attempts",
+"last_seen"
+],
+"rows": [
+[
+"Expired",
+"1124",
+"Cardholder session expired",
+20223,
+11030,
+0.8097,
+"2026-10-02"
+],
+[
+"Declined",
+"1124",
+"Cardholder session expired",
+1989,
+1537,
+0.0796,
+"2026-10-02"
+],
+[
+"Declined",
+"1122",
+"Gate Declined",
+1373,
+1317,
+0.055,
+"2026-09-30"
+],
+[
+"Declined",
+"1108",
+"Three Ds Fail",
+433,
+380,
+0.0173,
+"2026-09-30"
+],
+[
+"Declined",
+"1101",
+"Declined To Card Issuer",
+392,
+338,
+0.0157,
+"2026-09-29"
+],
+[
+"Declined",
+"1104",
+"Insufficient funds",
+235,
+222,
+0.0094,
+"2026-09-30"
+],
+[
+"Declined",
+"1106",
+"Exceed Withdrawal Frequency",
+156,
+131,
+0.0062,
+"2026-09-30"
+],
+[
+"Declined",
+"1125",
+"Cardholder canceled the request",
+48,
+41,
+0.0019,
+"2026-09-30"
+],
+[
+"Declined",
+"1114",
+"Fraud transaction",
+33,
+23,
+0.0013,
+"2026-09-29"
+],
+[
+"Declined",
+"1126",
+"Illegal Order State",
+31,
+27,
+0.0012,
+"2026-09-20"
+],
+[
+"Expired",
+"5103",
+"Wait For Keep",
+24,
+24,
+0.001,
+"2026-09-12"
+],
+[
+"Expired",
+"1125",
+"Cardholder canceled the request",
+18,
+15,
+0.0007,
+"2026-09-30"
+],
+[
+"Declined",
+"1105",
+"Invalid card number",
+17,
+16,
+0.0007,
+"2026-09-23"
+],
+[
+"Declined",
+"1135",
+"Card limits failed. Limit failed with message: Blocked country 834",
+2,
+1,
+0.0001,
+"2026-08-06"
+],
+[
+"Declined",
+"1135",
+"Card limits failed. Limit failed with message: Blocked country 630",
+1,
+1,
+0.0,
+"2026-07-14"
+]
+],
+"_query": "ecom/sql/blocks/b5b2_fail_reasons_q3.sql",
+"_extracted": "2026-10-02"
+}

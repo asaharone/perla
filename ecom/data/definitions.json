@@ -1,0 +1,59 @@
+{
+  "definitions": [
+    {"term": "Замовлення створене", "def": "Угода Zoho CRM (Region UA, без B2B / PR / співробітників), стадія не Canceled. База для конверсії, скасувань і типів входу.", "src": "crm_data.zoho_deals · analytics.orders_with_upsell"},
+    {"term": "Замовлення успішне", "def": "Стадія Successful або Successful/Deferred Shipment. База для виручки, середнього чека, UPO, апсейлу, складу чека. У доставці (Delivery, Deferred Shipment, Out for Delivery) — окремо; Terminated — відмова при отриманні.", "src": "01_ecom_orders · status_group"},
+    {"term": "Виручка", "def": "Сума успішних замовлень за датою замовлення (revenue_uah). Для порівняння з планом і для фінансів — виручка за датою відвантаження з daily_kpi_metrics (як у Cockpit), перерахована в ₴ за курсом місяця.", "src": "analytics.orders · analytics.daily_kpi_metrics · month_exchange_rates"},
+    {"term": "План по днях", "def": "Місячний план по SKU (B2C) розбито по днях вагами = фактична виручка того ж дня тижня за попередні 8 тижнів; альтернатива — порівну. Правило на погодження з фінансами.", "src": "09_ecom_plan_daily · monthly_revenue_plan_by_sku"},
+    {"term": "Платна позиція · UPO", "def": "Рядок інвойсу з джерелом Order, Upsell Online або Upsell Manager; подарунки (Gift) і сервісні товари окремо. UPO = сума quantity платних позицій успішного замовлення.", "src": "02_ecom_order_items · unit_type"},
+    {"term": "Апсейл", "def": "Рядки інвойсу Upsell Manager (кол-центр) і Upsell Online (сайт); сума апсейлу — sku_upsell_sum. Віджет рекомендацій на сайті — події upsell (показ), upsell_select_product (клік), upsell_add_product (додавання) з параметром location.", "src": "analytics.orders_with_upsell · GA4 events"},
+    {"term": "Новий / постійний клієнт", "def": "Новий — перше оплачене замовлення клієнта в історії (order_num = 1). У вітрині клієнтів контакти дедубльовано за останніми 9 цифрами телефону; телефони не зберігаються, лише хеш.", "src": "analytics.orders.order_num · 03_ecom_customers"},
+    {"term": "Вікно воронки 7 днів", "def": "Додавання в кошик або кошик вважається конвертованим, якщо той самий user_pseudo_id зробив purchase протягом 7 діб. Для товару — покупка саме цього item_id.", "src": "04_ecom_sessions · 05_ecom_atc_items · 08_ecom_carts"},
+    {"term": "Тип входу", "def": "За посадковою сторінкою сесії: головна, картка товару, Meta-лендинг (…-meta), каталог (/store, /category/vse), категорія-продукт, категорія-потреба, акційна категорія, блог, пошук, квіз, кошик, сервісні. Після трекінгу P2 — параметр page_type.", "src": "00_dictionaries.sql · entry_type"},
+    {"term": "Місце додавання в кошик", "def": "За сторінкою події add_to_cart; якщо в ті самі ±5 с є upsell_add_product — місце «віджет рекомендацій» з його location. Після трекінгу P1 — item_list_id / item_list_name.", "src": "05_ecom_atc_items · atc_place"},
+    {"term": "Канал (channel_group)", "def": "Єдиний словник маркетингу: Google, Meta e-com, Meta funnels, SMM, Organic, Direct, Influence, CRM, Referral, Other — за source / medium / campaign сесії або UTM замовлення.", "src": "00_dictionaries.sql · channel_group"},
+    {"term": "Онлайн-оплата і порятунок", "def": "Онлайн-замовлення — Payment_Scheme Buyout або Mixed. Результат — за транзакціями WayForPay (type PURCHASE): з першої спроби, після невдалої, лише невдалі, без спроби. Врятоване — після невдалої спроби протягом 7 днів був контакт кол-центру (Consultation_Reason «Неуспішна оплата» або дзвінок) чи тригер eSputnik, і замовлення оплачено або доставлено.", "src": "06_ecom_payments · billing_wayforpay_transaction_history · zoho_payments"},
+    {"term": "Купити в 1 клік", "def": "Угода Zoho з Channel = Fast Order. Додзвон — вихідний дзвінок з розмовою протягом 48 годин на номер заявки. Місце кнопки — сторінка події buy_1_click (після P1 — параметр location).", "src": "07_ecom_one_click · analytics.calls"},
+    {"term": "Покинутий кошик", "def": "Кошик = user_pseudo_id × день з view_cart або begin_checkout; покинутий — без purchase протягом 7 днів. Сума кошика — Σ price × quantity з items останнього view_cart (параметр value події — ціна останнього товару, не сума).", "src": "08_ecom_carts"},
+    {"term": "Поріг безкоштовної доставки", "def": "2300 ₴ до 24.09.2026, 2100 ₴ з 25.09.2026 (підтвердити історію змін у e-com PM).", "src": "00_dictionaries.sql · free_delivery_threshold"},
+    {"term": "GP по SKU · CM2", "def": "З fct_sku_revenue: виручка − собівартість − доставка − фулфілмент − комісії − маркетинг (за UTM-днем). CM2 = GP + маркетинг. Собівартість — за останніми поставками, не FIFO.", "src": "analytics.fct_sku_revenue · 02_ecom_order_items"}
+  ],
+  "decisions": [
+    {"text": "Дві бази замовлень (створені / успішні) і база виручки для e-com сторінки — за датою замовлення, для фінансів — за відвантаженням. Затвердити або звести до однієї.", "owner": "фінанси · e-com PM", "due": "2026-10-10"},
+    {"text": "Правило розбивки місячного плану по днях: за днями тижня (v1) чи порівну; хто веде план по SKU.", "owner": "фінанси", "due": "2026-10-10"},
+    {"text": "Визначення нового клієнта (order_num проти дедублікації за телефоном) і вікно воронки 7 днів.", "owner": "маркетинг-аналітик", "due": "2026-10-10"},
+    {"text": "Поріг безкоштовної доставки й історія змін (2300 → 2100 ₴ з 25.09); правило автододавання подарунка.", "owner": "e-com PM", "due": "2026-10-10"},
+    {"text": "Словник типів входу і page_type; список акційних категорій і Meta-лендингів.", "owner": "e-com PM · маркетинг", "due": "2026-10-10"},
+    {"text": "Канальний словник channel_group як єдиний для GA4, Zoho і звітів маркетингу.", "owner": "маркетинг", "due": "2026-10-10"},
+    {"text": "Склад релізу трекінгу P1 і дата: item_list_name, location для buy_1_click, події payment_redirect / payment_result, показ віджета з location.", "owner": "e-com PM · розробка", "due": "2026-10-10"},
+    {"text": "Власник sGTM і Consent Mode v2; виключення стейдж-хостів з GA4; Product_Code у dataLayer замість item_id.", "owner": "розробка · маркетинг", "due": "2026-10-10"}
+  ],
+  "tracking": [
+    {"p": "P1", "text": "item_list_id / item_list_name у view_item_list, select_item, add_to_cart і purchase: каталог, категорія (slug), пошук, віджет рекомендацій (cart / product / search), головна, блог."},
+    {"p": "P1", "text": "Віджет рекомендацій: подія показу з location і списком item_id; показ післяпродажної пропозиції (post-purchase offer) і її прийняття."},
+    {"p": "P1", "text": "buy_1_click з параметрами location (home / pdp / catalog / category / cart) і item_id; stage (contact / shipping / submitted)."},
+    {"p": "P1", "text": "payment_redirect (перехід у WayForPay) і payment_result (approved / declined / expired, reason_code) з transaction_id — замість оцінки «без спроби» за даними WFP."},
+    {"p": "P2", "text": "user_id (хеш клієнта) і customer_type (new / returning) у всіх подіях після авторизації або введення телефону; page_type у page_view."},
+    {"p": "P2", "text": "Product_Code Zoho в items.item_id (зараз внутрішній id сайту), item_category і item_variant; coupon у purchase як рядок (зараз «[object Object]»)."},
+    {"p": "P2", "text": "Розділення Upsell Online у Zoho за місцем (кошик / картка / пошук / після покупки) через поле джерела рядка інвойсу."},
+    {"p": "P3", "text": "Виключити стейдж-хости з потоку GA4; визначити власника sGTM; дата впровадження Consent Mode v2; версіонування dataLayer."}
+  ],
+  "dq_notes": [
+    "GA4 ↔ Zoho: номер замовлення в transaction_id події purchase знаходить 97% замовлень з наложкою і 83% з передоплатою; cookie GA (client id + session id) у Zoho є у 96% чекаутів.",
+    "WayForPay ↔ Zoho: Reference_id платежу Zoho = order_reference транзакції — 99% транзакцій; решта — за 18-значним префіксом номера угоди.",
+    "Параметр value події view_cart дорівнює ціні останнього доданого товару, а не сумі кошика (перевірено 15–20.09.2026): суму кошика рахуємо за items.",
+    "GP по SKU (fct_sku_revenue) є у 88% платних рядків вересня; немає у товарів без собівартості й у частини наборів. Зв'язка — назва товару Zoho (offer).",
+    "item_id у GA4 — внутрішній id сайту: тимчасовий словник на 36 позицій (ecom/data/ga_item_map.json); у dataLayer потрібен Product_Code.",
+    "Причини відмов при отриманні (Terminated) у Zoho не фіксуються; причини скасувань є лише для Canceled.",
+    "Подія upsell (показ віджета) не має параметра location; клік і додавання — мають (cart / product / search).",
+    "Поточний місяць дозріває: успішні замовлення, покупки за 7 днів після ATC, порятунок після невдалої оплати — остаточні через 2–3 тижні.",
+    "daily_kpi_metrics за березень–червень містить 6 днів на тиждень (неділі без відвантажень); тижневий графік показує це як неповні тижні.",
+    "Події buy_1_click у плоскій таблиці ga_events_ua не мають місця кнопки; місце — за URL сторінки; cookie-зв'язка заявки з сесією спрацьовує рідко."
+  ],
+  "howto": [
+    "Запити блоків лежать у ecom/sql/blocks/*.sql (23 файли), вітрини — у ecom/sql/marts/*.sql. Виконати у BigQuery, проєкт perla-holistic-com (конектор BigQuery або bq CLI); діапазон дат у запитах — 2026-01-01 … останній закритий день.",
+    "Результат кожного блоку зберегти як ecom/data/raw/<назва блоку>.json: {\"fields\": [...], \"rows\": [[...]]} або відповідь BigQuery API (schema + rows).",
+    "python3 ecom/build.py — зібрати ecom/data/snapshot.json і ecom/index.html (шаблон з ecom/parts/*).",
+    "Опублікувати ecom/index.html як оновлення цього артефакту (той самий URL); відкриті вкладки оновляться самі.",
+    "Щомісяця 1-го числа рутина Cockpit запускає той самий збір для борду; e-com блоки додаються до неї після погодження визначень 10.10."
+  ]
+}
